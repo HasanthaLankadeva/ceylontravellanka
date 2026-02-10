@@ -1,0 +1,14 @@
+deployment:
+  tasks:
+    # Set deployment path for DEV
+    - export DEPLOYPATH=/home/ceylontr/development
+
+    # Ensure target directory exists
+    - /bin/mkdir -p $DEPLOYPATH
+
+    # Copy all project files to DEV directory
+    - /bin/cp -R . $DEPLOYPATH
+
+    # Remove Git-related files from public directory
+    - /bin/rm -rf $DEPLOYPATH/.git
+    - /bin/rm -rf $DEPLOYPATH/.gitignore
