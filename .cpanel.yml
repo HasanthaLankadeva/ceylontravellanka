@@ -5,7 +5,7 @@ deployment:
       if [ "$DEPLOYMENT_BRANCH" = "master" ]; then
         export DEPLOYPATH=/home/ceylontr/public_html
       else
-        export DEPLOYPATH=/home/USERNAME/development
+        export DEPLOYPATH=/home/ceylontr/development
       fi
 
     # Ensure target directory exists
