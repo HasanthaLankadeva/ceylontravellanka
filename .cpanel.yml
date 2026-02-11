@@ -1,0 +1,14 @@
+deployment:
+  tasks:
+    # Set deployment path for PRODUCTION
+    - export DEPLOYPATH=/home/ceylontr/public_html
+
+    # Ensure target directory exists
+    - /bin/mkdir -p $DEPLOYPATH
+
+    # Copy all project files to LIVE directory
+    - /bin/cp -R . $DEPLOYPATH
+
+    # Remove Git-related files from public directory
+    - /bin/rm -rf $DEPLOYPATH/.git
+    - /bin/rm -rf $DEPLOYPATH/.gitignore
