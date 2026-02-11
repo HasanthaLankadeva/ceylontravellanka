@@ -1,0 +1,117 @@
+# ==================================================
+# CORE SECURITY
+# ==================================================
+
+# Disable directory listing (prevents /css/, /js/, etc.)
+Options -Indexes
+
+# Custom 404 page
+ErrorDocument 404 /404.html
+
+
+# ==================================================
+# FORCE HTTPS
+# ==================================================
+RewriteEngine On
+RewriteCond %{HTTPS} !=on
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+
+# ==================================================
+# PROTECT SENSITIVE FILES
+# ==================================================
+
+# Protect .htaccess
+<Files ".htaccess">
+    Require all denied
+</Files>
+
+# Block hidden files (.git, .env, etc.)
+<FilesMatch "^\.">
+    Require all denied
+</FilesMatch>
+
+# Block config / backup files
+<FilesMatch "\.(env|log|ini|bak|old|sql|yml|yaml)$">
+    Require all denied
+</FilesMatch>
+
+
+# ==================================================
+# BROWSER CACHING (CSS / JS / IMAGES / FONTS)
+# ==================================================
+<IfModule mod_expires.c>
+#    ExpiresActive On
+
+#    ExpiresByType text/css "access plus 1 year"
+
+#    ExpiresByType application/javascript "access plus 1 year"
+#    ExpiresByType text/javascript "access plus 1 year"
+
+#    ExpiresByType image/jpeg "access plus 1 year"
+#    ExpiresByType image/png "access plus 1 year"
+#    ExpiresByType image/gif "access plus 1 year"
+#    ExpiresByType image/webp "access plus 1 year"
+#    ExpiresByType image/svg+xml "access plus 1 year"
+#    ExpiresByType image/x-icon "access plus 1 year"
+
+#    ExpiresByType font/woff "access plus 1 year"
+#    ExpiresByType font/woff2 "access plus 1 year"
+#    ExpiresByType application/vnd.ms-fontobject "access plus 1 year"
+</IfModule>
+
+<IfModule mod_headers.c>
+    <FilesMatch "\.(css|js|jpg|jpeg|png|gif|webp|svg|ico|woff|woff2|eot)$">
+#        Header set Cache-Control "public, max-age=31536000, immutable"
+    </FilesMatch>
+</IfModule>
+
+
+# ==================================================
+# SECURITY HEADERS
+# ==================================================
+<IfModule mod_headers.c>
+
+    # Enforce HTTPS (enable only when HTTPS works perfectly)
+    Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains"
+
+    # Content Security Policy (safe for static sites)
+    Header set Content-Security-Policy "
+        default-src 'self';
+
+        script-src
+            'self'
+            https://www.googletagmanager.com
+            https://www.google-analytics.com;
+
+        style-src
+            'self'
+            https://fonts.googleapis.com;
+
+        font-src
+            'self'
+            https://fonts.gstatic.com;
+
+        img-src
+            'self'
+            data:
+            https://www.google-analytics.com
+            https://www.googletagmanager.com;
+
+        connect-src
+            'self'
+            https://www.google-analytics.com
+            https://region1.google-analytics.com;
+
+        frame-ancestors 'none';
+        base-uri 'self';
+        form-action 'self';
+    "
+
+    # Extra hardening
+    Header set X-Content-Type-Options "nosniff"
+    Header set X-Frame-Options "DENY"
+    Header set Referrer-Policy "strict-origin-when-cross-origin"
+    Header set Permissions-Policy "geolocation=(), microphone=(), camera=()"
+
+</IfModule>
