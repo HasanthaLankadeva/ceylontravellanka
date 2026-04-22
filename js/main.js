@@ -20,8 +20,8 @@ var _base_path = (_host == 'localhost') ? '/ceylontravellanka/' : '';
       $("body").delay(200).css({ "overflow": "visible" });
 
       
-      /* Init Wow Js */
-      new WOW().init();
+      /* Init Wow Js 
+      new WOW().init();*/
 
     });
 
@@ -465,22 +465,22 @@ var _base_path = (_host == 'localhost') ? '/ceylontravellanka/' : '';
     /*  COUNTDOWN
     /*-----------------------------------------------------------------------------------*/
 
-     $(document).ready(() => {
+     /*$(document).ready(() => {
          loopcounter('coming-counter');
-     });
+     });*/
 
     /*-----------------------------------------------------------------------------------*/
     /*  COUNTER UP
     /*-----------------------------------------------------------------------------------*/
-    $('.value').counterUp({
+    /*$('.value').counterUp({
         delay: 50,
         time: 1000
-    });
+    });*/
     /*-----------------------------------------------------------------------------------*/
     /*  MASONRY
     /*-----------------------------------------------------------------------------------*/
     
-     $('.blog-main').masonry({
+     /*$('.blog-main').masonry({
          // options
          itemSelector: '.mansonry-item',
      });
@@ -507,10 +507,26 @@ var _base_path = (_host == 'localhost') ? '/ceylontravellanka/' : '';
      $('form').submit(function(event) {
          event.preventDefault();
          return false;
-     });
+     });*/
 
  })(jQuery);
 
+jQuery(window).on('load', function(){
+    $('.swiper-wrapper').slick({
+        autoplay: true,
+        autoplaySpeed: 3000,
+        speed:3000,
+        infinite: true,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        dots: false,
+        arrows: true,
+        fade: true,
+
+        prevArrow: '<div class="swiper-button-prev"></div>',
+        nextArrow: '<div class="swiper-button-next"></div>',
+    });
+});
 
  jQuery(window).on('resize load', () => {
      resize_eb_slider();
