@@ -76,27 +76,14 @@
     <!-- ✅ Critical CSS (keep only if needed above the fold) -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- ✅ Defer non-critical CSS -->
+    <!-- Defer non-critical CSS -->
     <link rel="preload" href="css/plugin.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="css/plugin.css"></noscript>
 
     <link rel="preload" href="css/style.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="css/style.css"></noscript>
 
-    <!-- Keep ONLY one version (prefer latest) -->
-
-    <!-- ✅ Async Font Awesome -->
-    <link rel="preload"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css"
-          as="style"
-          onload="this.onload=null;this.rel='stylesheet'">
-    <noscript>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
-    </noscript>
-
-    <!-- ✅ Async icon font -->
-    <link rel="preload" href="fonts/line-icons.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="fonts/line-icons.css"></noscript>
+    <link rel="stylesheet" href="/css/fontawesome/all.min.css">
 </head>
 <body>
 
