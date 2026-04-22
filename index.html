@@ -74,16 +74,9 @@
     </noscript>
 
     <!-- ✅ Critical CSS (keep only if needed above the fold) -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="preload" href="assets/css/main.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="assets/css/main.min.css"></noscript>
 
-    <!-- Defer non-critical CSS -->
-    <link rel="preload" href="css/plugin.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="css/plugin.css"></noscript>
-
-    <link rel="preload" href="css/style.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="css/style.css"></noscript>
-
-    <link rel="stylesheet" href="/css/fontawesome/all.min.css">
 </head>
 <body>
 
