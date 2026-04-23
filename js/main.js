@@ -542,6 +542,6 @@ jQuery(window).on('load', function(){
      var bodyheight = jQuery(window).height();
      if (jQuery(window).width() > 1400) {
         bodyheight = bodyheight - $('.main_header_area').height();
-         jQuery('.slider').css('height', `${bodyheight}px`);
+         //jQuery('.slider').css('height', `${bodyheight}px`);
      }
  }
