@@ -214,30 +214,7 @@ var _base_path = (_host == 'localhost') ? '/ceylontravellanka/' : '';
          }]
      });
 
-     $('.item-slider').slick({
-         infinite: true,
-         slidesToShow: 3,
-         slidesToScroll: 1,
-         arrows: true,
-         dots: false,
-         autoplay: true,
-         speed: 2000,
-         rows:0,
-         loop:true,
-         responsive: [{
-             breakpoint: 1000,
-             settings: {
-                 slidesToShow: 2,
-                 arrows: false,
-             }
-         }, {
-             breakpoint: 750,
-             settings: {
-                 slidesToShow: 1,
-                 arrows: false,
-             }
-         }]
-     });
+     
 
      $('.item-slider1').slick({
          infinite: true,
@@ -526,6 +503,50 @@ jQuery(window).on('load', function(){
         prevArrow: '<div class="swiper-button-prev"></div>',
         nextArrow: '<div class="swiper-button-next"></div>',
     });
+
+    $('.item-slider').slick({
+         infinite: true,
+         slidesToShow: 3,
+         slidesToScroll: 1,
+         arrows: true,
+         dots: false,
+         autoplay: true,
+         speed: 2000,
+         rows:0,
+         loop:true,
+         responsive: [{
+             breakpoint: 1000,
+             settings: {
+                 slidesToShow: 2,
+                 arrows: false,
+             }
+         }, {
+             breakpoint: 750,
+             settings: {
+                 slidesToShow: 1,
+                 arrows: false,
+             }
+         }]
+     });
+
+     $('.review-slider').slick({
+         infinite: true,
+         slidesToShow: 1,
+         slidesToScroll: 1,
+         arrows: true,
+         dots: false,
+         rows:0,
+         autoplay: true,
+         speed: 2000,
+         loop:true,
+         responsive: [{
+             breakpoint: 991,
+             settings: {
+                 slidesToShow: 1,
+                 arrows: false,
+             }
+         }]
+     });
 });
 
  jQuery(window).on('resize load', () => {
