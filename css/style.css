@@ -1715,7 +1715,7 @@ header #navbar {
             display: block;
             text-transform: capitalize; }
             .header_menu .navbar.navbar-default .nav.navbar-nav li.submenu .dropdown-menu li a:hover {
-              background: #589e3f;
+              background: #f6a61c;
               color: #fff; }
           .header_menu .navbar.navbar-default .nav.navbar-nav li.submenu .dropdown-menu li:last-child {
             border-bottom: none; }
@@ -1724,7 +1724,7 @@ header #navbar {
   .header_menu .navbar.navbar-default .nav.navbar-nav.navbar-right li:last-child {
     margin-right: 0px; }
 .header_menu .navbar.navbar-default.navbar-sticky-in .nav.navbar-nav li:hover > a, .header_menu .navbar.navbar-default.navbar-sticky-in .nav.navbar-nav li.active > a {
-  color: #589e3f; }
+  color: #029e9d; }
 
 .main_header_area .header_mlogo .navbar.navbar-default .navbar-header {
   display: none;
@@ -1876,7 +1876,7 @@ header #navbar {
 @media (min-width: 992px) {
   .header_menu .navbar.navbar-default .nav.navbar-nav li.submenu .dropdown-menu {
     position: absolute;
-    top: 40px;
+    top: 46px;
     left: 0px;
     min-width: 250px;
     background: #fff;
