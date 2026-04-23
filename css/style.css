@@ -2159,12 +2159,15 @@ nav.navbar.navbar-default.navbar-sticky-in .logo-black {
 /*          Banner  CSS        */
 /* ======================================== */
 .banner {
+  margin: 0 45px;
+  border-radius: 15px;
   padding: 0;
   background-size: cover;
   background-position: center;
-  background-repeat: repeat-x; }
+  background-repeat: repeat-x; 
+}
   .banner .slider {
-    height: 680px;
+    height: 630px;
     position: relative; }
     .banner .slider .swiper-container {
       width: 100%;
@@ -2479,6 +2482,11 @@ nav.navbar.navbar-default.navbar-sticky-in .logo-black {
     .search-banner-list .search-banner-item .search-banner-item-ctn {
       width: 100% !important;
       margin: 15px 0 0 !important; } }
+@media (max-width: 575.98px) {
+  .banner {
+    margin: 0 15px;
+  }
+}
 @media (max-width: 400px) {
   .banner .slider .swiper-container .swiper-slide .slide-inner .swiper-content .entry-meta, .banner .slider .swiper-container .swiper-slide .slide-inner .swiper-content .entry-date, .banner .slider .swiper-container .swiper-slide .slide-inner .swiper-content .entry-category {
     display: block !important;
