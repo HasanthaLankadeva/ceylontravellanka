@@ -140,35 +140,7 @@ var _base_path = (_host == 'localhost') ? '/ceylontravellanka/' : '';
          }]
      });
 
-      $('.attract-slider').slick({
-         infinite: true,
-         slidesToShow: 8,
-         slidesToScroll: 1,
-         arrows: false,
-         dots: false,
-         speed: 2000,
-         rows:0,
-         autoplay: true,
-         draggable:false,
-         responsive: [{
-             breakpoint: 1000,
-             settings: {
-                 slidesToShow: 4
-             }
-         }, 
-         {
-             breakpoint: 600,
-             settings: {
-                 slidesToShow: 3
-            }
-         }, 
-         {
-             breakpoint: 500,
-             settings: {
-                 slidesToShow: 2
-             }
-         }]
-     });
+      
 
     
      $('.team-slider').slick({
@@ -507,9 +479,9 @@ jQuery(window).on('load', function(){
                  arrows: false,
              }
          }]
-     });
+    });
 
-     $('.review-slider').slick({
+    $('.review-slider').slick({
          infinite: true,
          slidesToShow: 1,
          slidesToScroll: 1,
@@ -526,7 +498,38 @@ jQuery(window).on('load', function(){
                  arrows: false,
              }
          }]
-     });
+    });
+
+    $('.attract-slider').slick({
+         infinite: true,
+         slidesToShow: 8,
+         slidesToScroll: 1,
+         arrows: false,
+         dots: false,
+         speed: 2000,
+         rows:0,
+         autoplay: true,
+         draggable:false,
+         responsive: [{
+             breakpoint: 1000,
+             settings: {
+                 slidesToShow: 4
+             }
+         }, 
+         {
+             breakpoint: 600,
+             settings: {
+                 slidesToShow: 3
+            }
+         }, 
+         {
+             breakpoint: 500,
+             settings: {
+                 slidesToShow: 2
+             }
+         }]
+    });
+
 });
 
  jQuery(window).on('resize load', () => {
