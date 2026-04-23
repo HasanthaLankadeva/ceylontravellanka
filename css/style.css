@@ -5761,3 +5761,6 @@ ul.sidebar-tags li {
       width: 100%;
   }
 }
+.trend-box{
+  overflow: hidden;
+}
