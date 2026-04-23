@@ -74,26 +74,6 @@ var _base_path = (_host == 'localhost') ? '/ceylontravellanka/' : '';
 
      });
 
-
-     $('.review-slider').slick({
-         infinite: true,
-         slidesToShow: 1,
-         slidesToScroll: 1,
-         arrows: true,
-         dots: false,
-         rows:0,
-         autoplay: true,
-         speed: 2000,
-         loop:true,
-         responsive: [{
-             breakpoint: 991,
-             settings: {
-                 slidesToShow: 1,
-                 arrows: false,
-             }
-         }]
-     });
-
      $('.review-slider1').slick({
          infinite: true,
          slidesToShow: 2,
