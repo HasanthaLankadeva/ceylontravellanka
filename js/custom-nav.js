@@ -69,6 +69,10 @@ jQuery(document).ready(function () {
       $(".navbar-arrow ul ul > li").has("ul").children("a").append("<i class='arrow-indicator fa fa-angle-right'></i>");
     }
 
+    if ($(window).width() < 1100) {
+      $("#slicknav-mobile .slicknav_btn").addClass('fa');
+    }
+
 });
 
 
