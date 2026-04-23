@@ -3003,7 +3003,7 @@
     opacity: 0
 }
 .slick-prev:before, .slick-next:before {
-    font-family: 'fontawesome';
+    font-family: 'Font Awesome 5 Free';
     font-size: 21px;
     line-height: 2.0;
     opacity: 1;
