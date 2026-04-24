@@ -42,6 +42,95 @@ var _base_path = (_host == 'localhost') ? '/ceylontravellanka/' : '';
          }
      });
 
+     $('.swiper-wrapper').slick({
+        autoplay: true,
+        autoplaySpeed: 3000,
+        speed:3000,
+        infinite: true,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        dots: false,
+        arrows: true,
+        fade: true,
+
+        prevArrow: '<div class="swiper-button-prev"></div>',
+        nextArrow: '<div class="swiper-button-next"></div>',
+    });
+
+    $('.item-slider').slick({
+         infinite: true,
+         slidesToShow: 3,
+         slidesToScroll: 1,
+         arrows: true,
+         dots: false,
+         autoplay: true,
+         speed: 2000,
+         rows:0,
+         loop:true,
+         responsive: [{
+             breakpoint: 1000,
+             settings: {
+                 slidesToShow: 2,
+                 arrows: false,
+             }
+         }, {
+             breakpoint: 750,
+             settings: {
+                 slidesToShow: 1,
+                 arrows: false,
+             }
+         }]
+    });
+
+    $('.review-slider').slick({
+         infinite: true,
+         slidesToShow: 1,
+         slidesToScroll: 1,
+         arrows: true,
+         dots: false,
+         rows:0,
+         autoplay: true,
+         speed: 2000,
+         loop:true,
+         responsive: [{
+             breakpoint: 991,
+             settings: {
+                 slidesToShow: 1,
+                 arrows: false,
+             }
+         }]
+    });
+
+    $('.attract-slider').slick({
+         infinite: true,
+         slidesToShow: 8,
+         slidesToScroll: 1,
+         arrows: false,
+         dots: false,
+         speed: 2000,
+         rows:0,
+         autoplay: true,
+         draggable:false,
+         responsive: [{
+             breakpoint: 1000,
+             settings: {
+                 slidesToShow: 4
+             }
+         }, 
+         {
+             breakpoint: 600,
+             settings: {
+                 slidesToShow: 3
+            }
+         }, 
+         {
+             breakpoint: 500,
+             settings: {
+                 slidesToShow: 2
+             }
+         }]
+    });
+
      // Slick SLider
      $('.slider-store').slick({
          slidesToShow: 1,
@@ -441,94 +530,7 @@ var _base_path = (_host == 'localhost') ? '/ceylontravellanka/' : '';
  })(jQuery);
 
 jQuery(window).on('load', function(){
-    $('.swiper-wrapper').slick({
-        autoplay: true,
-        autoplaySpeed: 3000,
-        speed:3000,
-        infinite: true,
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        dots: false,
-        arrows: true,
-        fade: true,
-
-        prevArrow: '<div class="swiper-button-prev"></div>',
-        nextArrow: '<div class="swiper-button-next"></div>',
-    });
-
-    $('.item-slider').slick({
-         infinite: true,
-         slidesToShow: 3,
-         slidesToScroll: 1,
-         arrows: true,
-         dots: false,
-         autoplay: true,
-         speed: 2000,
-         rows:0,
-         loop:true,
-         responsive: [{
-             breakpoint: 1000,
-             settings: {
-                 slidesToShow: 2,
-                 arrows: false,
-             }
-         }, {
-             breakpoint: 750,
-             settings: {
-                 slidesToShow: 1,
-                 arrows: false,
-             }
-         }]
-    });
-
-    $('.review-slider').slick({
-         infinite: true,
-         slidesToShow: 1,
-         slidesToScroll: 1,
-         arrows: true,
-         dots: false,
-         rows:0,
-         autoplay: true,
-         speed: 2000,
-         loop:true,
-         responsive: [{
-             breakpoint: 991,
-             settings: {
-                 slidesToShow: 1,
-                 arrows: false,
-             }
-         }]
-    });
-
-    $('.attract-slider').slick({
-         infinite: true,
-         slidesToShow: 8,
-         slidesToScroll: 1,
-         arrows: false,
-         dots: false,
-         speed: 2000,
-         rows:0,
-         autoplay: true,
-         draggable:false,
-         responsive: [{
-             breakpoint: 1000,
-             settings: {
-                 slidesToShow: 4
-             }
-         }, 
-         {
-             breakpoint: 600,
-             settings: {
-                 slidesToShow: 3
-            }
-         }, 
-         {
-             breakpoint: 500,
-             settings: {
-                 slidesToShow: 2
-             }
-         }]
-    });
+    
 
 });
 
