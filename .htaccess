@@ -13,8 +13,8 @@ ErrorDocument 404 /404.html
 # FORCE HTTPS
 # ==================================================
 RewriteEngine On
-# RewriteCond %{HTTPS} !=on
-# RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+RewriteCond %{HTTPS} !=on
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
 
 # ==================================================
@@ -71,3 +71,48 @@ RewriteEngine On
 # ==================================================
 # SECURITY HEADERS
 # ==================================================
+<IfModule mod_headers.c>
+
+    # Enforce HTTPS (enable only when HTTPS works perfectly)
+    Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains"
+
+    # Content Security Policy (safe for static sites)
+    Header set Content-Security-Policy "
+        default-src 'self';
+
+        script-src
+            'self'
+            https://www.googletagmanager.com
+            https://www.google-analytics.com;
+
+        style-src
+            'self'
+            https://fonts.googleapis.com;
+
+        font-src
+            'self'
+            https://fonts.gstatic.com;
+
+        img-src
+            'self'
+            data:
+            https://www.google-analytics.com
+            https://www.googletagmanager.com;
+
+        connect-src
+            'self'
+            https://www.google-analytics.com
+            https://region1.google-analytics.com;
+
+        frame-ancestors 'none';
+        base-uri 'self';
+        form-action 'self';
+    "
+
+    # Extra hardening
+    Header set X-Content-Type-Options "nosniff"
+    Header set X-Frame-Options "DENY"
+    Header set Referrer-Policy "strict-origin-when-cross-origin"
+    Header set Permissions-Policy "geolocation=(), microphone=(), camera=()"
+
+</IfModule>
