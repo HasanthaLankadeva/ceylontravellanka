@@ -2172,8 +2172,15 @@ nav.navbar.navbar-default.navbar-sticky-in .logo-black {
     .banner .slider .swiper-container {
       width: 100%;
       height: 100%; }
+      .banner .slider .swiper-container .swiper-wrapper, .banner .slider .swiper-container .slick-list, .banner .slider .swiper-container .slick-track {
+        height: 100%;
+      }
       .banner .slider .swiper-container .swiper-slide {
         overflow: hidden; }
+        .banner .slider .swiper-container .swiper-slide:first-child{
+          z-index: 1;
+          position: relative;
+        }
         .banner .slider .swiper-container .swiper-slide .slide-inner {
           position: absolute;
           width: 100%;
