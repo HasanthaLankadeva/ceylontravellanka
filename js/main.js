@@ -23,6 +23,10 @@ var _base_path = (_host == 'localhost') ? '/ceylontravellanka/' : '';
       /* Init Wow Js 
       new WOW().init();*/
 
+      Fancybox.bind("[data-fancybox]", {
+        // Your custom options
+      });
+
     });
 
      /* ------------------------------------------------------------------------ */
