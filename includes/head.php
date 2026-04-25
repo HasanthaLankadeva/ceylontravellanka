@@ -1,0 +1,106 @@
+<!-- ===================== BASIC META ===================== -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title><?php echo $finalTitle; ?></title>
+<meta name="description" content="<?php echo $metaDescription; ?>">
+<meta name="keywords" content="<?php echo $metaKeywords; ?>">
+<meta name="robots" content="index, follow">
+
+<link rel="canonical" href="<?php echo $canonical; ?>">
+
+<!-- ===================== FAVICON ===================== -->
+<link rel="icon" href="/favicon.ico" type="image/x-icon">
+
+<!-- ===================== OPEN GRAPH (FACEBOOK / WHATSAPP) ===================== -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="<?php echo $OGTitle; ?>">
+<meta property="og:description" content="<?php echo $OGdescription; ?>">
+<meta property="og:url" content="<?php echo $canonical; ?>">
+<meta property="og:image" content="https://ceylontravellanka.com/images/og-image.jpg">
+
+<!-- ===================== PRELOAD (OPTIONAL SPEED BOOST) ===================== -->
+<link rel="preload" as="image" href="<?php echo $preloadBanner; ?>">
+
+<!-- ===================== STRUCTURED DATA (SEO POWER BOOST) ===================== -->
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": ["TravelAgency", "TourOperator"],
+    "name": "Ceylon Travel Lanka",
+    "url": "https://ceylontravellanka.com",
+    "logo": "https://ceylontravellanka.com/images/logo.svg",
+    "image": "https://ceylontravellanka.com/images/logo.svg",
+    "description": "Private driver and transport services in Sri Lanka including airport transfers and tour packages.",
+    "areaServed": "Sri Lanka",
+    "serviceType": [
+        "Airport Transfer",
+        "Private Driver Hire",
+        "Tour Packages"
+    ],
+    "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+94759800348",
+        "contactType": "customer service",
+        "availableLanguage": ["English"]
+    }
+}
+</script>
+<script type="application/ld+json">
+<?php
+$schema = [];
+
+switch ($page) {
+
+    case "index":
+        $schema = [
+            "@context" => "https://schema.org",
+            "@type" => "WebSite",
+            "name" => $siteName,
+            "url" => $baseUrl
+        ];
+        break;
+
+    case "contact":
+        $schema = [
+            "@context" => "https://schema.org",
+            "@type" => "ContactPage",
+            "url" => $canonical
+        ];
+        break;
+
+    case "about":
+        $schema = [
+            "@context" => "https://schema.org",
+            "@type" => "AboutPage",
+            "url" => $canonical
+        ];
+        break;
+
+    case "tours":
+        $schema = [
+            "@context" => "https://schema.org",
+            "@type" => "CollectionPage",
+            "name" => "Sri Lanka Tours",
+            "url" => $canonical
+        ];
+        break;
+
+    default:
+        $schema = [
+            "@context" => "https://schema.org",
+            "@type" => "WebPage",
+            "url" => $canonical
+        ];
+}
+
+echo json_encode($schema, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT);
+?>
+</script>
+
+<!-- Preconnect for fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/main.min.css">
+<link rel="stylesheet" href="css/style.css">
