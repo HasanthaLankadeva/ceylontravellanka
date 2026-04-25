@@ -24,112 +24,7 @@ $preloadBanner = "images/slider/1.webp";
 
 <head>
     
-    <!-- ===================== BASIC META ===================== -->
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title><?php echo $finalTitle; ?></title>
-    <meta name="description" content="<?php echo $metaDescription; ?>">
-    <meta name="keywords" content="<?php echo $metaKeywords; ?>">
-    <meta name="robots" content="index, follow">
-
-    <link rel="canonical" href="<?php echo $canonical; ?>">
-
-    <!-- ===================== FAVICON ===================== -->
-    <link rel="icon" href="/favicon.ico" type="image/x-icon">
-
-    <!-- ===================== OPEN GRAPH (FACEBOOK / WHATSAPP) ===================== -->
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="<?php echo $OGTitle; ?>">
-    <meta property="og:description" content="<?php echo $OGdescription; ?>">
-    <meta property="og:url" content="<?php echo $canonical; ?>">
-    <meta property="og:image" content="https://ceylontravellanka.com/images/og-image.jpg">
-
-    <!-- ===================== PRELOAD (OPTIONAL SPEED BOOST) ===================== -->
-    <link rel="preload" as="image" href="<?php echo $preloadBanner; ?>">
-
-    <!-- ===================== STRUCTURED DATA (SEO POWER BOOST) ===================== -->
-     <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": ["TravelAgency", "TourOperator"],
-        "name": "Ceylon Travel Lanka",
-        "url": "https://ceylontravellanka.com",
-        "logo": "https://ceylontravellanka.com/images/logo.svg",
-        "image": "https://ceylontravellanka.com/images/logo.svg",
-        "description": "Private driver and transport services in Sri Lanka including airport transfers and tour packages.",
-        "areaServed": "Sri Lanka",
-        "serviceType": [
-            "Airport Transfer",
-            "Private Driver Hire",
-            "Tour Packages"
-        ],
-        "contactPoint": {
-            "@type": "ContactPoint",
-            "telephone": "+94759800348",
-            "contactType": "customer service",
-            "availableLanguage": ["English"]
-        }
-    }
-    </script>
-    <script type="application/ld+json">
-    <?php
-    $schema = [];
-
-    switch ($page) {
-
-        case "index":
-            $schema = [
-                "@context" => "https://schema.org",
-                "@type" => "WebSite",
-                "name" => $siteName,
-                "url" => $baseUrl
-            ];
-            break;
-
-        case "contact":
-            $schema = [
-                "@context" => "https://schema.org",
-                "@type" => "ContactPage",
-                "url" => $canonical
-            ];
-            break;
-
-        case "about":
-            $schema = [
-                "@context" => "https://schema.org",
-                "@type" => "AboutPage",
-                "url" => $canonical
-            ];
-            break;
-
-        case "tours":
-            $schema = [
-                "@context" => "https://schema.org",
-                "@type" => "CollectionPage",
-                "name" => "Sri Lanka Tours",
-                "url" => $canonical
-            ];
-            break;
-
-        default:
-            $schema = [
-                "@context" => "https://schema.org",
-                "@type" => "WebPage",
-                "url" => $canonical
-            ];
-    }
-
-    echo json_encode($schema, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT);
-    ?>
-    </script>
-
-    <!-- Preconnect for fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/main.min.css">
-    <link rel="stylesheet" href="css/style.css">
+    <?php require_once 'includes/head.php';?>
     
 </head>
 <body>
@@ -138,77 +33,7 @@ $preloadBanner = "images/slider/1.webp";
     <div id="status"></div>
 </div-->
 
-
-<header class="main_header_area">
-    <div class="header-content py-1 bg-theme2">
-        <div class="container d-flex align-items-center justify-content-between">
-            <div class="links">
-                <ul>
-                    <li>
-                        <a href="mailto:contact@ceylontravellanka.com" class="white"><i class="fa fa-envelope white"></i> contact@ceylontravellanka.com</a>
-                    </li>
-                    <li>
-                        <a href="tel:+94759800348" class="white"><i class="fa fa-phone white"></i> +94 75 980 0348</a>
-                    </li>
-                </ul>
-            </div>
-            <div class="links float-right">
-                <ul>
-                    <li><a href="#" class="white"><i class="fa fa-tripadvisor" aria-hidden="true"></i></a></li>
-                    <li><a href="#" class="white"><i class="fab fa-instagram" aria-hidden="true"></i></a></li>
-                    <li><a href="#" class="white"><i class="fab fa-facebook" aria-hidden="true"></i></a></li>
-                </ul>
-            </div>
-        </div>
-    </div>
-
-    <div class="header_menu" id="header_menu">
-        <nav class="navbar navbar-default">
-            <div class="container">
-                <div class="navbar-flex d-flex align-items-center justify-content-between w-100 pb-2 pt-2">
-
-                    <div class="navbar-header">
-                        <a class="navbar-brand" href="/">
-                            <img src="images/logo.svg" alt="Logo - Ceylon Travel Lanka">
-                        </a>
-                    </div>
-
-                    <div class="navbar-collapse1 d-flex align-items-center" id="bs-example-navbar-collapse-1">
-                        <ul class="nav navbar-nav" id="responsive-menu">
-                            <li class="active">
-                                <a href="/">Home </a>
-                            </li>
-                            <li class="submenu dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Services <i class="fa fa-angle-down" aria-hidden="true"></i></a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="/airport-transfer.html">Airport Transfer</a></li>
-                                    <li><a href="/private-driver-in-sri-lanka.html">Private Driver in Sri Lanka</a></li>
-                                    <li><a href="/car-rental-with-driver.html">Car Rental with Driver</a></li>
-                                    <li><a href="/day-tours.html">Day Tours</a></li>
-                                </ul>
-                            </li>
-                            <li>
-                                <a href="/routes.html">Routes</a>
-                            </li>
-                            <li>
-                                <a href="/tour-itineraries.html">Tour Itineraries</a>
-                            </li>
-                            <li>
-                                <a href="/tailor-make.html">Tailor Make</a>
-                            </li>
-                            <li>
-                                <a href="/contact.html">Contact Us</a>
-                            </li>
-                        </ul>
-                        <a href="/private-driver-in-sri-lanka.html" class="nir-btn px-3 py-1 ms-3">Hire a Driver</a>
-                    </div>
-                    <div id="slicknav-mobile"></div>
-                </div>
-            </div>
-        </nav>
-    </div>
-
-</header>
+<?php require_once 'includes/header.php';?>
 
 <section class="banner overflow-hidden">
     <div class="slider top50">
@@ -217,7 +42,7 @@ $preloadBanner = "images/slider/1.webp";
                 <div class="swiper-slide">
                     <div class="slide-inner">
                         <div class="slide-image">
-                            <img src="images/slider/1.webp" width="1920" height="1080" fetchpriority="high" decoding="async" alt="Travel hero image">
+                            <img src="images/slider/1.webp" width="1815" height="630" fetchpriority="high" decoding="async" alt="Travel hero image">
                         </div>
                         <div class="swiper-content">
                             <h1 class="mb-2">Private Driver & Transport Services in Sri Lanka</h1>
@@ -234,7 +59,7 @@ $preloadBanner = "images/slider/1.webp";
                 <div class="swiper-slide">
                     <div class="slide-inner">
                         <div class="slide-image">
-                            <img src="images/slider/2.webp" width="1920" height="1080" fetchpriority="high" decoding="async" alt="Travel hero image">
+                            <img src="images/slider/2.webp" width="1815" height="630" fetchpriority="high" decoding="async" alt="Travel hero image">
                         </div>
                         <div class="swiper-content">
                             <h1 class="mb-2">Explore Sri Lanka with Custom Tour Packages</h1>
@@ -303,7 +128,6 @@ $preloadBanner = "images/slider/1.webp";
     </div>
     <div class="white-overlay"></div>
 </section>
-
 
 <section class="trending pb-5 pt-0">
     <div class="container">
@@ -503,7 +327,6 @@ $preloadBanner = "images/slider/1.webp";
     </div>
 </section>
 
-
 <section class="discount-action pt-6">
     <div class="section-shape section-shape1 top-inherit bottom-0"></div>
         <div class="container">
@@ -528,7 +351,6 @@ $preloadBanner = "images/slider/1.webp";
     </div>
     <div class="white-overlay"></div>
 </section>
-
 
 <section class="testimonial pt-9">
     <div class="container">
@@ -601,128 +423,7 @@ $preloadBanner = "images/slider/1.webp";
     </div>
 </section>
 
-<footer class="pt-20 pb-4">
-    <div class="section-shape top-0"></div>
+<?php require_once 'includes/footer.php';?>
 
-    <div class="insta-main pb-10">
-        <div class="container">
-            <div class="insta-inner">
-                <div class="follow-button">
-                    <h5 class="m-0 rounded"><i class="fab fa-instagram"></i> Follow on Instagram</h5>
-                </div>
-                <div class="row attract-slider">
-                    <div class="col-md-3 col-sm-6">
-                        <div class="insta-image rounded">
-                            <img src="images/insta/ins-1.webp" alt="insta">
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-sm-6">
-                        <div class="insta-image rounded">   
-                            <img src="images/insta/ins-2.webp" alt="insta">
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-sm-6">
-                        <div class="insta-image rounded">
-                            <img src="images/insta/ins-3.webp" alt="insta">
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-sm-6">
-                        <div class="insta-image rounded">
-                            <img src="images/insta/ins-4.webp" alt="insta">
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-sm-6">
-                        <div class="insta-image rounded">
-                            <img src="images/insta/ins-5.webp" alt="insta">
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-sm-6">
-                        <div class="insta-image rounded">
-                            <img src="images/insta/ins-6.webp" alt="insta">
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-sm-6">
-                        <div class="insta-image rounded">
-                            <img src="images/insta/ins-7.webp" alt="insta">
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-sm-6">
-                        <div class="insta-image rounded">
-                            <img src="images/insta/ins-8.webp" alt="insta">
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-sm-6">
-                        <div class="insta-image rounded">
-                            <img src="images/insta/ins-9.webp" alt="insta">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="footer-upper pb-4">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-4 col-md-6 col-sm-12 mb-4 pe-4">
-                    <div class="footer-about">
-                        <img src="images/footer-logo.svg" alt>
-                        <p class="mt-3 mb-3 white">We provide reliable and affordable transport services for travelers visiting Sri Lanka. From airport pickups to full island tours, we ensure a smooth and enjoyable journey.</p>
-                        
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 col-sm-12 mb-4 pe-4">
-                    <div class="footer-links">
-                        <h3 class="white">Quick link</h3>
-                        <ul>
-                            <li><a href="/contact.html">Contact Us</a></li>
-                            <li><a href="/tour-itineraries.html">Tour Itineraries</a></li>
-                            <li><a href="about-us.html">Privacy Policy</a></li>
-                            <li><a href="about-us.html">Terms &amp; Conditions</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 col-sm-12 mb-4 pe-4">
-                    <div class="footer-links">
-                        <h3 class="white">Contact Us</h3>
-                        <ul>
-                            <li class="white"><strong>Location:</strong> 83 / D Weliya North, Minuwangoda 11550, Sri Lanka</li>
-                            <li class="white"><strong>Email:</strong> <a href="mailto:contact@ceylontravellanka.com" class="__cf_email__">contact@ceylontravellanka.com</a></li>
-                            <li class="white"><strong>Phone:</strong> <a href="tel:+94759800348" class="__cf_email__">+94 75 980 0348</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="footer-copyright">
-        <div class="container">
-            <div class="copyright-inner rounded p-3 d-md-flex align-items-center justify-content-between">
-                <div class="copyright-text">
-                    <p class="m-0 white">@<?php echo date("Y") ?> Ceylon Travel Lanka. All rights reserved.</p>
-                </div>
-                <div class="social-links">
-                    <ul>
-                        <li><a href="#"><i class="fab fa-facebook" aria-hidden="true"></i></a></li>
-                        <li><a href="#"><i class="fab fa-instagram" aria-hidden="true"></i></a></li>
-                        <li><a href="#"><i class="fab fa-linkedin" aria-hidden="true"></i></a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-</footer>
-
-
-<div id="back-to-top">
-    <a href="#"></a>
-</div>
-
-    <script defer src="js/jquery-3.5.1.min.js"></script>
-    <script defer src="js/bootstrap.min.js"></script>
-    <script defer src="js/plugin.js"></script>
-    <script defer src="js/main.js"></script>
-    <script defer src="js/custom-nav.js"></script>
 </body>
 </html>
