@@ -29,11 +29,8 @@ $preloadBanner = "images/slider/1.webp";
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title><?php echo $finalTitle; ?></title>
-
     <meta name="description" content="<?php echo $metaDescription; ?>">
-
     <meta name="keywords" content="<?php echo $metaKeywords; ?>">
-
     <meta name="robots" content="index, follow">
 
     <link rel="canonical" href="<?php echo $canonical; ?>">
@@ -227,7 +224,7 @@ $preloadBanner = "images/slider/1.webp";
                             <p class="white mb-4">Book airport transfers, private drivers, and comfortable travel across Sri Lanka with trusted local experts.</p>
                             <div class="slider-button d-flex justify-content-center">
                                 <a href="https://wa.me/+94779177093?text=I'm%20interested%20in%20your%20services" class="nir-btn me-4">Book via WhatsApp</a>
-                                <a href="mailto:contact@ceylontravellanka.com" class="nir-btn-black">Get Free Quote</a>
+                                <a href="mailto:contact@ceylontravellanka.com" class="nir-btn-white">Get Free Quote</a>
                             </div>
                         </div>
                         <div class="dot-overlay"></div>

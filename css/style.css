@@ -41,7 +41,6 @@ body {
 h1, h2, h3, h4, h5, h6 {
   font-weight: 700;
   font-family: "Playfair Display", serif;
-  text-transform: capitalize;
   margin: 0 0 1rem;
   color: #17233e;
   line-height: 1.4; }
@@ -2224,7 +2223,7 @@ nav.navbar.navbar-default.navbar-sticky-in .logo-black {
             right: 0;
             margin: 0 auto;
             text-align: center;
-            width: 30%;
+            width: 560px;
             position: absolute;
             z-index: 9; }
             .banner .slider .swiper-container .swiper-slide .slide-inner .swiper-content .nir-btn-black:hover {
@@ -5817,10 +5816,6 @@ ul.sidebar-tags li {
     padding: 2rem;
 }
 
-section.about-us{
-    background-image:url(../images/shape4.png); 
-    background-position:center;
-}
 section.discount-action{
     background-image:url(../images/section-bg1.png); 
     background-position:center;
@@ -5850,5 +5845,12 @@ section.testimonial{
     }
     .about-us .feature-box {
         text-align: left !important;
+    }
+    .slider-button{
+      display: block !important;
+    }
+    .slider-button .nir-btn, .slider-button .nir-btn-white{
+      margin: 0 0 10px !important;
+      width: 100%;
     }
 }
