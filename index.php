@@ -258,7 +258,7 @@ $preloadBanner = "images/slider/1.webp";
     <div class="swiper-button-prev"></div-->
 </section>
 
-<section class="about-us pb-10 pt-10" style="background-image:url(images/shape4.png); background-position:center;">
+<section class="about-us pb-10 pt-10">
     <div class="container">
         <div class="section-title mb-6 w-50 mx-auto text-center">
             <h2 class="mb-3">Your Trusted <br/>Travel Partner in Sri Lanka</h2>
@@ -507,8 +507,8 @@ $preloadBanner = "images/slider/1.webp";
 </section>
 
 
-<section class="discount-action pt-6" style="background-image:url(images/section-bg1.png); background-position:center;">
-    <div class="section-shape section-shape1 top-inherit bottom-0" style="background-image: url(images/shape8.png);"></div>
+<section class="discount-action pt-6">
+    <div class="section-shape section-shape1 top-inherit bottom-0"></div>
         <div class="container">
             <div class="call-banner rounded pt-10 pb-14">
                 <div class="call-banner-inner w-75 mx-auto text-center px-5">
@@ -533,7 +533,7 @@ $preloadBanner = "images/slider/1.webp";
 </section>
 
 
-<section class="testimonial pt-9" style="background-image:url(images/testimonial.png)">
+<section class="testimonial pt-9">
     <div class="container">
         <div class="section-title mb-6 text-center w-75 mx-auto">
             <h2 class="mb-3">What Our Customers Say</h2>
@@ -598,14 +598,14 @@ $preloadBanner = "images/slider/1.webp";
 
         <!-- Right Image -->
         <div class="col-md-6 p-0">
-        <img src="images/bg6.webp" alt="Book Your Sri Lanka Transport Today" class="img-fluid w-100 h-100" style="object-fit: cover">
+        <img src="images/bg6.webp" alt="Book Your Sri Lanka Transport Today" class="right-img img-fluid w-100 h-100">
         </div>
     </div>
     </div>
 </section>
 
 <footer class="pt-20 pb-4">
-    <div class="section-shape top-0" style="background-image: url(images/shape8.png);"></div>
+    <div class="section-shape top-0"></div>
 
     <div class="insta-main pb-10">
         <div class="container">

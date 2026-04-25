@@ -5817,6 +5817,24 @@ ul.sidebar-tags li {
     padding: 2rem;
 }
 
+section.about-us{
+    background-image:url(../images/shape4.png); 
+    background-position:center;
+}
+section.discount-action{
+    background-image:url(../images/section-bg1.png); 
+    background-position:center;
+}
+.section-shape{
+  background-image: url(../images/shape8.png);
+}
+section.testimonial{
+  background-image:url(../images/testimonial.png)
+}
+.right-img.img-fluid{
+  object-fit: cover
+}
+
 @media (max-width: 1199.98px) {
     .about-us .feature-box {
         margin: 0;
