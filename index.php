@@ -1,19 +1,17 @@
 <?php
+$currentpage = 'home';
 $page = basename($_SERVER['PHP_SELF'], '.php');
-$pageTitle = ucwords(str_replace(['-', '_'], ' ', $page));
-$siteName = "Private Driver Sri Lanka | Airport Transfers & Tour Packages - Ceylon Travel Lanka";
+$siteName = "Ceylon Travel Lanka";
 $baseUrl = "https://ceylontravellanka.com";
 
-$finalTitle = ($page === "index")
-    ? $siteName
-    : $pageTitle . " | " . $siteName;
+$pageTitle = "Private Driver Sri Lanka | Airport Transfers & Tour Packages | " . $siteName;
 
 $canonical = "https://ceylontravellanka.com" . $_SERVER['REQUEST_URI'];
 
 $metaDescription = "Book private driver services in Sri Lanka. Reliable airport transfers, tour packages, and custom travel with experienced drivers. Affordable & 24/7 service.";
 $metaKeywords = "Sri Lanka private driver, Sri Lanka transport service, airport transfer Colombo, hire car with driver Sri Lanka, Sri Lanka tours, Sri Lanka taxi service";
 
-$OGTitle = "Private Driver Sri Lanka | Airport Transfers & Tours";
+$OGTitle = "Private Driver Sri Lanka | Airport Transfers & Tours | " . $siteName;
 $OGdescription = "Reliable private drivers, airport transfers, and Sri Lanka tour packages. Book safe and comfortable travel with local experts.";
 
 $preloadBanner = "images/slider/1.webp";
@@ -230,21 +228,16 @@ $preloadBanner = "images/slider/1.webp";
                 <div class="col-lg-4 col-md-6 col-sm-6 mb-4">
                     <div class="trend-item rounded box-shadow">
                         <div class="trend-image position-relative">
-                            <img src="images/trending/trending2.jpg" alt="image" class>
+                            <img src="images/trending/trending2.jpg" alt="4 Day Sri Lanka Tour Itinerary" class>
                             <div class="color-overlay"></div>
                         </div>
                         <div class="trend-content p-4 pt-5 position-relative">
-                            <div class="trend-meta bg-theme white px-3 py-2 rounded">
-                                <div class="entry-author">
-                                    <i class="icon-calendar"></i>
-                                    <span class="fw-bold"> 9 Days Tours</span>
-                                </div>
-                            </div>
-                            <h5 class="theme1 mb-1"><i class="flaticon-location-pin"></i> Croatia</h5>
-                            <h3 class="mb-1"><a href="tour-grid.html">Piazza Castello</a></h3>
-                            <p class=" border-b pb-2 mb-2">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum</p>
+                            <h3 class="mb-1 itinerary-title"><a href="tour-grid.html">4 Day Sri Lanka Tour Itinerary</a></h3>
+                            <p class=" border-b pb-2 mb-2"><strong>Route:</strong> Colombo → Kandy → Sigiriya → Nuwara Eliya → Ella → Bentota</p>
                             <div class="entry-meta">
-                                <div class="entry-author d-flex align-items-center">
+                                <div class="entry-author d-flex align-items-center mb-3">Explore Sri Lanka’s cultural capital, scenic hill country, and relaxing beaches in a short 4-day journey.</div>
+                                <div class="slider-button">
+                                    <a href="mailto:contact@ceylontravellanka.com" class="nir-btn-black" tabindex="0">Get Free Quote</a>
                                 </div>
                             </div>
                         </div>
@@ -257,17 +250,12 @@ $preloadBanner = "images/slider/1.webp";
                             <div class="color-overlay"></div>
                         </div>
                         <div class="trend-content p-4 pt-5 position-relative">
-                            <div class="trend-meta bg-theme white px-3 py-2 rounded">
-                                <div class="entry-author">
-                                    <i class="icon-calendar"></i>
-                                    <span class="fw-bold"> 9 Days Tours</span>
-                                </div>
-                            </div>
-                            <h5 class="theme1 mb-1"><i class="flaticon-location-pin"></i> Greece</h5>
-                            <h3 class="mb-1"><a href="tour-grid.html">Santorini, Oia</a></h3>
-                            <p class=" border-b pb-2 mb-2">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum</p>
+                            <h3 class="mb-1 itinerary-title"><a href="tour-grid.html">6 Day Sri Lanka Tour Itinerary</a></h3>
+                            <p class=" border-b pb-2 mb-2"><strong>Route:</strong> Colombo → Kandy → Sigiriya → Nuwara Eliya → Bentota</p>
                             <div class="entry-meta">
-                                <div class="entry-author d-flex align-items-center">
+                                <div class="entry-author d-flex align-items-center mb-3">Experience Sri Lanka’s cultural heritage, ancient landmarks, scenic hill country, and relaxing beaches in this 6-day journey.</div>
+                                <div class="slider-button">
+                                    <a href="mailto:contact@ceylontravellanka.com" class="nir-btn-black" tabindex="0">Get Free Quote</a>
                                 </div>
                             </div>
                         </div>
@@ -276,21 +264,16 @@ $preloadBanner = "images/slider/1.webp";
                 <div class="col-lg-4 col-md-6 col-sm-6 mb-4">
                     <div class="trend-item box-shadow rounded">
                         <div class="trend-image position-relative">
-                            <img src="images/trending/trending4.jpg" alt="image">
+                            <img src="images/trending/trending3.jpg" alt="image">
                             <div class="color-overlay"></div>
                         </div>
                         <div class="trend-content p-4 pt-5 position-relative">
-                            <div class="trend-meta bg-theme white px-3 py-2 rounded">
-                                <div class="entry-author">
-                                    <i class="icon-calendar"></i>
-                                    <span class="fw-bold"> 9 Days Tours</span>
-                                </div>
-                            </div>
-                            <h5 class="theme1 mb-1"><i class="flaticon-location-pin"></i> Maldives</h5>
-                            <h3 class="mb-1"><a href="tour-grid.html">Hurawalhi Island</a></h3>
-                            <p class=" border-b pb-2 mb-2">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum</p>
+                            <h3 class="mb-1 itinerary-title"><a href="tour-grid.html">7 Day Sri Lanka Tour Itinerary</a></h3>
+                            <p class=" border-b pb-2 mb-2"><strong>Route:</strong> Colombo → Kandy → Sigiriya → Nuwara Eliya → Ella → Bentota</p>
                             <div class="entry-meta">
-                                <div class="entry-author d-flex align-items-center">
+                                <div class="entry-author d-flex align-items-center mb-3">Discover Sri Lanka’s cultural landmarks, scenic hill country, iconic train routes, and beautiful beaches in this well-balanced 7-day journey.</div>
+                                <div class="slider-button">
+                                    <a href="mailto:contact@ceylontravellanka.com" class="nir-btn-black" tabindex="0">Get Free Quote</a>
                                 </div>
                             </div>
                         </div>
@@ -299,21 +282,34 @@ $preloadBanner = "images/slider/1.webp";
                 <div class="col-lg-4 col-md-6 col-sm-6 mb-4">
                     <div class="trend-item box-shadow rounded">
                         <div class="trend-image position-relative">
-                            <img src="images/trending/trending1.jpg" alt="image">
+                            <img src="images/trending/trending3.jpg" alt="image">
                             <div class="color-overlay"></div>
                         </div>
                         <div class="trend-content p-4 pt-5 position-relative">
-                            <div class="trend-meta bg-theme white px-3 py-2 rounded">
-                                <div class="entry-author">
-                                    <i class="icon-calendar"></i>
-                                    <span class="fw-bold"> 5 Days Tours</span>
+                            <h3 class="mb-1 itinerary-title"><a href="tour-grid.html">10 Day Sri Lanka Tour Itinerary</a></h3>
+                            <p class=" border-b pb-2 mb-2"><strong>Route:</strong> Colombo → Sigiriya → Anuradhapura → Kandy → Nuwara Eliya → Ella → Yala → Bentota</p>
+                            <div class="entry-meta">
+                                <div class="entry-author d-flex align-items-center mb-3">Experience the complete beauty of Sri Lanka with this 10-day journey covering ancient cities, cultural landmarks, scenic hill country, wildlife safaris, and relaxing beaches.</div>
+                                <div class="slider-button">
+                                    <a href="mailto:contact@ceylontravellanka.com" class="nir-btn-black" tabindex="0">Get Free Quote</a>
                                 </div>
                             </div>
-                            <h5 class="theme1 mb-1"><i class="flaticon-location-pin"></i> Greece</h5>
-                            <h3 class="mb-1"><a href="tour-grid.html">Santorini, Oia</a></h3>
-                            <p class=" border-b pb-2 mb-2">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-6 mb-4">
+                    <div class="trend-item box-shadow rounded">
+                        <div class="trend-image position-relative">
+                            <img src="images/trending/trending3.jpg" alt="image">
+                            <div class="color-overlay"></div>
+                        </div>
+                        <div class="trend-content p-4 pt-5 position-relative">
+                            <h3 class="mb-1 itinerary-title"><a href="tour-grid.html">15 Day Sri Lanka Tour Itinerary</a></h3>
+                            <p class=" border-b pb-2 mb-2"><strong>Route:</strong> Colombo → Negombo → Anuradhapura → Sigiriya → Kandy → Nuwara Eliya → Ella → Yala → Mirissa → Galle → Bentota</p>
                             <div class="entry-meta">
-                                <div class="entry-author d-flex align-items-center">
+                                <div class="entry-author d-flex align-items-center mb-3">Explore the very best of Sri Lanka with this comprehensive 15-day journey covering ancient cities, cultural landmarks, scenic hill country, wildlife safaris, and stunning coastal destinations.</div>
+                                <div class="slider-button">
+                                    <a href="mailto:contact@ceylontravellanka.com" class="nir-btn-black" tabindex="0">Get Free Quote</a>
                                 </div>
                             </div>
                         </div>
@@ -323,7 +319,7 @@ $preloadBanner = "images/slider/1.webp";
         </div>
     </div>
     <div class="col-lg-12 text-center">
-        <a href="/tour-itineraries.html" class="nir-btn">View All Packages</a>
+        <a href="/tour-itineraries.html" class="nir-btn">View All Itineraries</a>
     </div>
 </section>
 
@@ -352,53 +348,7 @@ $preloadBanner = "images/slider/1.webp";
     <div class="white-overlay"></div>
 </section>
 
-<section class="testimonial pt-9">
-    <div class="container">
-        <div class="section-title mb-6 text-center w-75 mx-auto">
-            <h2 class="mb-3">What Our Customers Say</h2>
-        </div>
-        <div class="row align-items-center">
-
-            <div class="col-lg-7 ps-4">
-                <div class="row review-slider">
-                    <div class="col-sm-4 item">
-                        <div class="testimonial-item1 rounded">
-                            <div class="author-info d-flex align-items-center mb-4">
-                                <img src="images/testimonial/img1.jpg" alt>
-                                <div class="author-title ms-3">
-                                    <h5 class="m-0 theme">Jared Erondu</h5>
-                                    <span>Supervisor</span>
-                                </div>
-                            </div>
-                            <div class="details">
-                                <p class="m-0"><i class="fa fa-quote-left me-2 fs-1"></i>Lorem Ipsum is simply dummy text of the printing andypesetting industry. Lorem ipsum a simple Lorem Ipsum has been the industry's standard dummy hic et quidem. Dignissimos maxime velit unde inventore quasi vero dolorem.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-4 item">
-                        <div class="testimonial-item1 rounded">
-                            <div class="author-info d-flex align-items-center mb-4">
-                                <img src="images/testimonial/img1.jpg" alt>
-                                <div class="author-title ms-3">
-                                    <h5 class="m-0 theme">Jared Erondu</h5>
-                                    <span>Supervisor</span>
-                                </div>
-                            </div>
-                            <div class="details">
-                                <p class="m-0"><i class="fa fa-quote-left me-2 fs-1"></i>Lorem Ipsum is simply dummy text of the printing andypesetting industry. Lorem ipsum a simple Lorem Ipsum has been the industry's standard dummy hic et quidem. Dignissimos maxime velit unde inventore quasi vero dolorem.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-5 pe-4">
-                <div class="testimonial-image">
-                    <img src="images/travel2.webp" alt>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+<?php require_once 'includes/testimonials.php';?>
 
 <section class="pt-9">
     <div class="container">

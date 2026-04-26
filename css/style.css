@@ -2924,7 +2924,7 @@ nav.navbar.navbar-default.navbar-sticky-in .logo-black {
 
 .sidebar-sticky {
   position: sticky;
-  top: 0;
+  top: 98px;
   transition: all ease-in-out 0.5s; }
   .sidebar-sticky .list-sidebar {
     border-radius: 0px; }
@@ -5270,7 +5270,7 @@ section.blog .grid {
       overflow: hidden; }
       .author-news .author-news-content .author-thumb img {
         width: 100%;
-        border-radius: 50%;
+        border-radius: 0;
         height: 100%; }
       .author-news .author-news-content .author-thumb:before {
         position: absolute;
@@ -5826,8 +5826,25 @@ section.discount-action{
 section.testimonial{
   background-image:url(../images/testimonial.png)
 }
+.subpage .about-us{
+  background-image:url(../images/shape4.png);
+  background-position:center;
+}
 .right-img.img-fluid{
   object-fit: cover
+}
+.author-news .author-news-content .author-thumb:before{
+  display: none;
+}
+.trending .itinerary-title {
+  font-size: 24px;
+}
+.header-social .rounded{
+  display: inline-block;
+}
+.header-social svg {
+    width: 20px;
+    fill: #fff;
 }
 
 @media (max-width: 1199.98px) {
@@ -5838,7 +5855,7 @@ section.testimonial{
 
 @media (max-width: 767px){
     .about-us .gap-5 {
-        gap: 0;
+        gap: 0 !important;
     }
     .about-us .col-lg-3 img{
         margin: 3rem 0;
@@ -5849,7 +5866,7 @@ section.testimonial{
     .slider-button{
       display: block !important;
     }
-    .slider-button .nir-btn, .slider-button .nir-btn-white{
+    .slider-button .nir-btn, .slider-button .nir-btn-white, .slider-button .nir-btn-black{
       margin: 0 0 10px !important;
       width: 100%;
     }

@@ -34,10 +34,10 @@
 
                     <div class="navbar-collapse1 d-flex align-items-center" id="bs-example-navbar-collapse-1">
                         <ul class="nav navbar-nav" id="responsive-menu">
-                            <li class="active">
+                            <li class="<?php echo ($currentpage == 'home') ? 'active' : ''; ?>">
                                 <a href="/">Home </a>
                             </li>
-                            <li class="submenu dropdown">
+                            <li class="submenu dropdown <?php echo ($currentpage == 'services') ? 'active' : ''; ?>">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Services <i class="fa fa-angle-down" aria-hidden="true"></i></a>
                                 <ul class="dropdown-menu">
                                     <li><a href="airport-transfer.php">Airport Transfer</a></li>
@@ -46,16 +46,16 @@
                                     <li><a href="day-tours.php">Day Tours</a></li>
                                 </ul>
                             </li>
-                            <li>
+                            <li class="<?php echo ($currentpage == 'routes') ? 'active' : ''; ?>">
                                 <a href="routes.php">Routes</a>
                             </li>
-                            <li>
+                            <li class="<?php echo ($currentpage == 'itineraries') ? 'active' : ''; ?>">
                                 <a href="tour-itineraries.php">Tour Itineraries</a>
                             </li>
-                            <li>
+                            <li class="<?php echo ($currentpage == 'tailormade') ? 'active' : ''; ?>">
                                 <a href="tailor-made-tours.php">Tailor Made Tours</a>
                             </li>
-                            <li>
+                            <li class="<?php echo ($currentpage == 'contact') ? 'active' : ''; ?>">
                                 <a href="contact.php">Contact Us</a>
                             </li>
                         </ul>

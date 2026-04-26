@@ -2,7 +2,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title><?php echo $finalTitle; ?></title>
+<title><?php echo $pageTitle; ?></title>
 <meta name="description" content="<?php echo $metaDescription; ?>">
 <meta name="keywords" content="<?php echo $metaKeywords; ?>">
 <meta name="robots" content="index, follow">
@@ -65,23 +65,32 @@ switch ($page) {
         $schema = [
             "@context" => "https://schema.org",
             "@type" => "ContactPage",
+            "name" => "Contact Us",
             "url" => $canonical
         ];
         break;
 
-    case "about":
-        $schema = [
-            "@context" => "https://schema.org",
-            "@type" => "AboutPage",
-            "url" => $canonical
-        ];
-        break;
-
-    case "tours":
+    case "tour-itineraries":
         $schema = [
             "@context" => "https://schema.org",
             "@type" => "CollectionPage",
-            "name" => "Sri Lanka Tours",
+            "name" => "Sri Lanka Tour Itineraries",
+            "description" => "Explore a variety of Sri Lanka tour itineraries for different durations and travel styles.",
+            "url" => $canonical
+        ];
+        break;
+
+    case "tailor-made-tours":
+        $schema = [
+            "@context" => "https://schema.org",
+            "@type" => "Service",
+            "name" => "Tailor-Made Sri Lanka Tours",
+            "description" => "Custom Sri Lanka tours designed based on your preferences, travel style, and budget.",
+            "provider" => [
+                "@type" => "TravelAgency",
+                "name" => $siteName
+            ],
+            "areaServed" => "Sri Lanka",
             "url" => $canonical
         ];
         break;
@@ -90,6 +99,7 @@ switch ($page) {
         $schema = [
             "@context" => "https://schema.org",
             "@type" => "WebPage",
+            "name" => $pageTitle,
             "url" => $canonical
         ];
 }
