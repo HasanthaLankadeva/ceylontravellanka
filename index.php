@@ -96,7 +96,7 @@ $preloadBanner = BASE_URL . "images/slider/1.webp";
                     <a href="<?= BASE_URL ?>services/airport-transfer.php">
                         <h5>Airport Transfers</h5>
                         <p>Safe and on-time pickup from Colombo Airport →</p>
-                    </p>
+                    </a>
                 </div>
               </div>
               <div class="feature-box d-flex justify-content-start align-items-center flex-row-reverse gap-3 text-end bg-lyellow mt-3 px-3 py-2">
