@@ -225,7 +225,7 @@ $OGdescription = "Browse our expertly designed Sri Lanka itineraries or create y
 </section>
 <!-- blog Ends -->
 
-<section class="about-us-intro pb-0">
+<section class="about-us-intro pb-0 pt-0">
     <div class="container">
     <div class="section-title mb-6 w-50 mx-auto text-center">
         <h2 class="mb-1">Why Choose Our Travel Services?</h2>
