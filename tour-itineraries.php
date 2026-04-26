@@ -50,7 +50,7 @@ $OGdescription = "Browse our expertly designed Sri Lanka itineraries or create y
             <div class="col-lg-8 pe-lg-4">
                 <div class="listing-inner">
                     <div class="trending destination-list">
-                        <div class="trend-full bg-white rounded box-shadow overflow-hidden mb-4">
+                        <div class="trend-full bg-white rounded box-shadow overflow-hidden mb-8">
                             <div class="row">
                                 <div class="col-lg-4 col-md-3">
                                 <div class="trend-item2 rounded">
@@ -76,7 +76,7 @@ $OGdescription = "Browse our expertly designed Sri Lanka itineraries or create y
                             </div>
                         </div>
 
-                        <div class="trend-full bg-white rounded box-shadow overflow-hidden mb-4">
+                        <div class="trend-full bg-white rounded box-shadow overflow-hidden mb-8">
                             <div class="row">
                                 <div class="col-lg-4 col-md-3">
                                 <div class="trend-item2 rounded">
@@ -102,7 +102,7 @@ $OGdescription = "Browse our expertly designed Sri Lanka itineraries or create y
                             </div>
                         </div>
 
-                        <div class="trend-full bg-white rounded box-shadow overflow-hidden mb-4">
+                        <div class="trend-full bg-white rounded box-shadow overflow-hidden mb-8">
                             <div class="row">
                                 <div class="col-lg-4 col-md-3">
                                 <div class="trend-item2 rounded">
@@ -128,7 +128,7 @@ $OGdescription = "Browse our expertly designed Sri Lanka itineraries or create y
                             </div>
                         </div>
 
-                        <div class="trend-full bg-white rounded box-shadow overflow-hidden mb-4">
+                        <div class="trend-full bg-white rounded box-shadow overflow-hidden mb-8">
                             <div class="row">
                                 <div class="col-lg-4 col-md-3">
                                 <div class="trend-item2 rounded">
@@ -154,7 +154,7 @@ $OGdescription = "Browse our expertly designed Sri Lanka itineraries or create y
                             </div>
                         </div>
 
-                        <div class="trend-full bg-white rounded box-shadow overflow-hidden mb-4">
+                        <div class="trend-full bg-white rounded box-shadow overflow-hidden mb-8">
                             <div class="row">
                                 <div class="col-lg-4 col-md-3">
                                 <div class="trend-item2 rounded">
