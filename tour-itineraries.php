@@ -225,6 +225,55 @@ $OGdescription = "Browse our expertly designed Sri Lanka itineraries or create y
 </section>
 <!-- blog Ends -->
 
+<section class="about-us-intro pb-0">
+    <div class="container">
+    <div class="section-title mb-6 w-50 mx-auto text-center">
+        <h2 class="mb-1">Why Choose Our Travel Services?</h2>
+    </div>
+
+    <!-- why us starts -->
+    <div class="why-us">
+        <div class="why-us-box">
+        <div class="row">
+            <div class="col-lg-3 col-md-6 col-sm-6 mb-4">
+            <div class="why-us-item p-4 pt-4 pb-4 border rounded bg-white">
+                <div class="why-us-content">
+                    <h4>Experienced and Professional Drivers</h4>
+                    <p>Our drivers are knowledgeable, friendly, and experienced, ensuring a safe and comfortable journey.</p>
+                </div>
+            </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6 mb-4">
+            <div class="why-us-item p-4 pt-4 pb-4 border rounded bg-white">
+                <div class="why-us-content">
+                    <h4>Flexible Travel Options</h4>
+                    <p>We offer customizable services that adapt to your schedule, destinations, and travel preferences.</p>
+                </div>
+            </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6 mb-4">
+            <div class="why-us-item p-4 pt-4 pb-4 border rounded bg-white">
+                <div class="why-us-content">
+                    <h4>Comfortable Vehicles</h4>
+                    <p class="mb-2">Our vehicles are clean, reliable, and suited for different group sizes and travel styles.</p>
+                </div>
+            </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6 mb-4">
+            <div class="why-us-item p-4 pt-4 pb-4 border rounded bg-white">
+                <div class="why-us-content">
+                    <h4>Local Expertise</h4>
+                    <p class="mb-2">We provide valuable local insights to help you discover the best places and hidden gems in Sri Lanka.</>
+                </div>
+            </div>
+            </div>
+        </div>
+        </div>
+    </div>
+    <!-- why us ends -->
+    </div>
+</section>
+
 <?php require_once BASE_PATH . '/includes/testimonials.php';?>
 
 <?php require_once BASE_PATH . '/includes/footer.php';?>
