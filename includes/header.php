@@ -40,9 +40,8 @@
                             <li class="submenu dropdown <?php echo ($currentpage == 'services') ? 'active' : ''; ?>">
                                 <a href="<?= BASE_URL ?>services/" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Services <i class="fa fa-angle-down" aria-hidden="true"></i></a>
                                 <ul class="dropdown-menu">
-                                    <li><a href="<?= BASE_URL ?>services/private-driver-in-sri-lanka.php">Private Driver in Sri Lanka</a></li>
                                     <li><a href="<?= BASE_URL ?>services/airport-transfer.php">Airport Transfer</a></li>
-                                    
+                                    <li><a href="<?= BASE_URL ?>services/private-driver-in-sri-lanka.php">Private Driver in Sri Lanka</a></li>
                                     <li><a href="<?= BASE_URL ?>services/car-rental-with-driver.php">Car Rental with Driver</a></li>
                                 </ul>
                             </li>
