@@ -3,11 +3,11 @@
 $host = $_SERVER['HTTP_HOST'];
 
 if ($host === 'localhost' || str_contains($host, '127.0.0.1')) {
-    $config = require __DIR__ . '/config/config.local.php';
+    $config = require __DIR__ . '/../../config/config.local.php';
 } elseif (str_contains($host, 'dev.ceylontravellanka.com')) {
-    $config = require __DIR__ . '/config/config.dev.php';
+    $config = require __DIR__ . '/../../config/config.dev.php';
 } else {
-    $config = require __DIR__ . '/config/config.prod.php';
+    $config = require __DIR__ . '/../../config/config.prod.php';
 }
 
 require_once($config['base_url'] . 'PHPMailer/src/PHPMailer.php');
