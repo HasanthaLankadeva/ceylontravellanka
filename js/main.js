@@ -416,7 +416,7 @@ var _base_path = (_host == 'localhost') ? '/ceylontravellanka/' : '';
         var filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/,
             email = email.replace(/^\s\s*/, '').replace(/\s\s*$/, '');
 
-        if(first_name && mobile && (email && !filter.test(email))){
+        if(first_name && mobile && (email && filter.test(email))){
 
             $("#enquiry_form").hide();
 
