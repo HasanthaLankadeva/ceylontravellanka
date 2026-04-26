@@ -4,56 +4,58 @@
     <div class="insta-main pb-10">
         <div class="container">
             <div class="insta-inner">
-                <div class="follow-button">
-                    <h5 class="m-0 rounded"><i class="fab fa-instagram"></i> Follow on Instagram</h5>
-                </div>
-                <div class="row attract-slider">
-                    <div class="col-md-3 col-sm-6">
-                        <div class="insta-image rounded">
-                            <img src="<?= BASE_URL ?>images/insta/ins-1.webp" alt="insta">
+                <a href="https://www.instagram.com/cey78229/" target="_blank">
+                    <div class="follow-button">
+                        <h5 class="m-0 rounded"><i class="fab fa-instagram"></i> Follow on Instagram</h5>
+                    </div>
+                    <div class="row attract-slider">
+                        <div class="col-md-3 col-sm-6">
+                            <div class="insta-image rounded">
+                                <img src="<?= BASE_URL ?>images/insta/ins-1.webp" alt="insta">
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-6">
+                            <div class="insta-image rounded">   
+                                <img src="<?= BASE_URL ?>images/insta/ins-2.webp" alt="insta">
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-6">
+                            <div class="insta-image rounded">
+                                <img src="<?= BASE_URL ?>images/insta/ins-3.webp" alt="insta">
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-6">
+                            <div class="insta-image rounded">
+                                <img src="<?= BASE_URL ?>images/insta/ins-4.webp" alt="insta">
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-6">
+                            <div class="insta-image rounded">
+                                <img src="<?= BASE_URL ?>images/insta/ins-5.webp" alt="insta">
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-6">
+                            <div class="insta-image rounded">
+                                <img src="<?= BASE_URL ?>images/insta/ins-6.webp" alt="insta">
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-6">
+                            <div class="insta-image rounded">
+                                <img src="<?= BASE_URL ?>images/insta/ins-7.webp" alt="insta">
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-6">
+                            <div class="insta-image rounded">
+                                <img src="<?= BASE_URL ?>images/insta/ins-8.webp" alt="insta">
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-6">
+                            <div class="insta-image rounded">
+                                <img src="<?= BASE_URL ?>images/insta/ins-9.webp" alt="insta">
+                            </div>
                         </div>
                     </div>
-                    <div class="col-md-3 col-sm-6">
-                        <div class="insta-image rounded">   
-                            <img src="<?= BASE_URL ?>images/insta/ins-2.webp" alt="insta">
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-sm-6">
-                        <div class="insta-image rounded">
-                            <img src="<?= BASE_URL ?>images/insta/ins-3.webp" alt="insta">
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-sm-6">
-                        <div class="insta-image rounded">
-                            <img src="<?= BASE_URL ?>images/insta/ins-4.webp" alt="insta">
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-sm-6">
-                        <div class="insta-image rounded">
-                            <img src="<?= BASE_URL ?>images/insta/ins-5.webp" alt="insta">
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-sm-6">
-                        <div class="insta-image rounded">
-                            <img src="<?= BASE_URL ?>images/insta/ins-6.webp" alt="insta">
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-sm-6">
-                        <div class="insta-image rounded">
-                            <img src="<?= BASE_URL ?>images/insta/ins-7.webp" alt="insta">
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-sm-6">
-                        <div class="insta-image rounded">
-                            <img src="<?= BASE_URL ?>images/insta/ins-8.webp" alt="insta">
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-sm-6">
-                        <div class="insta-image rounded">
-                            <img src="<?= BASE_URL ?>images/insta/ins-9.webp" alt="insta">
-                        </div>
-                    </div>
-                </div>
+                </a>
             </div>
         </div>
     </div>
