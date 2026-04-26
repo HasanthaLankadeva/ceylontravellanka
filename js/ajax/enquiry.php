@@ -44,7 +44,7 @@ try {
     $mail->SMTPAuth   = true;
     $mail->Username   = $config['smtp_user'];
     $mail->Password   = $config['smtp_pass'];
-    $mail->SMTPSecure = $config['SMTPSecure'];
+    $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
     $mail->Port       = $config['smtp_port'];
 
     // Email settings
