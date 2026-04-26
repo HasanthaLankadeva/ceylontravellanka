@@ -10,7 +10,7 @@
                     <div class="col-sm-4 item">
                         <div class="testimonial-item1 rounded">
                             <div class="author-info d-flex align-items-center mb-4">
-                                <img src="images/testimonial/img1.jpg" alt>
+                                <img src="<?= BASE_URL ?>images/testimonial/img1.jpg" alt>
                                 <div class="author-title ms-3">
                                     <h5 class="m-0 theme">Jared Erondu</h5>
                                     <span>Supervisor</span>
@@ -24,7 +24,7 @@
                     <div class="col-sm-4 item">
                         <div class="testimonial-item1 rounded">
                             <div class="author-info d-flex align-items-center mb-4">
-                                <img src="images/testimonial/img1.jpg" alt>
+                                <img src="<?= BASE_URL ?>images/testimonial/img1.jpg" alt>
                                 <div class="author-title ms-3">
                                     <h5 class="m-0 theme">Jared Erondu</h5>
                                     <span>Supervisor</span>
@@ -39,7 +39,7 @@
             </div>
             <div class="col-lg-5 pe-4">
                 <div class="testimonial-image">
-                    <img src="images/travel2.webp" alt>
+                    <img src="<?= BASE_URL ?>images/travel2.webp" alt>
                 </div>
             </div>
         </div>

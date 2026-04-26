@@ -2,25 +2,25 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title><?php echo $pageTitle; ?></title>
-<meta name="description" content="<?php echo $metaDescription; ?>">
-<meta name="keywords" content="<?php echo $metaKeywords; ?>">
+<title><?= $pageTitle; ?></title>
+<meta name="description" content="<?= $metaDescription; ?>">
+<meta name="keywords" content="<?= $metaKeywords; ?>">
 <meta name="robots" content="index, follow">
 
-<link rel="canonical" href="<?php echo $canonical; ?>">
+<link rel="canonical" href="<?= $canonical; ?>">
 
 <!-- ===================== FAVICON ===================== -->
-<link rel="icon" href="/favicon.ico" type="image/x-icon">
+<link rel="icon" href="<?= BASE_URL ?>favicon.ico" type="image/x-icon">
 
 <!-- ===================== OPEN GRAPH (FACEBOOK / WHATSAPP) ===================== -->
 <meta property="og:type" content="website">
-<meta property="og:title" content="<?php echo $OGTitle; ?>">
-<meta property="og:description" content="<?php echo $OGdescription; ?>">
-<meta property="og:url" content="<?php echo $canonical; ?>">
+<meta property="og:title" content="<?= $OGTitle; ?>">
+<meta property="og:description" content="<?= $OGdescription; ?>">
+<meta property="og:url" content="<?= $canonical; ?>">
 <meta property="og:image" content="https://ceylontravellanka.com/images/og-image.jpg">
 
 <!-- ===================== PRELOAD (OPTIONAL SPEED BOOST) ===================== -->
-<link rel="preload" as="image" href="<?php echo $preloadBanner; ?>">
+<link rel="preload" as="image" href="<?= $preloadBanner; ?>">
 
 <!-- ===================== STRUCTURED DATA (SEO POWER BOOST) ===================== -->
     <script type="application/ld+json">
@@ -60,12 +60,23 @@ switch ($page) {
             "url" => $baseUrl
         ];
         break;
+    
+    case "services":
+        $schema = [
+            "@context" => "https://schema.org",
+            "@type" => "CollectionPage",
+            "name" => "Sri Lanka Travel Services",
+            "description" => "Explore a range of travel services including airport transfers, private drivers, car rental, and day tours in Sri Lanka.",
+            "url" => $canonical
+        ];
+        break;
 
     case "contact":
         $schema = [
             "@context" => "https://schema.org",
             "@type" => "ContactPage",
-            "name" => "Contact Us",
+            "name" => "Contact Ceylon Travel Lanka",
+            "description" => "Contact us to book private driver services, airport transfers, and tours in Sri Lanka.",
             "url" => $canonical
         ];
         break;
@@ -112,5 +123,5 @@ echo json_encode($schema, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE | JSON
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/main.min.css">
-<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="<?= BASE_URL ?>css/main.min.css">
+<link rel="stylesheet" href="<?= BASE_URL ?>css/style.css">

@@ -27,39 +27,38 @@
                 <div class="navbar-flex d-flex align-items-center justify-content-between w-100 pb-2 pt-2">
 
                     <div class="navbar-header">
-                        <a class="navbar-brand" href="/">
-                            <img src="images/logo.svg" alt="Logo - Ceylon Travel Lanka">
+                        <a class="navbar-brand" href="<?= BASE_URL ?>">
+                            <img src="<?= BASE_URL ?>images/logo.svg" alt="Logo - Ceylon Travel Lanka">
                         </a>
                     </div>
 
                     <div class="navbar-collapse1 d-flex align-items-center" id="bs-example-navbar-collapse-1">
                         <ul class="nav navbar-nav" id="responsive-menu">
                             <li class="<?php echo ($currentpage == 'home') ? 'active' : ''; ?>">
-                                <a href="/">Home </a>
+                                <a href="<?= BASE_URL ?>">Home </a>
                             </li>
                             <li class="submenu dropdown <?php echo ($currentpage == 'services') ? 'active' : ''; ?>">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Services <i class="fa fa-angle-down" aria-hidden="true"></i></a>
+                                <a href="<?= BASE_URL ?>services/" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Services <i class="fa fa-angle-down" aria-hidden="true"></i></a>
                                 <ul class="dropdown-menu">
-                                    <li><a href="airport-transfer.php">Airport Transfer</a></li>
-                                    <li><a href="private-driver-in-sri-lanka.php">Private Driver in Sri Lanka</a></li>
-                                    <li><a href="car-rental-with-driver.php">Car Rental with Driver</a></li>
-                                    <li><a href="day-tours.php">Day Tours</a></li>
+                                    <li><a href="<?= BASE_URL ?>services/airport-transfer.php">Airport Transfer</a></li>
+                                    <li><a href="<?= BASE_URL ?>services/private-driver-in-sri-lanka.php">Private Driver in Sri Lanka</a></li>
+                                    <li><a href="<?= BASE_URL ?>services/car-rental-with-driver.php">Car Rental with Driver</a></li>
                                 </ul>
                             </li>
-                            <li class="<?php echo ($currentpage == 'routes') ? 'active' : ''; ?>">
-                                <a href="routes.php">Routes</a>
-                            </li>
+                            <!--li class="<?php echo ($currentpage == 'routes') ? 'active' : ''; ?>">
+                                <a href="<?= BASE_URL ?>routes.php">Routes</a>
+                            </li-->
                             <li class="<?php echo ($currentpage == 'itineraries') ? 'active' : ''; ?>">
-                                <a href="tour-itineraries.php">Tour Itineraries</a>
+                                <a href="<?= BASE_URL ?>tour-itineraries.php">Tour Itineraries</a>
                             </li>
                             <li class="<?php echo ($currentpage == 'tailormade') ? 'active' : ''; ?>">
-                                <a href="tailor-made-tours.php">Tailor Made Tours</a>
+                                <a href="<?= BASE_URL ?>tailor-made-tours.php">Tailor Made Tours</a>
                             </li>
                             <li class="<?php echo ($currentpage == 'contact') ? 'active' : ''; ?>">
-                                <a href="contact.php">Contact Us</a>
+                                <a href="<?= BASE_URL ?>contact.php">Contact Us</a>
                             </li>
                         </ul>
-                        <a href="private-driver-in-sri-lanka.php" class="nir-btn px-3 py-1 ms-3">Hire a Driver</a>
+                        <a href="<?= BASE_URL ?>services/private-driver-in-sri-lanka.php" class="nir-btn px-3 py-1 ms-3">Hire a Driver</a>
                     </div>
                     <div id="slicknav-mobile"></div>
                 </div>
