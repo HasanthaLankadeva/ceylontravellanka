@@ -94,7 +94,7 @@ $preloadBanner = BASE_URL . "images/slider/1.webp";
             <div class="col-lg-3 col-md-6 col-sm-6 mb-4">
             <div class="why-us-item p-4 pt-4 pb-4 border rounded bg-white">
                 <div class="why-us-content">
-                    <h3>Experienced and professional drivers</h3>
+                    <h4>Experienced and Professional Drivers</h4>
                     <p>Our drivers are knowledgeable, friendly, and experienced, ensuring a safe and comfortable journey.</p>
                 </div>
             </div>
@@ -102,7 +102,7 @@ $preloadBanner = BASE_URL . "images/slider/1.webp";
             <div class="col-lg-3 col-md-6 col-sm-6 mb-4">
             <div class="why-us-item p-4 pt-4 pb-4 border rounded bg-white">
                 <div class="why-us-content">
-                    <h3>Flexible Travel Options</h3>
+                    <h4>Flexible Travel Options</h4>
                     <p>We offer customizable services that adapt to your schedule, destinations, and travel preferences.</p>
                 </div>
             </div>
@@ -110,7 +110,7 @@ $preloadBanner = BASE_URL . "images/slider/1.webp";
             <div class="col-lg-3 col-md-6 col-sm-6 mb-4">
             <div class="why-us-item p-4 pt-6 pb-6 border rounded bg-white">
                 <div class="why-us-content">
-                    <h3>Comfortable Vehicles</h3>
+                    <h4>Comfortable Vehicles</h4>
                     <p class="mb-2">Our vehicles are clean, reliable, and suited for different group sizes and travel styles.</p>
                 </div>
             </div>
@@ -118,7 +118,7 @@ $preloadBanner = BASE_URL . "images/slider/1.webp";
             <div class="col-lg-3 col-md-6 col-sm-6 mb-4">
             <div class="why-us-item p-4 pt-6 pb-6 border rounded bg-white">
                 <div class="why-us-content">
-                    <h3>Local Expertise</h3>
+                    <h4>Local Expertise</h4>
                     <p class="mb-2">We provide valuable local insights to help you discover the best places and hidden gems in Sri Lanka.</>
                 </div>
             </div>
