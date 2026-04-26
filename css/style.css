@@ -5916,6 +5916,11 @@ svg:not(:root).svg-inline--fa {
     fill: #fff;
 }
 
+.footer-copyright .tiktok svg{
+    width: 22px;
+    fill: #fff;
+}
+
 @media (max-width: 1199.98px) {
     .about-us .feature-box {
         margin: 0;
