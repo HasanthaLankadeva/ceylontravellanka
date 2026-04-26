@@ -1,4 +1,7 @@
 <?php
+
+require_once __DIR__ . '/config/config.php';
+
 $currentpage = 'itineraries';
 $page = basename($_SERVER['PHP_SELF'], '.php');
 $siteName = "Ceylon Travel Lanka";
@@ -21,7 +24,7 @@ $OGdescription = "Browse our expertly designed Sri Lanka itineraries or create y
 
 <head>
     
-    <?php require_once 'includes/head.php';?>
+    <?php require_once BASE_PATH . '/includes/head.php';?>
     
 </head>
 
@@ -31,7 +34,7 @@ $OGdescription = "Browse our expertly designed Sri Lanka itineraries or create y
     <div id="status"></div>
 </div>
 
-<?php require_once 'includes/header.php';?>
+<?php require_once BASE_PATH . '/includes/header.php';?>
 
 <section class="about-us pt-6 pb-6">
     <div class="container">
@@ -55,14 +58,14 @@ $OGdescription = "Browse our expertly designed Sri Lanka itineraries or create y
                                 <div class="col-lg-4 col-md-3">
                                 <div class="trend-item2 rounded">
                                         <a href="tour-single.html">
-                                            <img src="images/trending/trending2.jpg" alt="image" class="">
+                                            <img src="<?= BASE_URL ?>images/trending/trending2.jpg" alt="image" class="">
                                         </a>
                                         <div class="color-overlay"></div>
                                     </div> 
                                 </div>
                                 <div class="col-lg-8 col-md-9">
                                     <div class="trend-content position-relative text-md-start">
-                                        <h3 class="mb-1"><a href="tour-single.html">4 Day Sri Lanka Tour Itinerary</a></h3>
+                                        <h3 class="mb-1"><a href="<?= BASE_URL ?>tour-single.html">4 Day Sri Lanka Tour Itinerary</a></h3>
                                         <h5 class="theme mb-1">Short Travel Package</h5>
                                         <p class="mt-3 mb-3"><strong>Route:</strong> Colombo → Kandy → Sigiriya → Nuwara Eliya → Ella → Bentota</p>
                                         <p class="mb-3 itinerary-highlights">Temple of the Tooth • Tea Plantations • Gregory Lake • Bentota Beach</p>
@@ -80,15 +83,15 @@ $OGdescription = "Browse our expertly designed Sri Lanka itineraries or create y
                             <div class="row">
                                 <div class="col-lg-4 col-md-3">
                                 <div class="trend-item2 rounded">
-                                        <a href="tour-single.html">
-                                            <img src="images/trending/trending2.jpg" alt="image" class="">
+                                        <a href="<?= BASE_URL ?>tour-single.html">
+                                            <img src="<?= BASE_URL ?>images/trending/trending2.jpg" alt="image" class="">
                                         </a>
                                         <div class="color-overlay"></div>
                                     </div> 
                                 </div>
                                 <div class="col-lg-8 col-md-9">
                                     <div class="trend-content position-relative text-md-start">
-                                        <h3 class="mb-1"><a href="tour-single.html">6 Day Sri Lanka Tour Itinerary</a></h3>
+                                        <h3 class="mb-1"><a href="<?= BASE_URL ?>tour-single.html">6 Day Sri Lanka Tour Itinerary</a></h3>
                                         <h5 class="theme mb-1">Culture & Scenic Highlights</h5>
                                         <p class="mt-3 mb-3"><strong>Route:</strong> Colombo → Kandy → Sigiriya → Nuwara Eliya → Bentota</p>
                                         <p class="mb-3 itinerary-highlights">Temple of the Tooth • Cultural Dance Show • Sigiriya Lion Rock • Dambulla Cave Temple • Tea Estates • Gregory Lake • Bentota Beach • River Safari</p>
@@ -106,15 +109,15 @@ $OGdescription = "Browse our expertly designed Sri Lanka itineraries or create y
                             <div class="row">
                                 <div class="col-lg-4 col-md-3">
                                 <div class="trend-item2 rounded">
-                                        <a href="tour-single.html">
-                                            <img src="images/trending/trending2.jpg" alt="image" class="">
+                                        <a href="<?= BASE_URL ?>tour-single.html">
+                                            <img src="<?= BASE_URL ?>images/trending/trending2.jpg" alt="image" class="">
                                         </a>
                                         <div class="color-overlay"></div>
                                     </div> 
                                 </div>
                                 <div class="col-lg-8 col-md-9">
                                     <div class="trend-content position-relative text-md-start">
-                                        <h3 class="mb-1"><a href="tour-single.html">7 Day Sri Lanka Tour Itinerary</a></h3>
+                                        <h3 class="mb-1"><a href="<?= BASE_URL ?>tour-single.html">7 Day Sri Lanka Tour Itinerary</a></h3>
                                         <h5 class="theme mb-1">Classic Island Experience</h5>
                                         <p class="mt-3 mb-3"><strong>Route:</strong> Colombo → Kandy → Sigiriya → Nuwara Eliya → Ella → Bentota</p>
                                         <p class="mb-3 itinerary-highlights">Temple of the Tooth • Sigiriya Lion Rock • Dambulla Cave Temple • Tea Estates • Ella Nine Arches Bridge • Little Adam’s Peak • Bentota Beach • Water Sports</p>
@@ -132,15 +135,15 @@ $OGdescription = "Browse our expertly designed Sri Lanka itineraries or create y
                             <div class="row">
                                 <div class="col-lg-4 col-md-3">
                                 <div class="trend-item2 rounded">
-                                        <a href="tour-single.html">
-                                            <img src="images/trending/trending2.jpg" alt="image" class="">
+                                        <a href="<?= BASE_URL ?>tour-single.html">
+                                            <img src="<?= BASE_URL ?>images/trending/trending2.jpg" alt="image" class="">
                                         </a>
                                         <div class="color-overlay"></div>
                                     </div> 
                                 </div>
                                 <div class="col-lg-8 col-md-9">
                                     <div class="trend-content position-relative text-md-start">
-                                        <h3 class="mb-1"><a href="tour-single.html">10 Day Sri Lanka Tour Itinerary</a></h3>
+                                        <h3 class="mb-1"><a href="<?= BASE_URL ?>tour-single.html">10 Day Sri Lanka Tour Itinerary</a></h3>
                                         <h5 class="theme mb-1">Complete Island Journey</h5>
                                         <p class="mt-3 mb-3"><strong>Route:</strong> Colombo → Sigiriya → Anuradhapura → Kandy → Nuwara Eliya → Ella → Yala → Bentota</p>
                                         <p class="mb-3 itinerary-highlights">Sigiriya Lion Rock • Village Tour Experience • Anuradhapura Ancient City • Sri Maha Bodhi • Temple of the Tooth • Peradeniya Botanical Gardens • Tea Estates • Waterfalls • Ella Nine Arches Bridge • Little Adam’s Peak • Yala National Park Safari • Bentota Beach • Water Sports</p>
@@ -158,15 +161,15 @@ $OGdescription = "Browse our expertly designed Sri Lanka itineraries or create y
                             <div class="row">
                                 <div class="col-lg-4 col-md-3">
                                 <div class="trend-item2 rounded">
-                                        <a href="tour-single.html">
-                                            <img src="images/trending/trending2.jpg" alt="image" class="">
+                                        <a href="<?= BASE_URL ?>tour-single.html">
+                                            <img src="<?= BASE_URL ?>images/trending/trending2.jpg" alt="image" class="">
                                         </a>
                                         <div class="color-overlay"></div>
                                     </div> 
                                 </div>
                                 <div class="col-lg-8 col-md-9">
                                     <div class="trend-content position-relative text-md-start">
-                                        <h3 class="mb-1"><a href="tour-single.html">15 Day Sri Lanka Tour Itinerary</a></h3>
+                                        <h3 class="mb-1"><a href="<?= BASE_URL ?>tour-single.html">15 Day Sri Lanka Tour Itinerary</a></h3>
                                         <h5 class="theme mb-1">Ultimate Sri Lanka Travel Experience</h5>
                                         <p class="mt-3 mb-3"><strong>Route:</strong> Colombo → Negombo → Anuradhapura → Sigiriya → Kandy → Nuwara Eliya → Ella → Yala → Mirissa → Galle → Bentota</p>
                                         <p class="mb-3 itinerary-highlights">Negombo Lagoon & Fish Market • Anuradhapura Ancient City & Stupas • Sigiriya Lion Rock • Dambulla Cave Temple • Temple of the Tooth • Cultural Dance Show • Tea Plantations • Ella Nine Arches Bridge • Little Adam’s Peak • Yala National Park Safari • Mirissa Whale Watching • Galle Dutch Fort • Bentota Beach • Water Sports • River Safari</p>
@@ -222,9 +225,9 @@ $OGdescription = "Browse our expertly designed Sri Lanka itineraries or create y
 </section>
 <!-- blog Ends -->
 
-<?php require_once 'includes/testimonials.php';?>
+<?php require_once BASE_PATH . '/includes/testimonials.php';?>
 
-<?php require_once 'includes/footer.php';?>
+<?php require_once BASE_PATH . '/includes/footer.php';?>
 
 </body>
 </html>

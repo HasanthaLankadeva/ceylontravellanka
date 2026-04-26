@@ -10,47 +10,47 @@
                 <div class="row attract-slider">
                     <div class="col-md-3 col-sm-6">
                         <div class="insta-image rounded">
-                            <img src="images/insta/ins-1.webp" alt="insta">
+                            <img src="<?= BASE_URL ?>images/insta/ins-1.webp" alt="insta">
                         </div>
                     </div>
                     <div class="col-md-3 col-sm-6">
                         <div class="insta-image rounded">   
-                            <img src="images/insta/ins-2.webp" alt="insta">
+                            <img src="<?= BASE_URL ?>images/insta/ins-2.webp" alt="insta">
                         </div>
                     </div>
                     <div class="col-md-3 col-sm-6">
                         <div class="insta-image rounded">
-                            <img src="images/insta/ins-3.webp" alt="insta">
+                            <img src="<?= BASE_URL ?>images/insta/ins-3.webp" alt="insta">
                         </div>
                     </div>
                     <div class="col-md-3 col-sm-6">
                         <div class="insta-image rounded">
-                            <img src="images/insta/ins-4.webp" alt="insta">
+                            <img src="<?= BASE_URL ?>images/insta/ins-4.webp" alt="insta">
                         </div>
                     </div>
                     <div class="col-md-3 col-sm-6">
                         <div class="insta-image rounded">
-                            <img src="images/insta/ins-5.webp" alt="insta">
+                            <img src="<?= BASE_URL ?>images/insta/ins-5.webp" alt="insta">
                         </div>
                     </div>
                     <div class="col-md-3 col-sm-6">
                         <div class="insta-image rounded">
-                            <img src="images/insta/ins-6.webp" alt="insta">
+                            <img src="<?= BASE_URL ?>images/insta/ins-6.webp" alt="insta">
                         </div>
                     </div>
                     <div class="col-md-3 col-sm-6">
                         <div class="insta-image rounded">
-                            <img src="images/insta/ins-7.webp" alt="insta">
+                            <img src="<?= BASE_URL ?>images/insta/ins-7.webp" alt="insta">
                         </div>
                     </div>
                     <div class="col-md-3 col-sm-6">
                         <div class="insta-image rounded">
-                            <img src="images/insta/ins-8.webp" alt="insta">
+                            <img src="<?= BASE_URL ?>images/insta/ins-8.webp" alt="insta">
                         </div>
                     </div>
                     <div class="col-md-3 col-sm-6">
                         <div class="insta-image rounded">
-                            <img src="images/insta/ins-9.webp" alt="insta">
+                            <img src="<?= BASE_URL ?>images/insta/ins-9.webp" alt="insta">
                         </div>
                     </div>
                 </div>
@@ -72,10 +72,10 @@
                     <div class="footer-links">
                         <h3 class="white">Quick link</h3>
                         <ul>
-                            <li><a href="/contact.html">Contact Us</a></li>
-                            <li><a href="/tour-itineraries.html">Tour Itineraries</a></li>
-                            <li><a href="about-us.html">Privacy Policy</a></li>
-                            <li><a href="about-us.html">Terms &amp; Conditions</a></li>
+                            <li><a href="<?= BASE_URL ?>contact.html">Contact Us</a></li>
+                            <li><a href="<?= BASE_URL ?>tour-itineraries.html">Tour Itineraries</a></li>
+                            <li><a href="<?= BASE_URL ?>about-us.html">Privacy Policy</a></li>
+                            <li><a href="<?= BASE_URL ?>about-us.html">Terms &amp; Conditions</a></li>
                         </ul>
                     </div>
                 </div>
@@ -116,8 +116,8 @@
     <a href="#"></a>
 </div>
 
-<script defer src="js/jquery-3.5.1.min.js"></script>
-<script defer src="js/bootstrap.min.js"></script>
-<script defer src="js/plugin.js"></script>
-<script defer src="js/main.js"></script>
-<script defer src="js/custom-nav.js"></script>
+<script defer src="<?= BASE_URL ?>js/jquery-3.5.1.min.js"></script>
+<script defer src="<?= BASE_URL ?>js/bootstrap.min.js"></script>
+<script defer src="<?= BASE_URL ?>js/plugin.js"></script>
+<script defer src="<?= BASE_URL ?>js/main.js"></script>
+<script defer src="<?= BASE_URL ?>js/custom-nav.js"></script>

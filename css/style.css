@@ -5846,6 +5846,71 @@ section.testimonial{
     width: 20px;
     fill: #fff;
 }
+.why-us .why-us-item:hover h3,
+.why-us .why-us-item:hover h4{
+    color: rgb(255, 255, 255) !important;
+    transition: 0.5s ease-in-out;
+}
+svg:not(:root).svg-inline--fa {
+    overflow: visible;
+}
+.svg-inline--fa.fa-w-16 {
+    width: 1em;
+}
+.offer_banner {
+    position: relative;
+    border-radius: 10px;
+    height: 306px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    animation: slideIn 1s ease-in-out;
+}
+.offer_banner img {
+    width: 100%;
+    height: 100%;
+    -o-object-fit: cover;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: transform 0.5s ease-in-out;
+}
+.offer_banner .content-2 {
+    opacity: 0.8;
+    z-index: 1;
+}
+.offer_banner .content-2 > * {
+    border-radius: 5px;
+}
+.offer_banner .content-2 p {
+    width: -moz-max-content;
+    width: max-content;
+    margin: 0 auto;
+}
+.offer_banner .content-2 > * {
+    border-radius: 5px;
+}
+.about-us-tv {
+    background-color: rgba(2, 158, 157, 0.15);
+}
+.about-us-tv .about_us__ot .aa__img1 {
+    border-radius: 25px;
+    width: 55%;
+}
+.about-us-tv .about_us__ot .aa__img2 {
+    position: absolute;
+    bottom: -40px;
+    right: 8%;
+    border: 15px solid #d8f0ef;
+    border-radius: 50px;
+    width: 30%;
+}
+.mpb-0{
+  padding-bottom: 0 !important;
+}
 
 @media (max-width: 1199.98px) {
     .about-us .feature-box {
@@ -5869,5 +5934,9 @@ section.testimonial{
     .slider-button .nir-btn, .slider-button .nir-btn-white, .slider-button .nir-btn-black{
       margin: 0 0 10px !important;
       width: 100%;
+    }
+    section.services .step-card img{
+      display: block;
+      margin: 0 auto;
     }
 }

@@ -1,18 +1,21 @@
 <?php
+
+require_once __DIR__ . '/config/config.php';
+
 $currentpage = 'contact';
 $page = basename($_SERVER['PHP_SELF'], '.php');
 $siteName = "Ceylon Travel Lanka";
 $baseUrl = "https://ceylontravellanka.com";
 
-$pageTitle =  "Tailor-Made Sri Lanka Tours | Custom Travel Packages | " . $siteName;
+$pageTitle =  "Contact Us | Book Private Driver Sri Lanka & Transport Services | " . $siteName;
 
 $canonical = "https://ceylontravellanka.com" . $_SERVER['REQUEST_URI'];
 
-$metaDescription = "Create your perfect Sri Lanka holiday with our tailor-made tours. Fully customizable itineraries, private drivers, and personalized travel experiences.";
+$metaDescription = "Contact us to book a private driver in Sri Lanka. Fast response via WhatsApp for airport transfers, tours, and transport services across Sri Lanka.";
 $metaKeywords = "tailor made Sri Lanka tours, custom Sri Lanka itinerary, private tours Sri Lanka, Sri Lanka travel packages, personalized tours";
 
-$OGTitle = "Tailor-Made Sri Lanka Tours | Custom Travel Packages | " . $siteName;
-$OGdescription = "Plan your perfect Sri Lanka trip with fully customized tours designed just for you.";
+$OGTitle = "Contact Us | Private Driver Sri Lanka | " . $siteName;
+$OGdescription = "Book your Sri Lanka transport easily via WhatsApp. Contact us for private drivers, airport transfers, and tours. Fast response guaranteed.";
 
 ?>
 
@@ -21,7 +24,7 @@ $OGdescription = "Plan your perfect Sri Lanka trip with fully customized tours d
 
 <head>
     
-    <?php require_once 'includes/head.php';?>
+    <?php require_once BASE_PATH . '/includes/head.php';?>
     
 </head>
 
@@ -31,14 +34,13 @@ $OGdescription = "Plan your perfect Sri Lanka trip with fully customized tours d
     <div id="status"></div>
 </div>
 
-<?php require_once 'includes/header.php';?>
+<?php require_once BASE_PATH . '/includes/header.php';?>
 
 <section class="about-us pt-6 pb-6">
     <div class="container">
         <div class="section-title mb-6 w-50 mx-auto text-center">
-            <h1 class="mb-1">Tailor-Made Sri Lanka Tours</h1>
-            <p>Create your perfect journey with our tailor-made Sri Lanka tours, designed entirely around your preferences, travel style, and budget. Whether you dream of exploring ancient cultural sites, relaxing on pristine beaches, discovering wildlife, or experiencing scenic hill country, we craft personalized itineraries to match your expectations.</p>
-            <p>At Ceylon Travel Lanka, we specialize in flexible travel planning with private drivers, handpicked accommodations, and carefully curated experiences. Your trip is fully customizable, ensuring a unique and unforgettable Sri Lanka holiday.</p>
+            <h1 class="mb-1">Contact Us – Book Your Sri Lanka Transport</h1>
+            <p>Ready to plan your trip in Sri Lanka? Contact us to book a private driver, arrange airport transfers, or customize your travel itinerary. We respond quickly and help you plan your journey with ease.</p>
         </div>
     </div>
 </section>
@@ -58,7 +60,7 @@ $OGdescription = "Plan your perfect Sri Lanka trip with fully customized tours d
                                     </div>
                                     <div class="info-content">
                                         <h3>Office Location</h3>
-                                        <p class="m-0">445 Mount Eden Road, Mt Eden Basundhara Chakrapath</p>
+                                        <p class="m-0">83 / D Weliya North, Minuwangoda 11550, Sri Lanka</p>
                                     </div>
                                 </div>
                             </div>
@@ -69,8 +71,7 @@ $OGdescription = "Plan your perfect Sri Lanka trip with fully customized tours d
                                     </div>
                                     <div class="info-content">
                                         <h3>Phone Number</h3>
-                                        <p class="m-0">977-444-666-888</p>
-                                        <p class="m-0">977-444-222-000</p>
+                                        <p class="m-0"><a href="tel:+94759800348">+94 75 980 0348</a></p>
                                     </div>
                                 </div>
                             </div>
@@ -81,8 +82,7 @@ $OGdescription = "Plan your perfect Sri Lanka trip with fully customized tours d
                                     </div>
                                     <div class="info-content ps-4">
                                         <h3>Email Address</h3>
-                                        <p class="m-0">info@realshield.com</p>
-                                        <p class="m-0">help@realshield.com</p>
+                                        <p class="m-0"><a href="mailto:contact@ceylontravellanka.com">contact@ceylontravellanka.com</a></p>
                                     </div>
                                 </div>
                             </div>
@@ -92,7 +92,7 @@ $OGdescription = "Plan your perfect Sri Lanka trip with fully customized tours d
                                 <div class="col-lg-12">
                                     <div class="map rounded overflow-hiddenb rounded mb-md-4">
                                         <div style="width: 100%">
-                                            <iframe height="500" src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=+(mangal%20bazar)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe>
+                                            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d18782.950170347263!2d79.9420624!3d7.1668673!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae2e5ae19112ee5%3A0xbc3a5706a90a3f2d!2sCeylon%20Travel%20Lanka!5e1!3m2!1sen!2sfi!4v1777222455514!5m2!1sen!2sfi" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                                         </div>
                                     </div>
                                 </div>
@@ -105,7 +105,7 @@ $OGdescription = "Plan your perfect Sri Lanka trip with fully customized tours d
     </div>
 </section>
 
-<?php require_once 'includes/footer.php';?>
+<?php require_once BASE_PATH . '/includes/footer.php';?>
 
 </body>
 </html>

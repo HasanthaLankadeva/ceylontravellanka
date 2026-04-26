@@ -1,4 +1,7 @@
 <?php
+
+require_once __DIR__ . '/config/config.php';
+
 $currentpage = 'home';
 $page = basename($_SERVER['PHP_SELF'], '.php');
 $siteName = "Ceylon Travel Lanka";
@@ -14,7 +17,7 @@ $metaKeywords = "Sri Lanka private driver, Sri Lanka transport service, airport 
 $OGTitle = "Private Driver Sri Lanka | Airport Transfers & Tours | " . $siteName;
 $OGdescription = "Reliable private drivers, airport transfers, and Sri Lanka tour packages. Book safe and comfortable travel with local experts.";
 
-$preloadBanner = "images/slider/1.webp";
+$preloadBanner = BASE_URL . "images/slider/1.webp";
 ?>
 
 <!DOCTYPE html>
@@ -22,7 +25,7 @@ $preloadBanner = "images/slider/1.webp";
 
 <head>
     
-    <?php require_once 'includes/head.php';?>
+    <?php require_once BASE_PATH . '/includes/head.php';?>
     
 </head>
 <body>
@@ -31,7 +34,7 @@ $preloadBanner = "images/slider/1.webp";
     <div id="status"></div>
 </div-->
 
-<?php require_once 'includes/header.php';?>
+<?php require_once BASE_PATH . '/includes/header.php';?>
 
 <section class="banner overflow-hidden">
     <div class="slider top50">
@@ -40,7 +43,7 @@ $preloadBanner = "images/slider/1.webp";
                 <div class="swiper-slide">
                     <div class="slide-inner">
                         <div class="slide-image">
-                            <img src="images/slider/1.webp" width="1815" height="630" fetchpriority="high" decoding="async" alt="Travel hero image">
+                            <img src="<?= BASE_URL ?>images/slider/1.webp" width="1815" height="630" fetchpriority="high" decoding="async" alt="Travel hero image">
                         </div>
                         <div class="swiper-content">
                             <h1 class="mb-2">Private Driver & Transport Services in Sri Lanka</h1>
@@ -57,13 +60,13 @@ $preloadBanner = "images/slider/1.webp";
                 <div class="swiper-slide">
                     <div class="slide-inner">
                         <div class="slide-image">
-                            <img src="images/banners/tour-itineraries.webp" width="1815" height="630" fetchpriority="high" decoding="async" alt="Travel hero image">
+                            <img src="<?= BASE_URL ?>images/banners/tour-itineraries.webp" width="1815" height="630" fetchpriority="high" decoding="async" alt="Travel hero image">
                         </div>
                         <div class="swiper-content">
                             <h1 class="mb-2">Explore Sri Lanka with Custom Tour Packages</h1>
                             <p class="white mb-4">Discover beaches, mountains, and cultural sites with flexible itineraries and experienced drivers.</p>
                             <div class="slider-button d-flex justify-content-center">
-                                <a href="/tour-itineraries.html" class="nir-btn me-4">View Tour Itineraries</a>
+                                <a href="<?= BASE_URL ?>/tour-itineraries.html" class="nir-btn me-4">View Tour Itineraries</a>
                             </div>
                         </div>
                         <div class="dot-overlay"></div>
@@ -90,33 +93,41 @@ $preloadBanner = "images/slider/1.webp";
             <div class="d-flex flex-column gap-5">
               <div class="feature-box fbox-one d-flex justify-content-start align-items-center flex-row-reverse gap-3 text-end bg-lblue mb-3 px-4 py-2">
                 <div>
-                  <h5>Airport Transfers</h5>
-                  <p>Safe and on-time pickup from Colombo Airport</p>
+                    <a href="<?= BASE_URL ?>services/airport-transfer.php">
+                        <h5>Airport Transfers</h5>
+                        <p>Safe and on-time pickup from Colombo Airport →</p>
+                    </p>
                 </div>
               </div>
               <div class="feature-box d-flex justify-content-start align-items-center flex-row-reverse gap-3 text-end bg-lyellow mt-3 px-3 py-2">
                 <div>
-                  <h5>Custom Tours</h5>
-                  <p>Tailored itineraries based on your preferences</p>
+                    <a href="<?= BASE_URL ?>tour-itineraries.php">
+                        <h5>Custom Tours</h5>
+                        <p>Tailored itineraries based on your preferences →</p>
+                    </a>
                 </div>
               </div>
             </div>
           </div>
           <div class="col-lg-3 col-md-4 d-flex justify-content-center">
-            <img src="images/girl-1.webp" alt="Specialties" class="traveler-img w-75">
+            <img src="<?= BASE_URL ?>images/girl-1.webp" alt="Specialties" class="traveler-img w-75">
           </div>
           <div class="col-md-4">
             <div class="d-flex flex-column gap-5">
               <div class="feature-box fbox-three d-flex justify-content-start align-items-center gap-3 bg-lyellow mb-3 px-4 py-2">
                 <div>
-                  <h5>Private Driver Hire</h5>
-                  <p>Flexible travel with experienced local drivers</p>
+                    <a href="<?= BASE_URL ?>services/private-driver-in-sri-lanka.php">
+                        <h5>Private Driver Hire</h5>
+                        <p>Flexible travel with experienced local drivers →</p>
+                    </a>
                 </div>
               </div>
               <div class="feature-box d-flex justify-content-start align-items-center gap-3 bg-lgreen mt-3 px-4 py-2">
                 <div>
-                  <h5>Comfortable Vehicles</h5>
-                  <p>Clean, air-conditioned cars for long journeys</p>
+                    <a href="<?= BASE_URL ?>services">
+                        <h5>Comfortable Vehicles</h5>
+                        <p>Clean, air-conditioned cars for long journeys →</p>
+                    </a>
                 </div>
               </div>
             </div>
@@ -137,7 +148,7 @@ $preloadBanner = "images/slider/1.webp";
             <div class="col-lg-5 mb-4">
                 <div class="trend-item1">
                     <div class="trend-image position-relative rounded">
-                        <img src="images/destination/a_1.webp" alt="Route - Colombo to Sigiriya Rock Fortress">
+                        <img src="<?= BASE_URL ?>images/destination/a_1.webp" alt="Route - Colombo to Sigiriya Rock Fortress">
                         <div class="trend-content d-flex align-items-center justify-content-between position-absolute bottom-0 p-4 w-100 z-index">
                             <div class="trend-content-title">
                                 <h3 class="mb-0 white"><!--a href="tour-grid.html" class="white"-->Colombo to Sigiriya<!--/a--></h3>
@@ -153,7 +164,7 @@ $preloadBanner = "images/slider/1.webp";
                     <div class="col-lg-6 col-md-6 col-sm-6 mb-4">
                         <div class="trend-item1">
                             <div class="trend-image position-relative rounded">
-                                <img src="images/destination/a_2.webp" alt="Route - Kandy to Ella">
+                                <img src="<?= BASE_URL ?>images/destination/a_2.webp" alt="Route - Kandy to Ella">
                                 <div class="trend-content d-flex align-items-center justify-content-between position-absolute bottom-0 p-4 w-100 z-index">
                                     <div class="trend-content-title">
                                         <h3 class="mb-0 white"><!--a href="tour-grid.html" class="white"-->Kandy to Ella<!--/a--></h3>
@@ -166,7 +177,7 @@ $preloadBanner = "images/slider/1.webp";
                     <div class="col-lg-6 col-md-6 col-sm-6 mb-4">
                         <div class="trend-item1">
                             <div class="trend-image position-relative rounded">
-                                <img src="images/destination/a_3.webp" alt="Route - Ella to Yala">
+                                <img src="<?= BASE_URL ?>images/destination/a_3.webp" alt="Route - Ella to Yala">
                                 <div class="trend-content d-flex align-items-center justify-content-between position-absolute bottom-0 p-4 w-100 z-index">
                                     <div class="trend-content-title">
                                         <h3 class="mb-0 white"><!--a href="tour-grid.html" class="white"-->Ella to Yala<!--/a--></h3>
@@ -179,7 +190,7 @@ $preloadBanner = "images/slider/1.webp";
                     <div class="col-lg-6 col-md-6 col-sm-6 mb-4">
                         <div class="trend-item1">
                             <div class="trend-image position-relative rounded">
-                                <img src="images/destination/colombo-kandy.webp" alt="Route - Colombo to Kandy">
+                                <img src="<?= BASE_URL ?>images/destination/colombo-kandy.webp" alt="Route - Colombo to Kandy">
                                 <div class="trend-content d-flex align-items-center justify-content-between position-absolute bottom-0 p-4 w-100">
                                     <div class="trend-content-title">
                                         <h3 class="mb-0 white"><!--a href="tour-grid.html" class="white"-->Colombo to Kandy<!--/a--></h3>
@@ -192,7 +203,7 @@ $preloadBanner = "images/slider/1.webp";
                     <div class="col-lg-6 col-md-6 col-sm-6 mb-4">
                         <div class="trend-item1">
                             <div class="trend-image position-relative rounded">
-                                <img src="images/destination/colombo-galle.webp" alt="Route - Colombo to Galle">
+                                <img src="<?= BASE_URL ?>images/destination/colombo-galle.webp" alt="Route - Colombo to Galle">
                                 <div class="trend-content d-flex align-items-center justify-content-between position-absolute bottom-0 p-4 w-100 z-index">
                                     <div class="trend-content-title">
                                         <h3 class="mb-0 white"><!--a href="tour-grid.html" class="white"-->Colombo to Galle<!--/a--></h3>
@@ -228,11 +239,11 @@ $preloadBanner = "images/slider/1.webp";
                 <div class="col-lg-4 col-md-6 col-sm-6 mb-4">
                     <div class="trend-item rounded box-shadow">
                         <div class="trend-image position-relative">
-                            <img src="images/trending/trending2.jpg" alt="4 Day Sri Lanka Tour Itinerary" class>
+                            <img src="<?= BASE_URL ?>images/trending/trending2.jpg" alt="4 Day Sri Lanka Tour Itinerary" class>
                             <div class="color-overlay"></div>
                         </div>
                         <div class="trend-content p-4 pt-5 position-relative">
-                            <h3 class="mb-1 itinerary-title"><a href="tour-grid.html">4 Day Sri Lanka Tour Itinerary</a></h3>
+                            <h3 class="mb-1 itinerary-title"><a href="<?= BASE_URL ?>tour-itineraries.php">4 Day Sri Lanka Tour Itinerary</a></h3>
                             <p class=" border-b pb-2 mb-2"><strong>Route:</strong> Colombo → Kandy → Sigiriya → Nuwara Eliya → Ella → Bentota</p>
                             <div class="entry-meta">
                                 <div class="entry-author d-flex align-items-center mb-3">Explore Sri Lanka’s cultural capital, scenic hill country, and relaxing beaches in a short 4-day journey.</div>
@@ -246,11 +257,11 @@ $preloadBanner = "images/slider/1.webp";
                 <div class="col-lg-4 col-md-6 col-sm-6 mb-4">
                     <div class="trend-item box-shadow rounded">
                         <div class="trend-image position-relative">
-                            <img src="images/trending/trending3.jpg" alt="image">
+                            <img src="<?= BASE_URL ?>images/trending/trending3.jpg" alt="image">
                             <div class="color-overlay"></div>
                         </div>
                         <div class="trend-content p-4 pt-5 position-relative">
-                            <h3 class="mb-1 itinerary-title"><a href="tour-grid.html">6 Day Sri Lanka Tour Itinerary</a></h3>
+                            <h3 class="mb-1 itinerary-title"><a href="<?= BASE_URL ?>tour-itineraries.php">6 Day Sri Lanka Tour Itinerary</a></h3>
                             <p class=" border-b pb-2 mb-2"><strong>Route:</strong> Colombo → Kandy → Sigiriya → Nuwara Eliya → Bentota</p>
                             <div class="entry-meta">
                                 <div class="entry-author d-flex align-items-center mb-3">Experience Sri Lanka’s cultural heritage, ancient landmarks, scenic hill country, and relaxing beaches in this 6-day journey.</div>
@@ -264,11 +275,11 @@ $preloadBanner = "images/slider/1.webp";
                 <div class="col-lg-4 col-md-6 col-sm-6 mb-4">
                     <div class="trend-item box-shadow rounded">
                         <div class="trend-image position-relative">
-                            <img src="images/trending/trending3.jpg" alt="image">
+                            <img src="<?= BASE_URL ?>images/trending/trending3.jpg" alt="image">
                             <div class="color-overlay"></div>
                         </div>
                         <div class="trend-content p-4 pt-5 position-relative">
-                            <h3 class="mb-1 itinerary-title"><a href="tour-grid.html">7 Day Sri Lanka Tour Itinerary</a></h3>
+                            <h3 class="mb-1 itinerary-title"><a href="<?= BASE_URL ?>tour-itineraries.php">7 Day Sri Lanka Tour Itinerary</a></h3>
                             <p class=" border-b pb-2 mb-2"><strong>Route:</strong> Colombo → Kandy → Sigiriya → Nuwara Eliya → Ella → Bentota</p>
                             <div class="entry-meta">
                                 <div class="entry-author d-flex align-items-center mb-3">Discover Sri Lanka’s cultural landmarks, scenic hill country, iconic train routes, and beautiful beaches in this well-balanced 7-day journey.</div>
@@ -282,11 +293,11 @@ $preloadBanner = "images/slider/1.webp";
                 <div class="col-lg-4 col-md-6 col-sm-6 mb-4">
                     <div class="trend-item box-shadow rounded">
                         <div class="trend-image position-relative">
-                            <img src="images/trending/trending3.jpg" alt="image">
+                            <img src="<?= BASE_URL ?>images/trending/trending3.jpg" alt="image">
                             <div class="color-overlay"></div>
                         </div>
                         <div class="trend-content p-4 pt-5 position-relative">
-                            <h3 class="mb-1 itinerary-title"><a href="tour-grid.html">10 Day Sri Lanka Tour Itinerary</a></h3>
+                            <h3 class="mb-1 itinerary-title"><a href="<?= BASE_URL ?>tour-itineraries.php">10 Day Sri Lanka Tour Itinerary</a></h3>
                             <p class=" border-b pb-2 mb-2"><strong>Route:</strong> Colombo → Sigiriya → Anuradhapura → Kandy → Nuwara Eliya → Ella → Yala → Bentota</p>
                             <div class="entry-meta">
                                 <div class="entry-author d-flex align-items-center mb-3">Experience the complete beauty of Sri Lanka with this 10-day journey covering ancient cities, cultural landmarks, scenic hill country, wildlife safaris, and relaxing beaches.</div>
@@ -300,11 +311,11 @@ $preloadBanner = "images/slider/1.webp";
                 <div class="col-lg-4 col-md-6 col-sm-6 mb-4">
                     <div class="trend-item box-shadow rounded">
                         <div class="trend-image position-relative">
-                            <img src="images/trending/trending3.jpg" alt="image">
+                            <img src="<?= BASE_URL ?>images/trending/trending3.jpg" alt="image">
                             <div class="color-overlay"></div>
                         </div>
                         <div class="trend-content p-4 pt-5 position-relative">
-                            <h3 class="mb-1 itinerary-title"><a href="tour-grid.html">15 Day Sri Lanka Tour Itinerary</a></h3>
+                            <h3 class="mb-1 itinerary-title"><a href="<?= BASE_URL ?>tour-itineraries.php">15 Day Sri Lanka Tour Itinerary</a></h3>
                             <p class=" border-b pb-2 mb-2"><strong>Route:</strong> Colombo → Negombo → Anuradhapura → Sigiriya → Kandy → Nuwara Eliya → Ella → Yala → Mirissa → Galle → Bentota</p>
                             <div class="entry-meta">
                                 <div class="entry-author d-flex align-items-center mb-3">Explore the very best of Sri Lanka with this comprehensive 15-day journey covering ancient cities, cultural landmarks, scenic hill country, wildlife safaris, and stunning coastal destinations.</div>
@@ -319,7 +330,7 @@ $preloadBanner = "images/slider/1.webp";
         </div>
     </div>
     <div class="col-lg-12 text-center">
-        <a href="/tour-itineraries.html" class="nir-btn">View All Itineraries</a>
+        <a href="<?= BASE_URL ?>tour-itineraries.php" class="nir-btn">View All Itineraries</a>
     </div>
 </section>
 
@@ -335,7 +346,7 @@ $preloadBanner = "images/slider/1.webp";
                         </div>
                         <div class="video-button text-center position-relative">
                             <div class="call-button text-center">
-                                <a href="images/videos/popup_video.mp4" data-fancybox data-width="940" data-height="528">
+                                <a href="<?= BASE_URL ?>images/videos/popup_video.mp4" data-fancybox data-width="940" data-height="528">
                                     <button type="button" class="play-btn js-video-button" data-video-id="152879427" data-channel="vimeo"><i class="fa fa-play bg-blue"></i></button>
                                 </a>
                         </div>
@@ -348,7 +359,7 @@ $preloadBanner = "images/slider/1.webp";
     <div class="white-overlay"></div>
 </section>
 
-<?php require_once 'includes/testimonials.php';?>
+<?php require_once BASE_PATH . '/includes/testimonials.php';?>
 
 <section class="pt-9">
     <div class="container">
@@ -367,13 +378,13 @@ $preloadBanner = "images/slider/1.webp";
 
         <!-- Right Image -->
         <div class="col-md-6 p-0">
-        <img src="images/bg6.webp" alt="Book Your Sri Lanka Transport Today" class="right-img img-fluid w-100 h-100">
+        <img src="<?= BASE_URL ?>images/bg6.webp" alt="Book Your Sri Lanka Transport Today" class="right-img img-fluid w-100 h-100">
         </div>
     </div>
     </div>
 </section>
 
-<?php require_once 'includes/footer.php';?>
+<?php require_once BASE_PATH . '/includes/footer.php';?>
 
 </body>
 </html>

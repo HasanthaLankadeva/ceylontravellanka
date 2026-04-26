@@ -1,4 +1,7 @@
 <?php
+
+require_once __DIR__ . '/config/config.php';
+
 $currentpage = 'tailormade';
 $page = basename($_SERVER['PHP_SELF'], '.php');
 $siteName = "Ceylon Travel Lanka";
@@ -21,7 +24,7 @@ $OGdescription = "Plan your perfect Sri Lanka trip with fully customized tours d
 
 <head>
     
-    <?php require_once 'includes/head.php';?>
+    <?php require_once BASE_PATH . '/includes/head.php';?>
     
 </head>
 
@@ -31,7 +34,7 @@ $OGdescription = "Plan your perfect Sri Lanka trip with fully customized tours d
     <div id="status"></div>
 </div>
 
-<?php require_once 'includes/header.php';?>
+<?php require_once BASE_PATH . '/includes/header.php';?>
 
 <section class="about-us pt-6 pb-6">
     <div class="container">
@@ -468,7 +471,7 @@ $OGdescription = "Plan your perfect Sri Lanka trip with fully customized tours d
     </div>
 </div>
 
-<?php require_once 'includes/footer.php';?>
+<?php require_once BASE_PATH . '/includes/footer.php';?>
 
 </body>
 </html>
