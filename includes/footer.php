@@ -63,7 +63,7 @@
             <div class="row">
                 <div class="col-lg-4 col-md-6 col-sm-12 mb-4 pe-4">
                     <div class="footer-about">
-                        <img src="images/footer-logo.svg" alt>
+                        <img src="<?= BASE_URL ?>images/footer-logo.svg" alt>
                         <p class="mt-3 mb-3 white">We provide reliable and affordable transport services for travelers visiting Sri Lanka. From airport pickups to full island tours, we ensure a smooth and enjoyable journey.</p>
                         
                     </div>
