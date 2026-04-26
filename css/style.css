@@ -5911,6 +5911,10 @@ svg:not(:root).svg-inline--fa {
 .mpb-0{
   padding-bottom: 0 !important;
 }
+.main_header_area .tiktok svg{
+    width: 16px;
+    fill: #fff;
+}
 
 @media (max-width: 1199.98px) {
     .about-us .feature-box {
