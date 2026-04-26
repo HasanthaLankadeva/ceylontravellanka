@@ -108,7 +108,7 @@ $preloadBanner = BASE_URL . "images/slider/1.webp";
             </div>
             </div>
             <div class="col-lg-3 col-md-6 col-sm-6 mb-4">
-            <div class="why-us-item p-4 pt-6 pb-6 border rounded bg-white">
+            <div class="why-us-item p-4 pt-4 pb-4 border rounded bg-white">
                 <div class="why-us-content">
                     <h4>Comfortable Vehicles</h4>
                     <p class="mb-2">Our vehicles are clean, reliable, and suited for different group sizes and travel styles.</p>
@@ -116,7 +116,7 @@ $preloadBanner = BASE_URL . "images/slider/1.webp";
             </div>
             </div>
             <div class="col-lg-3 col-md-6 col-sm-6 mb-4">
-            <div class="why-us-item p-4 pt-6 pb-6 border rounded bg-white">
+            <div class="why-us-item p-4 pt-4 pb-4 border rounded bg-white">
                 <div class="why-us-content">
                     <h4>Local Expertise</h4>
                     <p class="mb-2">We provide valuable local insights to help you discover the best places and hidden gems in Sri Lanka.</>
