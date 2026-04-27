@@ -5927,7 +5927,7 @@ svg:not(:root).svg-inline--fa {
     opacity: 0.5;
 }
 
-.subpage .header{
+.subpage .main_header_area{
   border-bottom: 1px solid #f1f1f1 !important;
 }
 .subpage .intro-section{
