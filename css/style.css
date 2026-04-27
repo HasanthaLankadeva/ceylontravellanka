@@ -1535,8 +1535,9 @@ header #navbar {
   border-bottom: 0; }
 
 .main_header_area {
-  position: relative;
-  width: 100%; }
+  position: fixed;
+  width: 100%;
+  background-color: #fff; }
   .main_header_area .notify-bar {
     background: linear-gradient(to right, #e9595e 1%, #dcb86c 100%);
     position: relative;
@@ -2178,7 +2179,7 @@ nav.navbar.navbar-default.navbar-sticky-in .logo-black {
 /*          Banner  CSS        */
 /* ======================================== */
 .banner {
-  margin: 0 45px;
+  margin: 138px 45px 0;
   border-radius: 15px;
   padding: 0;
   background-size: cover;
@@ -5817,7 +5818,7 @@ ul.sidebar-tags li {
 }
 
 section.discount-action{
-    background-image:url(../images/section-bg1.png); 
+    background-image:url(../images/experience.webp); 
     background-position:center;
 }
 .section-shape{
@@ -5919,6 +5920,12 @@ svg:not(:root).svg-inline--fa {
     width: 22px;
     fill: #fff;
 }
+.front-video-wrapper h2{
+  font-size: 45px;
+}
+.front-video-wrapper .dot-overlay {
+    opacity: 0.5;
+}
 
 @media (max-width: 1199.98px) {
     .about-us .feature-box {
@@ -5928,6 +5935,12 @@ svg:not(:root).svg-inline--fa {
 
 .itineraries .trending .trend-item{
   height: 294px;
+}
+
+@media (max-width: 991px){
+.banner {
+    margin-top: 98px !important;
+}
 }
 
 @media (max-width: 767px){
@@ -5951,4 +5964,11 @@ svg:not(:root).svg-inline--fa {
       display: block;
       margin: 0 auto;
     }
+    .front-video-wrapper.mx-5 {
+      margin-right: 1rem!important;
+      margin-left: 1rem!important;
+    }
+    section.discount-action {
+      background-position: left;
+  }
 }
