@@ -36,7 +36,7 @@ $OGdescription = "Book your Sri Lanka transport easily via WhatsApp. Contact us 
 
 <?php require_once BASE_PATH . '/includes/header.php';?>
 
-<section class="about-us pt-6 pb-6">
+<section class="intro-section about-us pt-6 pb-6">
     <div class="container">
         <div class="section-title mb-6 w-50 mx-auto text-center">
             <h1 class="mb-1">Contact Us – Book Your Sri Lanka Transport</h1>

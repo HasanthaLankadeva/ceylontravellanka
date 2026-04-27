@@ -5927,6 +5927,13 @@ svg:not(:root).svg-inline--fa {
     opacity: 0.5;
 }
 
+.subpage .header{
+  border-bottom: 1px solid #f1f1f1 !important;
+}
+.subpage .intro-section{
+  margin-top: 180px;
+}
+
 @media (max-width: 1199.98px) {
     .about-us .feature-box {
         margin: 0;
@@ -5970,5 +5977,8 @@ svg:not(:root).svg-inline--fa {
     }
     section.discount-action {
       background-position: left;
+  }
+  .subpage .intro-section{
+    margin-top: 98px;
   }
 }
