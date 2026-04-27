@@ -5915,7 +5915,6 @@ svg:not(:root).svg-inline--fa {
     width: 16px;
     fill: #fff;
 }
-
 .footer-copyright .tiktok svg{
     width: 22px;
     fill: #fff;
@@ -5925,6 +5924,10 @@ svg:not(:root).svg-inline--fa {
     .about-us .feature-box {
         margin: 0;
     }
+}
+
+.trending .trend-item{
+  height: 294px;
 }
 
 @media (max-width: 767px){
