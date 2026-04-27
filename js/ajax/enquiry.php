@@ -53,7 +53,7 @@ try {
 
     $mail->isHTML(true);
 
-    $mail->Subject = 'Enquiry';
+    $mail->Subject = 'Enquiry - Ceylon Travel Lanka';
 
     //convert HTML into a basic plain-text alternative body
     $mail->msgHTML('<!DOCTYPE html>

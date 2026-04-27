@@ -19,7 +19,7 @@ use PHPMailer\PHPMailer\Exception;
 
 $adminEmailAddress = $config['admin_email'];
 $name = $_POST['first_name'];
-$email = 'kadhlankadeva@gmail.com';
+$email = $_POST['email'];
 $phone = '';
 $message = '';
 
@@ -42,7 +42,7 @@ try {
 
     $mail->isHTML(true);
 
-    $mail->Subject = 'Enquiry';
+    $mail->Subject = 'Enquiry - Ceylon Travel Lanka';
     //$mail->Body    = 'Test email';
     
 
