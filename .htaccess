@@ -24,6 +24,10 @@ RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 # CLEAN URLS (REMOVE .php)
 # ==================================================
 
+# Skip AJAX
+RewriteCond %{REQUEST_URI} ^/js/ajax/ [NC]
+RewriteRule ^ - [L]
+
 # Redirect .php to clean URL (IMPORTANT for SEO)
 RewriteCond %{THE_REQUEST} \s/([^.]+)\.php [NC]
 RewriteRule ^(.+)\.php$ $1 [R=301,L]
