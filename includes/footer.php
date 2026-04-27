@@ -76,8 +76,7 @@
                         <ul>
                             <li><a href="<?= BASE_URL ?>contact.html">Contact Us</a></li>
                             <li><a href="<?= BASE_URL ?>tour-itineraries.html">Tour Itineraries</a></li>
-                            <li><a href="<?= BASE_URL ?>about-us.html">Privacy Policy</a></li>
-                            <li><a href="<?= BASE_URL ?>about-us.html">Terms &amp; Conditions</a></li>
+                            <li><a href="<?= BASE_URL ?>">Privacy Policy</a></li>
                         </ul>
                     </div>
                 </div>

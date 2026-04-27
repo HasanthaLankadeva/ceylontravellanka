@@ -138,7 +138,7 @@ $preloadBanner = BASE_URL . "images/slider/1.webp";
     <div class="white-overlay"></div>
 </section>
 
-<section class="trending pb-5 pt-0">
+<section class="trending pb-0 pt-0">
     <div class="container">
         <div class="section-title mb-6 w-50 mx-auto text-center">
             <h2 class="mb-3">Popular Routes with Private Drivers</h2>
@@ -222,7 +222,7 @@ $preloadBanner = BASE_URL . "images/slider/1.webp";
     </div-->
 </section>
 
-<section class="trending pb-0">
+<section class="trending pb-10">
     <div class="container">
         <div class="row align-items-center justify-content-between mb-6 ">
             <div class="col-lg-7">
@@ -334,15 +334,15 @@ $preloadBanner = BASE_URL . "images/slider/1.webp";
     </div>
 </section>
 
-<section class="discount-action pt-6">
+<section class="discount-action front-video-wrapper dc__action mx-5 text-center rounded overflow-visible mb-2">
     <div class="section-shape section-shape1 top-inherit bottom-0"></div>
         <div class="container">
             <div class="call-banner rounded pt-10 pb-14">
                 <div class="call-banner-inner w-75 mx-auto text-center px-5">
                     <div class="trend-content-main">
                         <div class="trend-content mb-5 pb-2 px-5">
-                            <h2>Experience Sri Lanka with Us</h2>
-                            <p>Watch how we help travelers explore Sri Lanka comfortably and safely.</p>
+                            <h2 class="white">Experience Sri Lanka with Us</h2>
+                            <h3 class="white">We help travelers explore Sri Lanka comfortably and safely.</h3>
                         </div>
                         <div class="video-button text-center position-relative">
                             <div class="call-button text-center">
@@ -356,7 +356,7 @@ $preloadBanner = BASE_URL . "images/slider/1.webp";
             </div>
         </div>
     </div>
-    <div class="white-overlay"></div>
+    <div class="dot-overlay rounded"></div>
 </section>
 
 <?php require_once BASE_PATH . '/includes/testimonials.php';?>
