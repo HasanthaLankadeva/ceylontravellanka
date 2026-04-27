@@ -47,7 +47,7 @@ $OGdescription = "Browse our expertly designed Sri Lanka itineraries or create y
 </section>
 
 <!-- blog starts -->
-<section class="blog pt-1">
+<section class="blog itineraries pt-1">
     <div class="container">
         <div class="row">
             <div class="col-lg-8 pe-lg-4">
