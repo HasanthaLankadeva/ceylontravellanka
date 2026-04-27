@@ -443,13 +443,13 @@ var _base_path = (_host == 'localhost') ? '/ceylontravellanka/' : '';
                     $("#enquiry_form")[0].reset();
 
                     $('html, body').animate({
-                        scrollTop: $('.contactform-msg').offset().top - 200
+                        scrollTop: $('.contactform-msg').offset().top - 300
                     }, '500');
 
-                    setTimeout(function(){
+                    /*setTimeout(function(){
                         $('.contactform-msg').html( '' );
                         $("#enquiry_form").show();
-                    },1000);
+                    },1000);*/
                 }     
             });
 

@@ -10,9 +10,9 @@ if ($host === 'localhost' || str_contains($host, '127.0.0.1')) {
     $config = require __DIR__ . '/../../config/config.prod.php';
 }
 
-require_once($config['base_url'] . 'PHPMailer/src/PHPMailer.php');
-require_once($config['base_url'] . 'PHPMailer/src/SMTP.php');
-require_once($config['base_url'] . 'PHPMailer/src/Exception.php');
+require_once($config['base_path'] . 'PHPMailer/src/PHPMailer.php');
+require_once($config['base_path'] . 'PHPMailer/src/SMTP.php');
+require_once($config['base_path'] . 'PHPMailer/src/Exception.php');
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
