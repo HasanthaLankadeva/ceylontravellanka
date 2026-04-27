@@ -36,7 +36,7 @@ $OGdescription = "Plan your perfect Sri Lanka trip with fully customized tours d
 
 <?php require_once BASE_PATH . '/includes/header.php';?>
 
-<section class="about-us pt-6 pb-6">
+<section class="intro-section about-us pt-6 pb-6">
     <div class="container">
         <div class="section-title mb-6 w-50 mx-auto text-center">
             <h1 class="mb-1">Tailor-Made Sri Lanka Tours</h1>
