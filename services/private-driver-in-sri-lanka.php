@@ -94,7 +94,7 @@ $preloadBanner = BASE_URL . "images/slider/1.webp";
             <div class="offer_banner justify-content-center">
                 <img src="<?= BASE_URL ?>images/included_1.webp" alt="Airport pickup & drop-off">
                 <div class="content-2 position-relative d-flex flex-column justify-content-center gap-3">
-                  <h2 class="bg-grey p-3 mb-0">Airport pickup & drop-off</h2>
+                  <h3 class="bg-grey p-3 mb-0">Airport pickup & drop-off</h3>
                 </div>
             </div>
           </div>
@@ -102,7 +102,7 @@ $preloadBanner = BASE_URL . "images/slider/1.webp";
             <div class="offer_banner justify-content-center">
                 <img src="<?= BASE_URL ?>images/included_2.webp" alt="Full-day driver hire">
                 <div class="content-2 position-relative d-flex flex-column justify-content-center gap-3">
-                  <h2 class="bg-grey p-3 mb-0">Full-day driver hire</h2>
+                  <h3 class="bg-grey p-3 mb-0">Full-day driver hire</h3>
                 </div>
             </div>
           </div>
@@ -110,7 +110,7 @@ $preloadBanner = BASE_URL . "images/slider/1.webp";
             <div class="offer_banner justify-content-center">
                 <img src="<?= BASE_URL ?>images/included_3.webp" alt="Multi-day tours">
                 <div class="content-2 position-relative d-flex flex-column justify-content-center gap-3">
-                  <h2 class="bg-grey p-3 mb-0">Multi-day tours</h2>
+                  <h3 class="bg-grey p-3 mb-0">Multi-day tours</h3>
                 </div>
             </div>
           </div>
@@ -118,7 +118,7 @@ $preloadBanner = BASE_URL . "images/slider/1.webp";
             <div class="offer_banner justify-content-center">
                 <img src="<?= BASE_URL ?>images/included_4.webp" alt="Fuel & driver included">
                 <div class="content-2 position-relative d-flex flex-column justify-content-center gap-3">
-                  <h2 class="bg-grey p-3 mb-0">Fuel & driver included</h2>
+                  <h3 class="bg-grey p-3 mb-0">Fuel & driver included</h3>
                 </div>
             </div>
           </div>
