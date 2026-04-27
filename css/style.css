@@ -1569,7 +1569,7 @@ header #navbar {
       vertical-align: middle;
      }
   .main_header_area .header_menu.fixed-top {
-    box-shadow: 0 0 15px #cccccc37;
+    box-shadow: 0 0 15px #cccccc5c;
     background: #fff; }
   .main_header_area .header_menu.hide {
     top: -94px;
