@@ -57,23 +57,23 @@ $OGdescription = "Browse our expertly designed Sri Lanka itineraries or create y
                             <div class="row">
                                 <div class="col-lg-4 col-md-3">
                                 <div class="trend-item trend-item2 rounded">
-                                        <a href="tour-single.html">
-                                            <img src="<?= BASE_URL ?>images/trending/trending2.jpg" alt="image" class="">
+                                        <a href="#">
+                                            <img src="<?= BASE_URL ?>images/it_l_1.webp" alt="image" class="" alt="4 Day Sri Lanka Tour Itinerary">
                                         </a>
                                         <div class="color-overlay"></div>
                                     </div> 
                                 </div>
                                 <div class="col-lg-8 col-md-9">
                                     <div class="trend-content position-relative text-md-start">
-                                        <h3 class="mb-1"><a href="<?= BASE_URL ?>tour-single.html">4 Day Sri Lanka Tour Itinerary</a></h3>
+                                        <h3 class="mb-1"><a href="#">4 Day Sri Lanka Tour Itinerary</a></h3>
                                         <h5 class="theme mb-1">Short Travel Package</h5>
-                                        <p class="mt-3 mb-3"><strong>Route:</strong> Colombo → Kandy → Sigiriya → Nuwara Eliya → Ella → Bentota</p>
+                                        <p class="mt-3 mb-3"><strong>Route:</strong> Kandy → Nuwara Eliya → Ella → Bentota</p>
                                         <p class="mb-3 itinerary-highlights">Temple of the Tooth • Tea Plantations • Gregory Lake • Bentota Beach</p>
-                                        <p class="mb-3">Explore Sri Lanka’s cultural capital, scenic hill country, and relaxing beaches in a short 4-day journey.</p>
+                                        <p class="mb-3">Explore the cultural capital and scenic hill country before relaxing on the coast in this essential 4-day escape.</p>
                                         <!--p class="mb-4"><a href="#"><span class="theme"> Read More →</span></a></p-->
                                         <div class="slider-button">
-                                            <a href="https://wa.me/+94779177093?text=I'm%20interested%20in%20your%20services" class="nir-btn me-4" tabindex="0">Book via WhatsApp</a>
-                                            <a href="mailto:contact@ceylontravellanka.com" class="nir-btn-black" tabindex="0">Get Free Quote</a>
+                                            <a href="https://wa.me/+94779177093?text=I'm%20interested%20in%204%20Day%20Sri%20Lanka%20Tour%20Itinerary" class="nir-btn me-4" tabindex="0" target="_blank" rel="noopener noreferrer">Book via WhatsApp</a>
+                                            <a href="mailto:contact@ceylontravellanka.com?subject=Inquiry: 4 Day Sri Lanka Tour Itinerary" class="nir-btn-black" tabindex="0">Get Free Quote</a>
                                         </div>
                                     </div>
                                 </div>
@@ -84,23 +84,23 @@ $OGdescription = "Browse our expertly designed Sri Lanka itineraries or create y
                             <div class="row">
                                 <div class="col-lg-4 col-md-3">
                                 <div class="trend-item trend-item2 rounded">
-                                        <a href="<?= BASE_URL ?>tour-single.html">
-                                            <img src="<?= BASE_URL ?>images/trending/trending2.jpg" alt="image" class="">
+                                        <a href="#">
+                                            <img src="<?= BASE_URL ?>images/it_1_2.webp" alt="image" class="" alt="6 Day Sri Lanka Tour Itinerary">
                                         </a>
                                         <div class="color-overlay"></div>
                                     </div> 
                                 </div>
                                 <div class="col-lg-8 col-md-9">
                                     <div class="trend-content position-relative text-md-start">
-                                        <h3 class="mb-1"><a href="<?= BASE_URL ?>tour-single.html">6 Day Sri Lanka Tour Itinerary</a></h3>
+                                        <h3 class="mb-1"><a href="#">6 Day Sri Lanka Tour Itinerary</a></h3>
                                         <h5 class="theme mb-1">Culture & Scenic Highlights</h5>
-                                        <p class="mt-3 mb-3"><strong>Route:</strong> Colombo → Kandy → Sigiriya → Nuwara Eliya → Bentota</p>
-                                        <p class="mb-3 itinerary-highlights">Temple of the Tooth • Cultural Dance Show • Sigiriya Lion Rock • Dambulla Cave Temple • Tea Estates • Gregory Lake • Bentota Beach • River Safari</p>
-                                        <p class="mb-3">Experience Sri Lanka’s cultural heritage, ancient landmarks, scenic hill country, and relaxing beaches in this 6-day journey.</p>
+                                        <p class="mt-3 mb-3"><strong>Route:</strong> Colombo → Sigiriya → Kandy → Nuwara Eliya → Bentota</p>
+                                        <p class="mb-3 itinerary-highlights">Dambulla Cave Temple • Sigiriya Lion Rock • Temple of the Tooth • Cultural Dance Show • Tea Estates • Gregory Lake • Bentota Beach • River Safari</p>
+                                        <p class="mb-3">Experience the perfect blend of majestic heritage sites, lush highlands, and coastal relaxation in one immersive week.</p>
                                         <!--p class="mb-4"><a href="#"><span class="theme"> Read More →</span></a></p-->
                                         <div class="slider-button">
-                                            <a href="https://wa.me/+94779177093?text=I'm%20interested%20in%20your%20services" class="nir-btn me-4" tabindex="0">Book via WhatsApp</a>
-                                            <a href="mailto:contact@ceylontravellanka.com" class="nir-btn-black" tabindex="0">Get Free Quote</a>
+                                            <a href="https://wa.me/+94779177093?text=I'm%20interested%20in%206%20Day%20Sri%20Lanka%20Tour%20Itinerary" class="nir-btn me-4" tabindex="0" target="_blank" rel="noopener noreferrer">Book via WhatsApp</a>
+                                            <a href="mailto:contact@ceylontravellanka.com?subject=Inquiry: 6 Day Sri Lanka Tour Itinerary" class="nir-btn-black" tabindex="0">Get Free Quote</a>
                                         </div>
                                     </div>
                                 </div>
@@ -111,23 +111,23 @@ $OGdescription = "Browse our expertly designed Sri Lanka itineraries or create y
                             <div class="row">
                                 <div class="col-lg-4 col-md-3">
                                 <div class="trend-item trend-item2 rounded">
-                                        <a href="<?= BASE_URL ?>tour-single.html">
-                                            <img src="<?= BASE_URL ?>images/trending/trending2.jpg" alt="image" class="">
+                                        <a href="#">
+                                            <img src="<?= BASE_URL ?>images/it_l_3.webp" alt="image" class="" alt="7 Day Sri Lanka Tour Itinerary">
                                         </a>
                                         <div class="color-overlay"></div>
                                     </div> 
                                 </div>
                                 <div class="col-lg-8 col-md-9">
                                     <div class="trend-content position-relative text-md-start">
-                                        <h3 class="mb-1"><a href="<?= BASE_URL ?>tour-single.html">7 Day Sri Lanka Tour Itinerary</a></h3>
+                                        <h3 class="mb-1"><a href="#">7 Day Sri Lanka Tour Itinerary</a></h3>
                                         <h5 class="theme mb-1">Classic Island Experience</h5>
-                                        <p class="mt-3 mb-3"><strong>Route:</strong> Colombo → Kandy → Sigiriya → Nuwara Eliya → Ella → Bentota</p>
-                                        <p class="mb-3 itinerary-highlights">Temple of the Tooth • Sigiriya Lion Rock • Dambulla Cave Temple • Tea Estates • Ella Nine Arches Bridge • Little Adam’s Peak • Bentota Beach • Water Sports</p>
-                                        <p class="mb-3">Discover Sri Lanka’s cultural landmarks, scenic hill country, iconic train routes, and beautiful beaches in this well-balanced 7-day journey.</p>
+                                        <p class="mt-3 mb-3"><strong>Route:</strong> Sigiriya → Habarana → Polonnaruwa → Trincomalee → Colombo</p>
+                                        <p class="mb-3 itinerary-highlights">Dambulla Cave Temple • Sigiriya Lion Rock • Polonnaruwa Ancient City • Minneriya Elephant Safari • Trincomalee Hindu Kovils • Nilaveli Beach • Colombo City Tour & Shopping</p>
+                                        <p class="mb-3">Discover historic landmarks and majestic wildlife before heading to the beautiful beaches of Trincomalee.</p>
                                         <!--p class="mb-4"><a href="#"><span class="theme"> Read More →</span></a></p-->
                                         <div class="slider-button">
-                                            <a href="https://wa.me/+94779177093?text=I'm%20interested%20in%20your%20services" class="nir-btn me-4" tabindex="0">Book via WhatsApp</a>
-                                            <a href="mailto:contact@ceylontravellanka.com" class="nir-btn-black" tabindex="0">Get Free Quote</a>
+                                            <a href="https://wa.me/+94779177093?text=I'm%20interested%20in%207%20Day%20Sri%20Lanka%20Tour%20Itinerary" class="nir-btn me-4" tabindex="0" target="_blank" rel="noopener noreferrer">Book via WhatsApp</a>
+                                            <a href="mailto:contact@ceylontravellanka.com?subject=Inquiry: 7 Day Sri Lanka Tour Itinerary" class="nir-btn-black" tabindex="0">Get Free Quote</a>
                                         </div>
                                     </div>
                                 </div>
@@ -138,23 +138,23 @@ $OGdescription = "Browse our expertly designed Sri Lanka itineraries or create y
                             <div class="row">
                                 <div class="col-lg-4 col-md-3">
                                 <div class="trend-item trend-item2 rounded">
-                                        <a href="<?= BASE_URL ?>tour-single.html">
-                                            <img src="<?= BASE_URL ?>images/trending/trending2.jpg" alt="image" class="">
+                                        <a href="#">
+                                            <img src="<?= BASE_URL ?>images/it_1_4.webp" alt="image" class="" alt="10 Day Sri Lanka Tour Itinerary">
                                         </a>
                                         <div class="color-overlay"></div>
                                     </div> 
                                 </div>
                                 <div class="col-lg-8 col-md-9">
                                     <div class="trend-content position-relative text-md-start">
-                                        <h3 class="mb-1"><a href="<?= BASE_URL ?>tour-single.html">10 Day Sri Lanka Tour Itinerary</a></h3>
+                                        <h3 class="mb-1"><a href="#">10 Day Sri Lanka Tour Itinerary</a></h3>
                                         <h5 class="theme mb-1">Complete Island Journey</h5>
-                                        <p class="mt-3 mb-3"><strong>Route:</strong> Colombo → Sigiriya → Anuradhapura → Kandy → Nuwara Eliya → Ella → Yala → Bentota</p>
+                                        <p class="mt-3 mb-3"><strong>Route:</strong> Colombo → Anuradhapura → Sigiriya → Kandy → Nuwara Eliya → Ella → Yala → Tangalle → Bentota</p>
                                         <p class="mb-3 itinerary-highlights">Sigiriya Lion Rock • Village Tour Experience • Anuradhapura Ancient City • Sri Maha Bodhi • Temple of the Tooth • Peradeniya Botanical Gardens • Tea Estates • Waterfalls • Ella Nine Arches Bridge • Little Adam’s Peak • Yala National Park Safari • Bentota Beach • Water Sports</p>
-                                        <p class="mb-3">Experience the complete beauty of Sri Lanka with this 10-day journey covering ancient cities, cultural landmarks, scenic hill country, wildlife safaris, and relaxing beaches.</p>
+                                        <p class="mb-3">A comprehensive journey through the heart of the island, featuring world-class wildlife, sacred cities, and southern beaches.</p>
                                         <!--p class="mb-4"><a href="#"><span class="theme"> Read More →</span></a></p-->
                                         <div class="slider-button">
-                                            <a href="https://wa.me/+94779177093?text=I'm%20interested%20in%20your%20services" class="nir-btn me-4" tabindex="0">Book via WhatsApp</a>
-                                            <a href="mailto:contact@ceylontravellanka.com" class="nir-btn-black" tabindex="0">Get Free Quote</a>
+                                            <a href="https://wa.me/+94779177093?text=I'm%20interested%20in%2010%20Day%20Sri%20Lanka%20Tour%20Itinerary" class="nir-btn me-4" tabindex="0" target="_blank" rel="noopener noreferrer">Book via WhatsApp</a>
+                                            <a href="mailto:contact@ceylontravellanka.com?subject=Inquiry: 10 Day Sri Lanka Tour Itinerary" class="nir-btn-black" tabindex="0">Get Free Quote</a>
                                         </div>
                                     </div>
                                 </div>
@@ -165,23 +165,23 @@ $OGdescription = "Browse our expertly designed Sri Lanka itineraries or create y
                             <div class="row">
                                 <div class="col-lg-4 col-md-3">
                                 <div class="trend-item trend-item2 rounded">
-                                        <a href="<?= BASE_URL ?>tour-single.html">
-                                            <img src="<?= BASE_URL ?>images/trending/trending2.jpg" alt="image" class="">
+                                        <a href="#">
+                                            <img src="<?= BASE_URL ?>images/it_1_5.webp" alt="image" class="" alt="15 Day Sri Lanka Tour Itinerary">
                                         </a>
                                         <div class="color-overlay"></div>
                                     </div> 
                                 </div>
                                 <div class="col-lg-8 col-md-9">
                                     <div class="trend-content position-relative text-md-start">
-                                        <h3 class="mb-1"><a href="<?= BASE_URL ?>tour-single.html">15 Day Sri Lanka Tour Itinerary</a></h3>
+                                        <h3 class="mb-1"><a href="#">15 Day Sri Lanka Tour Itinerary</a></h3>
                                         <h5 class="theme mb-1">Ultimate Sri Lanka Travel Experience</h5>
-                                        <p class="mt-3 mb-3"><strong>Route:</strong> Colombo → Negombo → Anuradhapura → Sigiriya → Kandy → Nuwara Eliya → Ella → Yala → Mirissa → Galle → Bentota</p>
+                                        <p class="mt-3 mb-3"><strong>Route:</strong> Negombo → Anuradhapura → Sigiriya → Kandy → Haputhale → Ella → Yala → Mirissa → Galle → Hikkaduwa → Bentota → Colombo</p>
                                         <p class="mb-3 itinerary-highlights">Negombo Lagoon & Fish Market • Anuradhapura Ancient City & Stupas • Sigiriya Lion Rock • Dambulla Cave Temple • Temple of the Tooth • Cultural Dance Show • Tea Plantations • Ella Nine Arches Bridge • Little Adam’s Peak • Yala National Park Safari • Mirissa Whale Watching • Galle Dutch Fort • Bentota Beach • Water Sports • River Safari</p>
-                                        <p class="mb-3">Explore the very best of Sri Lanka with this comprehensive 15-day journey covering ancient cities, cultural landmarks, scenic hill country, wildlife safaris, and stunning coastal destinations.</p>
+                                        <p class="mb-3">Experience the soul of Sri Lanka in this 15-day odyssey featuring history, nature, mountains, and the entire southern coastline.</p>
                                         <!--p class="mb-4"><a href="#"><span class="theme"> Read More →</span></a></p-->
                                         <div class="slider-button">
-                                            <a href="https://wa.me/+94779177093?text=I'm%20interested%20in%20your%20services" class="nir-btn me-4" tabindex="0">Book via WhatsApp</a>
-                                            <a href="mailto:contact@ceylontravellanka.com" class="nir-btn-black" tabindex="0">Get Free Quote</a>
+                                            <a href="https://wa.me/+94779177093?text=I'm%20interested%20in%2015%20Day%20Sri%20Lanka%20Tour%20Itinerary" class="nir-btn me-4" tabindex="0" target="_blank" rel="noopener noreferrer">Book via WhatsApp</a>
+                                            <a href="mailto:contact@ceylontravellanka.com?subject=Inquiry: 15 Day Sri Lanka Tour Itinerary" class="nir-btn-black" tabindex="0">Get Free Quote</a>
                                         </div>
                                     </div>
                                 </div>
@@ -206,7 +206,7 @@ $OGdescription = "Browse our expertly designed Sri Lanka itineraries or create y
                                     <p class="mb-2">We provide reliable and affordable transport services for travelers visiting Sri Lanka. From airport pickups to full island tours, we ensure a smooth and enjoyable journey.</p>
                                     <div class="header-social">
                                         <ul>
-                                            <li><a href="#"><i class="rounded">
+                                            <li><a href="https://www.tiktok.com/@ceylon.travel.lanka" target="_blank"><i class="rounded">
                                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><!--!Font Awesome Free v7.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2026 Fonticons, Inc.--><path d="M544.5 273.9C500.5 274 457.5 260.3 421.7 234.7L421.7 413.4C421.7 446.5 411.6 478.8 392.7 506C373.8 533.2 347.1 554 316.1 565.6C285.1 577.2 251.3 579.1 219.2 570.9C187.1 562.7 158.3 545 136.5 520.1C114.7 495.2 101.2 464.1 97.5 431.2C93.8 398.3 100.4 365.1 116.1 336C131.8 306.9 156.1 283.3 185.7 268.3C215.3 253.3 248.6 247.8 281.4 252.3L281.4 342.2C266.4 337.5 250.3 337.6 235.4 342.6C220.5 347.6 207.5 357.2 198.4 369.9C189.3 382.6 184.4 398 184.5 413.8C184.6 429.6 189.7 444.8 199 457.5C208.3 470.2 221.4 479.6 236.4 484.4C251.4 489.2 267.5 489.2 282.4 484.3C297.3 479.4 310.4 469.9 319.6 457.2C328.8 444.5 333.8 429.1 333.8 413.4L333.8 64L421.8 64C421.7 71.4 422.4 78.9 423.7 86.2C426.8 102.5 433.1 118.1 442.4 131.9C451.7 145.7 463.7 157.5 477.6 166.5C497.5 179.6 520.8 186.6 544.6 186.6L544.6 274z"></path></svg>
                                             </i></a></li>
                                             <li><a href="https://www.instagram.com/cey78229/" target="_blank"><i class="fab fa-instagram rounded" aria-hidden="true"></i></a></li>
