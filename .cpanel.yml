@@ -1,8 +1,11 @@
 deployment:
   tasks:
-    # Set deployment path for PRODUCTION and DEVELOPMENT
+    # 1. Detect the branch manually within the script
+    - export CURRENT_BRANCH=$(git rev-parse --abbrev-ref HEAD)
+    
+    # 2. Set the path based on that branch
     - |
-      if [ "$DEPLOYMENT_BRANCH" = "master" ]; then
+      if [ "$CURRENT_BRANCH" = "master" ]; then
         export DEPLOYPATH=/home/ceylontr/public_html
       else
         export DEPLOYPATH=/home/ceylontr/development
