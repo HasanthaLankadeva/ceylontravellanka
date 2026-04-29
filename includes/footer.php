@@ -74,9 +74,9 @@
                     <div class="footer-links">
                         <h3 class="white">Quick link</h3>
                         <ul>
-                            <li><a href="<?= BASE_URL ?>contact.html">Contact Us</a></li>
-                            <li><a href="<?= BASE_URL ?>tour-itineraries.html">Tour Itineraries</a></li>
-                            <li><a href="<?= BASE_URL ?>">Privacy Policy</a></li>
+                            <li><a href="<?= BASE_URL ?>contact.php">Contact Us</a></li>
+                            <li><a href="<?= BASE_URL ?>tour-itineraries.php">Tour Itineraries</a></li>
+                            <li><a href="<?= BASE_URL ?>privacy.php">Privacy Policy</a></li>
                         </ul>
                     </div>
                 </div>
