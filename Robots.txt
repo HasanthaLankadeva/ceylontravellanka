@@ -1,3 +1,3 @@
 User-agent: *
 Allow: /
-Sitemap: https://ceylontravellanka.com//sitemap.xml
+Sitemap: https://ceylontravellanka.com/sitemap.xml
