@@ -6019,7 +6019,8 @@ section .underline{
 }
 
 .itineraries .trending .trend-item{
-  height: 294px;
+  height: auto;
+  max-height: 294px;
 }
 
 @media (max-width: 991px){
@@ -6059,4 +6060,12 @@ section .underline{
   .subpage .intro-section{
     margin-top: 98px;
   }
+  .testimonial .testimonial-item1 .author-info{
+    display: flex !important;
+  }
+  .itineraries .trending .trend-item {
+    width: 258px;
+    margin-left: auto;
+    margin-right: auto;
+}
 }
