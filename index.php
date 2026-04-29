@@ -142,7 +142,7 @@ $preloadBanner = BASE_URL . "images/slider/1.webp";
     <div class="container">
         <div class="section-title mb-6 w-50 mx-auto text-center">
             <h2 class="mb-3">Popular Routes with Private Drivers</h2>
-            <p>Our private drivers cover all major tourist routes in Sri Lanka, making it easy to travel between destinations.</p>
+            <p>Our <a href="<?= BASE_URL ?>services/private-driver-in-sri-lanka.php" class="underline">private drivers</a> cover all major tourist routes in Sri Lanka, making it easy to travel between destinations.</p>
         </div>
         <div class="row align-items-center">
             <div class="col-lg-5 mb-4">
@@ -239,14 +239,14 @@ $preloadBanner = BASE_URL . "images/slider/1.webp";
                 <div class="col-lg-4 col-md-6 col-sm-6 mb-4">
                     <div class="trend-item rounded box-shadow">
                         <div class="trend-image position-relative">
-                            <img src="<?= BASE_URL ?>images/trending/trending2.jpg" alt="4 Day Sri Lanka Tour Itinerary" class>
+                            <img src="<?= BASE_URL ?>images/it_1.webp" alt="4 Day Sri Lanka Tour Itinerary" class>
                             <div class="color-overlay"></div>
                         </div>
                         <div class="trend-content p-4 pt-5 position-relative">
                             <h3 class="mb-1 itinerary-title"><a href="<?= BASE_URL ?>tour-itineraries.php">4 Day Sri Lanka Tour Itinerary</a></h3>
-                            <p class=" border-b pb-2 mb-2"><strong>Route:</strong> Colombo → Kandy → Sigiriya → Nuwara Eliya → Ella → Bentota</p>
+                            <p class=" border-b pb-2 mb-2"><strong>Route:</strong> Kandy → Nuwara Eliya → Ella → Bentota</p>
                             <div class="entry-meta">
-                                <div class="entry-author d-flex align-items-center mb-3">Explore Sri Lanka’s cultural capital, scenic hill country, and relaxing beaches in a short 4-day journey.</div>
+                                <div class="entry-author d-flex align-items-center mb-3">A perfect snapshot of the island featuring sacred Kandy, misty tea trails in Ella, and the golden shores of Bentota.</div>
                                 <div class="slider-button">
                                     <a href="mailto:contact@ceylontravellanka.com" class="nir-btn-black" tabindex="0">Get Free Quote</a>
                                 </div>
@@ -257,14 +257,14 @@ $preloadBanner = BASE_URL . "images/slider/1.webp";
                 <div class="col-lg-4 col-md-6 col-sm-6 mb-4">
                     <div class="trend-item box-shadow rounded">
                         <div class="trend-image position-relative">
-                            <img src="<?= BASE_URL ?>images/trending/trending3.jpg" alt="image">
+                            <img src="<?= BASE_URL ?>images/it_2.webp" alt="image">
                             <div class="color-overlay"></div>
                         </div>
                         <div class="trend-content p-4 pt-5 position-relative">
                             <h3 class="mb-1 itinerary-title"><a href="<?= BASE_URL ?>tour-itineraries.php">6 Day Sri Lanka Tour Itinerary</a></h3>
-                            <p class=" border-b pb-2 mb-2"><strong>Route:</strong> Colombo → Kandy → Sigiriya → Nuwara Eliya → Bentota</p>
+                            <p class=" border-b pb-2 mb-2"><strong>Route:</strong> Colombo → Sigiriya → Kandy → Nuwara Eliya → Bentota</p>
                             <div class="entry-meta">
-                                <div class="entry-author d-flex align-items-center mb-3">Experience Sri Lanka’s cultural heritage, ancient landmarks, scenic hill country, and relaxing beaches in this 6-day journey.</div>
+                                <div class="entry-author d-flex align-items-center mb-3">Journey through ancient fortresses and tea-covered mountains toward a tropical beach finale.</div>
                                 <div class="slider-button">
                                     <a href="mailto:contact@ceylontravellanka.com" class="nir-btn-black" tabindex="0">Get Free Quote</a>
                                 </div>
@@ -275,14 +275,14 @@ $preloadBanner = BASE_URL . "images/slider/1.webp";
                 <div class="col-lg-4 col-md-6 col-sm-6 mb-4">
                     <div class="trend-item box-shadow rounded">
                         <div class="trend-image position-relative">
-                            <img src="<?= BASE_URL ?>images/trending/trending3.jpg" alt="image">
+                            <img src="<?= BASE_URL ?>images/it_3.webp" alt="image">
                             <div class="color-overlay"></div>
                         </div>
                         <div class="trend-content p-4 pt-5 position-relative">
                             <h3 class="mb-1 itinerary-title"><a href="<?= BASE_URL ?>tour-itineraries.php">7 Day Sri Lanka Tour Itinerary</a></h3>
-                            <p class=" border-b pb-2 mb-2"><strong>Route:</strong> Colombo → Kandy → Sigiriya → Nuwara Eliya → Ella → Bentota</p>
+                            <p class=" border-b pb-2 mb-2"><strong>Route:</strong> Sigiriya → Habarana → Polonnaruwa → Trincomalee → Colombo</p>
                             <div class="entry-meta">
-                                <div class="entry-author d-flex align-items-center mb-3">Discover Sri Lanka’s cultural landmarks, scenic hill country, iconic train routes, and beautiful beaches in this well-balanced 7-day journey.</div>
+                                <div class="entry-author d-flex align-items-center mb-3">Dive deep into the Cultural Triangle and unwind on the pristine white sands of the East Coast.</div>
                                 <div class="slider-button">
                                     <a href="mailto:contact@ceylontravellanka.com" class="nir-btn-black" tabindex="0">Get Free Quote</a>
                                 </div>
@@ -293,14 +293,14 @@ $preloadBanner = BASE_URL . "images/slider/1.webp";
                 <div class="col-lg-4 col-md-6 col-sm-6 mb-4">
                     <div class="trend-item box-shadow rounded">
                         <div class="trend-image position-relative">
-                            <img src="<?= BASE_URL ?>images/trending/trending3.jpg" alt="image">
+                            <img src="<?= BASE_URL ?>images/it_4.webp" alt="image">
                             <div class="color-overlay"></div>
                         </div>
                         <div class="trend-content p-4 pt-5 position-relative">
                             <h3 class="mb-1 itinerary-title"><a href="<?= BASE_URL ?>tour-itineraries.php">10 Day Sri Lanka Tour Itinerary</a></h3>
-                            <p class=" border-b pb-2 mb-2"><strong>Route:</strong> Colombo → Sigiriya → Anuradhapura → Kandy → Nuwara Eliya → Ella → Yala → Bentota</p>
+                            <p class=" border-b pb-2 mb-2"><strong>Route:</strong> Colombo → Anuradhapura → Sigiriya → Kandy → Nuwara Eliya → Ella → Yala → Tangalle → Bentota</p>
                             <div class="entry-meta">
-                                <div class="entry-author d-flex align-items-center mb-3">Experience the complete beauty of Sri Lanka with this 10-day journey covering ancient cities, cultural landmarks, scenic hill country, wildlife safaris, and relaxing beaches.</div>
+                                <div class="entry-author d-flex align-items-center mb-3">The ultimate cross-country adventure covering ancient ruins, mountain peaks, and wild safari plains.</div>
                                 <div class="slider-button">
                                     <a href="mailto:contact@ceylontravellanka.com" class="nir-btn-black" tabindex="0">Get Free Quote</a>
                                 </div>
@@ -311,14 +311,14 @@ $preloadBanner = BASE_URL . "images/slider/1.webp";
                 <div class="col-lg-4 col-md-6 col-sm-6 mb-4">
                     <div class="trend-item box-shadow rounded">
                         <div class="trend-image position-relative">
-                            <img src="<?= BASE_URL ?>images/trending/trending3.jpg" alt="image">
+                            <img src="<?= BASE_URL ?>images/it_5.webp" alt="image">
                             <div class="color-overlay"></div>
                         </div>
                         <div class="trend-content p-4 pt-5 position-relative">
                             <h3 class="mb-1 itinerary-title"><a href="<?= BASE_URL ?>tour-itineraries.php">15 Day Sri Lanka Tour Itinerary</a></h3>
-                            <p class=" border-b pb-2 mb-2"><strong>Route:</strong> Colombo → Negombo → Anuradhapura → Sigiriya → Kandy → Nuwara Eliya → Ella → Yala → Mirissa → Galle → Bentota</p>
+                            <p class=" border-b pb-2 mb-2"><strong>Route:</strong> Negombo → Anuradhapura → Sigiriya → Kandy → Haputhale → Ella → Yala → Mirissa → Galle → Hikkaduwa → Bentota → Colombo</p>
                             <div class="entry-meta">
-                                <div class="entry-author d-flex align-items-center mb-3">Explore the very best of Sri Lanka with this comprehensive 15-day journey covering ancient cities, cultural landmarks, scenic hill country, wildlife safaris, and stunning coastal destinations.</div>
+                                <div class="entry-author d-flex align-items-center mb-3">Our most complete grand tour—covering every iconic destination from the north to the south coast.</div>
                                 <div class="slider-button">
                                     <a href="mailto:contact@ceylontravellanka.com" class="nir-btn-black" tabindex="0">Get Free Quote</a>
                                 </div>

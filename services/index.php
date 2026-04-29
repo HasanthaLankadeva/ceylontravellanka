@@ -41,7 +41,7 @@ $preloadBanner = BASE_URL . "images/slider/1.webp";
     <div class="container">
         <div class="section-title mb-6 w-50 mx-auto text-center">
             <h1 class="mb-1">Sri Lanka Travel Services</h1>
-            <p>Discover a full range of professional travel services in Sri Lanka designed to make your journey smooth, comfortable, and unforgettable. From airport transfers and private drivers to customized tours and day excursions, we provide reliable and flexible travel solutions tailored to your needs.</p>
+            <p>Discover a full range of professional travel services in Sri Lanka designed to make your journey smooth, comfortable, and unforgettable. From <a href="<?= BASE_URL ?>services/airport-transfer.php" class="underline">airport transfers</a> and <a href="<?= BASE_URL ?>services/private-driver-in-sri-lanka.php" class="underline">private drivers</a> to customized tours and day excursions, we provide reliable and flexible travel solutions <a href="<?= BASE_URL ?>tailor-made-tours.php" class="underline">tailored</a> to your needs.</p>
             <p>At Ceylon Travel Lanka, we combine local expertise with personalized service to ensure every part of your trip is seamless. Whether you're planning a short visit or a long holiday, our services are designed to give you complete peace of mind.</p>
         </div>
     </div>
@@ -67,13 +67,13 @@ $preloadBanner = BASE_URL . "images/slider/1.webp";
                 <img src="<?= BASE_URL ?>images/s_2.webp" alt="Search Destination" class="step-icon mb-3">
                 <h3><a href="<?= BASE_URL ?>services/private-driver-sri-lanka.php">Private Driver in Sri Lanka</a></h3>
                 <p class="mb-2">Hire a private driver for flexible and comfortable travel around the island at your own pace.</p>
-                <p class="mb-0"><a class="theme" href="<?= BASE_URL ?>services/airport-transfer.php">Read More →</a></p>
+                <p class="mb-0"><a class="theme" href="<?= BASE_URL ?>services/private-driver-in-sri-lanka.php">Read More →</a></p>
             </div>
             <div class="col-md-4 step-card mb-6">
                 <img src="<?= BASE_URL ?>images/s_3.webp" alt="Search Destination" class="step-icon mb-3">
                 <h3><a href="<?= BASE_URL ?>services/car-rental-with-driver.php">Car Rental with Driver</a></h3>
                 <p class="mb-2">Choose from a range of vehicles with experienced drivers for a smooth travel experience.</p>
-                <p class="mb-0"><a class="theme" href="<?= BASE_URL ?>services/airport-transfer.php">Read More →</a></p>
+                <p class="mb-0"><a class="theme" href="<?= BASE_URL ?>services/car-rental-with-driver.php">Read More →</a></p>
             </div>
         </div>
     </div>
