@@ -3,9 +3,9 @@ deployment:
     # Set deployment path for PRODUCTION and DEVELOPMENT
     - |
       if [ "$DEPLOYMENT_BRANCH" = "master" ]; then
-        DEPLOYPATH=/home/ceylontr/public_html
+        export DEPLOYPATH=/home/ceylontr/public_html
       else
-        DEPLOYPATH=/home/ceylontr/development
+        export DEPLOYPATH=/home/ceylontr/development
       fi
 
     # Ensure target directory exists
