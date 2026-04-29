@@ -6023,6 +6023,13 @@ section .underline{
   max-height: 294px;
 }
 
+.privacy-section h2 {
+    font-size: 26px;
+}
+.privacy-section .section-title {
+    text-align: left !important;
+}
+
 @media (max-width: 991px){
 .banner {
     margin-top: 98px !important;
