@@ -129,7 +129,7 @@
                                 </a>
                             </div>
                             <div class="details">
-                                <a href="https://www.tripadvisor.com/ShowUserReviews-g11999643-d25571146-r891136140-Ceylon_Travel_Lanka-Minuwangoda_Western_Province.html" target="_blank">
+                                <a href="https://www.tripadvisor.com/ShowUserReviews-g11999643-d25571146-r891208846-Ceylon_Travel_Lanka-Minuwangoda_Western_Province.html" target="_blank">
                                     <p class="mb-2"><b>Thanks Prabash..!</b></p>
                                     <p class="mb-2">We are a couple from Australia, and we can describe our experience in one simple word, AMAZING!!! Our Tourguide Prabash is so cool, helpfull, always available and Prabash is one of the best guides that we have had so far. The way that he managed all the trips, situations, suggestions that he provided to us were amazing.</p>
                                     <p class="m-0">Read More →</p>
