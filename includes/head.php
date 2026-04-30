@@ -24,7 +24,7 @@
 <meta property="og:image" content="https://ceylontravellanka.com/images/og-image.jpg">
 
 <!-- ===================== PRELOAD (OPTIONAL SPEED BOOST) ===================== -->
-<link rel="preload" as="image" href="<?= $preloadBanner; ?>" fetchpriority="high">
+<link rel="preload" as="video" href="<?= $preloadBanner; ?>" fetchpriority="high">
 
 <!-- ===================== STRUCTURED DATA (SEO POWER BOOST) ===================== -->
     <script type="application/ld+json">
