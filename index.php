@@ -19,7 +19,6 @@ $OGdescription = "Reliable private drivers, airport transfers, and Sri Lanka tou
 
 $preloadBanner = BASE_URL . "images/videos/hero.mp4";
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 
