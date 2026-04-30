@@ -17,7 +17,7 @@ $metaKeywords = "Sri Lanka private driver, Sri Lanka transport service, airport 
 $OGTitle = "Private Driver Sri Lanka | Airport Transfers & Tours | " . $siteName;
 $OGdescription = "Reliable private drivers, airport transfers, and Sri Lanka tour packages. Book safe and comfortable travel with local experts.";
 
-$preloadBanner = BASE_URL . "images/slider/1.webp";
+$preloadBanner = BASE_URL . "images/videos/hero.mp4";
 ?>
 
 <!DOCTYPE html>
