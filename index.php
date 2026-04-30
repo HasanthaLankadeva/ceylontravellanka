@@ -43,7 +43,11 @@ $preloadBanner = BASE_URL . "images/slider/1.webp";
                 <div class="swiper-slide">
                     <div class="slide-inner">
                         <div class="slide-image">
-                            <img src="<?= BASE_URL ?>images/slider/1.webp" width="1815" height="630" fetchpriority="high" decoding="async" alt="Travel hero image">
+                            <!--img src="<?= BASE_URL ?>images/slider/1.webp" width="1815" height="630" fetchpriority="high" decoding="async" alt="Travel hero image"-->
+                            <video width="320" height="240" preload autoplay loop muted playsinline>
+                                <source src="<?= BASE_URL ?>images/videos/hero.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
                         </div>
                         <div class="swiper-content">
                             <h1 class="mb-2">Private Driver & Transport Services in Sri Lanka</h1>
@@ -57,7 +61,7 @@ $preloadBanner = BASE_URL . "images/slider/1.webp";
                     </div>
                 </div>
                 
-                <div class="swiper-slide">
+                <!--div class="swiper-slide">
                     <div class="slide-inner">
                         <div class="slide-image">
                             <img src="<?= BASE_URL ?>images/banners/tour-itineraries.webp" width="1815" height="630" fetchpriority="high" decoding="async" alt="Travel hero image">
@@ -71,7 +75,7 @@ $preloadBanner = BASE_URL . "images/slider/1.webp";
                         </div>
                         <div class="dot-overlay"></div>
                     </div>
-                </div>
+                </div-->
                
             </div>
         </div>
