@@ -17,7 +17,7 @@ $metaKeywords = "Sri Lanka private driver, Sri Lanka transport service, airport 
 $OGTitle = "Private Driver Sri Lanka | Airport Transfers & Tours | " . $siteName;
 $OGdescription = "Reliable private drivers, airport transfers, and Sri Lanka tour packages. Book safe and comfortable travel with local experts.";
 
-$preloadBanner = BASE_URL . "images/videos/hero.mp4";
+$preloadBanner = BASE_URL . "images/videos/poster.webp";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -42,7 +42,7 @@ $preloadBanner = BASE_URL . "images/videos/hero.mp4";
                 <div class="swiper-slide">
                     <div class="slide-inner">
                         <div class="slide-image">
-                            <video width="320" height="240" preload autoplay loop muted playsinline>
+                            <video width="320" height="240" autoplay loop muted playsinline preload="auto" poster="<?= BASE_URL ?>images/videos/poster.webp">
                                 <source src="<?= BASE_URL ?>images/videos/hero.mp4" type="video/mp4">
                                 Your browser does not support the video tag.
                             </video>
