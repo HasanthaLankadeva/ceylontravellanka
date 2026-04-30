@@ -43,7 +43,6 @@ $preloadBanner = BASE_URL . "images/slider/1.webp";
                 <div class="swiper-slide">
                     <div class="slide-inner">
                         <div class="slide-image">
-                            <!--img src="<?= BASE_URL ?>images/slider/1.webp" width="1815" height="630" fetchpriority="high" decoding="async" alt="Ceylon Travel Lanka - Banner Image"-->
                             <video width="320" height="240" preload autoplay loop muted playsinline>
                                 <source src="<?= BASE_URL ?>images/videos/hero.mp4" type="video/mp4">
                                 Your browser does not support the video tag.
@@ -61,7 +60,7 @@ $preloadBanner = BASE_URL . "images/slider/1.webp";
                     </div>
                 </div>
                 
-                <div class="swiper-slide">
+                <!--div class="swiper-slide">
                     <div class="slide-inner">
                         <div class="slide-image">
                             <img src="<?= BASE_URL ?>images/banners/tour-itineraries.webp" width="1815" height="630" fetchpriority="high" decoding="async" alt="Travel hero image">
@@ -75,7 +74,7 @@ $preloadBanner = BASE_URL . "images/slider/1.webp";
                         </div>
                         <div class="dot-overlay"></div>
                     </div>
-                </div>
+                </div-->
                
             </div>
         </div>
