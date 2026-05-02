@@ -316,6 +316,22 @@ document.addEventListener("DOMContentLoaded", () => {
         tbody.appendChild(newRow);
       }
 
+      function addQuatationRow() {
+        const tbody = document.getElementById('quatation-body');
+        const rowCount = tbody.rows.length + 1;
+        const newRow = document.createElement('tr');
+        
+        newRow.innerHTML = `
+          <td><span class="editable" contenteditable="false">Day 1</span></td>
+          <td><span class="editable" contenteditable="false">21/03/2026</span></td>
+          <td class="action-column"><button class="delete-row-btn">Remove</button></td>
+          <td class="action-column"><button class="delete-row-btn">Remove</button></td>
+        `;
+        
+        newRow.querySelector('.delete-row-btn').addEventListener('click', removeRow);
+        tbody.appendChild(newRow);
+      }
+
       function removeRow(event) {
         const row = event.currentTarget.closest('tr');
         row.parentNode.removeChild(row);
