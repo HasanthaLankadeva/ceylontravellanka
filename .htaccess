@@ -2,14 +2,14 @@
 # CORE SECURITY
 # ==================================================
 
-# Disable directory listing (prevents /css/, /js/, etc.)
+# Disable directory listing
 Options -Indexes
 
 # Custom 404 page
 ErrorDocument 404 /404.html
- 
+ 
 RewriteEngine On
-RewriteBase /ceylontravellanka/
+RewriteBase /
 
 # ==================================================
 # FORCE HTTPS + REMOVE WWW (CANONICAL DOMAIN)
@@ -17,8 +17,10 @@ RewriteBase /ceylontravellanka/
 
 RewriteCond %{HTTP_HOST} !^localhost$ [NC]
 RewriteCond %{HTTPS} off [OR]
-RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
-RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+RewriteCond %{HTTP_HOST} ^www\. [NC]
+RewriteCond %{HTTP_HOST} ^(?:www\.)?(.+)$ [NC]
+RewriteRule ^ https://%1%{REQUEST_URI} [L,R=301]
+
 
 # ==================================================
 # CLEAN URLS (REMOVE .php)
@@ -32,13 +34,11 @@ RewriteRule ^ - [L]
 # Redirect .php to clean URL (IMPORTANT for SEO)
 RewriteCond %{THE_REQUEST} \s/([^.]+)\.php [NC]
 RewriteRule ^(.+)\.php$ $1 [R=301,L]
-# RewriteRule ^ /%1 [R=301,L]
 
 # Internally map clean URL to .php file
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME}.php -f
 RewriteRule ^(.+)$ $1.php [L]
-# RewriteRule ^([^\.]+)$ $1.php [L]
 
 
 # ==================================================
@@ -97,11 +97,10 @@ RewriteRule ^(.+)$ $1.php [L]
 # ==================================================
 <IfModule mod_headers.c>
 
-    # Enforce HTTPS (enable only when HTTPS works perfectly)
-    RewriteCond %{HTTPS} on
+    # Enforce HTTPS (HSTS)
     Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains"
 
-    # Content Security Policy (safe for static sites)
+    # Content Security Policy (CSP)
     Header set Content-Security-Policy "default-src 'self'; script-src 'self' https://www.googletagmanager.com https://www.google-analytics.com https://www.tripadvisor.com https://www.jscache.com https://static.tacdn.com https://maps.googleapis.com https://embed.tawk.to https://*.tawk.to; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://static.tacdn.com https://*.tawk.to; font-src 'self' https://fonts.gstatic.com https://*.tawk.to; img-src 'self' data: https://www.google-analytics.com https://www.googletagmanager.com https://www.tripadvisor.com https://www.jscache.com https://static.tacdn.com https://maps.googleapis.com https://*.tawk.to; connect-src 'self' https://www.google-analytics.com https://region1.google-analytics.com https://www.tripadvisor.com https://www.jscache.com https://static.tacdn.com https://*.tawk.to wss://*.tawk.to; frame-src https://www.google.com https://maps.google.com https://*.tawk.to; frame-ancestors 'none'; base-uri 'self'; form-action 'self';"
 
     # Extra hardening
