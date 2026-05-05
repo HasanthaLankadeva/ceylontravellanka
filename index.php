@@ -95,7 +95,7 @@ $preloadBanner = BASE_URL . "images/videos/poster.webp";
             <div class="d-flex flex-column gap-5">
               <div class="feature-box fbox-one d-flex justify-content-start align-items-center flex-row-reverse gap-3 text-end bg-lblue mb-3 px-4 py-2">
                 <div>
-                    <a href="<?= BASE_URL ?>services/airport-transfer.php">
+                    <a href="<?= BASE_URL ?>services/airport-transfer">
                         <h5>Airport Transfers</h5>
                         <p>Safe and on-time pickup from Colombo Airport →</p>
                     </a>
@@ -103,7 +103,7 @@ $preloadBanner = BASE_URL . "images/videos/poster.webp";
               </div>
               <div class="feature-box d-flex justify-content-start align-items-center flex-row-reverse gap-3 text-end bg-lyellow mt-3 px-3 py-2">
                 <div>
-                    <a href="<?= BASE_URL ?>tour-itineraries.php">
+                    <a href="<?= BASE_URL ?>tour-itineraries">
                         <h5>Custom Tours</h5>
                         <p>Tailored itineraries based on your preferences →</p>
                     </a>
@@ -118,7 +118,7 @@ $preloadBanner = BASE_URL . "images/videos/poster.webp";
             <div class="d-flex flex-column gap-5">
               <div class="feature-box fbox-three d-flex justify-content-start align-items-center gap-3 bg-lyellow mb-3 px-4 py-2">
                 <div>
-                    <a href="<?= BASE_URL ?>services/private-driver-in-sri-lanka.php">
+                    <a href="<?= BASE_URL ?>services/private-driver-in-sri-lanka">
                         <h5>Private Driver Hire</h5>
                         <p>Flexible travel with experienced local drivers →</p>
                     </a>
@@ -144,7 +144,7 @@ $preloadBanner = BASE_URL . "images/videos/poster.webp";
     <div class="container">
         <div class="section-title mb-6 w-50 mx-auto text-center">
             <h2 class="mb-3">Popular Routes with Private Drivers</h2>
-            <p>Our <a href="<?= BASE_URL ?>services/private-driver-in-sri-lanka.php" class="underline">private drivers</a> cover all major tourist routes in Sri Lanka, making it easy to travel between destinations.</p>
+            <p>Our <a href="<?= BASE_URL ?>services/private-driver-in-sri-lanka" class="underline">private drivers</a> cover all major tourist routes in Sri Lanka, making it easy to travel between destinations.</p>
         </div>
         <div class="row align-items-center">
             <div class="col-lg-5 mb-4">
@@ -245,7 +245,7 @@ $preloadBanner = BASE_URL . "images/videos/poster.webp";
                             <div class="color-overlay"></div>
                         </div>
                         <div class="trend-content p-4 pt-5 position-relative">
-                            <h3 class="mb-1 itinerary-title"><a href="<?= BASE_URL ?>tour-itineraries.php">4 Day Sri Lanka Tour Itinerary</a></h3>
+                            <h3 class="mb-1 itinerary-title"><a href="<?= BASE_URL ?>tour-itineraries">4 Day Sri Lanka Tour Itinerary</a></h3>
                             <p class=" border-b pb-2 mb-2"><strong>Route:</strong> Kandy → Nuwara Eliya → Ella → Bentota</p>
                             <div class="entry-meta">
                                 <div class="entry-author d-flex align-items-center mb-3">A perfect snapshot of the island featuring sacred Kandy, misty tea trails in Ella, and the golden shores of Bentota.</div>
@@ -263,7 +263,7 @@ $preloadBanner = BASE_URL . "images/videos/poster.webp";
                             <div class="color-overlay"></div>
                         </div>
                         <div class="trend-content p-4 pt-5 position-relative">
-                            <h3 class="mb-1 itinerary-title"><a href="<?= BASE_URL ?>tour-itineraries.php">6 Day Sri Lanka Tour Itinerary</a></h3>
+                            <h3 class="mb-1 itinerary-title"><a href="<?= BASE_URL ?>tour-itineraries">6 Day Sri Lanka Tour Itinerary</a></h3>
                             <p class=" border-b pb-2 mb-2"><strong>Route:</strong> Colombo → Sigiriya → Kandy → Nuwara Eliya → Bentota</p>
                             <div class="entry-meta">
                                 <div class="entry-author d-flex align-items-center mb-3">Journey through ancient fortresses and tea-covered mountains toward a tropical beach finale.</div>
@@ -281,7 +281,7 @@ $preloadBanner = BASE_URL . "images/videos/poster.webp";
                             <div class="color-overlay"></div>
                         </div>
                         <div class="trend-content p-4 pt-5 position-relative">
-                            <h3 class="mb-1 itinerary-title"><a href="<?= BASE_URL ?>tour-itineraries.php">7 Day Sri Lanka Tour Itinerary</a></h3>
+                            <h3 class="mb-1 itinerary-title"><a href="<?= BASE_URL ?>tour-itineraries">7 Day Sri Lanka Tour Itinerary</a></h3>
                             <p class=" border-b pb-2 mb-2"><strong>Route:</strong> Sigiriya → Habarana → Polonnaruwa → Trincomalee → Colombo</p>
                             <div class="entry-meta">
                                 <div class="entry-author d-flex align-items-center mb-3">Dive deep into the Cultural Triangle and unwind on the pristine white sands of the East Coast.</div>
@@ -299,7 +299,7 @@ $preloadBanner = BASE_URL . "images/videos/poster.webp";
                             <div class="color-overlay"></div>
                         </div>
                         <div class="trend-content p-4 pt-5 position-relative">
-                            <h3 class="mb-1 itinerary-title"><a href="<?= BASE_URL ?>tour-itineraries.php">10 Day Sri Lanka Tour Itinerary</a></h3>
+                            <h3 class="mb-1 itinerary-title"><a href="<?= BASE_URL ?>tour-itineraries">10 Day Sri Lanka Tour Itinerary</a></h3>
                             <p class=" border-b pb-2 mb-2"><strong>Route:</strong> Colombo → Anuradhapura → Sigiriya → Kandy → Nuwara Eliya → Ella → Yala → Tangalle → Bentota</p>
                             <div class="entry-meta">
                                 <div class="entry-author d-flex align-items-center mb-3">The ultimate cross-country adventure covering ancient ruins, mountain peaks, and wild safari plains.</div>
@@ -317,7 +317,7 @@ $preloadBanner = BASE_URL . "images/videos/poster.webp";
                             <div class="color-overlay"></div>
                         </div>
                         <div class="trend-content p-4 pt-5 position-relative">
-                            <h3 class="mb-1 itinerary-title"><a href="<?= BASE_URL ?>tour-itineraries.php">15 Day Sri Lanka Tour Itinerary</a></h3>
+                            <h3 class="mb-1 itinerary-title"><a href="<?= BASE_URL ?>tour-itineraries">15 Day Sri Lanka Tour Itinerary</a></h3>
                             <p class=" border-b pb-2 mb-2"><strong>Route:</strong> Negombo → Anuradhapura → Sigiriya → Kandy → Haputhale → Ella → Yala → Mirissa → Galle → Hikkaduwa → Bentota → Colombo</p>
                             <div class="entry-meta">
                                 <div class="entry-author d-flex align-items-center mb-3">Our most complete grand tour—covering every iconic destination from the north to the south coast.</div>
@@ -332,7 +332,7 @@ $preloadBanner = BASE_URL . "images/videos/poster.webp";
         </div>
     </div>
     <div class="col-lg-12 text-center">
-        <a href="<?= BASE_URL ?>tour-itineraries.php" class="nir-btn">View All Itineraries</a>
+        <a href="<?= BASE_URL ?>tour-itineraries" class="nir-btn">View All Itineraries</a>
     </div>
 </section>
 
