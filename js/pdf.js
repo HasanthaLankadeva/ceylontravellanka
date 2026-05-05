@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
       const toggleBtn = document.getElementById('edit-toggle-btn');
-      const addRowBtn = document.getElementById('add-row-btn');
+      const addRowBtn = document.querySelectorAll('.add-row-btn');
       const savePdfBtn = document.getElementById('save-pdf-btn');
       
       let editMode = false;
@@ -25,17 +25,24 @@ document.addEventListener("DOMContentLoaded", () => {
           document.body.classList.add('edit-mode');
           toggleBtn.innerText = "Disable Edit Mode";
           toggleBtn.style.backgroundColor = "#e63946";
-          addRowBtn.style.display = "inline-block";
+          addRowBtn.forEach(btn => {
+            btn.style.display = "inline-block";
+          });
         } else {
           document.body.classList.remove('edit-mode');
           toggleBtn.innerText = "Enable Edit Mode";
           toggleBtn.style.backgroundColor = "#1d3557";
-          addRowBtn.style.display = "none";
+          addRowBtn.forEach(btn => {
+            btn.style.display = "none";
+          });
         }
       };
 
       toggleBtn.addEventListener('click', toggleEditMode);
-      addRowBtn.addEventListener('click', addItineraryRow);
+      // Loop through each button and add the event listener
+      addRowBtn.forEach(button => {
+        button.addEventListener('click', addRow);
+      });
       
       savePdfBtn.addEventListener('click', () => {
         const headerContent = document.querySelector('.header').cloneNode(true);
@@ -299,16 +306,43 @@ document.addEventListener("DOMContentLoaded", () => {
         btn.addEventListener('click', removeRow);
       });
 
-      function addItineraryRow() {
-        const tbody = document.getElementById('itinerary-body');
+      function addRow(event) {
+        const el = event.currentTarget.dataset.id;
+        const tbody = document.getElementById(el);
+        const rowCount = tbody.rows.length + 1;
+        const newRow = document.createElement('tr');
+        
+        if (el == 'itinerary-body') {
+          newRow.innerHTML = `
+            <td><span class="editable editable-active" contenteditable="true">Day ${rowCount}</span></td>
+            <td><span class="editable editable-active" contenteditable="true">DD/MM/2026</span></td>
+            <td><span class="editable editable-active" contenteditable="true">Route / Activity</span></td>
+            <td><span class="editable editable-active" contenteditable="true">Overnight stay</span></td>
+            <td class="action-column"><button class="delete-row-btn">Remove</button></td>
+          `;
+        } else {
+          newRow.innerHTML = `
+            <td><span class="editable editable-active" contenteditable="true">content</span></td>
+            <td><span class="editable editable-active" contenteditable="true">content</span></td>
+            <td><span class="editable editable-active" contenteditable="true">content</span></td>
+            <td class="action-column"><button class="delete-row-btn">Remove</button></td>
+          `;
+        }
+        
+        
+        newRow.querySelector('.delete-row-btn').addEventListener('click', removeRow);
+        tbody.appendChild(newRow);
+      }
+
+      function addQuatationRow() {
+        const tbody = document.getElementById('quatation-body');
         const rowCount = tbody.rows.length + 1;
         const newRow = document.createElement('tr');
         
         newRow.innerHTML = `
-          <td><span class="editable editable-active" contenteditable="true">Day ${rowCount}</span></td>
-          <td><span class="editable editable-active" contenteditable="true">DD/MM/2026</span></td>
-          <td><span class="editable editable-active" contenteditable="true">Route / Activity</span></td>
-          <td><span class="editable editable-active" contenteditable="true">Overnight stay</span></td>
+          <td><span class="editable" contenteditable="false">Day 1</span></td>
+          <td><span class="editable" contenteditable="false">21/03/2026</span></td>
+          <td class="action-column"><button class="delete-row-btn">Remove</button></td>
           <td class="action-column"><button class="delete-row-btn">Remove</button></td>
         `;
         

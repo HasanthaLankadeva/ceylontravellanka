@@ -38,27 +38,27 @@
                                 <a href="<?= BASE_URL ?>">Home </a>
                             </li>
                             <li class="submenu dropdown <?php echo ($currentpage == 'services') ? 'active' : ''; ?>">
-                                <a href="<?= BASE_URL ?>services/" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Services <i class="fa fa-angle-down" aria-hidden="true"></i></a>
+                                <a href="<?= BASE_URL ?>services" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Services <i class="fa fa-angle-down" aria-hidden="true"></i></a>
                                 <ul class="dropdown-menu">
-                                    <li><a href="<?= BASE_URL ?>services/airport-transfer.php">Airport Transfer</a></li>
-                                    <li><a href="<?= BASE_URL ?>services/private-driver-in-sri-lanka.php">Private Driver in Sri Lanka</a></li>
-                                    <li><a href="<?= BASE_URL ?>services/car-rental-with-driver.php">Car Rental with Driver</a></li>
+                                    <li><a href="<?= BASE_URL ?>services/airport-transfer">Airport Transfer</a></li>
+                                    <li><a href="<?= BASE_URL ?>services/private-driver-in-sri-lanka">Private Driver in Sri Lanka</a></li>
+                                    <li><a href="<?= BASE_URL ?>services/car-rental-with-driver">Car Rental with Driver</a></li>
                                 </ul>
                             </li>
                             <!--li class="<?php echo ($currentpage == 'routes') ? 'active' : ''; ?>">
-                                <a href="<?= BASE_URL ?>routes.php">Routes</a>
+                                <a href="<?= BASE_URL ?>routes">Routes</a>
                             </li-->
                             <li class="<?php echo ($currentpage == 'itineraries') ? 'active' : ''; ?>">
-                                <a href="<?= BASE_URL ?>tour-itineraries.php">Tour Itineraries</a>
+                                <a href="<?= BASE_URL ?>tour-itineraries">Tour Itineraries</a>
                             </li>
                             <li class="<?php echo ($currentpage == 'tailormade') ? 'active' : ''; ?>">
-                                <a href="<?= BASE_URL ?>tailor-made-tours.php">Tailor Made Tours</a>
+                                <a href="<?= BASE_URL ?>tailor-made-tours">Tailor Made Tours</a>
                             </li>
                             <li class="<?php echo ($currentpage == 'contact') ? 'active' : ''; ?>">
-                                <a href="<?= BASE_URL ?>contact.php">Contact Us</a>
+                                <a href="<?= BASE_URL ?>contact">Contact Us</a>
                             </li>
                         </ul>
-                        <a href="<?= BASE_URL ?>services/private-driver-in-sri-lanka.php" class="nir-btn px-3 py-1 ms-3">Hire a Driver</a>
+                        <a href="<?= BASE_URL ?>services/private-driver-in-sri-lanka" class="nir-btn px-3 py-1 ms-3">Hire a Driver</a>
                     </div>
                     <div id="slicknav-mobile"></div>
                 </div>
