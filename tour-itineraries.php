@@ -72,7 +72,7 @@ $OGdescription = "Browse our expertly designed Sri Lanka itineraries or create y
                                         <p class="mb-3">Explore the cultural capital and scenic hill country before relaxing on the coast in this essential 4-day escape.</p>
                                         <!--p class="mb-4"><a href="#"><span class="theme"> Read More →</span></a></p-->
                                         <div class="slider-button">
-                                            <a href="https://wa.me/+94779177093?text=I'm%20interested%20in%204%20Day%20Sri%20Lanka%20Tour%20Itinerary" class="nir-btn me-4" tabindex="0" target="_blank" rel="noopener noreferrer">Book via WhatsApp</a>
+                                            <a href="https://wa.me/+94759800348?text=I'm%20interested%20in%204%20Day%20Sri%20Lanka%20Tour%20Itinerary" class="nir-btn me-4" tabindex="0" target="_blank" rel="noopener noreferrer">Book via WhatsApp</a>
                                             <a href="mailto:contact@ceylontravellanka.com?subject=Inquiry: 4 Day Sri Lanka Tour Itinerary" class="nir-btn-black" tabindex="0">Get Free Quote</a>
                                         </div>
                                     </div>
@@ -99,7 +99,7 @@ $OGdescription = "Browse our expertly designed Sri Lanka itineraries or create y
                                         <p class="mb-3">Experience the perfect blend of majestic heritage sites, lush highlands, and coastal relaxation in one immersive week.</p>
                                         <!--p class="mb-4"><a href="#"><span class="theme"> Read More →</span></a></p-->
                                         <div class="slider-button">
-                                            <a href="https://wa.me/+94779177093?text=I'm%20interested%20in%206%20Day%20Sri%20Lanka%20Tour%20Itinerary" class="nir-btn me-4" tabindex="0" target="_blank" rel="noopener noreferrer">Book via WhatsApp</a>
+                                            <a href="https://wa.me/+94759800348?text=I'm%20interested%20in%206%20Day%20Sri%20Lanka%20Tour%20Itinerary" class="nir-btn me-4" tabindex="0" target="_blank" rel="noopener noreferrer">Book via WhatsApp</a>
                                             <a href="mailto:contact@ceylontravellanka.com?subject=Inquiry: 6 Day Sri Lanka Tour Itinerary" class="nir-btn-black" tabindex="0">Get Free Quote</a>
                                         </div>
                                     </div>
@@ -126,7 +126,7 @@ $OGdescription = "Browse our expertly designed Sri Lanka itineraries or create y
                                         <p class="mb-3">Discover historic landmarks and majestic wildlife before heading to the beautiful beaches of Trincomalee.</p>
                                         <!--p class="mb-4"><a href="#"><span class="theme"> Read More →</span></a></p-->
                                         <div class="slider-button">
-                                            <a href="https://wa.me/+94779177093?text=I'm%20interested%20in%207%20Day%20Sri%20Lanka%20Tour%20Itinerary" class="nir-btn me-4" tabindex="0" target="_blank" rel="noopener noreferrer">Book via WhatsApp</a>
+                                            <a href="https://wa.me/+94759800348?text=I'm%20interested%20in%207%20Day%20Sri%20Lanka%20Tour%20Itinerary" class="nir-btn me-4" tabindex="0" target="_blank" rel="noopener noreferrer">Book via WhatsApp</a>
                                             <a href="mailto:contact@ceylontravellanka.com?subject=Inquiry: 7 Day Sri Lanka Tour Itinerary" class="nir-btn-black" tabindex="0">Get Free Quote</a>
                                         </div>
                                     </div>
@@ -153,7 +153,7 @@ $OGdescription = "Browse our expertly designed Sri Lanka itineraries or create y
                                         <p class="mb-3">A comprehensive journey through the heart of the island, featuring world-class wildlife, sacred cities, and southern beaches.</p>
                                         <!--p class="mb-4"><a href="#"><span class="theme"> Read More →</span></a></p-->
                                         <div class="slider-button">
-                                            <a href="https://wa.me/+94779177093?text=I'm%20interested%20in%2010%20Day%20Sri%20Lanka%20Tour%20Itinerary" class="nir-btn me-4" tabindex="0" target="_blank" rel="noopener noreferrer">Book via WhatsApp</a>
+                                            <a href="https://wa.me/+94759800348?text=I'm%20interested%20in%2010%20Day%20Sri%20Lanka%20Tour%20Itinerary" class="nir-btn me-4" tabindex="0" target="_blank" rel="noopener noreferrer">Book via WhatsApp</a>
                                             <a href="mailto:contact@ceylontravellanka.com?subject=Inquiry: 10 Day Sri Lanka Tour Itinerary" class="nir-btn-black" tabindex="0">Get Free Quote</a>
                                         </div>
                                     </div>
@@ -180,7 +180,7 @@ $OGdescription = "Browse our expertly designed Sri Lanka itineraries or create y
                                         <p class="mb-3">Experience the soul of Sri Lanka in this 15-day odyssey featuring history, nature, mountains, and the entire southern coastline.</p>
                                         <!--p class="mb-4"><a href="#"><span class="theme"> Read More →</span></a></p-->
                                         <div class="slider-button">
-                                            <a href="https://wa.me/+94779177093?text=I'm%20interested%20in%2015%20Day%20Sri%20Lanka%20Tour%20Itinerary" class="nir-btn me-4" tabindex="0" target="_blank" rel="noopener noreferrer">Book via WhatsApp</a>
+                                            <a href="https://wa.me/+94759800348?text=I'm%20interested%20in%2015%20Day%20Sri%20Lanka%20Tour%20Itinerary" class="nir-btn me-4" tabindex="0" target="_blank" rel="noopener noreferrer">Book via WhatsApp</a>
                                             <a href="mailto:contact@ceylontravellanka.com?subject=Inquiry: 15 Day Sri Lanka Tour Itinerary" class="nir-btn-black" tabindex="0">Get Free Quote</a>
                                         </div>
                                     </div>

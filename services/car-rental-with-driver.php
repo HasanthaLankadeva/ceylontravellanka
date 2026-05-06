@@ -43,7 +43,7 @@ $preloadBanner = BASE_URL . "images/slider/1.webp";
             <h1 class="mb-1">Car Rental with Driver in Sri Lanka</h1>
             <p>Looking for a flexible way to travel around Sri Lanka? Our car rental with driver service offers comfortable vehicles and professional chauffeurs, allowing you to explore the island safely and conveniently.</p>
             <div class="slider-button d-flex justify-content-center mt-4">
-                <a href="https://wa.me/+94779177093?text=I'm%20interested%20in%20your%20services" class="nir-btn me-4" tabindex="0">Book via WhatsApp</a>
+                <a href="https://wa.me/+94759800348?text=I'm%20interested%20in%20your%20services" class="nir-btn me-4" tabindex="0">Book via WhatsApp</a>
                 <a href="mailto:contact@ceylontravellanka.com" class="nir-btn-black" tabindex="0">Get Free Quote</a>
             </div>
         </div>
@@ -119,7 +119,7 @@ $preloadBanner = BASE_URL . "images/slider/1.webp";
             <h2 class="fw-bold theme1 mb-1">Plan Your Journey with Us</h2>
             <p class="mb-4">Contact us today to book your travel service or customize your Sri Lanka itinerary. Our team is ready to assist you with the best options for your trip.</p>
             <div class="slider-button d-flex">
-                <a href="https://wa.me/+94779177093?text=I'm%20interested%20in%20your%20services" class="nir-btn me-4" tabindex="0">Book via WhatsApp</a>
+                <a href="https://wa.me/+94759800348?text=I'm%20interested%20in%20your%20services" class="nir-btn me-4" tabindex="0">Book via WhatsApp</a>
                 <a href="mailto:contact@ceylontravellanka.com" class="nir-btn-white" tabindex="0">Get Free Quote</a>
             </div>
         </div>
