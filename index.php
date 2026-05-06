@@ -51,7 +51,7 @@ $preloadBanner = BASE_URL . "images/videos/poster.webp";
                             <h1 class="mb-2">Private Driver & Transport Services in Sri Lanka</h1>
                             <p class="white mb-4">Book airport transfers, private drivers, and comfortable travel across Sri Lanka with trusted local experts.</p>
                             <div class="slider-button d-flex justify-content-center">
-                                <a href="https://wa.me/+94779177093?text=I'm%20interested%20in%20your%20services" class="nir-btn me-4">Book via WhatsApp</a>
+                                <a href="https://wa.me/+94759800348?text=I'm%20interested%20in%20your%20services" class="nir-btn me-4">Book via WhatsApp</a>
                                 <a href="mailto:contact@ceylontravellanka.com" class="nir-btn-white">Get Free Quote</a>
                             </div>
                         </div>
@@ -372,7 +372,7 @@ $preloadBanner = BASE_URL . "images/videos/poster.webp";
             <h2 class="fw-bold theme1 mb-1">Book Your Sri Lanka <br/>Transport Today</h2>
             <p class="mb-4">Contact us now for airport transfers, private drivers, or customized tour packages.</p>
             <div class="slider-button d-flex">
-                <a href="https://wa.me/+94779177093?text=I'm%20interested%20in%20your%20services" class="nir-btn me-4" tabindex="0">Book via WhatsApp</a>
+                <a href="https://wa.me/+94759800348?text=I'm%20interested%20in%20your%20services" class="nir-btn me-4" tabindex="0">Book via WhatsApp</a>
                 <a href="mailto:contact@ceylontravellanka.com" class="nir-btn-white" tabindex="0">Get Free Quote</a>
             </div>
         </div>
