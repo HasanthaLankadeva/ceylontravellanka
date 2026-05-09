@@ -145,7 +145,7 @@ $preloadBanner = BASE_URL . "images/slider/1.webp";
 
         <!-- Right Image -->
         <div class="col-md-6 p-0">
-            <img src="<?= BASE_URL ?>images/plan_your_journey_with_us.webp" alt="Plan Your Journey with Us" class="right-img img-fluid w-100 h-100">
+            <img src="<?= BASE_URL ?>images/plan_your_journey_with_us_2.webp" alt="Plan Your Journey with Us" class="right-img img-fluid w-100 h-100">
         </div>
     </div>
     </div>

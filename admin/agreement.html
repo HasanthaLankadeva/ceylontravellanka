@@ -3,20 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <title>Tour and Travel Services Agreement</title>
+  <!--link rel="stylesheet" href="../admin/css/pdf.css"-->
   <style>
-    @page {
-      size: A4;
-      margin: 12mm 15mm;
-      background-color: #fdfaf6;
-    }
     
     body {
-      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-      color: #2b2d42;
-      background-color: #fdfaf6;
-      line-height: 1.4;
-      font-size: 9.5pt;
-      margin: 0;
+        font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        color: #2b2d42;
+        background-color: #fdfaf6;
+        line-height: 1.4;
+        font-size: 9.5pt;
+        margin: 0;
+        padding-top: 100px;
         background: #e1e1e1;
     }
 
@@ -29,90 +26,92 @@
 
     .inner-wrapper{
         width: 100%;
-        padding: 96px;
+        padding: 40px;
         background: #fff;
         margin-bottom: 20px;
-        page-break-after: always;
-        break-after: page;
+        /*page-break-after: always;
+        break-after: page;*/
+        break-inside: auto !important;
+        page-break-inside: auto !important;
         box-sizing: border-box;
     }
 
-    .inner-wrapper:last-child {
-      page-break-after: avoid;
-      break-after: avoid;
-    }
+    /*.inner-wrapper:last-child {
+        page-break-after: avoid;
+        break-after: avoid;
+    }*/
 
     .controls-container {
-      text-align: center;
-      margin-bottom: 15px;
+        text-align: center;
+        margin-bottom: 15px;
     }
-    
+
     .toggle-btn {
-      background-color: #1d3557;
-      color: #ffffff;
-      border: none;
-      padding: 8px 16px;
-      font-size: 9pt;
-      font-weight: bold;
-      border-radius: 4px;
-      cursor: pointer;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-      transition: background-color 0.2s;
+        background-color: #1d3557;
+        color: #ffffff;
+        border: none;
+        padding: 8px 16px;
+        font-size: 9pt;
+        font-weight: bold;
+        border-radius: 4px;
+        cursor: pointer;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        transition: background-color 0.2s;
     }
-    
+
     .toggle-btn:hover {
-      background-color: #457b9d;
+        background-color: #457b9d;
     }
 
     .pdf-btn {
-      background-color: #2a9d8f;
-      color: #ffffff;
-      border: none;
-      padding: 8px 16px;
-      font-size: 9pt;
-      font-weight: bold;
-      border-radius: 4px;
-      cursor: pointer;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-      margin-left: 8px;
-      transition: background-color 0.2s;
+        background-color: #2a9d8f;
+        color: #ffffff;
+        border: none;
+        padding: 8px 16px;
+        font-size: 9pt;
+        font-weight: bold;
+        border-radius: 4px;
+        cursor: pointer;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        margin-left: 8px;
+        transition: background-color 0.2s;
     }
 
     .pdf-btn:hover {
-      background-color: #264653;
+        background-color: #264653;
     }
 
     .add-row-btn {
-      background-color: #2a9d8f;
-      color: #ffffff;
-      border: none;
-      padding: 6px 12px;
-      font-size: 8.5pt;
-      font-weight: bold;
-      border-radius: 4px;
-      cursor: pointer;
-      display: none; /* Hidden by default */
-      margin-top: 8px;
+        background-color: #2a9d8f;
+        color: #ffffff;
+        border: none;
+        padding: 6px 12px;
+        font-size: 8.5pt;
+        font-weight: bold;
+        border-radius: 4px;
+        cursor: pointer;
+        display: none; /* Hidden by default */
+        margin-top: 8px;
     }
 
     .add-row-btn:hover {
-      background-color: #264653;
+        background-color: #264653;
     }
 
     .delete-row-btn {
-      background-color: #e63946;
-      color: #ffffff;
-      border: none;
-      padding: 3px 6px;
-      font-size: 8pt;
-      border-radius: 3px;
-      cursor: pointer;
+        background-color: #e63946;
+        color: #ffffff;
+        border: none;
+        padding: 3px 6px;
+        font-size: 8pt;
+        border-radius: 3px;
+        cursor: pointer;
     }
 
     .delete-row-btn:hover {
-      background-color: #d00000;
+        background-color: #d00000;
     }
-    
+
     .header {
         border-bottom: 2px solid #1d3557;
         padding-bottom: 8px;
@@ -123,8 +122,8 @@
     }
 
     .header .left {
-      flex: 0 0 15%;
-      max-width: 80px;
+        flex: 0 0 15%;
+        max-width: 80px;
     }
 
     /*.image-wrapper {
@@ -132,163 +131,163 @@
     }*/
 
     .header .left .image-wrapper img {
-      width: 100%;
-      height: auto;
+        width: 100%;
+        height: auto;
     }
-    
+
     .header .right {
-      flex: 0 0 82%;
+        flex: 0 0 82%;
     }
-    
+
     .agency-title {
-      font-size: 18pt;
-      font-weight: bold;
-      color: #1d3557;
-      margin: 0;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
+        font-size: 18pt;
+        font-weight: bold;
+        color: #1d3557;
+        margin: 0;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
     }
-    
+
     .agency-tagline {
-      font-size: 9pt;
-      color: #457b9d;
-      margin-top: 2px;
-      margin-bottom: 6px;
-      font-style: italic;
+        font-size: 9pt;
+        color: #457b9d;
+        margin-top: 2px;
+        margin-bottom: 6px;
+        font-style: italic;
     }
-    
+
     .header-details {
-      font-size: 8.5pt;
-      color: #6c757d;
-      margin-top: 4px;
-      line-height: 1.3;
+        font-size: 8.5pt;
+        color: #6c757d;
+        margin-top: 4px;
+        line-height: 1.3;
     }
-    
+
     h2 {
-      font-size: 12pt;
-      color: #1d3557;
-      border-left: 3px solid #e63946;
-      padding-left: 6px;
-      margin-top: 14px;
-      margin-bottom: 6px;
-      text-transform: uppercase;
+        font-size: 12pt;
+        color: #1d3557;
+        border-left: 3px solid #e63946;
+        padding-left: 6px;
+        margin-top: 14px;
+        margin-bottom: 6px;
+        text-transform: uppercase;
     }
-    
+
     .grid-container {
-      width: 100%;
-      margin-bottom: 10px;
+        width: 100%;
+        margin-bottom: 10px;
     }
-    
+
     .col-2 {
-      width: 48.5%;
-      display: inline-block;
-      vertical-align: top;
-      background-color: #ffffff;
-      border: 1px solid #cbd5e1;
-      padding: 8px 10px;
-      box-sizing: border-box;
+        width: 48.5%;
+        display: inline-block;
+        vertical-align: top;
+        background-color: #ffffff;
+        border: 1px solid #cbd5e1;
+        padding: 8px 10px;
+        box-sizing: border-box;
     }
-    
+
     .col-2:first-child {
-      margin-right: 2%;
+        margin-right: 2%;
     }
-    
+
     table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 6px;
-      margin-bottom: 10px;
-      font-size: 9pt;
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 6px;
+        margin-bottom: 10px;
+        font-size: 9pt;
     }
-    
+
     th {
-      background-color: #f1faee;
-      color: #1d3557;
-      text-align: left;
-      padding: 6px 8px;
-      border-bottom: 1px solid #a8dadc;
-      font-weight: bold;
+        background-color: #f1faee;
+        color: #1d3557;
+        text-align: left;
+        padding: 6px 8px;
+        border-bottom: 1px solid #a8dadc;
+        font-weight: bold;
     }
-    
+
     td {
-      padding: 6px 8px;
-      border-bottom: 1px solid #e2e8f0;
+        padding: 6px 8px;
+        border-bottom: 1px solid #e2e8f0;
     }
-    
+
     tr:nth-child(even) {
-      background-color: #f8f9fa;
+        background-color: #f8f9fa;
     }
-    
+
     /* Default editable elements */
     .editable {
-      cursor: default;
-      padding: 1px 2px;
-      border-radius: 3px;
+        cursor: default;
+        padding: 1px 2px;
+        border-radius: 3px;
     }
-    
+
     /* Active editing mode styling */
     .editable-active {
-      background-color: rgba(230, 57, 70, 0.05);
-      border: 1px dashed #e63946;
-      cursor: text;
+        background-color: rgba(230, 57, 70, 0.05);
+        border: 1px dashed #e63946;
+        cursor: text;
     }
-    
+
     .editable-active:hover, .editable-active:focus {
-      background-color: rgba(230, 57, 70, 0.15);
-      outline: none;
+        background-color: rgba(230, 57, 70, 0.15);
+        outline: none;
     }
-    
+
     .highlight-box {
-      background-color: #fef9c3;
-      border-left: 4px solid #eab308;
-      padding: 8px 10px;
-      margin: 10px 0;
-      font-size: 9pt;
+        background-color: #fef9c3;
+        border-left: 4px solid #eab308;
+        padding: 8px 10px;
+        margin: 10px 0;
+        font-size: 9pt;
     }
-    
+
     .badge {
-      background-color: #d8f3dc;
-      color: #1b4332;
-      padding: 2px 6px;
-      border-radius: 3px;
-      font-size: 8pt;
-      font-weight: bold;
+        background-color: #d8f3dc;
+        color: #1b4332;
+        padding: 2px 6px;
+        border-radius: 3px;
+        font-size: 8pt;
+        font-weight: bold;
     }
-    
+
     .signature-section {
-      margin-top: 25px;
-      page-break-inside: avoid;
-      display: flex;
+        margin-top: 25px;
+        page-break-inside: avoid;
+        display: flex;
     }
-    
+
     .signature-block {
-      display: inline-block;
-      width: 45%;
-      vertical-align: top;
-      margin-right: 5%;
+        display: inline-block;
+        width: 45%;
+        vertical-align: top;
+        margin-right: 5%;
     }
-    
+
     .signature-line {
-      border-bottom: 1px solid #333;
-      margin-top: 35px;
-      margin-bottom: 5px;
+        border-bottom: 1px solid #333;
+        margin-top: 35px;
+        margin-bottom: 5px;
     }
-    
+
     .footer-text {
-      text-align: center;
-      font-size: 8pt;
-      color: #888;
-      margin-top: 20px;
-      border-top: 1px solid #e0e0e0;
-      padding-top: 8px;
+        text-align: center;
+        font-size: 8pt;
+        color: #888;
+        margin-top: 20px;
+        border-top: 1px solid #e0e0e0;
+        padding-top: 8px;
     }
 
     /* Column Visibility Utilities */
     .action-column {
-      display: none;
+        display: none;
     }
     .edit-mode .action-column {
-      display: table-cell;
+        display: table-cell;
     }
 
     .page-break {
@@ -296,241 +295,299 @@
         break-before: page;
     }
     #itinerary-body td:first-child{
-      min-width: 22px;
+        min-width: 22px;
     }
+    .inner-wrapper, table, tr, .highlight-box {
+        break-inside: avoid;
+        page-break-inside: avoid;
+    }
+
+
+    .is-pdf .inner-wrapper {
+        page-break-after: always;
+        break-after: page;
+        padding-top: 10mm !important; 
+        margin-bottom: 0 !important;
+        break-inside: auto !important;
+        page-break-inside: auto !important;
+    }
+
+    .is-pdf .inner-wrapper:last-child {
+        page-break-after: avoid;
+        break-after: avoid;
+    }
+
+    /* Hide the original full header after page 1 */
+    .is-pdf .inner-wrapper:not(:first-child) .header {
+        display: none;
+    }
+
+    /* Add the 10mm gap above the short header for Page 2 and beyond */
+    .is-pdf .inner-wrapper:not(:first-child) {
+        padding-top: 10mm !important; 
+    }
+
+    /* Ensure the short header itself is tight */
+    .is-pdf .pdf-short-header {
+        margin-top: 0 !important;
+        margin-bottom: 15px !important;
+    }
+
+    /* Keep rows and signatures together */
+    .is-pdf tr, .is-pdf td, .is-pdf h2, .is-pdf .highlight-box, .is-pdf .signature-block {
+        page-break-inside: avoid;
+        break-inside: avoid;
+    }
+
+    /* --- 2. THE UI BUTTONS --- */
+    .controls-container {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 80px;
+        background: #111;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+        z-index: 9999;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+    }
+
+    .btn {
+        padding: 12px 24px;
+        border: none;
+        border-radius: 6px;
+        font-weight: bold;
+        cursor: pointer;
+        text-transform: uppercase;
+        transition: 0.3s;
+    }
+
+    #edit-toggle-btn { background: #3182ce; color: white; } 
+    #save-html-btn { background: #38a169; color: white; } 
+    #save-pdf-btn  { background: #e53e3e; color: white; } 
+    .btn:hover { transform: scale(1.05); filter: brightness(1.2); }
   </style>
-  
-  <script defer src="http://localhost/ceylontravellanka/js/pdf.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+  <script defer src="../admin/js/pdf.js"></script>
 </head>
-<body>
-<div class="controls-container">
-    <button id="edit-toggle-btn" class="toggle-btn">Enable Edit Mode</button>
-    <button id="save-pdf-btn" class="pdf-btn">Save as PDF</button>
+<body data-type="agreementhtml">
+  <div class="controls-container">
+    <button id="edit-toggle-btn" class="btn toggle-btn">Enable Edit Mode</button>
+    <button id="save-html-btn" class="btn toggle-btn">Save HTML</button>
+    <button id="save-pdf-btn" data-type="agreement" class="btn pdf-btn">Save as PDF</button>
   </div>
 
-  <div class="wrapper">
+  <div id="wrapper" class="wrapper">
     <div class="inner-wrapper">
-    <div class="header">
-        <div class="left">
-            <div class="image-wrapper">
-                <img src="/images/logo.svg" alt="Logo - Ceylon Travel Lanka">
-            </div>
-        </div>
-        <div class="right">
-            <div class="agency-title">Ceylon Travel Lanka</div>
-            <div class="agency-tagline">Your Gateway to Unforgettable Adventures in Sri Lanka</div>
-            <div class="header-details">
-                <strong>Head Office:</strong> 83 / D Weliya North, Minuwangoda 11550, Sri Lanka<br>
-                <strong>Contact:</strong> +94 75 980 0348 | Email: contact@ceylontravellanka.com | Web: ceylontravellanka.com<br>
-                <strong>Registration:</strong> SLTB-12345 | VAT: 123456789-V
-            </div>
-        </div>
-    </div>
-
-    <h2>Tour and Travel Services Agreement</h2>
-
-    <div class="grid-container">
-      <div class="col-2">
-        <strong>Client Details</strong>
-        <p style="margin: 4px 0 0; line-height: 1.3;">
-          <strong>Name:</strong> <span class="editable" contenteditable="false">Mr. Abdul Rahman</span><br>
-          <strong>Head Count:</strong> <span class="editable" contenteditable="false">2 Adults</span><br>
-          <strong>Period:</strong> <span class="editable" contenteditable="false">21st Mar 2026 to 23rd Mar 2026 (3 Days)</span><br>
-          <strong>Package Type:</strong> <span class="editable" contenteditable="false">3-Day Private Car Rental</span>
-        </p>
-      </div><div class="col-2">
-        <strong>Booking Reference</strong>
-        <p style="margin: 4px 0 0; line-height: 1.3;">
-          <strong>Reference:</strong> <span class="editable" contenteditable="false">#BKG-2026-8910</span><br>
-          <strong>Date:</strong> <span class="editable" contenteditable="false">May 2, 2026</span><br>
-          <strong>Status:</strong> <span class="badge editable" contenteditable="false">Confirmed</span><br>
-          <strong>Tour Dates:</strong> <span class="editable" contenteditable="false">2026-03-21 to 2026-03-23</span>
-        </p>
+      <div class="header">
+          <div class="left">
+              <div class="image-wrapper">
+                  <img src="../images/logo.svg" alt="Logo - Ceylon Travel Lanka">
+              </div>
+          </div>
+          <div class="right">
+              <div class="agency-title">Ceylon Travel Lanka</div>
+              <div class="agency-tagline">Your Gateway to Unforgettable Adventures in Sri Lanka</div>
+              <div class="header-details">
+                  <strong>Head Office:</strong> 83 / D Weliya North, Minuwangoda 11550, Sri Lanka<br>
+                  <strong>Contact:</strong> +94 75 980 0348 | Email: contact@ceylontravellanka.com | Web: ceylontravellanka.com<br>
+                  <strong>Registration:</strong> SLTB-12345 | VAT: 123456789-V
+              </div>
+          </div>
       </div>
-    </div>
 
-    <h2>Financial & Package Summary</h2>
-    <table>
-      <thead>
-        <tr>
-          <th>Description</th>
-          <th>Details / Inclusions</th>
-          <th>Amount</th>
-          <th class="action-column">Action</th>
-        </tr>
-      </thead>
-      <tbody id="package-body" class="table-body">
-        <tr>
-          <td><span class="editable" contenteditable="false">3-Day Private Car Rental Package</span></td>
-          <td><span class="editable" contenteditable="false">Unlimited mileage as per the itinerary</span></td>
-          <td><span class="editable" contenteditable="false">USD 254 / LKR 79,500</span></td>
-          <td class="action-column"><button class="delete-row-btn">Remove</button></td>
-        </tr>
-        <tr>
-          <td><span class="editable" contenteditable="false">Airport Transfer (24th March)</span></td>
-          <td><span class="editable" contenteditable="false">Hotel to Colombo International Airport (Early Morning)</span></td>
-          <td><span class="editable" contenteditable="false">USD 35 / LKR 11,000</span></td>
-          <td class="action-column"><button class="delete-row-btn">Remove</button></td>
-        </tr>
-        <tr>
-          <td><span class="editable" contenteditable="false">Driver Accommodation</span></td>
-          <td><span class="editable" contenteditable="false">Included in package (Surcharge applies if free lodging unavailable)</span></td>
-          <td><span class="editable" contenteditable="false">Included</span></td>
-          <td class="action-column"><button class="delete-row-btn">Remove</button></td>
-        </tr>
-      </tbody>
-    </table>
-    <button data-id="package-body" class="add-row-btn">+ Add Row</button>
+      <h2>Tour and Travel Services Agreement</h2>
 
-    <h2>Flight & Schedule Details</h2>
-    <table>
-      <thead>
-        <tr>
-          <th>Type</th>
-          <th>Details</th>
-          <th>Timing</th>
-          <th class="action-column">Action</th>
-        </tr>
-      </thead>
-      <tbody id="schedule-body" class="table-body">
-        <tr>
-          <td><span class="editable" contenteditable="false">Arrival Flight</span></td>
-          <td><span class="editable" contenteditable="false">UL 166</span></td>
-          <td><span class="editable" contenteditable="false">21st Mar 2026 @ 11:25 A.M.</span></td>
-          <td class="action-column"><button class="delete-row-btn">Remove</button></td>
-        </tr>
-        <tr>
-          <td><span class="editable" contenteditable="false">Departure Transfer</span></td>
-          <td><span class="editable" contenteditable="false">Hotel to Colombo International Airport</span></td>
-          <td><span class="editable" contenteditable="false">24th Mar 2026 @ Early Morning</span></td>
-          <td class="action-column"><button class="delete-row-btn">Remove</button></td>
-        </tr>
-      </tbody>
-    </table>
-    <button data-id="schedule-body" class="add-row-btn">+ Add Row</button>
-
-    <h2>Itinerary Schedule</h2>
-    <table>
-      <thead>
-        <tr>
-          <th>Day</th>
-          <th>Date</th>
-          <th>Route / Activities</th>
-          <th>Accommodation</th>
-          <th class="action-column">Action</th>
-        </tr>
-      </thead>
-      <tbody id="itinerary-body" class="table-body">
-        <tr>
-          <td><span class="editable" contenteditable="false">Day 1</span></td>
-          <td><span class="editable" contenteditable="false">21/03/2026</span></td>
-          <td><span class="editable" contenteditable="false">Airport to Kandy</span></td>
-          <td><span class="editable" contenteditable="false">Overnight in Kandy</span></td>
-          <td class="action-column"><button class="delete-row-btn">Remove</button></td>
-        </tr>
-        <tr>
-          <td><span class="editable" contenteditable="false">Day 2</span></td>
-          <td><span class="editable" contenteditable="false">22/03/2026</span></td>
-          <td><span class="editable" contenteditable="false">Kandy to Nuwara Eliya</span></td>
-          <td><span class="editable" contenteditable="false">Overnight in Nuwara Eliya</span></td>
-          <td class="action-column"><button class="delete-row-btn">Remove</button></td>
-        </tr>
-        <tr>
-          <td><span class="editable" contenteditable="false">Day 3</span></td>
-          <td><span class="editable" contenteditable="false">23/03/2026</span></td>
-          <td><span class="editable" contenteditable="false">Nuwara Eliya to Colombo</span></td>
-          <td><span class="editable" contenteditable="false">Overnight in Colombo</span></td>
-          <td class="action-column"><button class="delete-row-btn">Remove</button></td>
-        </tr>
-        <tr>
-          <td><span class="editable" contenteditable="false">Day 4</span></td>
-          <td><span class="editable" contenteditable="false">24/03/2026</span></td>
-          <td><span class="editable" contenteditable="false">Hotel to Airport (Early morning departure)</span></td>
-          <td><span class="editable" contenteditable="false">-</span></td>
-          <td class="action-column"><button class="delete-row-btn">Remove</button></td>
-        </tr>
-      </tbody>
-    </table>
-    <button data-id="itinerary-body" class="add-row-btn">+ Add Itinerary Day</button>
-
-    <div class="highlight-box">
-      <strong>Driver Terms & Conditions:</strong><br>
-      <span class="editable" contenteditable="false">Driver accommodation is included in the package. Most hotels provide free driver lodging. If not, a USD 10 per night fee applies.</span>
-      <br><br>
-      <strong>Driver Tips:</strong> <span class="editable" contenteditable="false">Tips are <em>not included</em> in the package and are left to the discretion of the traveler.</span>
-    </div>
-
-    <div class="signature-section">
-      <div class="signature-block">
-        <div style="font-size: 8pt; color: #555;">FOR THE AGENCY:</div>
-        <div class="signature-line"></div>
-        <strong>Ceylon Travel Lanka</strong><br>
-        Authorized Signature & Seal
-      </div><div class="signature-block">
-        <div style="font-size: 8pt; color: #555;">CLIENT:</div>
-        <div class="signature-line"></div>
-        <strong><span class="editable" contenteditable="false">Mr. Abdul Rahman</span></strong><br>
-        Signature
+      <div class="grid-container">
+        <div class="col-2">
+          <strong>Client Details</strong>
+          <p style="margin: 4px 0 0; line-height: 1.3;">
+            <strong>Name:</strong> <span id="guestName" class="editable" contenteditable="false">Mr. Abdul Rahman</span><br>
+            <strong>Head Count:</strong> <span class="editable" contenteditable="false">2 Adults</span><br>
+            <strong>Period:</strong> <span class="editable" contenteditable="false">21st Mar 2026 to 23rd Mar 2026</span><br>
+            <strong>Package Type:</strong> <span class="editable" contenteditable="false">3-Day Private Car Rental</span>
+          </p>
+        </div><div class="col-2">
+          <strong>Booking Reference</strong>
+          <p style="margin: 4px 0 0; line-height: 1.3;">
+            <strong>Reference:</strong> <span id="orderNumber" class="editable" contenteditable="false">#BKG-2026-8910</span><br>
+            <strong>Date:</strong> <span id="enquiryDate" class="editable" contenteditable="false">May 2, 2026</span><br>
+            <strong>Status:</strong> <span class="badge editable" contenteditable="false">Confirmed</span><br>
+            <strong>Tour Dates:</strong> <span id="tourDays" class="editable" contenteditable="false">2026-03-21 to 2026-03-23</span>
+          </p>
+        </div>
       </div>
-    </div>
 
-    <div class="page-break"></div>
-</div>
-<div class="inner-wrapper">
-    <div class="header">
-        <div class="left">
-            <div class="image-wrapper">
-                <img src="/images/logo.svg" alt="Logo - Ceylon Travel Lanka">
-            </div>
-        </div>
-        <div class="right">
-            <div class="agency-title">Ceylon Travel Lanka</div>
-            <div class="agency-tagline">Your Gateway to Unforgettable Adventures in Sri Lanka</div>
-            <div class="header-details">
-                <strong>Head Office:</strong> 83 / D Weliya North, Minuwangoda 11550, Sri Lanka<br>
-                <strong>Contact:</strong> +94 75 980 0348 | Email: contact@ceylontravellanka.com | Web: ceylontravellanka.com<br>
-                <strong>Registration:</strong> SLTB-12345 | VAT: 123456789-V
-            </div>
-        </div>
-    </div>
-    <div class="chauffeur-section">
-      <h2>Chauffeur & Service Details</h2>
-      
-      <p><strong>Chauffeur Details</strong></p>
-      <p style="margin: 4px 0 12px; line-height: 1.3;">
-        <strong>Name:</strong> <span class="editable" contenteditable="false">Mr. Prabash</span><br>
-        <strong>Contact/Whatsapp:</strong> <span class="editable" contenteditable="false">+94 77 917 7093</span>
-      </p>
+      <h2>Financial & Package Summary</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Description</th>
+            <th>Details / Inclusions</th>
+            <th>Amount</th>
+            <th class="action-column">Action</th>
+          </tr>
+        </thead>
+        <tbody id="package-body" class="table-body">
+          <tr>
+            <td><span class="editable" contenteditable="false">3-Day Private Car Rental Package</span></td>
+            <td><span class="editable" contenteditable="false">Unlimited mileage as per the itinerary</span></td>
+            <td><span class="editable" contenteditable="false">USD 254 / LKR 79,500</span></td>
+            <td class="action-column"><button class="delete-row-btn">Remove</button></td>
+          </tr>
+          <tr>
+            <td><span class="editable" contenteditable="false">Airport Transfer (24th March)</span></td>
+            <td><span class="editable" contenteditable="false">Hotel to Colombo International Airport (Early Morning)</span></td>
+            <td><span class="editable" contenteditable="false">USD 35 / LKR 11,000</span></td>
+            <td class="action-column"><button class="delete-row-btn">Remove</button></td>
+          </tr>
+          <tr>
+            <td><span class="editable" contenteditable="false">Driver Accommodation</span></td>
+            <td><span class="editable" contenteditable="false">Included in package (Surcharge applies if free lodging unavailable)</span></td>
+            <td><span class="editable" contenteditable="false">Included</span></td>
+            <td class="action-column"><button class="delete-row-btn">Remove</button></td>
+          </tr>
+        </tbody>
+      </table>
+      <button data-id="package-body" class="add-row-btn">+ Add Row</button>
 
-      <h3>Payment Options:</h3>
-      <ul style="line-height: 1.4; margin-top: 4px; margin-bottom: 12px;">
-        <li><strong>Cash Payments:</strong> Settle the total amount in cash (LKR/USD/EURO/GBP) on the second last day of your trip.</li>
-        <!--li><strong>Online Payments:</strong> Available via credit or debit card with a 3% transaction surcharge.</li-->
-      </ul>
+      <h2>Flight & Schedule Details</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Type</th>
+            <th>Details</th>
+            <th>Timing</th>
+            <th class="action-column">Action</th>
+          </tr>
+        </thead>
+        <tbody id="schedule-body" class="table-body">
+          <tr>
+            <td><span class="editable" contenteditable="false">Arrival Flight</span></td>
+            <td><span id="flight" class="editable" contenteditable="false">UL 166</span></td>
+            <td><span id="arrivalTime" class="editable" contenteditable="false">21st Mar 2026 @ 11:25 A.M.</span></td>
+            <td class="action-column"><button class="delete-row-btn">Remove</button></td>
+          </tr>
+          <tr>
+            <td><span class="editable" contenteditable="false">Departure Transfer</span></td>
+            <td><span class="editable" contenteditable="false">Hotel to Colombo International Airport</span></td>
+            <td><span class="editable" contenteditable="false">24th Mar 2026 @ Early Morning</span></td>
+            <td class="action-column"><button class="delete-row-btn">Remove</button></td>
+          </tr>
+        </tbody>
+      </table>
+      <button data-id="schedule-body" class="add-row-btn">+ Add Row</button>
+
+      <h2>Itinerary Schedule</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Day</th>
+            <th>Date</th>
+            <th>Route / Activities</th>
+            <th>Accommodation</th>
+            <th class="action-column">Action</th>
+          </tr>
+        </thead>
+        <tbody id="itinerary-body" class="table-body">
+          <tr>
+            <td><span class="editable" contenteditable="false">Day 1</span></td>
+            <td><span class="editable" contenteditable="false">21/03/2026</span></td>
+            <td><span class="editable" contenteditable="false">Airport to Kandy</span></td>
+            <td><span class="editable" contenteditable="false">Overnight in Kandy</span></td>
+            <td class="action-column"><button class="delete-row-btn">Remove</button></td>
+          </tr>
+          <tr>
+            <td><span class="editable" contenteditable="false">Day 2</span></td>
+            <td><span class="editable" contenteditable="false">22/03/2026</span></td>
+            <td><span class="editable" contenteditable="false">Kandy to Nuwara Eliya</span></td>
+            <td><span class="editable" contenteditable="false">Overnight in Nuwara Eliya</span></td>
+            <td class="action-column"><button class="delete-row-btn">Remove</button></td>
+          </tr>
+          <tr>
+            <td><span class="editable" contenteditable="false">Day 3</span></td>
+            <td><span class="editable" contenteditable="false">23/03/2026</span></td>
+            <td><span class="editable" contenteditable="false">Nuwara Eliya to Colombo</span></td>
+            <td><span class="editable" contenteditable="false">Overnight in Colombo</span></td>
+            <td class="action-column"><button class="delete-row-btn">Remove</button></td>
+          </tr>
+          <tr>
+            <td><span class="editable" contenteditable="false">Day 4</span></td>
+            <td><span class="editable" contenteditable="false">24/03/2026</span></td>
+            <td><span class="editable" contenteditable="false">Hotel to Airport (Early morning departure)</span></td>
+            <td><span class="editable" contenteditable="false">-</span></td>
+            <td class="action-column"><button class="delete-row-btn">Remove</button></td>
+          </tr>
+        </tbody>
+      </table>
+      <button data-id="itinerary-body" class="add-row-btn">+ Add Itinerary Day</button>
 
       <div class="highlight-box">
-        <p style="margin: 0; line-height: 1.3;">
-          <strong>**</strong> In case of a breakdown to the vehicle, we provide you an alternative vehicle.<br><br>
-          <strong>***</strong> All activities can book through us. Best offers for all activities (Safari, Scuba Diving, Snorkeling, Whale watching, Village tours, Day Excursions, Hot Air Ballooning, etc...), Very competitive rates Guarantee.
-        </p>
+        <strong>Driver Terms & Conditions:</strong><br>
+        <span class="editable" contenteditable="false">Driver accommodation is included in the package. Most hotels provide free driver lodging. If not, a USD 10 per night fee applies.</span>
+        <br><br>
+        <strong>Driver Tips:</strong> <span class="editable" contenteditable="false">Tips are <em>not included</em> in the package and are left to the discretion of the traveler.</span>
       </div>
 
-      <p style="margin-top: 20px; font-style: italic;">
-        I here by accepting all terms and conditions for the Chauffeur driven service as mentioned above.
-      </p>
-
-      <div class="signature-section" style="margin-top: 35px;">
-        <div class="signature-block" style="width: 60%;">
-          <div class="signature-line" style="margin-top: 30px; margin-bottom: 8px;"></div>
-          <strong>Signature of the Guest:</strong> ……………………&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>Date:</strong> <span class="editable" contenteditable="false">…….</span>
+      <div class="signature-section">
+        <div class="signature-block">
+          <div style="font-size: 8pt; color: #555;">FOR THE AGENCY:</div>
+          <div class="signature-line"></div>
+          <strong>Ceylon Travel Lanka</strong><br>
+          Authorized Signature & Seal
+        </div><div class="signature-block">
+          <div style="font-size: 8pt; color: #555;">CLIENT:</div>
+          <div class="signature-line"></div>
+          <strong><span class="editable" contenteditable="false">Mr. Abdul Rahman</span></strong><br>
+          Signature
         </div>
       </div>
+      <!--div class="page-break"></div-->
     </div>
+
+    <div class="inner-wrapper">
+      <div class="chauffeur-section">
+        <h2>Chauffeur & Service Details</h2>
+        
+        <p><strong>Chauffeur Details</strong></p>
+        <p style="margin: 4px 0 12px; line-height: 1.3;">
+          <strong>Name:</strong> <span id="driverName" class="editable" contenteditable="false">Mr. Prabash</span><br>
+          <strong>Contact/Whatsapp:</strong> <span id="driverMobile" class="editable" contenteditable="false">+94 77 917 7093</span>
+        </p>
+
+        <h3>Payment Options:</h3>
+        <ul style="line-height: 1.4; margin-top: 4px; margin-bottom: 12px;">
+          <li><strong>Cash Payments:</strong> Settle the total amount in cash (LKR/USD/EURO/GBP) on the second last day of your trip.</li>
+          <!--li><strong>Online Payments:</strong> Available via credit or debit card with a 3% transaction surcharge.</li-->
+        </ul>
+
+        <div class="highlight-box">
+          <p style="margin: 0; line-height: 1.3;">
+            <strong>**</strong> <span class="editable" contenteditable="false"></span>In case of a breakdown to the vehicle, we provide you an alternative vehicle.</span><br><br>
+            <strong>***</strong> <span class="editable" contenteditable="false">All activities can book through us. Best offers for all activities (Safari, Scuba Diving, Snorkeling, Whale watching, Village tours, Day Excursions, Hot Air Ballooning, etc...), Very competitive rates Guarantee.</span>
+          </p>
+        </div>
+
+        <p style="margin-top: 20px; font-style: italic;">
+          I here by accepting all terms and conditions for the Chauffeur driven service as mentioned above.
+        </p>
+
+        <div class="signature-section" style="margin-top: 35px;">
+          <div class="signature-block" style="width: 60%;">
+            <div class="signature-line" style="margin-top: 30px; margin-bottom: 8px;"></div>
+            <strong>Signature of the Guest:</strong> ……………………&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>Date:</strong> <span class="editable" contenteditable="false">…….</span>
+          </div>
+        </div>
+      </div>
     
-    <div class="footer-text" style="margin-top: 80px;">
-      This is a system-generated document and does not require a physical signature unless otherwise specified.
+      <div class="footer-text" style="margin-top: 80px;">
+        This is a system-generated document and does not require a physical signature unless otherwise specified.
+      </div>
     </div>
-  </div>
+
   </div>
 </body>
 </html>

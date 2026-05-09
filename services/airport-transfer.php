@@ -17,7 +17,7 @@ $metaKeywords = "colombo airport transfer, Sri Lanka airport pickup, airport tax
 $OGTitle = "Colombo Airport Transfer | Private Pickup & Drop Service | " . $siteName;
 $OGdescription = "Book reliable airport transfers in Sri Lanka. Private pickup from Bandaranaike International Airport with fixed prices and 24/7 service.";
 
-$preloadBanner = BASE_URL . "images/slider/1.webp";
+$preloadBanner = BASE_URL . "images/private_driver_airpot.webp";
 ?>
 
 <!DOCTYPE html>
@@ -56,7 +56,7 @@ $preloadBanner = BASE_URL . "images/slider/1.webp";
     <div class="row align-items-center">
         <div class="col-lg-6 col-md-12">
         <div class="about_us__ot position-relative">
-            <img src="<?= BASE_URL ?>images/private_driver.webp" alt="Private Driver in Sri Lanka" class="img-fluid rounded mt-3 w-90">
+            <img src="<?= BASE_URL ?>images/private_driver_airpot.webp" alt="Private Driver in Sri Lanka" class="img-fluid rounded mt-3 w-90">
         </div>
         </div>
         <div class="col-lg-6 col-md-12 pt-2">
