@@ -156,7 +156,10 @@
     #booking-form{ padding-bottom: 8rem; } .slider-button .nir-btn-white{ padding: 5px 24px; } 
     
     /* Hero Section - Keyword Optimized */
-    .hero { background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('images/campaign/campaign_banner.jpeg') center/cover no-repeat; color: var(--white); padding: 8rem 20px; text-align: center; margin: 138px auto 0; }
+    .hero { color: var(--white); padding: 8rem 20px; text-align: center; margin: 138px auto 0; position: relative; }
+    .hero .image-wrapper { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+    .hero .image-wrapper:before { content: ''; position: absolute; top: 0; left: 0; background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)); z-index: 1; width: 100%; height: 100%; }
+    .hero .image-wrapper img { object-fit: cover; object-position: center; width: 100%; height: 100%; }
     .hero h1 { font-size: clamp(2.2rem, 5vw, 3.8rem); color: var(--white); margin-bottom: 1rem; }
     .hero p { font-size: 1.2rem; max-width: 900px; margin: 0 auto 2.5rem; }
     .btn { display: inline-block; padding: 15px 35px; background: var(--primary); color: var(--white); text-decoration: none; border-radius: 5px; font-weight: bold; font-size: 1.1rem; transition: 0.3s; }
