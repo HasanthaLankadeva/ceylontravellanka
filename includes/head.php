@@ -27,7 +27,7 @@
 <link rel="preload" as="image" href="<?= $preloadBanner; ?>" fetchpriority="high">
 
 <!-- ===================== STRUCTURED DATA (SEO POWER BOOST) ===================== -->
-    <script type="application/ld+json">
+<script type="application/ld+json">
 {
     "@context": "https://schema.org",
     "@type": ["TravelAgency", "TourOperator"],
@@ -43,7 +43,7 @@
         "Tour Packages"
     ],
     "contactPoint": {
-        "@type": "ContactPoint",
+        "@type": "83 / D Weliya North, Minuwangoda 11550, Sri Lanka",
         "telephone": "+94759800348",
         "contactType": "customer service",
         "availableLanguage": ["English"]
