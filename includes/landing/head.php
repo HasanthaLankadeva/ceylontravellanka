@@ -24,7 +24,16 @@
 <meta property="og:image" content="https://ceylontravellanka.com/images/og-image.jpg">
 
 <!-- ===================== PRELOAD (OPTIONAL SPEED BOOST) ===================== -->
-<link rel="preload" as="image" href="<?= $preloadBanner; ?>" fetchpriority="high">
+<link
+  rel="preload"
+  as="image"
+  href="<?= BASE_URL ?>images/campaign/campaign_banner_desktop.webp"
+  imagesrcset="
+    <?= BASE_URL ?>images/campaign/campaign_banner_mobile.webp 738w,
+    <?= BASE_URL ?>images/campaign/campaign_banner.webp 1815w
+  "
+  imagesizes="100vw"
+>
 
 <!-- ===================== STRUCTURED DATA (SEO POWER BOOST) ===================== -->
 <script type="application/ld+json">
@@ -156,7 +165,7 @@
     #booking-form{ padding-bottom: 8rem; } .slider-button .nir-btn-white{ padding: 5px 24px; } 
     
     /* Hero Section - Keyword Optimized */
-    .hero { color: var(--white); padding: 8rem 20px; text-align: center; margin: 138px auto 0; position: relative; }
+    .hero { color: var(--white); padding: 8rem 20px; text-align: center; margin: 138px 45px 0; border-radius: 15px; display: flex; align-items: center; height: 615px; max-width: 1815px; position: relative; overflow: hidden; }
     .hero .image-wrapper { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
     .hero .image-wrapper:before { content: ''; position: absolute; top: 0; left: 0; background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)); z-index: 1; width: 100%; height: 100%; }
     .hero .image-wrapper img { object-fit: cover; object-position: center; width: 100%; height: 100%; }
@@ -191,5 +200,5 @@
     /* Floating WhatsApp */
     .whatsapp { position: fixed; bottom: 30px; right: 30px; background: #25D366; color: white; padding: 15px 25px; border-radius: 50px; font-weight: bold; text-decoration: none; box-shadow: 0 5px 20px rgba(0,0,0,0.2); z-index: 999; }
 
-    @media (max-width: 768px) { .hero p { font-size: 1rem; } .hero { height: calc(100vh - 98px); margin: 6.1rem auto 0; padding: 45px 20px; } section { padding: 3rem 0; } .form-box { padding: 3rem 2rem; } }
+    @media (max-width: 768px) { .hero h1 { font-size: 24px; } .hero p { font-size: 16px; } .hero { height: calc(100vh - 98px); margin: 98px 15px 0; padding: 45px 20px; } section { padding: 3rem 0; } .form-box { padding: 3rem 2rem; } }
 </style>

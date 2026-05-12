@@ -17,8 +17,6 @@ $metaKeywords = "";
 $OGTitle = "Private Driver Sri Lanka | Airport Transfers & Tours | " . $siteName;
 $OGdescription = "Reliable private drivers, airport transfers, and Sri Lanka tour packages. Book safe and comfortable travel with local experts.";
 
-$preloadBanner = BASE_URL . "images/campaign/campaign_banner.webp";
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -31,7 +29,22 @@ $preloadBanner = BASE_URL . "images/campaign/campaign_banner.webp";
 
     <section class="hero">
         <div class="image-wrapper">
-            <img src="<?= BASE_URL ?>images/campaign/campaign_banner.webp" alt="International travelers enjoying Sri Lanka tour">
+            <picture>
+                <source
+                    media="(max-width: 738px)"
+                    srcset="<?= BASE_URL ?>images/campaign/campaign_banner_mobile.webp"
+                >
+                <img
+                    src="<?= BASE_URL ?>images/campaign/campaign_banner.webp"
+                    alt="International travelers enjoying Sri Lanka tour"
+                    width="1815"
+                    height="615"
+                    fetchpriority="high"
+                    loading="eager"
+                    decoding="async"
+                >
+            </picture>
+            <!--img src="<?= BASE_URL ?>images/campaign/campaign_banner.webp" alt="International travelers enjoying Sri Lanka tour"-->
         </div>
         <div class="container">
             <h1>Premium Private Driver in Sri Lanka for Custom Tours</h1>
