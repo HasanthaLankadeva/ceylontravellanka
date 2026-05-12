@@ -5844,7 +5844,6 @@ section.testimonial{
 }
 .header-social svg {
     width: 20px;
-    fill: #fff;
 }
 .why-us .why-us-item:hover h3,
 .why-us .why-us-item:hover h4{
@@ -5998,6 +5997,12 @@ section .underline{
   object-fit: cover;
   object-position: center;
 }
+.slick-prev:before, [dir=rtl] .slick-next:before {
+    content: '⇽';
+}
+.slick-next:before, [dir=rtl] .slick-prev:before {
+    content: '⇾';
+}
 @keyframes hJgPhc{
   0% {
     transform: scale(1);
@@ -6085,6 +6090,6 @@ section .underline{
     padding: 2rem 0;
   }
   .footer-links {
-    padding-left: 60px;
+    padding-left: 0;
   }
 }

@@ -24,8 +24,8 @@ jQuery(document).ready(function () {
       duration: 500,
       easingOpen: 'easeInExpo',
       easingClose: 'easeOutExpo',
-      closedSymbol: '<i class="fa fa-plus"></i>',
-      openedSymbol: '<i class="fa fa-minus"></i>',
+      closedSymbol: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg>',
+      openedSymbol: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/></svg>',
       prependTo: '#slicknav-mobile',
       allowParentLinks: true,
       label:"" 

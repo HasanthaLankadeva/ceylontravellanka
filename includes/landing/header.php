@@ -75,9 +75,6 @@
                                     <li><a href="<?= BASE_URL ?>services/car-rental-with-driver">Car Rental with Driver</a></li>
                                 </ul>
                             </li>
-                            <!--li class="<?php echo ($currentpage == 'routes') ? 'active' : ''; ?>">
-                                <a href="<?= BASE_URL ?>routes">Routes</a>
-                            </li-->
                             <li class="<?php echo ($currentpage == 'itineraries') ? 'active' : ''; ?>">
                                 <a href="<?= BASE_URL ?>tour-itineraries">Tour Itineraries</a>
                             </li>
@@ -88,12 +85,11 @@
                                 <a href="<?= BASE_URL ?>contact">Contact Us</a>
                             </li>
                         </ul>
-                        <a href="<?= BASE_URL ?>services/private-driver-in-sri-lanka" class="nir-btn px-3 py-1 ms-3">Hire a Driver</a>
+                        <a href="#booking-form" class="nir-btn px-3 py-1 ms-3">Plan My Trip</a>
                     </div>
                     <div id="slicknav-mobile"></div>
                 </div>
             </div>
         </nav>
     </div>
-
 </header>
