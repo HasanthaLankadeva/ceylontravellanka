@@ -27,27 +27,66 @@
 <link rel="preload" as="image" href="<?= $preloadBanner; ?>" fetchpriority="high">
 
 <!-- ===================== STRUCTURED DATA (SEO POWER BOOST) ===================== -->
-    <script type="application/ld+json">
+<script type="application/ld+json">
 {
-    "@context": "https://schema.org",
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "serviceType": "Private Driver and Chauffeur Service",
+  "provider": {
     "@type": ["TravelAgency", "TourOperator"],
     "name": "Ceylon Travel Lanka",
     "url": "https://ceylontravellanka.com",
     "logo": "https://ceylontravellanka.com/images/logo.svg",
     "image": "https://ceylontravellanka.com/images/logo.svg",
-    "description": "Private driver and transport services in Sri Lanka including airport transfers and tour packages.",
-    "areaServed": "Sri Lanka",
-    "serviceType": [
-        "Airport Transfer",
-        "Private Driver Hire",
-        "Tour Packages"
-    ],
-    "contactPoint": {
-        "@type": "ContactPoint",
-        "telephone": "+94759800348",
-        "contactType": "customer service",
-        "availableLanguage": ["English"]
-    }
+    "priceRange": "$55 - $130",
+    "address": {
+      "@type": "83 / D Weliya North, Minuwangoda 11550, Sri Lanka",
+      "addressLocality": "Colombo",
+      "addressCountry": "LK"
+    },
+    "telephone": "+94759800348"
+  },
+  "areaServed": {
+    "@type": "Country",
+    "name": "Sri Lanka"
+  },
+  "description": "Premium private driver and vehicle services in Sri Lanka. 100% custom tour itineraries, all-inclusive pricing, and professional English-speaking chauffeurs.",
+  "offers": {
+    "@type": "AggregateOffer",
+    "priceCurrency": "USD",
+    "lowPrice": "55",
+    "highPrice": "130",
+    "offerCount": "4",
+    "description": "Daily rates for Sedan, SUV, and Mini Van rentals with driver."
+  },
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Sri Lanka Transport Services",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Budget Sedan with Private Driver"
+        },
+        "price": "55.00",
+        "priceCurrency": "USD"
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Luxury SUV with Private Driver"
+        },
+        "price": "85.00",
+        "priceCurrency": "USD"
+      }
+    ]
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://ceylontravellanka.com/sri-lanka-private-driver-tours"
+  }
 }
 </script>
 

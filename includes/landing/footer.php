@@ -149,7 +149,6 @@
 </div>
 
 <script defer src="<?= BASE_URL ?>js/jquery-3.5.1.min.js"></script>
-<script defer src="<?= BASE_URL ?>js/bootstrap.min.js"></script>
 <script defer src="<?= BASE_URL ?>js/plugin.js"></script>
 <script defer src="<?= BASE_URL ?>js/main.js"></script>
 <script defer src="<?= BASE_URL ?>js/custom-nav.js"></script>
