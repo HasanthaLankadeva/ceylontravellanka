@@ -30,6 +30,9 @@ $preloadBanner = BASE_URL . "images/campaign/campaign_banner.webp";
     <?php require_once BASE_PATH . '/includes/landing/header.php';?>
 
     <section class="hero">
+        <div class="image-wrapper">
+            <img src="<?= BASE_URL ?>images/campaign/campaign_banner.webp" alt="International travelers enjoying Sri Lanka tour">
+        </div>
         <div class="container">
             <h1>Premium Private Driver in Sri Lanka for Custom Tours</h1>
             <p>Experience the ultimate freedom with the best chauffeur service in Sri Lanka. From the cool hills of Nuwara Eliya to the pristine Southern beaches, enjoy a 100% customized holiday package with a professional local driver.</p>
