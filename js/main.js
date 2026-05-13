@@ -531,6 +531,41 @@ var _base_path = (_host == 'localhost') ? '/ceylontravellanka/' : '';
          return false;
      });*/
 
+    /* LANDING PAGE FORM */
+    document.getElementById('tour-inquiry-form').addEventListener('submit', function(e) {
+        e.preventDefault(); // Prevents the page from redirecting
+
+        const form = e.target;
+        const btn = document.getElementById('submit-btn');
+        const successMsg = document.getElementById('success-message');
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbzEbPD8OKVEI1HEbOEW5QoyX4w3Nl-IHCZf55uO6jRyJbkcqgzXVeb4eIm5SaTpbMtX/exec'; // Replace with your URL
+
+        // UI Feedback: Disable button and show loading state
+        btn.disabled = true;
+        btn.innerText = 'Sending...';
+
+        const formData = new FormData(form);
+
+        fetch(scriptURL, { 
+            method: 'POST', 
+            body: formData
+        })
+        .then(response => {
+            // Hide the form and show success message
+            form.style.display = 'none';
+            successMsg.style.display = 'block';
+            
+            // Optional: Scroll to the success message
+            successMsg.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        })
+        .catch(error => {
+            console.error('Error!', error.message);
+            btn.disabled = false;
+            btn.innerText = 'Try Again';
+            alert('There was an error sending your inquiry. Please try again or contact us via WhatsApp.');
+        });
+    });
+
  })(jQuery);
 
 jQuery(window).on('load', function(){

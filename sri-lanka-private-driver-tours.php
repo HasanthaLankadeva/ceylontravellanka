@@ -7,15 +7,15 @@ $page = basename($_SERVER['PHP_SELF'], '.php');
 $siteName = "Ceylon Travel Lanka";
 $baseUrl = "https://ceylontravellanka.com";
 
-$pageTitle = "Private Driver Sri Lanka | Best Custom Tour & Chauffeur Service | " . $siteName;
+$pageTitle = "Private Driver Sri Lanka | Custom Tour Packages & Chauffeur | " . $siteName;
 
 $canonical = "https://ceylontravellanka.com" . $_SERVER['REQUEST_URI'];
 
-$metaDescription = "Book a premium private driver in Sri Lanka. Custom tour packages with all-inclusive pricing. Trusted by international travelers for safety and flexibility.";
-$metaKeywords = "";
+$metaDescription = "Hire a premium private driver in Sri Lanka. 100% custom tour packages, all-inclusive rates & expert chauffeurs. Best for Indian families. Get your free quote!";
+$metaKeywords = "private driver sri lanka, sri lanka tour packages from india, car hire with driver sri lanka, chauffeur service sri lanka, custom sri lanka tours, ramayana trail sri lanka, sri lanka chauffeur guide.";
 
-$OGTitle = "Private Driver Sri Lanka | Airport Transfers & Tours | " . $siteName;
-$OGdescription = "Reliable private drivers, airport transfers, and Sri Lanka tour packages. Book safe and comfortable travel with local experts.";
+$OGTitle = "Your Private Driver in Sri Lanka | 100% Custom Tour Packages | " . $siteName;
+$OGdescription = "Experience Sri Lanka with a professional private driver. All-inclusive rates, flexible itineraries, and pure-veg food stops. Plan your dream custom tour now!";
 
 ?>
 <!DOCTYPE html>
@@ -148,30 +148,39 @@ $OGdescription = "Reliable private drivers, airport transfers, and Sri Lanka tou
         <div class="container">
             <h2>Start Planning Your Dream Trip</h2>
             <div class="form-box">
-                <form action="YOUR_APPS_SCRIPT_URL" method="POST">
+                <div id="success-message" style="display:none; text-align:center; padding: 2rem; background: #e7f3ef; border-radius: 8px; border: 1px solid #28a745; margin-bottom: 2rem;">
+                    <h3 style="color: #28a745; margin-bottom: 0.5rem;">Inquiry Sent Successfully!</h3>
+                    <p>Thank you for choosing Ceylon Travel Lanka. Our team will contact you via WhatsApp shortly.</p>
+                </div>
+
+                <form id="tour-inquiry-form" class="contact-form">
                     <div class="input-group">
-                        <label>Your Name</label>
-                        <input type="text" name="u_name" placeholder="Enter your full name" required>
+                        <label for="name">Your Name</label>
+                        <input type="text" name="name" id="name" placeholder="Enter your full name" required>
                     </div>
                     <div class="input-group">
-                        <label>WhatsApp Number</label>
-                        <input type="tel" name="u_phone" placeholder="+91..." required>
+                        <label for="phone">WhatsApp Number</label>
+                        <input type="tel" name="phone" id="phone" placeholder="+91..." required>
                     </div>
                     <div style="display: flex; gap: 1rem;" class="input-group">
                         <div style="flex:1">
-                            <label>Arrival Date</label>
-                            <input type="date" name="u_date">
+                            <label for="arrivaldate">Arrival Date</label>
+                            <input type="date" name="arrivaldate" id="arrivaldate">
                         </div>
                         <div style="flex:1">
-                            <label>Travelers</label>
-                            <input type="number" name="u_pax" value="2" min="1">
+                            <label for="adults">Adults</label>
+                            <input type="number" name="adults" id="adults" value="2" min="1">
+                        </div>
+                        <div style="flex:1">
+                            <label for="children">Children</label>
+                            <input type="number" name="children" id="children" value="0" min="0">
                         </div>
                     </div>
                     <div class="input-group">
-                        <label>Tell us about your custom tour plan</label>
-                        <textarea name="u_msg" rows="4" placeholder="E.g. We want to visit Kandy, Nuwara Eliya and Ella over 6 days..."></textarea>
+                        <label for="message">Tell us about your custom tour plan</label>
+                        <textarea name="message" id="message" rows="4" placeholder="E.g. We want to visit Kandy, Nuwara Eliya and Ella over 6 days..."></textarea>
                     </div>
-                    <button type="submit" class="nir-btn me-4" style="width:100%">Request My Custom Quote</button>
+                    <button type="submit" id="submit-btn" class="nir-btn me-4" style="width:100%">Request My Custom Quote</button>
                 </form>
             </div>
         </div>
