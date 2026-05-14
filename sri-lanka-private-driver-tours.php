@@ -47,7 +47,7 @@ $OGdescription = "Experience Sri Lanka with a professional private driver. All-i
             <!--img src="<?= BASE_URL ?>images/campaign/campaign_banner.webp" alt="International travelers enjoying Sri Lanka tour"-->
         </div>
         <div class="container">
-            <h1>Explore Sri Lanka with a Trusted Chauffeur</h1>
+            <h1>Explore Sri Lanka with a <br/>Trusted Chauffeur</h1>
             <p>Travel across Sri Lanka with a professional local driver for a safe, comfortable, and personalized experience. With many years of experience, we ensure reliable service for families, couples, and groups. We offer a wide range of vehicles, including cars, SUVs, vans, and luxury options to suit every travel need.</p>
             <div class="slider-button d-flex justify-content-center">
                 <a href="#price" class="nir-btn me-4" tabindex="0">Check Prices</a>
@@ -76,7 +76,7 @@ $OGdescription = "Experience Sri Lanka with a professional private driver. All-i
             <div class="card">
                 <i>🛡️</i>
                 <h3>Safety & Reliability</h3>
-                <p>Travel with peace of mind. All our <strong>chauffeur-driven car rentals</strong> include comprehensive insurance, verified professional drivers, and 24/7 support.</p>
+                <p>Travel with peace of mind. All our <strong>chauffeur-driven car rentals</strong> include comprehensive insurance, verified professional drivers.</p>
             </div>
         </div>
     </section>
@@ -117,26 +117,26 @@ $OGdescription = "Experience Sri Lanka with a professional private driver. All-i
                     <tr>
                         <td><strong>Standard Sedan</strong></td>
                         <td>3 Pax + Bags</td>
-                        <td>LKR 25,000 ($78 USD / ₹7,330 INR)</td>
-                        <td>LKR 22,000 ($69 USD / ₹6,450 INR)</td>
+                        <td>LKR 25,000 (USD 78 / INR 7,330)</td>
+                        <td>LKR 22,000 (USD 69 / INR 6,450)</td>
                     </tr>
                     <tr>
                         <td><strong>SUV</strong></td>
                         <td>3 Pax + Bags</td>
-                        <td>LKR 27,000 ($84 USD / ₹7,920 INR)</td>
-                        <td>LKR 25,000 ($78 USD / ₹7,330 INR)</td>
+                        <td>LKR 27,000 (USD 84 / INR 7,920)</td>
+                        <td>LKR 25,000 (USD 78 / INR 7,330)</td>
                     </tr>
                     <tr>
                         <td><strong>KDH</strong> (Flat Roof Van)</td>
                         <td>6 Pax + Bags</td>
-                        <td>LKR 30,000 ($93 USD / ₹8,700 INR)</td>
-                        <td>LKR 27,000 ($84 USD / ₹7,920 INR)</td>
+                        <td>LKR 30,000 (USD 93 / INR 8,700)</td>
+                        <td>LKR 27,000 (USD 84 / INR 7,920)</td>
                     </tr>
                     <tr>
                         <td><strong>KDH</strong> (High Roof Van)</td>
                         <td>10 Pax + Bags</td>
-                        <td>LKR 33,000 ($103 USD / ₹9,680 INR)</td>
-                        <td>LKR 29,000 ($90 USD / ₹8,500 INR)</td>
+                        <td>LKR 33,000 (USD 103 / INR 9,680)</td>
+                        <td>LKR 29,000 (USD 90 / INR 8,500)</td>
                     </tr>
                 </tbody>
             </table>
@@ -158,22 +158,22 @@ $OGdescription = "Experience Sri Lanka with a professional private driver. All-i
                     <tr>
                         <td><strong>Standard Sedan</strong></td>
                         <td>3 Pax + Bags</td>
-                        <td>LKR 10,000 ($31 USD / ₹2,930 INR)</td>
+                        <td>LKR 10,000 (USD 31 / INR 2,930)</td>
                     </tr>
                     <tr>
                         <td><strong>SUV</strong></td>
                         <td>3 Pax + Bags</td>
-                        <td>LKR 13,000 ($40 USD / ₹3,810 INR)</td>
+                        <td>LKR 13,000 (USD 40 / INR 3,810)</td>
                     </tr>
                     <tr>
                         <td><strong>KDH</strong> (Flat Roof Van)</td>
                         <td>6 Pax + Bags</td>
-                        <td>LKR 16,000 ($50 USD / ₹4,690 INR)</td>
+                        <td>LKR 16,000 (USD 50 / INR 4,690)</td>
                     </tr>
                     <tr>
                         <td><strong>KDH</strong> (High Roof Van)</td>
                         <td>10 Pax + Bags</td>
-                        <td>LKR 18,000 ($56 USD / ₹5,280 INR)</td>
+                        <td>LKR 18,000 (USD 56 / INR 5,280)</td>
                     </tr>
                 </tbody>
             </table>
