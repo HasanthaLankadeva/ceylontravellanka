@@ -47,8 +47,8 @@ $OGdescription = "Experience Sri Lanka with a professional private driver. All-i
             <!--img src="<?= BASE_URL ?>images/campaign/campaign_banner.webp" alt="International travelers enjoying Sri Lanka tour"-->
         </div>
         <div class="container">
-            <h1>Premium Private Driver in Sri Lanka for Custom Tours</h1>
-            <p>Experience the ultimate freedom with the best chauffeur service in Sri Lanka. From the cool hills of Nuwara Eliya to the pristine Southern beaches, enjoy a 100% customized holiday package with a professional local driver.</p>
+            <h1>Explore Sri Lanka with a Trusted Chauffeur</h1>
+            <p>Travel across Sri Lanka with a professional local driver for a safe, comfortable, and personalized experience. With many years of experience, we ensure reliable service for families, couples, and groups. We offer a wide range of vehicles, including cars, SUVs, vans, and luxury options to suit every travel need.</p>
             <div class="slider-button d-flex justify-content-center">
                 <a href="#price" class="nir-btn me-4" tabindex="0">Check Prices</a>
                 <a href="https://www.tripadvisor.com/Attraction_Review-g11999643-d25571146-Reviews-Ceylon_Travel_Lanka-Minuwangoda_Western_Province.html" class="nir-btn-white" target="_blank" class="nir-btn-white" tabindex="0">
