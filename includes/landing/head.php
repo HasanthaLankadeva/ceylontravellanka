@@ -47,10 +47,13 @@
     "url": "https://ceylontravellanka.com",
     "logo": "https://ceylontravellanka.com/images/logo.svg",
     "image": "https://ceylontravellanka.com/images/logo.svg",
-    "priceRange": "$55 - $130",
+    "priceRange": "$31 - $103",
     "address": {
-      "@type": "83 / D Weliya North, Minuwangoda 11550, Sri Lanka",
-      "addressLocality": "Colombo",
+      "@type": "PostalAddress",
+      "streetAddress": "83 / D Weliya North",
+      "addressLocality": "Minuwangoda",
+      "postalCode": "11550",
+      "addressRegion": "Colombo",
       "addressCountry": "LK"
     },
     "telephone": "+94759800348"
@@ -59,36 +62,66 @@
     "@type": "Country",
     "name": "Sri Lanka"
   },
-  "description": "Premium private driver and vehicle services in Sri Lanka. 100% custom tour itineraries, all-inclusive pricing, and professional English-speaking chauffeurs.",
+  "description": "Premium private driver and vehicle services in Sri Lanka. Offering transparent daily hire rates and flat-rate Colombo Airport (CMB) transfers with professional English-speaking chauffeurs.",
   "offers": {
     "@type": "AggregateOffer",
     "priceCurrency": "USD",
-    "lowPrice": "55",
-    "highPrice": "130",
-    "offerCount": "4",
-    "description": "Daily rates for Sedan, SUV, and Mini Van rentals with driver."
+    "lowPrice": "31",
+    "highPrice": "103",
+    "offerCount": "12",
+    "description": "Pricing varies by vehicle type (Sedan, SUV, KDH Van) and service type (Daily Hire vs Airport Transfer)."
   },
   "hasOfferCatalog": {
     "@type": "OfferCatalog",
-    "name": "Sri Lanka Transport Services",
+    "name": "Sri Lanka Transport Pricing",
     "itemListElement": [
       {
-        "@type": "Offer",
-        "itemOffered": {
-          "@type": "Service",
-          "name": "Budget Sedan with Private Driver"
-        },
-        "price": "55.00",
-        "priceCurrency": "USD"
+        "@type": "OfferCatalog",
+        "name": "Private Car Hire (Daily Rates)",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": { "@type": "Service", "name": "Standard Sedan Daily Hire (5+ Days)" },
+            "price": "69.00",
+            "priceCurrency": "USD"
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": { "@type": "Service", "name": "SUV Daily Hire (5+ Days)" },
+            "price": "78.00",
+            "priceCurrency": "USD"
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": { "@type": "Service", "name": "KDH High Roof Van Daily Hire (3-5 Days)" },
+            "price": "103.00",
+            "priceCurrency": "USD"
+          }
+        ]
       },
       {
-        "@type": "Offer",
-        "itemOffered": {
-          "@type": "Service",
-          "name": "Luxury SUV with Private Driver"
-        },
-        "price": "85.00",
-        "priceCurrency": "USD"
+        "@type": "OfferCatalog",
+        "name": "Colombo Airport (CMB) Transfers",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": { "@type": "Service", "name": "Airport Transfer - Standard Sedan" },
+            "price": "31.00",
+            "priceCurrency": "USD"
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": { "@type": "Service", "name": "Airport Transfer - SUV" },
+            "price": "40.00",
+            "priceCurrency": "USD"
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": { "@type": "Service", "name": "Airport Transfer - KDH High Roof Van" },
+            "price": "56.00",
+            "priceCurrency": "USD"
+          }
+        ]
       }
     ]
   },
