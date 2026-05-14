@@ -194,6 +194,7 @@
     /* Form */
     .form-box { max-width: 700px; margin: 0 auto; background: var(--white); padding: 3rem; border-radius: 15px; box-shadow: 0 15px 40px rgba(0,0,0,0.1); }
     .input-group { margin-bottom: 1.5rem; }
+    .flex-group {display: flex; gap: 1rem;} .flex-group .wrap { flex: 1; }
     label { display: block; margin-bottom: 0.5rem; font-weight: 600; }
     input, textarea, select { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 6px; font-size: 1rem; }
 
@@ -201,5 +202,5 @@
     .whatsapp { position: fixed; bottom: 30px; right: 30px; background: #25D366; color: white; padding: 15px 25px; border-radius: 50px; font-weight: bold; text-decoration: none; box-shadow: 0 5px 20px rgba(0,0,0,0.2); z-index: 999; }
 
     @media (max-width: 768px) { .hero h1 { font-size: 24px; } .hero p { font-size: 16px; } .hero { height: 570px; margin: 98px 15px 0; padding: 45px 20px; } section { padding: 3rem 0; } .form-box { padding: 3rem 2rem; } }
-    @media (max-width: 600px) { .form-box .adult-wrap{ flex: 47% !important } .form-box .child-wrap{ flex: 47% !important }}
+    @media (max-width: 600px) { .form-box .adult-wrap{ flex: 47%; } .form-box .child-wrap{ flex: 47%; }}
 </style>
