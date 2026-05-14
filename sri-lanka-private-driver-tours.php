@@ -200,15 +200,15 @@ $OGdescription = "Experience Sri Lanka with a professional private driver. All-i
                         <input type="tel" name="phone" id="phone" placeholder="+91..." required>
                     </div>
                     <div style="display: flex; gap: 1rem;" class="input-group">
-                        <div style="flex:1; max-width: 180px;">
+                        <div style="flex:1;">
                             <label for="arrivaldate">Arrival Date</label>
                             <input type="date" name="arrivaldate" id="arrivaldate">
                         </div>
-                        <div style="flex:1">
+                        <div class="adult-wrap" style="flex:1">
                             <label for="adults">Adults</label>
                             <input type="number" name="adults" id="adults" value="2" min="1">
                         </div>
-                        <div style="flex:1">
+                        <div class="child-wrap" style="flex:1">
                             <label for="children">Children</label>
                             <input type="number" name="children" id="children" value="0" min="0">
                         </div>
