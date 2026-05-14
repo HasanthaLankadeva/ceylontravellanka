@@ -202,5 +202,5 @@
     .whatsapp { position: fixed; bottom: 30px; right: 30px; background: #25D366; color: white; padding: 15px 25px; border-radius: 50px; font-weight: bold; text-decoration: none; box-shadow: 0 5px 20px rgba(0,0,0,0.2); z-index: 999; }
 
     @media (max-width: 768px) { .hero h1 { font-size: 24px; } .hero p { font-size: 16px; } .hero { height: 570px; margin: 98px 15px 0; padding: 45px 20px; } section { padding: 3rem 0; } .form-box { padding: 3rem 2rem; } }
-    @media (max-width: 600px) { .flex-group { flex-flow: wrap; } .form-box .date-wrap{ max-width: 100%; } .form-box .adult-wrap{ max-width: 47%; } .form-box .child-wrap{ max-width: 47%; }}
+    @media (max-width: 600px) { .flex-group { flex-flow: wrap; } .form-box .date-wrap{ width: 100%; } .form-box .adult-wrap{ width: 47%; } .form-box .child-wrap{ width: 47%; }}
 </style>
