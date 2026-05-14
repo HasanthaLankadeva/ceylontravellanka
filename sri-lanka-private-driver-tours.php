@@ -32,10 +32,10 @@ $OGdescription = "Experience Sri Lanka with a professional private driver. All-i
             <picture>
                 <source
                     media="(max-width: 738px)"
-                    srcset="<?= BASE_URL ?>images/campaign/campaign_banner_mobile.webp"
+                    srcset="<?= BASE_URL ?>images/campaign/campaign_banner_mobile.avif"
                 >
                 <img
-                    src="<?= BASE_URL ?>images/campaign/campaign_banner.webp"
+                    src="<?= BASE_URL ?>images/campaign/campaign_banner.avif"
                     alt="International travelers enjoying Sri Lanka tour"
                     width="1815"
                     height="615"
@@ -87,21 +87,21 @@ $OGdescription = "Experience Sri Lanka with a professional private driver. All-i
             <p style="text-align: center; max-width: 850px; margin: 0 auto 3rem;">Ceylon Travel Lanka is proud to maintain <strong>global standards of excellence</strong>. We are the preferred choice for travelers from Europe, the UK, and India, recognized for our punctuality, clean vehicles, and professional hospitality.</p>
             
             <div class="gallery-grid">
-                <div class="gallery-item"><img src="<?= BASE_URL ?>images/campaign/1.webp" alt="International travelers enjoying Sri Lanka tour" loading="lazy"></div>
-                <div class="gallery-item"><img src="<?= BASE_URL ?>images/campaign/2.webp" alt="Modern private vehicle in Sri Lanka" loading="lazy"></div>
-                <div class="gallery-item"><img src="<?= BASE_URL ?>images/campaign/3.webp" alt="Happy couple with private chauffeur" loading="lazy"></div>
-                <div class="gallery-item"><img src="<?= BASE_URL ?>images/campaign/4.webp" alt="Clean and comfortable car interior" loading="lazy"></div>
-                <div class="gallery-item"><img src="<?= BASE_URL ?>images/campaign/5.webp" alt="Clean and comfortable car interior" loading="lazy"></div>
-                <div class="gallery-item"><img src="<?= BASE_URL ?>images/campaign/6.webp" alt="Clean and comfortable car interior" loading="lazy"></div>
-                <div class="gallery-item"><img src="<?= BASE_URL ?>images/campaign/7.webp" alt="Clean and comfortable car interior" loading="lazy"></div>
-                <div class="gallery-item"><img src="<?= BASE_URL ?>images/campaign/8.webp" alt="Clean and comfortable car interior" loading="lazy"></div>
+                <div class="gallery-item"><img src="<?= BASE_URL ?>images/campaign/1.webp" alt="Internationally Trusted Service - Ceylon Travel Lanka" loading="lazy"></div>
+                <div class="gallery-item"><img src="<?= BASE_URL ?>images/campaign/2.webp" alt="Internationally Trusted Service - Ceylon Travel Lanka" loading="lazy"></div>
+                <div class="gallery-item"><img src="<?= BASE_URL ?>images/campaign/3.webp" alt="Internationally Trusted Service - Ceylon Travel Lanka" loading="lazy"></div>
+                <div class="gallery-item"><img src="<?= BASE_URL ?>images/campaign/4.webp" alt="Internationally Trusted Service - Ceylon Travel Lanka" loading="lazy"></div>
+                <div class="gallery-item"><img src="<?= BASE_URL ?>images/campaign/5.webp" alt="Internationally Trusted Service - Ceylon Travel Lanka" loading="lazy"></div>
+                <div class="gallery-item"><img src="<?= BASE_URL ?>images/campaign/6.webp" alt="Internationally Trusted Service - Ceylon Travel Lanka" loading="lazy"></div>
+                <div class="gallery-item"><img src="<?= BASE_URL ?>images/campaign/7.webp" alt="Internationally Trusted Service - Ceylon Travel Lanka" loading="lazy"></div>
+                <div class="gallery-item"><img src="<?= BASE_URL ?>images/campaign/8.webp" alt="Internationally Trusted Service - Ceylon Travel Lanka" loading="lazy"></div>
             </div>
         </div>
     </section>
 
     <section id="price" class="container">
         <h2>Transparent Private Car Hire Price</h2>
-        <p style="text-align: center; max-width: 850px; margin: 0 auto 3rem;">No hidden fees. Our all-inclusive daily rates cover fuel, highway tolls, and driver accommodation.</p>
+        <p style="text-align: center; max-width: 850px; margin: 0 auto 3rem;">No hidden fees. Our all-inclusive daily rates cover fuel, highway tolls, parking and driver’s meals and accommodation. To ensure the highest level of comfort and rapport, we assign a dedicated driver and vehicle for your full itinerary. We also prioritize your schedule with a replacement vehicle guarantee; should a breakdown occur, we will supply a vehicle of the same category immediately to ensure your travel plans remain uninterrupted.</p>
         
         <div class="table-wrap">
             <table>
@@ -109,39 +109,76 @@ $OGdescription = "Experience Sri Lanka with a professional private driver. All-i
                     <tr>
                         <th>Vehicle Category</th>
                         <th>Max Capacity</th>
+                        <th>Daily Rate (3-5 Days)</th>
                         <th>Daily Rate (5+ Days)</th>
-                        <th>Ideal For</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td><strong>Standard Sedan</strong> (Axio/Grace)</td>
+                        <td><strong>Standard Sedan</strong></td>
                         <td>3 Pax + Bags</td>
-                        <td>$55 - $65</td>
-                        <td>Couples / Small Families</td>
+                        <td>LKR 25,000 ($78 USD / ₹7,330 INR)</td>
+                        <td>LKR 22,000 ($69 USD / ₹6,450 INR)</td>
                     </tr>
                     <tr>
-                        <td><strong>Luxury SUV</strong> (Prado)</td>
-                        <td>4 Pax + Bags</td>
-                        <td>$85 - $110</td>
-                        <td>Premium Comfort</td>
+                        <td><strong>SUV</strong></td>
+                        <td>3 Pax + Bags</td>
+                        <td>LKR 27,000 ($84 USD / ₹7,920 INR)</td>
+                        <td>LKR 25,000 ($78 USD / ₹7,330 INR)</td>
                     </tr>
                     <tr>
-                        <td><strong>Commuter Van</strong> (KDH)</td>
-                        <td>6-9 Pax + Bags</td>
-                        <td>$75 - $90</td>
-                        <td>Family Groups</td>
+                        <td><strong>KDH</strong> (Flat Roof Van)</td>
+                        <td>6 Pax + Bags</td>
+                        <td>LKR 30,000 ($93 USD / ₹8,700 INR)</td>
+                        <td>LKR 27,000 ($84 USD / ₹7,920 INR)</td>
                     </tr>
                     <tr>
-                        <td><strong>Large Mini-Bus</strong></td>
-                        <td>10-14 Pax</td>
-                        <td>$100 - $130</td>
-                        <td>Large Groups</td>
+                        <td><strong>KDH</strong> (High Roof Van)</td>
+                        <td>10 Pax + Bags</td>
+                        <td>LKR 33,000 ($103 USD / ₹9,680 INR)</td>
+                        <td>LKR 29,000 ($90 USD / ₹8,500 INR)</td>
                     </tr>
                 </tbody>
             </table>
         </div>
-        <p style="text-align: center; font-size: 0.9rem; color: #777;">*Standard daily rates include 100km. Excess mileage charged at $0.45 - $0.55 per km.</p>
+        <p style="text-align: center; font-size: 0.9rem; color: #777; max-width: 850px; margin: 0 auto 4rem;">* Rates are based in <b>LKR</b>. USD/INR conversions are indicative only and subject to exchange rate fluctuations.</p>
+
+        <h2>Colombo Airport (CMB) Transfer Rates & Pricing</h2>
+        <p style="text-align: center; max-width: 850px; margin: 0 auto 3rem;">Looking for a hassle-free airport ride? We provide comfortable, air-conditioned private transfers from Colombo Airport to Colombo and Colombo to Colombo Airport. Check our transparent, one-way rates below to secure your ride with a professional driver.</p>
+        <div class="table-wrap">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Vehicle Category</th>
+                        <th>Max Capacity</th>
+                        <th>Rate</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Standard Sedan</strong></td>
+                        <td>3 Pax + Bags</td>
+                        <td>LKR 10,000 ($31 USD / ₹2,930 INR)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>SUV</strong></td>
+                        <td>3 Pax + Bags</td>
+                        <td>LKR 13,000 ($40 USD / ₹3,810 INR)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>KDH</strong> (Flat Roof Van)</td>
+                        <td>6 Pax + Bags</td>
+                        <td>LKR 16,000 ($50 USD / ₹4,690 INR)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>KDH</strong> (High Roof Van)</td>
+                        <td>10 Pax + Bags</td>
+                        <td>LKR 18,000 ($56 USD / ₹5,280 INR)</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <p style="text-align: center; font-size: 0.9rem; color: #777; max-width: 850px; margin: 0 auto;">* Rates are based in <b>LKR</b>. USD/INR conversions are indicative only and subject to exchange rate fluctuations.</p>
     </section>
 
     <section id="booking-form" class="bg-light">

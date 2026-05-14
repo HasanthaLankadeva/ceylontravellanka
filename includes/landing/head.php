@@ -27,10 +27,10 @@
 <link
   rel="preload"
   as="image"
-  href="<?= BASE_URL ?>images/campaign/campaign_banner_desktop.webp"
+  href="<?= BASE_URL ?>images/campaign/campaign_banner.avif"
   imagesrcset="
-    <?= BASE_URL ?>images/campaign/campaign_banner_mobile.webp 738w,
-    <?= BASE_URL ?>images/campaign/campaign_banner.webp 1815w
+    <?= BASE_URL ?>images/campaign/campaign_banner_mobile.avif 738w,
+    <?= BASE_URL ?>images/campaign/campaign_banner.avif 1815w
   "
   imagesizes="100vw"
 >
