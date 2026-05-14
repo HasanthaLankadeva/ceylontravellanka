@@ -200,7 +200,7 @@ $OGdescription = "Experience Sri Lanka with a professional private driver. All-i
                         <input type="tel" name="phone" id="phone" placeholder="+91..." required>
                     </div>
                     <div style="display: flex; gap: 1rem;" class="input-group">
-                        <div style="flex:1">
+                        <div style="flex:1; max-width: 180px;">
                             <label for="arrivaldate">Arrival Date</label>
                             <input type="date" name="arrivaldate" id="arrivaldate">
                         </div>
