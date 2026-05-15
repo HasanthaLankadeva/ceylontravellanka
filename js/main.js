@@ -532,39 +532,43 @@ var _base_path = (_host == 'localhost') ? '/ceylontravellanka/' : '';
      });*/
 
     /* LANDING PAGE FORM */
-    document.getElementById('tour-inquiry-form').addEventListener('submit', function(e) {
-        e.preventDefault(); // Prevents the page from redirecting
+    const form = document.getElementById('tour-inquiry-form');
 
-        const form = e.target;
-        const btn = document.getElementById('submit-btn');
-        const successMsg = document.getElementById('success-message');
-        const scriptURL = 'https://script.google.com/macros/s/AKfycbzc65U4Mm7JHZYBUyC0B_WL0-5mjc6OWBVcmSTHzrKDyTNNjcfhunwM22qKi3ko1PwV/exec'; // Replace with your URL
+    if (form) {
+        document.getElementById('tour-inquiry-form').addEventListener('submit', function(e) {
+            e.preventDefault(); // Prevents the page from redirecting
 
-        // UI Feedback: Disable button and show loading state
-        btn.disabled = true;
-        btn.innerText = 'Sending...';
+            const form = e.target;
+            const btn = document.getElementById('submit-btn');
+            const successMsg = document.getElementById('success-message');
+            const scriptURL = 'https://script.google.com/macros/s/AKfycbzc65U4Mm7JHZYBUyC0B_WL0-5mjc6OWBVcmSTHzrKDyTNNjcfhunwM22qKi3ko1PwV/exec'; // Replace with your URL
 
-        const formData = new FormData(form);
+            // UI Feedback: Disable button and show loading state
+            btn.disabled = true;
+            btn.innerText = 'Sending...';
 
-        fetch(scriptURL, { 
-            method: 'POST', 
-            body: formData
-        })
-        .then(response => {
-            // Hide the form and show success message
-            form.style.display = 'none';
-            successMsg.style.display = 'block';
-            
-            // Optional: Scroll to the success message
-            successMsg.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        })
-        .catch(error => {
-            console.error('Error!', error.message);
-            btn.disabled = false;
-            btn.innerText = 'Try Again';
-            alert('There was an error sending your inquiry. Please try again or contact us via WhatsApp.');
+            const formData = new FormData(form);
+
+            fetch(scriptURL, { 
+                method: 'POST', 
+                body: formData
+            })
+            .then(response => {
+                // Hide the form and show success message
+                form.style.display = 'none';
+                successMsg.style.display = 'block';
+                
+                // Optional: Scroll to the success message
+                successMsg.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            })
+            .catch(error => {
+                console.error('Error!', error.message);
+                btn.disabled = false;
+                btn.innerText = 'Try Again';
+                alert('There was an error sending your inquiry. Please try again or contact us via WhatsApp.');
+            });
         });
-    });
+    }
 
  })(jQuery);
 
