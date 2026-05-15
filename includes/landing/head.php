@@ -1,6 +1,7 @@
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18163798890"></script>
 <script src="<?= BASE_URL ?>js/gtags.js"></script>
+<script src="<?= BASE_URL ?>js/gtagswa.js"></script>
 
 <!-- ===================== BASIC META ===================== -->
 <meta charset="UTF-8">
