@@ -1,12 +1,6 @@
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18163798890"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'AW-18163798890');
-</script>
+<script src="<?= BASE_URL ?>js/gtags.js"></script>
 
 <!-- ===================== BASIC META ===================== -->
 <meta charset="UTF-8">
