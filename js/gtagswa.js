@@ -2,7 +2,7 @@
 document.addEventListener('DOMContentLoaded', function () {
     // 1. Find the WhatsApp button/link by its class or ID
     // Replace '.whatsapp-link' with the actual class of your button
-    const whatsappBtn = document.querySelector('#wa-widget');
+    const whatsappBtn = document.querySelector('#getbutton-whatsapp');
 
     if (whatsappBtn) {
         whatsappBtn.addEventListener('click', function (event) {
