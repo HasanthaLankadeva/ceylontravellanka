@@ -141,43 +141,6 @@ $OGdescription = "Experience Sri Lanka with a professional private driver. All-i
                 </tbody>
             </table>
         </div>
-        <p style="text-align: center; font-size: 0.9rem; color: #777; max-width: 850px; margin: 0 auto 4rem;">* Rates are based in <b>LKR</b>. USD/INR conversions are indicative only and subject to exchange rate fluctuations.</p>
-
-        <h2>Colombo Airport (CMB) Transfer Rates & Pricing</h2>
-        <p style="text-align: center; max-width: 850px; margin: 0 auto 3rem;">Looking for a hassle-free airport ride? We provide comfortable, air-conditioned private transfers from Colombo Airport to Colombo and Colombo to Colombo Airport. Check our transparent, one-way rates below to secure your ride with a professional driver.</p>
-        <div class="table-wrap">
-            <table>
-                <thead>
-                    <tr>
-                        <th>Vehicle Category</th>
-                        <th>Max Capacity</th>
-                        <th>Rate</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><strong>Standard Sedan</strong></td>
-                        <td>3 Pax + Bags</td>
-                        <td>LKR 10,000 (USD 31 / INR 2,930)</td>
-                    </tr>
-                    <tr>
-                        <td><strong>SUV</strong></td>
-                        <td>3 Pax + Bags</td>
-                        <td>LKR 13,000 (USD 40 / INR 3,810)</td>
-                    </tr>
-                    <tr>
-                        <td><strong>KDH</strong> (Flat Roof Van)</td>
-                        <td>6 Pax + Bags</td>
-                        <td>LKR 16,000 (USD 50 / INR 4,690)</td>
-                    </tr>
-                    <tr>
-                        <td><strong>KDH</strong> (High Roof Van)</td>
-                        <td>10 Pax + Bags</td>
-                        <td>LKR 18,000 (USD 56 / INR 5,280)</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
         <p style="text-align: center; font-size: 0.9rem; color: #777; max-width: 850px; margin: 0 auto;">* Rates are based in <b>LKR</b>. USD/INR conversions are indicative only and subject to exchange rate fluctuations.</p>
     </section>
 
