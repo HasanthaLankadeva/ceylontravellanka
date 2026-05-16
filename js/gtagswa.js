@@ -7,17 +7,17 @@ document.addEventListener('DOMContentLoaded', function () {
     if (whatsappBtn) {
         whatsappBtn.addEventListener('click', function (event) {
             // Stop the browser from leaving the page immediately
-            event.preventDefault();
-            const url = this.getAttribute('href');
+            //event.preventDefault();
+            //const url = this.getAttribute('href');
 
             // Send the conversion data to Google
             // IMPORTANT: Ensure 'AW-123456789/AbCdEfGhIjK' is your actual ID and Label
             gtag('event', 'conversion', {
                 'send_to': 'AW-18163798890/lXEqCIK_xa0cEOqmltVD', 
-                'event_callback': function () {
+                /*'event_callback': function () {
                     // Navigate to WhatsApp after the signal is sent
                     window.location.href = url;
-                }
+                }*/
             });
         });
     }
