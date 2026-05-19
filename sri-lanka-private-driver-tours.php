@@ -81,6 +81,32 @@ $OGdescription = "Experience Sri Lanka with a professional private driver. All-i
         </div>
     </section>
 
+    <section class="shorts-section">
+        <div class="container">
+            <h2 class="section-title">Glimpses of Sri Lanka</h2>
+            <p style="text-align: center; max-width: 850px; margin: 0 auto 3rem;">Watch our guests experiencing the ultimate private tours</p>
+            
+            <div class="shorts-grid">
+                
+                <div class="shorts-card">
+                    <iframe src="https://www.youtube.com/embed/5vdWztXlvAA?si=8-fMasu-fWsyV2jb" title="Indian Couples 🇮🇳 + Sri Lanka Beaches 🇱🇰 = pure paradise!" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="">
+                    </iframe>
+                </div>
+
+                <div class="shorts-card">
+                    <iframe src="https://www.youtube.com/embed/V_a2WBlf3Zw" title="Immersive culture &amp; happy clients with the Ceylon Travel team 🇱🇰" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="">
+                    </iframe>
+                </div>
+
+                <div class="shorts-card">
+                    <iframe src="https://www.youtube.com/embed/iSB7CwT3ftA" title="The ultimate spiritual escape in Sri Lanka 🇱🇰" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="">
+                    </iframe>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
     <section class="bg-light">
         <div class="container">
             <h2>Internationally Trusted Service</h2>
@@ -99,7 +125,7 @@ $OGdescription = "Experience Sri Lanka with a professional private driver. All-i
         </div>
     </section>
 
-    <section id="price" class="container">
+    <!--section id="price" class="container">
         <h2>Transparent Private Car Hire Price</h2>
         <p style="text-align: center; max-width: 850px; margin: 0 auto 3rem;">No hidden fees. Our all-inclusive daily rates cover fuel, highway tolls, parking and driver’s meals and accommodation. To ensure the highest level of comfort and rapport, we assign a dedicated driver and vehicle for your full itinerary. We also prioritize your schedule with a replacement vehicle guarantee; should a breakdown occur, we will supply a vehicle of the same category immediately to ensure your travel plans remain uninterrupted.</p>
         
@@ -142,6 +168,50 @@ $OGdescription = "Experience Sri Lanka with a professional private driver. All-i
             </table>
         </div>
         <p style="text-align: center; font-size: 0.9rem; color: #777; max-width: 850px; margin: 0 auto;">* Rates are based in <b>LKR</b>. USD/INR conversions are indicative only and subject to exchange rate fluctuations.</p>
+    </section-->
+
+    <section class="contact-section">
+        <div class="container">
+            <h2 class="section-title">Book Your Private Driver</h2>
+            <p style="text-align: center; max-width: 850px; margin: 0 auto 3rem;">Get in touch with us 24/7 to plan your perfect Sri Lanka itinerary</p>
+            
+            <div class="contact-grid">
+                
+                <a href="tel:+94777150415" class="contact-block call">
+                    <div class="contact-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="32" height="32">
+                            <path d="M6.62 10.79a15.15 15.15 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.11-.27c1.12.37 2.33.57 3.57.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.26 1.12l-2.2 2.2z"/>
+                        </svg>
+                    </div>
+                    <h3>Call Us</h3>
+                    <p>Speak directly with our travel experts for immediate booking queries.</p>
+                    <span class="contact-btn">+94 77 715 0415</span>
+                </a>
+
+                <a href="https://wa.me/+94759800348?text=Hi%20Ceylon%20Travel%20Lanka,%20I'm%20interested%20in%20booking%20a%20private%20driver%20tour." target="_blank" class="contact-block w-app">
+                    <div class="contact-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="32" height="32">
+                            <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397 0 11.966 0c3.184.001 6.177 1.242 8.43 3.496 2.253 2.253 3.491 5.247 3.491 8.434 0 6.566-5.338 11.912-11.906 11.912-2.003-.001-3.972-.505-5.716-1.465L0 24zm6.59-4.846c1.66.986 3.296 1.503 4.81 1.504 5.325 0 9.658-4.325 9.661-9.643a9.553 9.553 0 0 0-2.813-6.822A9.563 9.563 0 0 0 11.584 1.41c-5.332 0-9.667 4.327-9.67 9.646-.001 1.636.43 3.232 1.251 4.646l-.997 3.638 3.729-.978zm11.332-6.52c-.314-.157-1.859-.918-2.143-1.022-.284-.105-.49-.157-.696.157-.206.314-.798.994-.978 1.199-.18.206-.36.232-.674.075-.314-.157-1.327-.489-2.528-1.561-.933-.833-1.564-1.862-1.747-2.177-.18-.314-.019-.484.138-.64.141-.141.314-.367.472-.55.157-.184.21-.314.314-.524.105-.21.052-.393-.026-.55-.078-.157-.696-1.678-.954-2.299-.25-.603-.505-.522-.696-.532-.18-.009-.386-.011-.592-.011-.206 0-.541.078-.824.386-.284.307-1.082 1.058-1.082 2.581s1.108 2.997 1.262 3.207c.154.21 2.181 3.33 5.285 4.671.738.319 1.315.509 1.765.652.742.236 1.417.203 1.95.123.595-.089 1.859-.759 2.118-1.454.258-.696.258-1.293.18-1.414-.078-.122-.284-.197-.598-.355z"/>
+                        </svg>
+                    </div>
+                    <h3>WhatsApp</h3>
+                    <p>Chat instantly with us. Send itineraries, custom requests, and map destinations.</p>
+                    <span class="contact-btn">Chat On WhatsApp</span>
+                </a>
+
+                <a href="mailto:info@ceylontravellanka.com?subject=Sri%20Lanka%20Private%20Tour%20Inquiry" class="contact-block email">
+                    <div class="contact-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="32" height="32">
+                            <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                        </svg>
+                    </div>
+                    <h3>Email Us</h3>
+                    <p>Send your detailed requirements and receive a customized quote within hours.</p>
+                    <span class="contact-btn">Send an Email</span>
+                </a>
+
+            </div>
+        </div>
     </section>
 
     <section id="booking-form" class="bg-light">
