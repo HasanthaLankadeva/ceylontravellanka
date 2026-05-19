@@ -198,7 +198,7 @@ $OGdescription = "Experience Sri Lanka with a professional private driver. All-i
                     <span class="contact-btn">Chat On WhatsApp</span>
                 </a>
 
-                <a href="mailto:info@ceylontravellanka.com?subject=Sri%20Lanka%20Private%20Tour%20Inquiry" class="contact-block email">
+                <a href="mailto:contact@ceylontravellanka.com?subject=Sri%20Lanka%20Private%20Tour%20Inquiry" class="contact-block email">
                     <div class="contact-icon">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="32" height="32">
                             <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
