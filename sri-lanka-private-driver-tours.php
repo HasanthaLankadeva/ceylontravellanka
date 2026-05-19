@@ -184,7 +184,7 @@ $OGdescription = "Experience Sri Lanka with a professional private driver. All-i
                     </div>
                     <h3>Call Us</h3>
                     <p>Speak directly with our travel experts for immediate booking queries.</p>
-                    <span class="contact-btn">+94 77 715 0415</span>
+                    <span class="contact-btn">+94 75 980 0348</span>
                 </a>
 
                 <a href="https://wa.me/+94759800348?text=Hi%20Ceylon%20Travel%20Lanka,%20I'm%20interested%20in%20booking%20a%20private%20driver%20tour." target="_blank" class="contact-block w-app">
