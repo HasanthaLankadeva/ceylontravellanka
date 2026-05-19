@@ -211,6 +211,7 @@
     .hero p { font-size: 1.2rem; max-width: 900px; margin: 0 auto 2.5rem; }
     .btn { display: inline-block; padding: 15px 35px; background: var(--primary); color: var(--white); text-decoration: none; border-radius: 5px; font-weight: bold; font-size: 1.1rem; transition: 0.3s; }
     .btn:hover { background: #004494; transform: translateY(-2px); }
+    .hero svg{ background: #fff; border-radius: 4px; }
 
     /* Feature Section */
     .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 3rem; }
