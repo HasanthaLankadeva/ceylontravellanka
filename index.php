@@ -349,7 +349,11 @@ $preloadBanner = BASE_URL . "images/videos/poster.webp";
                         <div class="video-button text-center position-relative">
                             <div class="call-button text-center">
                                 <a href="<?= BASE_URL ?>images/videos/popup_video.mp4" data-fancybox data-width="940" data-height="528">
-                                    <button type="button" class="play-btn js-video-button" data-video-id="152879427" data-channel="vimeo"><i class="fa fa-play bg-blue"></i></button>
+                                    <button type="button" class="play-btn js-video-button" data-video-id="152879427" data-channel="vimeo">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="60px" height="60px" fill="currentColor">
+                                            <path d="M7 5.41v13.18a1 1 0 0 0 1.53.85l10.54-6.59a1 1 0 0 0 0-1.7L8.53 4.56A1 1 0 0 0 7 5.41z"></path>
+                                        </svg>
+                                    </button>
                                 </a>
                         </div>
                         <div class="video-figure"></div>

@@ -3244,7 +3244,7 @@ ul.social-with-text li {
     background: #ffffff2e;
     border: none;
     border-radius: 50%; }
-    .call-button button.play-btn i {
+    .call-button button.play-btn svg {
       font-size: 28px;
       height: 70px;
       width: 70px;
