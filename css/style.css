@@ -3251,6 +3251,7 @@ ul.social-with-text li {
       line-height: 2.5;
       text-align: center;
       color: #fff;
+      fill: #fff;
       background: #00a0a8;
       transition: all ease-in-out 0.5s;
       padding: 0 0 0 5px;
