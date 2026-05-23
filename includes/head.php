@@ -1,6 +1,7 @@
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18163798890"></script>
-<script src="<?= BASE_URL ?>js/gtags.js"></script>
+<script async src="<?= BASE_URL ?>js/gtags.js"></script>
+<script async src="<?= BASE_URL ?>js/gtagswa.js?v=1"></script>
 
 <!-- ===================== BASIC META ===================== -->
 <meta charset="UTF-8">
@@ -105,6 +106,21 @@ switch ($page) {
             "@type" => "Service",
             "name" => "Tailor-Made Sri Lanka Tours",
             "description" => "Custom Sri Lanka tours designed based on your preferences, travel style, and budget.",
+            "provider" => [
+                "@type" => "TravelAgency",
+                "name" => $siteName
+            ],
+            "areaServed" => "Sri Lanka",
+            "url" => $canonical
+        ];
+        break;
+
+    case "our-fleet":
+        $schema = [
+            "@context" => "https://schema.org",
+            "@type" => "Service",
+            "name" => "Our Fleet | Chauffeur Driven Cars & Vans in Sri Lanka",
+            "description" => "Explore our diverse, modern fleet of meticulously maintained vehicles including Honda Fit, Axio, Shuttle, Vezel, and Toyota KDH vans for your private tour in Sri Lanka.",
             "provider" => [
                 "@type" => "TravelAgency",
                 "name" => $siteName
