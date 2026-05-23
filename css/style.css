@@ -6042,6 +6042,25 @@ section .underline{
     text-align: left !important;
 }
 
+.featured-fleet .align-items-center{
+  max-width: 70%;
+  margin: 0 auto;
+  text-align: center;
+}
+.featured-fleet .car-image{
+  position: relative;
+  bottom: inherit;
+  right: auto;
+  width: auto;
+  left: auto;
+  margin: 0 auto;
+  border-radius: 20px;
+  overflow: hidden;
+}
+.featured-fleet .car-image img{
+  height: auto;
+}
+
 @media (max-width: 991px){
 .banner {
     margin-top: 98px !important;
@@ -6092,5 +6111,14 @@ section .underline{
   }
   .footer-links {
     padding-left: 0;
+  }
+  .featured-fleet {
+    margin-bottom: 5rem;
+  }
+  .featured-fleet .align-items-center {
+      max-width: 100%;
+  }
+  .featured-fleet img{
+    height: auto;
   }
 }

@@ -115,6 +115,21 @@ switch ($page) {
         ];
         break;
 
+    case "our-fleet":
+        $schema = [
+            "@context" => "https://schema.org",
+            "@type" => "Service",
+            "name" => "Our Fleet | Chauffeur Driven Cars & Vans in Sri Lanka",
+            "description" => "Explore our diverse, modern fleet of meticulously maintained vehicles including Honda Fit, Axio, Shuttle, Vezel, and Toyota KDH vans for your private tour in Sri Lanka.",
+            "provider" => [
+                "@type" => "TravelAgency",
+                "name" => $siteName
+            ],
+            "areaServed" => "Sri Lanka",
+            "url" => $canonical
+        ];
+        break;
+
     default:
         $schema = [
             "@context" => "https://schema.org",
