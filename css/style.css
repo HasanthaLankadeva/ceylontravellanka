@@ -6060,11 +6060,20 @@ section .underline{
 .featured-fleet .car-image img{
   height: auto;
 }
+.author-news .author-news-content .nir-btn-white{
+  border: 1px solid #029e9d;
+}
+.author-news .author-news-content .nir-btn-white:hover{
+  color: #029e9d !important;
+}
+.author-news .author-news-content .nir-btn-white:before{
+  display: none;
+}
 
 @media (max-width: 991px){
-.banner {
-    margin-top: 98px !important;
-}
+  .banner {
+      margin-top: 98px !important;
+  }
 }
 
 @media (max-width: 767px){

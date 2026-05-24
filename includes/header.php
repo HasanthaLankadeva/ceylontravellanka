@@ -75,9 +75,9 @@
                                     <li><a href="<?= BASE_URL ?>services/car-rental-with-driver">Car Rental with Driver</a></li>
                                 </ul>
                             </li>
-                            <!--li class="<?php echo ($currentpage == 'routes') ? 'active' : ''; ?>">
-                                <a href="<?= BASE_URL ?>routes">Routes</a>
-                            </li-->
+                            <li class="<?php echo ($currentpage == 'fleet') ? 'active' : ''; ?>">
+                                <a href="<?= BASE_URL ?>our-fleet">Our Fleet</a>
+                            </li>
                             <li class="<?php echo ($currentpage == 'itineraries') ? 'active' : ''; ?>">
                                 <a href="<?= BASE_URL ?>tour-itineraries">Tour Itineraries</a>
                             </li>
