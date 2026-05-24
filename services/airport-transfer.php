@@ -144,8 +144,37 @@ $preloadBanner = BASE_URL . "images/private_driver_airpot.webp";
     </div>
 </section>
 
+<section class="featured-counter featured-fleet pb-10">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-12">
+                <div class="section-title mb-5">
+                    <h2 class="">Your Comfortable Journey With Us</h2>
+                    <p class="mb-0 ">The Ceylon Travel Lanka Promise: All our vehicles are fully air-conditioned, strictly compliant with comprehensive tourist insurance, and deep-cleaned before every journey.</p>
+                </div>
+            </div>
+        </div>
+        <div class="car-image">
+            <picture>
+                <source
+                    media="(max-width: 738px)"
+                    srcset="<?= BASE_URL ?>images/cars/fleet_mobile.avif"
+                >
+                <img
+                    src="<?= BASE_URL ?>images/cars/fleet.avif"
+                    alt="International travelers enjoying Sri Lanka tour"
+                    width="1295"
+                    height="466"
+                >
+            </picture>
+        </div>
+        <div class="col-lg-12 text-center pt-6">
+            <a href="<?= BASE_URL ?>our-fleet" class="nir-btn">View Full Fleet</a>
+        </div>
+    </div>
+</section>
 
-<section class="pt-9">
+<section>
     <div class="container">
     <div class="row offer-banner shadow-lg">
         <!-- Left Content -->

@@ -140,88 +140,34 @@ $preloadBanner = BASE_URL . "images/videos/poster.webp";
     <div class="white-overlay"></div>
 </section>
 
-<section class="trending pb-0 pt-0">
+<section class="featured-counter featured-fleet pb-10">
     <div class="container">
-        <div class="section-title mb-6 w-50 mx-auto text-center">
-            <h2 class="mb-3">Popular Routes with Private Drivers</h2>
-            <p>Our <a href="<?= BASE_URL ?>services/private-driver-in-sri-lanka" class="underline">private drivers</a> cover all major tourist routes in Sri Lanka, making it easy to travel between destinations.</p>
-        </div>
         <div class="row align-items-center">
-            <div class="col-lg-5 mb-4">
-                <div class="trend-item1">
-                    <div class="trend-image position-relative rounded">
-                        <img src="<?= BASE_URL ?>images/destination/a_1.webp" alt="Route - Colombo to Sigiriya Rock Fortress">
-                        <div class="trend-content d-flex align-items-center justify-content-between position-absolute bottom-0 p-4 w-100 z-index">
-                            <div class="trend-content-title">
-                                <h3 class="mb-0 white"><!--a href="tour-grid.html" class="white"-->Colombo to Sigiriya<!--/a--></h3>
-                            </div>
-
-                        </div>
-                        <div class="color-overlay"></div>
-                    </div>
+            <div class="col-lg-12">
+                <div class="section-title mb-5">
+                    <h2 class="">Your Comfortable Journey With Us</h2>
+                    <p class="mb-0 ">The Ceylon Travel Lanka Promise: All our vehicles are fully air-conditioned, strictly compliant with comprehensive tourist insurance, and deep-cleaned before every journey.</p>
                 </div>
             </div>
-            <div class="col-lg-7">
-                <div class="row">
-                    <div class="col-lg-6 col-md-6 col-sm-6 mb-4">
-                        <div class="trend-item1">
-                            <div class="trend-image position-relative rounded">
-                                <img src="<?= BASE_URL ?>images/destination/a_2.webp" alt="Route - Kandy to Ella">
-                                <div class="trend-content d-flex align-items-center justify-content-between position-absolute bottom-0 p-4 w-100 z-index">
-                                    <div class="trend-content-title">
-                                        <h3 class="mb-0 white"><!--a href="tour-grid.html" class="white"-->Kandy to Ella<!--/a--></h3>
-                                    </div>
-                                </div>
-                                <div class="color-overlay"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-md-6 col-sm-6 mb-4">
-                        <div class="trend-item1">
-                            <div class="trend-image position-relative rounded">
-                                <img src="<?= BASE_URL ?>images/destination/a_3.webp" alt="Route - Ella to Yala">
-                                <div class="trend-content d-flex align-items-center justify-content-between position-absolute bottom-0 p-4 w-100 z-index">
-                                    <div class="trend-content-title">
-                                        <h3 class="mb-0 white"><!--a href="tour-grid.html" class="white"-->Ella to Yala<!--/a--></h3>
-                                    </div>
-                                </div>
-                                <div class="color-overlay"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-md-6 col-sm-6 mb-4">
-                        <div class="trend-item1">
-                            <div class="trend-image position-relative rounded">
-                                <img src="<?= BASE_URL ?>images/destination/colombo-kandy.webp" alt="Route - Colombo to Kandy">
-                                <div class="trend-content d-flex align-items-center justify-content-between position-absolute bottom-0 p-4 w-100">
-                                    <div class="trend-content-title">
-                                        <h3 class="mb-0 white"><!--a href="tour-grid.html" class="white"-->Colombo to Kandy<!--/a--></h3>
-                                    </div>
-                                </div>
-                                <div class="color-overlay"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-md-6 col-sm-6 mb-4">
-                        <div class="trend-item1">
-                            <div class="trend-image position-relative rounded">
-                                <img src="<?= BASE_URL ?>images/destination/colombo-galle.webp" alt="Route - Colombo to Galle">
-                                <div class="trend-content d-flex align-items-center justify-content-between position-absolute bottom-0 p-4 w-100 z-index">
-                                    <div class="trend-content-title">
-                                        <h3 class="mb-0 white"><!--a href="tour-grid.html" class="white"-->Colombo to Galle<!--/a--></h3>
-                                    </div>
-                                </div>
-                                <div class="color-overlay"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        </div>
+        <div class="car-image">
+            <picture>
+                <source
+                    media="(max-width: 738px)"
+                    srcset="<?= BASE_URL ?>images/cars/fleet_mobile.avif"
+                >
+                <img
+                    src="<?= BASE_URL ?>images/cars/fleet.avif"
+                    alt="International travelers enjoying Sri Lanka tour"
+                    width="1295"
+                    height="466"
+                >
+            </picture>
+        </div>
+        <div class="col-lg-12 text-center pt-6">
+            <a href="<?= BASE_URL ?>our-fleet" class="nir-btn">View Full Fleet</a>
         </div>
     </div>
-    <!--div class="col-lg-12 text-center">
-        <a href="tour-grid.html" class="nir-btn">View All Attractions</a>
-    </div-->
 </section>
 
 <section class="trending pb-10">
@@ -242,7 +188,6 @@ $preloadBanner = BASE_URL . "images/videos/poster.webp";
                     <div class="trend-item rounded box-shadow">
                         <div class="trend-image position-relative">
                             <img src="<?= BASE_URL ?>images/it_1.webp" alt="4 Day Sri Lanka Tour Itinerary" class>
-                            <div class="color-overlay"></div>
                         </div>
                         <div class="trend-content p-4 pt-5 position-relative">
                             <h3 class="mb-1 itinerary-title"><a href="<?= BASE_URL ?>tour-itineraries">4 Day Sri Lanka Tour Itinerary</a></h3>
@@ -260,7 +205,6 @@ $preloadBanner = BASE_URL . "images/videos/poster.webp";
                     <div class="trend-item box-shadow rounded">
                         <div class="trend-image position-relative">
                             <img src="<?= BASE_URL ?>images/it_2.webp" alt="image">
-                            <div class="color-overlay"></div>
                         </div>
                         <div class="trend-content p-4 pt-5 position-relative">
                             <h3 class="mb-1 itinerary-title"><a href="<?= BASE_URL ?>tour-itineraries">6 Day Sri Lanka Tour Itinerary</a></h3>
@@ -278,7 +222,6 @@ $preloadBanner = BASE_URL . "images/videos/poster.webp";
                     <div class="trend-item box-shadow rounded">
                         <div class="trend-image position-relative">
                             <img src="<?= BASE_URL ?>images/it_3.webp" alt="image">
-                            <div class="color-overlay"></div>
                         </div>
                         <div class="trend-content p-4 pt-5 position-relative">
                             <h3 class="mb-1 itinerary-title"><a href="<?= BASE_URL ?>tour-itineraries">7 Day Sri Lanka Tour Itinerary</a></h3>
@@ -296,7 +239,6 @@ $preloadBanner = BASE_URL . "images/videos/poster.webp";
                     <div class="trend-item box-shadow rounded">
                         <div class="trend-image position-relative">
                             <img src="<?= BASE_URL ?>images/it_4.webp" alt="image">
-                            <div class="color-overlay"></div>
                         </div>
                         <div class="trend-content p-4 pt-5 position-relative">
                             <h3 class="mb-1 itinerary-title"><a href="<?= BASE_URL ?>tour-itineraries">10 Day Sri Lanka Tour Itinerary</a></h3>
@@ -314,7 +256,6 @@ $preloadBanner = BASE_URL . "images/videos/poster.webp";
                     <div class="trend-item box-shadow rounded">
                         <div class="trend-image position-relative">
                             <img src="<?= BASE_URL ?>images/it_5.webp" alt="image">
-                            <div class="color-overlay"></div>
                         </div>
                         <div class="trend-content p-4 pt-5 position-relative">
                             <h3 class="mb-1 itinerary-title"><a href="<?= BASE_URL ?>tour-itineraries">15 Day Sri Lanka Tour Itinerary</a></h3>
@@ -384,7 +325,7 @@ $preloadBanner = BASE_URL . "images/videos/poster.webp";
 
         <!-- Right Image -->
         <div class="col-md-6 p-0">
-        <img src="<?= BASE_URL ?>images/bg6.webp" alt="Book Your Sri Lanka Transport Today" class="right-img img-fluid w-100 h-100">
+        <img src="<?= BASE_URL ?>images/plan_your_journey_with_us_3.avif" alt="Book Your Sri Lanka Transport Today" class="right-img img-fluid w-100 h-100">
         </div>
     </div>
     </div>
