@@ -18,7 +18,7 @@
 <link rel="icon" href="/favicon.ico" sizes="32x32">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-<link rel="manifest" href="/site.webmanifest">
+<link rel="manifest" href="/site.webmanifest" crossorigin="use-credentials">
 <meta name="theme-color" content="#ffffff">
 
 <!-- ===================== OPEN GRAPH (FACEBOOK / WHATSAPP) ===================== -->
@@ -30,6 +30,8 @@
 
 <!-- ===================== PRELOAD (OPTIONAL SPEED BOOST) ===================== -->
 <link rel="preload" as="image" href="<?= $preloadBanner; ?>" fetchpriority="high">
+<link rel="preload" href="<?= BASE_URL ?>/css/fonts/poppins-v21-latin-700.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="<?= BASE_URL ?>/css/fonts/playfair-display-v37-latin-700.woff2" as="font" type="font/woff2" crossorigin>
 
 <!-- ===================== STRUCTURED DATA (SEO POWER BOOST) ===================== -->
 <script type="application/ld+json">
@@ -147,5 +149,5 @@ echo json_encode($schema, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE | JSON
 <!--link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet"-->
-<link rel="stylesheet" href="<?= BASE_URL ?>/css/fonts.css?v=20260514">
-<link rel="stylesheet" href="<?= BASE_URL ?>css/main.min.css?v=20260514">
+<!--link rel="stylesheet" href="<?= BASE_URL ?>/css/fonts.css?v=20260514"-->
+<link rel="stylesheet" href="<?= BASE_URL ?>css/main.min.css?v=20260516">
