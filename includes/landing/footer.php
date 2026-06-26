@@ -65,9 +65,6 @@
                     <div class="footer-about">
                         <img src="<?= BASE_URL ?>images/footer-logo.svg" alt>
                         <p class="mt-3 mb-3 white">We provide reliable and affordable transport services for travelers visiting Sri Lanka. From airport pickups to full island tours, we ensure a smooth and enjoyable journey.</p>
-                        <div class="d-flex mt-3">
-                            <div id="TA_rated768" class="TA_rated"><ul id="gNgfhKggY44b" class="TA_links CyRJ71tCMj36"><li id="7RJuRSYmU" class="oSSui84y47"><a target="_blank" href="https://www.tripadvisor.com/Attraction_Review-g11999643-d25571146-Reviews-Ceylon_Travel_Lanka-Minuwangoda_Western_Province.html"><img src="https://www.tripadvisor.com/img/cdsi/img2/badges/ollie-11424-2.gif" alt="TripAdvisor"/></a></li></ul></div><script async src="https://www.jscache.com/wejs?wtype=rated&uniq=768&locationId=25571146&lang=en_US&display_version=2"></script>
-                        </div>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6 col-sm-12 mb-4 pe-4">
