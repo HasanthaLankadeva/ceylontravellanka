@@ -9,7 +9,7 @@ Options -Indexes
 ErrorDocument 404 /404.html
 
 RewriteEngine On
-RewriteBase /ceylontravellanka/
+RewriteBase /
 # ==================================================
 # FORCE HTTPS + REMOVE WWW (CANONICAL DOMAIN)
 # ==================================================
@@ -76,16 +76,19 @@ RewriteRule ^(.+)$ $1.php [L]
     ExpiresByType image/png "access plus 1 month"
     ExpiresByType image/gif "access plus 1 month"
     ExpiresByType image/webp "access plus 1 month"
+    ExpiresByType image/avif "access plus 1 month"
     ExpiresByType image/svg+xml "access plus 1 month"
     ExpiresByType image/x-icon "access plus 1 month"
 
     ExpiresByType font/woff "access plus 1 year"
     ExpiresByType font/woff2 "access plus 1 year"
     ExpiresByType application/vnd.ms-fontobject "access plus 1 year"
+    ExpiresByType video/mp4 "access plus 1 year"
+    ExpiresByType application/manifest+json "access plus 1 year"
 </IfModule>
 
 <IfModule mod_headers.c>
-    <FilesMatch "\.(css|js|jpg|jpeg|png|gif|webp|svg|ico|woff|woff2|eot)$">
+    <FilesMatch "\.(css|js|jpg|jpeg|png|gif|webp|avif|svg|ico|woff|woff2|eot|mp4|webmanifest)$">
         Header set Cache-Control "public, max-age=31536000, immutable"
     </FilesMatch>
 </IfModule>
