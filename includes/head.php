@@ -30,9 +30,9 @@
 
 <!-- ===================== PRELOAD (OPTIONAL SPEED BOOST) ===================== -->
 <link rel="preload" as="image" href="<?= $preloadBanner; ?>" fetchpriority="high">
-<link rel="preload" href="<?= BASE_URL ?>/css/fonts/poppins-v21-latin-700.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="<?= BASE_URL ?>/css/fonts/poppins-v21-latin-400.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="<?= BASE_URL ?>/css/fonts/playfair-display-v37-latin-700.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="<?= BASE_URL ?>css/fonts/poppins-v21-latin-700.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="<?= BASE_URL ?>css/fonts/poppins-v21-latin-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="<?= BASE_URL ?>css/fonts/playfair-display-v37-latin-700.woff2" as="font" type="font/woff2" crossorigin>
 
 <!-- ===================== STRUCTURED DATA (SEO POWER BOOST) ===================== -->
 <script type="application/ld+json">
