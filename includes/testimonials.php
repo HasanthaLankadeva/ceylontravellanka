@@ -11,7 +11,7 @@
                         <div class="testimonial-item1 rounded">
                             <div class="author-info d-flex align-items-center mb-4">
                                 <a href="https://www.tripadvisor.com/ShowUserReviews-g11999643-d25571146-r1057689264-Ceylon_Travel_Lanka-Minuwangoda_Western_Province.html" target="_blank">
-                                    <img src="<?= BASE_URL ?>images/testimonial/img1.jpg" alt>
+                                    <img src="<?= BASE_URL ?>images/testimonial/img1.avif" alt="James G">
                                 </a>
                                 <a href="https://www.tripadvisor.com/ShowUserReviews-g11999643-d25571146-r1057689264-Ceylon_Travel_Lanka-Minuwangoda_Western_Province.html" target="_blank">
                                     <div class="author-title ms-3">
@@ -33,7 +33,7 @@
                         <div class="testimonial-item1 rounded">
                             <div class="author-info d-flex align-items-center mb-4">
                                 <a href="https://www.tripadvisor.com/ShowUserReviews-g11999643-d25571146-r1057683082-Ceylon_Travel_Lanka-Minuwangoda_Western_Province.html" target="_blank">
-                                    <img src="<?= BASE_URL ?>images/testimonial/img2.jpg" alt>
+                                    <img src="<?= BASE_URL ?>images/testimonial/img2.avif" alt="C S">
                                 </a>
                                 <a href="https://www.tripadvisor.com/ShowUserReviews-g11999643-d25571146-r1057683082-Ceylon_Travel_Lanka-Minuwangoda_Western_Province.html" target="_blank">
                                     <div class="author-title ms-3">
@@ -54,7 +54,7 @@
                         <div class="testimonial-item1 rounded">
                             <div class="author-info d-flex align-items-center mb-4">
                                 <a href="https://www.tripadvisor.com/ShowUserReviews-g11999643-d25571146-r913140504-Ceylon_Travel_Lanka-Minuwangoda_Western_Province.html" target="_blank">
-                                    <img src="<?= BASE_URL ?>images/testimonial/img3.jpg" alt>
+                                    <img src="<?= BASE_URL ?>images/testimonial/img3.avif" alt="Bruce Y">
                                 </a>
                                 <a href="https://www.tripadvisor.com/ShowUserReviews-g11999643-d25571146-r913140504-Ceylon_Travel_Lanka-Minuwangoda_Western_Province.html" target="_blank">
                                     <div class="author-title ms-3">
@@ -75,7 +75,7 @@
                         <div class="testimonial-item1 rounded">
                             <div class="author-info d-flex align-items-center mb-4">
                                 <a href="https://www.tripadvisor.com/ShowUserReviews-g11999643-d25571146-r891238576-Ceylon_Travel_Lanka-Minuwangoda_Western_Province.html" target="_blank">
-                                    <img src="<?= BASE_URL ?>images/testimonial/img4.jpg" alt>
+                                    <img src="<?= BASE_URL ?>images/testimonial/img4.avif" alt="arnavsinha">
                                 </a>
                                 <a href="https://www.tripadvisor.com/ShowUserReviews-g11999643-d25571146-r891238576-Ceylon_Travel_Lanka-Minuwangoda_Western_Province.html" target="_blank">
                                     <div class="author-title ms-3">
@@ -97,7 +97,7 @@
                         <div class="testimonial-item1 rounded">
                             <div class="author-info d-flex align-items-center mb-4">
                                 <a href="https://www.tripadvisor.com/ShowUserReviews-g11999643-d25571146-r891136140-Ceylon_Travel_Lanka-Minuwangoda_Western_Province.html" target="_blank">
-                                    <img src="<?= BASE_URL ?>images/testimonial/img5.jpg" alt>
+                                    <img src="<?= BASE_URL ?>images/testimonial/img5.avif" alt="Boniface8th">
                                 </a>
                                 <a href="https://www.tripadvisor.com/ShowUserReviews-g11999643-d25571146-r891136140-Ceylon_Travel_Lanka-Minuwangoda_Western_Province.html" target="_blank">
                                     <div class="author-title ms-3">
@@ -120,7 +120,7 @@
                         <div class="testimonial-item1 rounded">
                             <div class="author-info d-flex align-items-center mb-4">
                                 <a href="https://www.tripadvisor.com/ShowUserReviews-g11999643-d25571146-r891208846-Ceylon_Travel_Lanka-Minuwangoda_Western_Province.html" target="_blank">
-                                    <img src="<?= BASE_URL ?>images/testimonial/img6.jpg" alt>
+                                    <img src="<?= BASE_URL ?>images/testimonial/img6.avif" alt="Boniface8th">
                                 </a>
                                 <a href="https://www.tripadvisor.com/ShowUserReviews-g11999643-d25571146-r891208846-Ceylon_Travel_Lanka-Minuwangoda_Western_Province.html" target="_blank">
                                     <div class="author-title ms-3">

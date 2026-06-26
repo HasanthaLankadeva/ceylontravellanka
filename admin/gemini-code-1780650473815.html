@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sri Lanka Route Calculator</title>
+    
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine@3.2.12/dist/leaflet-routing-machine.css" />
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/leaflet-routing-machine@3.2.12/dist/leaflet-routing-machine.js"></script>
+
+    <style>
+        /* (Your CSS styling goes here) */
+    </style>
+
+    <script>
+        // MOVE ALL YOUR JAVASCRIPT LOGIC HERE
+        // By putting it in the <head>, addWaypointInput() is defined 
+        // before the HTML body ever loads!
+        
+        let map;
+        let routingControl = null;
+        let waypointCount = 0;
+
+        function addWaypointInput(placeholderText = "Next Stop", lat = "", lng = "") {
+            // ... function code ...
+        }
+
+        function calculateRoute() {
+            // ... function code ...
+        }
+
+        // Wrap your map initialization so it runs AFTER the HTML body exists
+        window.onload = function() {
+            map = L.map('map').setView([7.8731, 80.7718], 8); 
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
+            
+            // Setup default inputs
+            addWaypointInput("Colombo (Start)", 6.9271, 79.8612);
+            addWaypointInput("Kandy (Stop 2)", 7.2906, 80.6337);
+            
+            map.on('click', function(e) {
+                // ... map click logic ...
+            });
+
+            calculateRoute();
+        };
+    </script>
+</head>
+<body>
+    </body>
+</html>

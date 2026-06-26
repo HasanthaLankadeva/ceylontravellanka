@@ -259,8 +259,6 @@ var _base_path = (_host == 'localhost') ? '/ceylontravellanka/' : '';
          }]
      });
 
-     
-
      $('.item-slider1').slick({
          infinite: true,
          slidesToShow: 3,
@@ -285,6 +283,27 @@ var _base_path = (_host == 'localhost') ? '/ceylontravellanka/' : '';
              }
          }]
      });
+     
+    if($(window).width() < 1000){
+     $('.mobile-slider1').slick({
+         infinite: true,
+         slidesToShow: 2,
+         slidesToScroll: 2,
+         arrows: false,
+         dots: true,
+         autoplay: false,
+         speed: 2000,
+         loop:true,
+         responsive: [
+        {
+            breakpoint: 600,
+            settings: {
+                slidesToShow: 1
+            }
+        },
+        ]
+     });
+    }
 
      $('.banner-slider').slick({
          infinite: true,
@@ -569,6 +588,32 @@ var _base_path = (_host == 'localhost') ? '/ceylontravellanka/' : '';
             });
         });
     }
+
+    document.addEventListener('DOMContentLoaded', () => {
+    // 1. Select all card nodes with our specific targeting class
+    const videoCards = document.querySelectorAll('.js-video-card');
+
+    // 2. Loop through every card and append a native 'click' event listener
+    videoCards.forEach(card => {
+        card.addEventListener('click', function() {
+            // Check if an iframe is already playing inside this specific card
+            if (this.querySelector('iframe')) return;
+
+            // Extract the custom YouTube video ID from the data attribute
+            const videoId = this.getAttribute('data-video-id');
+
+            // Build out the conversion-optimized embedded YouTube player frame
+            const iframe = document.createElement('iframe');
+            iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&modestbranding=1&rel=0&showinfo=0`;
+            iframe.className = 'video-iframe';
+            iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+            iframe.allowFullscreen = true;
+
+            // Instantly append the iframe player over our fallback graphic layers
+            this.appendChild(iframe);
+        });
+    });
+});
 
  })(jQuery);
 
