@@ -226,10 +226,15 @@ $OGdescription = "Experience Sri Lanka with a professional private driver. All-i
                     <div class="input-group">
                         <label for="name">Your Name</label>
                         <input type="text" name="name" id="name" placeholder="Enter your full name" required>
+                        <input type="hidden" name="campaign" id="campaign" value="IndiaOne">
                     </div>
                     <div class="input-group">
                         <label for="phone">WhatsApp Number</label>
                         <input type="tel" name="phone" id="phone" placeholder="+91..." required>
+                    </div>
+                    <div class="input-group">
+                        <label for="email">Email</label>
+                        <input type="email" name="email" id="email" placeholder="Enter your Email">
                     </div>
                     <div class="flex-group input-group">
                         <div class="wrap date-wrap">
