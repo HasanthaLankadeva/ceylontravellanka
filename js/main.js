@@ -560,7 +560,8 @@ var _base_path = (_host == 'localhost') ? '/ceylontravellanka/' : '';
             const form = e.target;
             const btn = document.getElementById('submit-btn');
             const successMsg = document.getElementById('success-message');
-            const scriptURL = 'https://script.google.com/macros/s/AKfycbzc65U4Mm7JHZYBUyC0B_WL0-5mjc6OWBVcmSTHzrKDyTNNjcfhunwM22qKi3ko1PwV/exec'; // Replace with your URL
+
+            const scriptURL = 'https://script.google.com/macros/s/AKfycbyyeNF_114H51rBFUbuN0EEDP3JvTHS0e-lGBjpnWxWRnh9YNaw8__70c4tP6hCrCYj/exec'; // Replace with your URL
 
             // UI Feedback: Disable button and show loading state
             btn.disabled = true;
