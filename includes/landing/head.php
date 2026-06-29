@@ -239,6 +239,7 @@
     /* Card container styled precisely to image_4652a8.jpg design */
     .video-card { position: relative; aspect-ratio: 9 / 16; background-color: #000; border-radius: var(--border-radius); overflow: hidden; box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 16px -6px rgba(0, 0, 0, 0.05); cursor: pointer; transform: translateZ(0); /* Fixes Safari overflow rendering bug */ transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1); }
     .video-card:hover { transform: translateY(-4px); }
+    .video-card iframe { width: 100%; height: 100%; border: 0; outline: 0; }
 
     /* Base video image thumbnail canvas overlay */
     .video-thumbnail { width: 100%; height: 100%; object-fit: cover; display: block; transition: opacity 0.3s ease; }

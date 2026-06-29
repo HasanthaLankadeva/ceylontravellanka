@@ -85,19 +85,19 @@ $OGdescription = "Experience Sri Lanka with a professional private driver. All-i
             <h2 class="section-title">Glimpses of Sri Lanka</h2>
             <p style="text-align: center; max-width: 850px; margin: 0 auto 3rem;">Watch our guests experiencing the ultimate private tours</p>
             
-            <div class="shorts-grid">
+            <div class="video-grid">
                 
-                <div class="shorts-card">
+                <div class="video-card">
                     <iframe src="https://www.youtube.com/embed/5vdWztXlvAA?si=8-fMasu-fWsyV2jb" title="Indian Couples 🇮🇳 + Sri Lanka Beaches 🇱🇰 = pure paradise!" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="">
                     </iframe>
                 </div>
 
-                <div class="shorts-card">
+                <div class="video-card">
                     <iframe src="https://www.youtube.com/embed/V_a2WBlf3Zw" title="Immersive culture &amp; happy clients with the Ceylon Travel team 🇱🇰" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="">
                     </iframe>
                 </div>
 
-                <div class="shorts-card">
+                <div class="video-card">
                     <iframe src="https://www.youtube.com/embed/iSB7CwT3ftA" title="The ultimate spiritual escape in Sri Lanka 🇱🇰" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="">
                     </iframe>
                 </div>
