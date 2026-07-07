@@ -32,10 +32,10 @@ $OGdescription = "Experience Sri Lanka with a professional private driver. All-i
             <picture>
                 <source
                     media="(max-width: 738px)"
-                    srcset="<?= BASE_URL ?>images/campaign/campaign_banner_mobile.avif"
+                    srcset="<?= BASE_URL ?>images/campaign/Sri-Lanka-beaches-February-scaled_mobile.avif"
                 >
                 <img
-                    src="<?= BASE_URL ?>images/Sri-Lanka-beaches-February-scaled.webp"
+                    src="<?= BASE_URL ?>images/campaign/Sri-Lanka-beaches-February-scaled.avif"
                     alt="International travelers enjoying Sri Lanka tour"
                     width="1815"
                     height="615"
