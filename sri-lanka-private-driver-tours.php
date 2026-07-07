@@ -111,7 +111,7 @@ $OGdescription = "Experience Sri Lanka with a professional private driver. All-i
             <h2>Internationally Trusted Service</h2>
             <p style="text-align: center; max-width: 850px; margin: 0 auto 3rem;">Ceylon Travel Lanka is proud to maintain <strong>global standards of excellence</strong>. We are the preferred choice for travelers from Europe, the UK, and India, recognized for our punctuality, clean vehicles, and professional hospitality.</p>
             
-            <div class="gallery-grid">
+            <div class="gallery-grid mobile-slider1">
                 <div class="gallery-item"><img src="<?= BASE_URL ?>images/campaign/1.webp" alt="Internationally Trusted Service - Ceylon Travel Lanka" loading="lazy"></div>
                 <div class="gallery-item"><img src="<?= BASE_URL ?>images/campaign/2.webp" alt="Internationally Trusted Service - Ceylon Travel Lanka" loading="lazy"></div>
                 <div class="gallery-item"><img src="<?= BASE_URL ?>images/campaign/3.webp" alt="Internationally Trusted Service - Ceylon Travel Lanka" loading="lazy"></div>
