@@ -248,7 +248,7 @@ $OGdescription = "Experience Sri Lanka with a professional private driver. All-i
                         <label for="message">Tell us about your custom tour plan</label>
                         <textarea name="message" id="message" rows="4" placeholder="Example: 12 days in August, beaches + safari + culture..."></textarea>
                     </div>
-                    <button type="submit" id="submit-btn" class="nir-btn me-4 submit-btn">Start My Plan Now</button>
+                    <button type="submit" id="submit-btn" class="nir-btn me-4 submit-btn">Request My Free Plan</button>
                 </form>
             </div>
         </div>
