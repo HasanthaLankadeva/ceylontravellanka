@@ -88,7 +88,7 @@
                                 <a href="<?= BASE_URL ?>contact">Contact Us</a>
                             </li>
                         </ul>
-                        <a href="#booking-form" class="nir-btn px-3 py-1 ms-3">Get a Free Quote</a>
+                        <a href="#booking-form" class="nir-btn px-3 py-1 ms-3">Get a Free Plan</a>
                     </div>
                     <div id="slicknav-mobile"></div>
                 </div>
