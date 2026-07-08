@@ -44,6 +44,7 @@ $OGdescription = "Browse our expertly designed Sri Lanka itineraries or create y
             <div class="col-lg-8 pe-lg-4">
                 <div class="details-pane">
                     <h1 class="mb-1">4 Day Sri Lanka Tour Itinerary</h1>
+                    <p class="theme mb-4"><i>Short Travel Package</i></p>
                     <!-- Information Grid Widgets -->
                     <section class="facts-grid">
                         <div class="fact-card">
@@ -98,9 +99,14 @@ $OGdescription = "Browse our expertly designed Sri Lanka itineraries or create y
                                 <div class="timeline-dot"></div>
                                 <span class="day-label">Day 1</span>
                                 <h3>Cultural Heritage in Kandy</h3>
-                                <img src="<?= BASE_URL ?>images/destination/1.jpeg" alt="Temple of the Tooth Kandy" class="itinerary-img">
+                                <div class="img-grid">
+                                    <img src="<?= BASE_URL ?>images/destination/1.avif" alt="Temple of the Tooth Kandy">
+                                    <img src="<?= BASE_URL ?>images/destination/2.avif" alt="Gregory Lake Nuwara Eliya">
+                                </div>
                                 <p>Arrive in Kandy, the last royal capital of Sri Lanka. Visit the sacred <strong>Temple of the Sacred Tooth Relic</strong> (Sri Dalada Maligawa), located inside the ancient royal palace complex. Witness traditional spiritual rituals before exploring the historic city square and enjoying a sunset walk along the lake perimeter.</p>
-                                
+                                <div class="meta-tags">
+                                    <span><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"></path></svg> Kandy</span>
+                                </div>
                             </div>
 
                             <!-- Day 2 Segment -->
@@ -109,13 +115,12 @@ $OGdescription = "Browse our expertly designed Sri Lanka itineraries or create y
                                 <span class="day-label">Day 2</span>
                                 <h3>Nuwara Eliya Tea Country &amp; Gregory Lake</h3>
                                 <div class="img-grid">
-                                    <img src="http://googleusercontent.com/image_collection/image_retrieval/10042537844317601841_0" alt="Tea Plantations Nuwara Eliya">
-                                    <img src="http://googleusercontent.com/image_collection/image_retrieval/2360168727552764982_0" alt="Gregory Lake Nuwara Eliya">
+                                    <img src="<?= BASE_URL ?>images/destination/3.avif" alt="Tea Plantations Nuwara Eliya">
+                                    <img src="<?= BASE_URL ?>images/destination/4.avif" alt="Gregory Lake Nuwara Eliya">
                                 </div>
                                 <p>Climb into the cool emerald mist of the high-altitude tea country. Walk through historic colonial-era <strong>tea plantations</strong> to see traditional pickers at work, tour a manufacturing plant to see production steps, and enjoy tea tasting. Spend your afternoon strolling along the waterfront paths of <strong>Gregory Lake</strong>.</p>
                                 <div class="meta-tags">
-                                    <span><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"></path></svg> Alpine Meadow Lodge</span>
-                                    <span><svg viewBox="0 0 24 24"><path d="M11 9H9V2H7v7H5V2H3v7c0 2.12 1.66 3.84 3.75 3.97V22h2.5v-9.03C11.34 12.84 13 11.12 13 9V2h-2v7zm5-3v8h2.5v8H21V2c-2.76 0-5 2.24-5 4z"></path></svg> Breakfast Included</span>
+                                    <span><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"></path></svg> Nuwara Eliya</span>
                                 </div>
                             </div>
 
@@ -124,10 +129,13 @@ $OGdescription = "Browse our expertly designed Sri Lanka itineraries or create y
                                 <div class="timeline-dot"></div>
                                 <span class="day-label">Day 3</span>
                                 <h3>Scenic Ella Valley &amp; Mountain Gaps</h3>
+                                <div class="img-grid">
+                                    <img src="<?= BASE_URL ?>images/destination/5.avif" alt="Tea Plantations Nuwara Eliya">
+                                    <img src="<?= BASE_URL ?>images/destination/6.avif" alt="Gregory Lake Nuwara Eliya">
+                                </div>
                                 <p>Travel south along spectacular mountain corridors into the valley village of Ella. Walk across the architectural stone marvel of the colonial-era Nine Arch Bridge wrapped deep in dense jungle, and hike up Little Adam's Peak to watch sweeping panoramas over the deep Ella Gap mountain drop-offs.</p>
                                 <div class="meta-tags">
-                                    <span><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"></path></svg> Ella View Cabanas</span>
-                                    <span><svg viewBox="0 0 24 24"><path d="M11 9H9V2H7v7H5V2H3v7c0 2.12 1.66 3.84 3.75 3.97V22h2.5v-9.03C11.34 12.84 13 11.12 13 9V2h-2v7zm5-3v8h2.5v8H21V2c-2.76 0-5 2.24-5 4z"></path></svg> Breakfast Included</span>
+                                    <span><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"></path></svg> Ella</span>
                                 </div>
                             </div>
 
@@ -136,11 +144,13 @@ $OGdescription = "Browse our expertly designed Sri Lanka itineraries or create y
                                 <div class="timeline-dot"></div>
                                 <span class="day-label">Day 4</span>
                                 <h3>Coastal Finish at Bentota Beach</h3>
-                                <img src="http://googleusercontent.com/image_collection/image_retrieval/17920787880872046698_0" alt="Bentota Beach Sri Lanka" class="itinerary-img">
+                                <div class="img-grid">
+                                    <img src="<?= BASE_URL ?>images/destination/7.avif" alt="Bentota Beach Sri Lanka">
+                                    <img src="<?= BASE_URL ?>images/destination/8.avif" alt="Bentota Beach Sri Lanka">
+                                </div>
                                 <p>Descend out of the central highlands and make your way to the sandy southwestern coastline to reach <strong>Bentota Beach</strong>. Relax under leaning coconut palms, wade in the warm Indian Ocean waves, or opt for riverboat safaris along the Bentota estuary before your departure flight transfer.</p>
                                 <div class="meta-tags">
-                                    <span><svg viewBox="0 0 24 24"><path d="M19 5h-14V3H3v18h2v-2h14c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 12H5V7h14v10z"></path></svg> Tour Loop Concludes</span>
-                                    <span><svg viewBox="0 0 24 24"><path d="M11 9H9V2H7v7H5V2H3v7c0 2.12 1.66 3.84 3.75 3.97V22h2.5v-9.03C11.34 12.84 13 11.12 13 9V2h-2v7zm5-3v8h2.5v8H21V2c-2.76 0-5 2.24-5 4z"></path></svg> Breakfast Included</span>
+                                    <span><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"></path></svg> Bentota</span>
                                 </div>
                             </div>
 
@@ -148,8 +158,55 @@ $OGdescription = "Browse our expertly designed Sri Lanka itineraries or create y
                     </section>
 
                     <!-- Interactive Route Map Block -->
-                    <section class="map-section">
+                    <!--section class="map-section">
                         <h2>Interactive Route Map</h2>
+                    </section-->
+
+                    <section id="booking-form" class="bg-light">
+                        <div class="container">
+                            <h2>Start Planning Your Dream Trip</h2>
+                            <div class="form-box">
+                                <div id="success-message" style="display:none; text-align:center; padding: 2rem; background: #e7f3ef; border-radius: 8px; border: 1px solid #28a745; margin-bottom: 2rem;">
+                                    <h3 class="inquiry-success">Inquiry Sent Successfully!</h3>
+                                    <p>Thank you for choosing Ceylon Travel Lanka. Our team will contact you via WhatsApp shortly.</p>
+                                </div>
+
+                                <form id="tour-inquiry-form" class="contact-form">
+                                    <div class="input-group">
+                                        <label for="name">Your Name</label>
+                                        <input type="text" name="name" id="name" placeholder="Enter your full name" required>
+                                        <input type="hidden" name="campaign" id="campaign" value="General">
+                                    </div>
+                                    <div class="input-group">
+                                        <label for="phone">WhatsApp Number</label>
+                                        <input type="tel" name="phone" id="phone" placeholder="+44..." required>
+                                    </div>
+                                    <div class="input-group">
+                                        <label for="email">Email</label>
+                                        <input type="email" name="email" id="email" placeholder="Enter your Email" required>
+                                    </div>
+                                    <div class="flex-group input-group">
+                                        <div class="wrap date-wrap">
+                                            <label for="arrivaldate">Arrival Date</label>
+                                            <input type="date" name="arrivaldate" id="arrivaldate">
+                                        </div>
+                                        <div class="wrap adult-wrap">
+                                            <label for="adults">Adults</label>
+                                            <input type="number" name="adults" id="adults" value="2" min="1">
+                                        </div>
+                                        <div class="wrap child-wrap">
+                                            <label for="children">Children</label>
+                                            <input type="number" name="children" id="children" value="0" min="0">
+                                        </div>
+                                    </div>
+                                    <div class="input-group">
+                                        <label for="message">Tell us about your custom tour plan</label>
+                                        <textarea name="message" id="message" rows="4" placeholder="E.g. We want to visit Kandy, Nuwara Eliya and Ella over 6 days..."></textarea>
+                                    </div>
+                                    <button type="submit" id="submit-btn" class="nir-btn me-4 submit-btn">Request My Custom Quote</button>
+                                </form>
+                            </div>
+                        </div>
                     </section>
                 </div>
             </div>

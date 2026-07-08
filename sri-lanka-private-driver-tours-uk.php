@@ -174,7 +174,7 @@ $OGdescription = "Experience Sri Lanka with a professional private driver. All-i
     <section class="bg-light">
         <div class="container">
             <h2>Internationally Trusted Service</h2>
-            <p class="intro-text">Ceylon Travel Lanka is proud to maintain <strong>global standards of excellence</strong>. We are the preferred choice for travelers from Europe, the UK, and India, recognized for our punctuality, clean vehicles, and professional hospitality.</p>
+            <p class="intro-text">Ceylon Travel Lanka is proud to maintain <strong>global standards of excellence</strong>. We are the preferred choice for travelers from Europe and the UK, recognized for our punctuality, clean vehicles, and professional hospitality.</p>
             
             <div class="gallery-grid mobile-slider1">
                 <div class="gallery-item"><img src="<?= BASE_URL ?>images/campaign/1.webp" alt="Internationally Trusted Service - Ceylon Travel Lanka" loading="lazy"></div>
@@ -194,7 +194,7 @@ $OGdescription = "Experience Sri Lanka with a professional private driver. All-i
         <div class="ta-content">
             <p class="ta-sub">Globally Recognized Excellence</p>
             <h2 class="ta-title">Don't Just Take Our Word For It</h2>
-            <p class="ta-text">We are incredibly proud to maintain a flawless <strong>5.0-star rating</strong> backed by hundreds of independent reviews from international travelers. From punctual airport pickups to breathtaking coastal routes, our commitment to safety, transparency, and hospitality is fully verified by the world’s largest travel platform.</p>
+            <p class="ta-text">We are incredibly proud to maintain a flawless <strong>5.0-star rating</strong> backed by the independent reviews from international travelers. From punctual airport pickups to breathtaking coastal routes, our commitment to safety, transparency, and hospitality is fully verified by the world’s largest travel platform.</p>
             <div class="ta-features">
                 <div class="ta-feature-item">⭐ 100% Verified Guest Feedback</div>
                 <div class="ta-feature-item">🏅 Certificate of Excellence Standard</div>

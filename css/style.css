@@ -6079,8 +6079,8 @@ section .underline{
     background-color: #ffffff;
     padding: 24px;
     border-radius: 16px;
-    border: 1px solid #e5e7eb;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.05), 0 1px 2px rgba(0,0,0,0.03);
+    border: 1px solid #b8b7b737;
+    box-shadow: 9px 11px 20px #cccccc37;
 }
 .fact-card {
     display: flex;
@@ -6095,7 +6095,7 @@ section .underline{
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
-    border: 1px solid #029e9d;
+    background: #029e9d1f;
 }
 .icon-box svg {
     width: 20px;
@@ -6178,7 +6178,7 @@ section .underline{
 }
 .img-grid img {
     width: 100%;
-    height: 160px;
+    height: 200px;
     object-fit: cover;
     border-radius: 12px;
     box-shadow: 0 1px 3px rgba(0,0,0,0.05), 0 1px 2px rgba(0,0,0,0.03);
@@ -6270,5 +6270,8 @@ section .underline{
   .facts-grid {
     grid-template-columns: repeat(1, 1fr);
     gap: 20px;
+  }
+  .img-grid{
+    grid-template-columns: none;
   }
 }
