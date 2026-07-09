@@ -40,7 +40,7 @@ $preloadBanner = BASE_URL . "images/slider/1.webp";
 <section class="intro-section about-us pt-6 pb-6 mpb-0">
     <div class="container">
         <div class="section-title mb-6 w-50 mx-auto text-center">
-            <h1 class="mb-1">Sri Lanka Travel Services</h1>
+            <h1 class="mb-2">Sri Lanka Travel Services</h1>
             <p>Discover a full range of professional travel services in Sri Lanka designed to make your journey smooth, comfortable, and unforgettable. From <a href="<?= BASE_URL ?>services/airport-transfer" class="underline">airport transfers</a> and <a href="<?= BASE_URL ?>services/private-driver-in-sri-lanka" class="underline">private drivers</a> to customized tours and day excursions, we provide reliable and flexible travel solutions <a href="<?= BASE_URL ?>tailor-made-tours" class="underline">tailored</a> to your needs.</p>
             <p>At Ceylon Travel Lanka, we combine local expertise with personalized service to ensure every part of your trip is seamless. Whether you're planning a short visit or a long holiday, our services are designed to give you complete peace of mind.</p>
         </div>

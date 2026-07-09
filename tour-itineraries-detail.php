@@ -43,7 +43,7 @@ $OGdescription = "Browse our expertly designed Sri Lanka itineraries or create y
         <div class="row">
             <div class="col-lg-8 pe-lg-4">
                 <div class="details-pane">
-                    <h1 class="mb-1">4 Day Sri Lanka Tour Itinerary</h1>
+                    <h1 class="mb-2">4 Day Sri Lanka Tour Itinerary</h1>
                     <p class="theme mb-4"><i>Short Travel Package</i></p>
                     <!-- Information Grid Widgets -->
                     <section class="facts-grid">
@@ -162,8 +162,8 @@ $OGdescription = "Browse our expertly designed Sri Lanka itineraries or create y
                         <h2>Interactive Route Map</h2>
                     </section-->
 
-                    <section id="booking-form" class="bg-light">
-                        <div class="container">
+                    <section id="booking-form">
+                        
                             <h2>Start Planning Your Dream Trip</h2>
                             <div class="form-box">
                                 <div id="success-message" style="display:none; text-align:center; padding: 2rem; background: #e7f3ef; border-radius: 8px; border: 1px solid #28a745; margin-bottom: 2rem;">
@@ -179,7 +179,7 @@ $OGdescription = "Browse our expertly designed Sri Lanka itineraries or create y
                                     </div>
                                     <div class="input-group">
                                         <label for="phone">WhatsApp Number</label>
-                                        <input type="tel" name="phone" id="phone" placeholder="+44..." required>
+                                        <input type="tel" name="phone" id="phone" placeholder="E.g. +44..." required>
                                     </div>
                                     <div class="input-group">
                                         <label for="email">Email</label>
@@ -206,7 +206,7 @@ $OGdescription = "Browse our expertly designed Sri Lanka itineraries or create y
                                     <button type="submit" id="submit-btn" class="nir-btn me-4 submit-btn">Request My Custom Quote</button>
                                 </form>
                             </div>
-                        </div>
+                        
                     </section>
                 </div>
             </div>

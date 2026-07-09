@@ -39,7 +39,7 @@ $OGdescription = "Browse our expertly designed Sri Lanka itineraries or create y
 <section class="intro-section about-us pt-6 pb-6">
     <div class="container">
         <div class="section-title mb-6 w-50 mx-auto text-center">
-            <h1 class="mb-1">Sri Lanka Tour Itineraries</h1>
+            <h1 class="mb-2">Sri Lanka Tour Itineraries</h1>
             <p>Discover the best Sri Lanka tour itineraries designed to help you experience the island’s rich culture, stunning landscapes, and unforgettable adventures. Whether you’re looking for a relaxing beach holiday, a cultural journey through ancient cities, or an exciting wildlife safari, our itineraries are carefully crafted to suit every type of traveler.</p>
             <p>At Ceylon Travel Lanka, we offer flexible travel plans that can be fully customized based on your preferences, budget, and travel duration. Explore popular destinations like Sigiriya, Kandy, Ella, and the southern beaches while enjoying a seamless and memorable travel experience.</p>
         </div>
