@@ -39,7 +39,7 @@ $OGdescription = "Plan your perfect Sri Lanka trip with fully customized tours d
 <section class="intro-section about-us pt-6 pb-6">
     <div class="container">
         <div class="section-title mb-6 w-50 mx-auto text-center">
-            <h1 class="mb-1">Tailor-Made Sri Lanka Tours</h1>
+            <h1 class="mb-2">Tailor-Made Sri Lanka Tours</h1>
             <p>Create your perfect journey with our tailor-made Sri Lanka tours, designed entirely around your preferences, travel style, and budget. Whether you dream of exploring ancient cultural sites, relaxing on pristine beaches, discovering wildlife, or experiencing scenic hill country, we craft personalized itineraries to match your expectations.</p>
             <p>At Ceylon Travel Lanka, we specialize in flexible travel planning with private drivers, handpicked accommodations, and carefully curated experiences. Your trip is fully customizable, ensuring a unique and unforgettable Sri Lanka holiday.</p>
         </div>

@@ -40,7 +40,7 @@ $preloadBanner = BASE_URL . "images/slider/1.webp";
 <section class="intro-section about-us pt-6 pb-6 mpb-0">
     <div class="container">
         <div class="section-title mb-6 w-50 mx-auto text-center">
-            <h1 class="mb-1">Car Rental with Driver in Sri Lanka</h1>
+            <h1 class="mb-2">Car Rental with Driver in Sri Lanka</h1>
             <p>Looking for a flexible way to travel around Sri Lanka? Our car rental with driver service offers comfortable vehicles and professional chauffeurs, allowing you to explore the island safely and conveniently.</p>
             <div class="slider-button d-flex justify-content-center mt-4">
                 <a href="https://wa.me/+94759800348?text=I'm%20interested%20in%20your%20services" class="nir-btn me-4" tabindex="0">Book via WhatsApp</a>

@@ -75,13 +75,13 @@ h6 {
 
 @media (max-width: 991px) {
   h1 {
-    font-size: 48px; }
+    font-size: 36px; }
 
   h2 {
     font-size: 36px; } }
 @media (max-width: 735px) {
   h1 {
-    font-size: 38px; }
+    font-size: 28px; }
 
   h2 {
     font-size: 28px; }
@@ -6205,6 +6205,12 @@ section .underline{
     height: 14px;
     fill: #9ca3af;
 }
+#booking-form{ padding-top: 0; }
+.form-box { max-width: 700px; padding: 3rem; border-radius: 15px; box-shadow: 0 15px 40px rgba(0,0,0,0.1); }
+.input-group { margin-bottom: 1.5rem; }
+.flex-group {display: flex; flex-flow: nowrap; gap: 1rem;} /*.flex-group .wrap { flex: 1; }*/
+label { display: block; margin-bottom: 0.5rem; font-weight: 600; }
+input, textarea, select { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 6px; font-size: 1rem; }
 
 @media (max-width: 991px){
   .banner {
@@ -6274,4 +6280,22 @@ section .underline{
   .img-grid{
     grid-template-columns: none;
   }
+  .form-box {
+    padding: 3rem 2rem;
+}
+}
+
+@media (max-width: 600px) {
+    .flex-group {
+        flex-flow: wrap;
+    }
+    .form-box .date-wrap {
+        width: 100%;
+    }
+    .form-box .adult-wrap {
+        width: 47%;
+    }
+    .form-box .child-wrap {
+        width: 47%;
+    }
 }

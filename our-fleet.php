@@ -39,7 +39,7 @@ $OGdescription = "Browse our expertly designed Sri Lanka itineraries or create y
 <section class="intro-section about-us pt-6 pb-6">
     <div class="container">
         <div class="section-title mb-6 w-50 mx-auto text-center">
-            <h1 class="mb-1">Our Fleet: Travel Sri Lanka in Comfort & Style</h1>
+            <h1 class="mb-2">Our Fleet: Travel Sri Lanka in Comfort & Style</h1>
             <p>Whether you are navigating the winding roads of the Hill Country, heading out on an epic wildlife safari, or cruising down the Southern Expressway to the beach, the right vehicle makes all the difference.</p>
             <p>At Ceylon Travel Lanka, we provide a diverse, modern fleet of meticulously maintained vehicles to match your travel style, budget, and group size. Every rental comes with a professional, English-speaking chauffeur-driver who doubles as your local guide—ensuring a safe, stress-free, and deeply authentic journey through our beautiful island.</p>
         </div>
