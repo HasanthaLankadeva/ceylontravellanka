@@ -79,7 +79,7 @@
                             <li><a href="<?= BASE_URL ?>contact">Contact Us</a></li>
                             <li><a href="<?= BASE_URL ?>services">Services</a></li>
                             <li><a href="<?= BASE_URL ?>our-fleet">Our Fleet</a></li>
-                            <li><a href="<?= BASE_URL ?>tour-itineraries">Tour Itineraries</a></li>
+                            <li><a href="<?= BASE_URL ?>sri-lanka-tours/">Sri Lanka Tours</a></li>
                             <li><a href="<?= BASE_URL ?>privacy">Privacy Policy</a></li>
                         </ul>
                     </div>

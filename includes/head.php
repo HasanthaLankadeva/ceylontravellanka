@@ -39,28 +39,35 @@
 {
     "@context": "https://schema.org",
     "@type": ["TravelAgency", "TourOperator"],
+    "@id": "https://ceylontravellanka.com/#organization",
     "name": "Ceylon Travel Lanka",
     "url": "https://ceylontravellanka.com",
     "logo": "https://ceylontravellanka.com/images/logo.svg",
-    "image": "https://ceylontravellanka.com/images/logo.svg",
-    "description": "Private driver and transport services in Sri Lanka including airport transfers and tour packages.",
-    "areaServed": "Sri Lanka",
-    "serviceType": [
-        "Airport Transfer",
-        "Private Driver Hire",
-        "Tour Packages"
-    ],
+    "image": "https://ceylontravellanka.com/images/og-image.jpg",
+    "description": "Private driver and transport services in Sri Lanka including airport transfers, private drivers, and customizable 4 to 15 day Sri Lanka tours.",
+    "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "83 / D Weliya North",
+        "addressLocality": "Minuwangoda",
+        "postalCode": "11550",
+        "addressRegion": "Western Province",
+        "addressCountry": "LK"
+    },
     "contactPoint": {
-        "@type": "83 / D Weliya North, Minuwangoda 11550, Sri Lanka",
+        "@type": "ContactPoint",
         "telephone": "+94759800348",
         "contactType": "customer service",
-        "availableLanguage": ["English"]
-    }
+        "availableLanguage": ["en"],
+        "areaServed": "LK"
+    },
+    "areaServed": "LK",
+    "priceRange": "$$"
 }
 </script>
 <script type="application/ld+json">
 <?php
 $schema = [];
+$orgId = "https://ceylontravellanka.com/#organization";
 
 switch ($page) {
 
@@ -68,8 +75,10 @@ switch ($page) {
         $schema = [
             "@context" => "https://schema.org",
             "@type" => "WebSite",
+            "@id" => $baseUrl . "#website",
             "name" => $siteName,
-            "url" => $baseUrl
+            "url" => $baseUrl,
+            "publisher" => ["@id" => $orgId]
         ];
         break;
     
@@ -77,9 +86,13 @@ switch ($page) {
         $schema = [
             "@context" => "https://schema.org",
             "@type" => "CollectionPage",
+            "@id" => $canonical . "#webpage",
             "name" => "Sri Lanka Travel Services",
-            "description" => "Explore a range of travel services including airport transfers, private drivers, car rental, and day tours in Sri Lanka.",
-            "url" => $canonical
+            "url" => $canonical,
+            "isPartOf" => ["@id" => $baseUrl . "#website"],
+            "about" => ["@id" => $orgId],
+            "publisher" => ["@id" => $orgId],
+            "description" => "Explore a range of travel services including airport transfers, private drivers, car rental, and day tours in Sri Lanka."
         ];
         break;
 
@@ -87,13 +100,17 @@ switch ($page) {
         $schema = [
             "@context" => "https://schema.org",
             "@type" => "ContactPage",
+            "@id" => $canonical . "#webpage",
             "name" => "Contact Ceylon Travel Lanka",
-            "description" => "Contact us to book private driver services, airport transfers, and tours in Sri Lanka.",
-            "url" => $canonical
+            "url" => $canonical,
+            "isPartOf" => ["@id" => $baseUrl . "#website"],
+            "about" => ["@id" => $orgId],
+            "publisher" => ["@id" => $orgId],
+            "description" => "Contact us to book private driver services, airport transfers, and tours in Sri Lanka."
         ];
         break;
 
-    case "tour-itineraries":
+    case "sri-lanka-tours":
         $schema = [
             "@context" => "https://schema.org",
             "@type" => "CollectionPage",
@@ -105,16 +122,14 @@ switch ($page) {
 
     case "tailor-made-tours":
         $schema = [
-            "@context" => "https://schema.org",
+           "@context" => "https://schema.org",
             "@type" => "Service",
+            "@id" => $canonical . "#service",
             "name" => "Tailor-Made Sri Lanka Tours",
+            "url" => $canonical,
             "description" => "Custom Sri Lanka tours designed based on your preferences, travel style, and budget.",
-            "provider" => [
-                "@type" => "TravelAgency",
-                "name" => $siteName
-            ],
-            "areaServed" => "Sri Lanka",
-            "url" => $canonical
+            "provider" => ["@id" => $orgId],
+            "areaServed" => "LK"
         ];
         break;
 
@@ -122,14 +137,13 @@ switch ($page) {
         $schema = [
             "@context" => "https://schema.org",
             "@type" => "Service",
+            "@id" => $canonical . "#service",
             "name" => "Our Fleet | Chauffeur Driven Cars & Vans in Sri Lanka",
+            "url" => $canonical,
+            "isPartOf" => ["@id" => $baseUrl . "#website"],
             "description" => "Explore our diverse, modern fleet of meticulously maintained vehicles including Honda Fit, Axio, Shuttle, Vezel, and Toyota KDH vans for your private tour in Sri Lanka.",
-            "provider" => [
-                "@type" => "TravelAgency",
-                "name" => $siteName
-            ],
-            "areaServed" => "Sri Lanka",
-            "url" => $canonical
+            "provider" => ["@id" => $orgId],
+            "areaServed" => "LK"
         ];
         break;
 

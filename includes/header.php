@@ -79,7 +79,7 @@
                                 <a href="<?= BASE_URL ?>our-fleet">Our Fleet</a>
                             </li>
                             <li class="<?php echo ($currentpage == 'itineraries') ? 'active' : ''; ?>">
-                                <a href="<?= BASE_URL ?>tour-itineraries">Tour Itineraries</a>
+                                <a href="<?= BASE_URL ?>sri-lanka-tours/">Sri Lanka Tours</a>
                             </li>
                             <li class="<?php echo ($currentpage == 'tailormade') ? 'active' : ''; ?>">
                                 <a href="<?= BASE_URL ?>tailor-made-tours">Tailor Made Tours</a>

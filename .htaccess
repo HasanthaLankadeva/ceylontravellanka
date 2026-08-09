@@ -9,7 +9,7 @@ Options -Indexes
 ErrorDocument 404 /404.html
  
 RewriteEngine On
-RewriteBase /
+RewriteBase /ceylontravellanka/
 # ==================================================
 # FORCE HTTPS + REMOVE WWW (CANONICAL DOMAIN)
 # ==================================================
@@ -19,6 +19,11 @@ RewriteCond %{HTTPS} off [OR]
 RewriteCond %{HTTP_HOST} ^www\. [NC]
 RewriteCond %{HTTP_HOST} ^(?:www\.)?(.+)$ [NC]
 RewriteRule ^ https://%1%{REQUEST_URI} [L,R=301]
+
+# ==================================================
+# CUSTOM 301 REDIRECTS
+# ==================================================
+RewriteRule ^tour-itineraries?$ sri-lanka-tours/ [R=301,L]
 
 # ==================================================
 # CLEAN URLS (REMOVE .php)

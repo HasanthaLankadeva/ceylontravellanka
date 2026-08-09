@@ -1,20 +1,20 @@
 <?php
 
-require_once __DIR__ . '/config/config.php';
+require_once __DIR__ . '/../config/config.php';
 
 $currentpage = 'itineraries';
 $page = basename($_SERVER['PHP_SELF'], '.php');
 $siteName = "Ceylon Travel Lanka";
 $baseUrl = "https://ceylontravellanka.com";
 
-$pageTitle =  "Sri Lanka Tour Itineraries | Custom Travel Plans | " . $siteName;
+$pageTitle =  "Sri Lanka Tours | 4, 6, 7, 10 & 15 Day Itineraries | " . $siteName;
 
 $canonical = "https://ceylontravellanka.com" . $_SERVER['REQUEST_URI'];
 
 $metaDescription = "Explore carefully crafted Sri Lanka tour itineraries. Discover beaches, culture, wildlife and tailor-made travel plans with Ceylon Travel Lanka.";
 $metaKeywords = "Sri Lanka tour itineraries, travel plans Sri Lanka, Sri Lanka tours, holiday packages Sri Lanka, custom itineraries";
 
-$OGTitle = "Sri Lanka Tour Itineraries | " . $siteName;
+$OGTitle = "Sri Lanka Tours | 4, 6, 7, 10 & 15 Day Itineraries | " . $siteName;
 $OGdescription = "Browse our expertly designed Sri Lanka itineraries or create your own custom travel plan.";
 
 ?>
@@ -39,8 +39,8 @@ $OGdescription = "Browse our expertly designed Sri Lanka itineraries or create y
 <section class="intro-section about-us pt-6 pb-6">
     <div class="container">
         <div class="section-title mb-6 w-50 mx-auto text-center">
-            <h1 class="mb-2">Sri Lanka Tour Itineraries</h1>
-            <p>Discover the best Sri Lanka tour itineraries designed to help you experience the island’s rich culture, stunning landscapes, and unforgettable adventures. Whether you’re looking for a relaxing beach holiday, a cultural journey through ancient cities, or an exciting wildlife safari, our itineraries are carefully crafted to suit every type of traveler.</p>
+            <h1 class="mb-2">Sri Lanka Tours – Flexible 4 to 15 Day Itineraries</h1>
+            <p>Discover the best Sri Lanka tours and itineraries designed to help you experience the island’s rich culture, stunning landscapes, and unforgettable adventures. Whether you’re looking for a relaxing beach holiday, a cultural journey through ancient cities, or an exciting wildlife safari, our itineraries are carefully crafted to suit every type of traveler.</p>
             <p>At Ceylon Travel Lanka, we offer flexible travel plans that can be fully customized based on your preferences, budget, and travel duration. Explore popular destinations like Sigiriya, Kandy, Ella, and the southern beaches while enjoying a seamless and memorable travel experience.</p>
         </div>
     </div>
@@ -184,7 +184,7 @@ $OGdescription = "Browse our expertly designed Sri Lanka itineraries or create y
                         <div class="author-news mb-4 box-shadow p-5 text-center rounded overflow-hidden border-all">
                             <div class="author-news-content">
                                 <div class="author-thumb mb-2">
-                                    <img src="images/logo.svg" alt="Logo - Ceylon Travel Lanka">
+                                    <img src="<?= BASE_URL ?>images/logo.svg" alt="Logo - Ceylon Travel Lanka">
                                 </div>
                                 <div class="author-content">
                                     <h3 class="title mb-2">Ceylon Travel Lanka</h3>
