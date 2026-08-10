@@ -68,7 +68,7 @@
                                 <a href="<?= BASE_URL ?>">Home </a>
                             </li>
                             <li class="submenu dropdown <?php echo ($currentpage == 'services') ? 'active' : ''; ?>">
-                                <a href="<?= BASE_URL ?>services" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Services <i class="fa fa-angle-down" aria-hidden="true"></i></a>
+                                <a href="<?= BASE_URL ?>services/" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Services <i class="fa fa-angle-down" aria-hidden="true"></i></a>
                                 <ul class="dropdown-menu">
                                     <li><a href="<?= BASE_URL ?>services/airport-transfer">Airport Transfer</a></li>
                                     <li><a href="<?= BASE_URL ?>services/private-driver-in-sri-lanka">Private Driver in Sri Lanka</a></li>
@@ -79,7 +79,7 @@
                                 <a href="<?= BASE_URL ?>our-fleet">Our Fleet</a>
                             </li>
                             <li class="<?php echo ($currentpage == 'itineraries') ? 'active' : ''; ?>">
-                                <a href="<?= BASE_URL ?>tour-itineraries">Tour Itineraries</a>
+                                <a href="<?= BASE_URL ?>sri-lanka-tours/">Sri Lanka Tours</a>
                             </li>
                             <li class="<?php echo ($currentpage == 'tailormade') ? 'active' : ''; ?>">
                                 <a href="<?= BASE_URL ?>tailor-made-tours">Tailor Made Tours</a>

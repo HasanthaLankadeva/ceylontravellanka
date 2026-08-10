@@ -1,6 +1,6 @@
 <?php
 
-require_once __DIR__ . '/config/config.php';
+require_once __DIR__ . '/../config/config.php';
 
 $currentpage = 'itineraries';
 $page = basename($_SERVER['PHP_SELF'], '.php');
@@ -43,8 +43,9 @@ $OGdescription = "Browse our expertly designed Sri Lanka itineraries or create y
         <div class="row">
             <div class="col-lg-8 pe-lg-4">
                 <div class="details-pane">
-                    <h1 class="mb-2">4 Day Sri Lanka Tour Itinerary</h1>
-                    <p class="theme mb-4"><i>Short Travel Package</i></p>
+                    <h1 class="mb-1">4 Day Sri Lanka Tour Itinerary</h1>
+                    <p class="theme sub-title mb-4"><b>Short Travel Package</b></p>
+                    <p class="mb-4">A perfect short escape covering Sri Lanka's cultural capital, misty tea country and southern beaches in a private AC car with driver. Fully customizable.</p>
                     <!-- Information Grid Widgets -->
                     <section class="facts-grid">
                         <div class="fact-card">
@@ -64,7 +65,7 @@ $OGdescription = "Browse our expertly designed Sri Lanka itineraries or create y
                             </div>
                             <div class="fact-info">
                                 <p>Travel Mode</p>
-                                <p>Private AC Car</p>
+                                <p>Private AC Car & Driver</p>
                             </div>
                         </div>
                         <div class="fact-card">
@@ -74,7 +75,7 @@ $OGdescription = "Browse our expertly designed Sri Lanka itineraries or create y
                             </div>
                             <div class="fact-info">
                                 <p>Themes</p>
-                                <p>Culture &amp; Coast</p>
+                                <p>Culture, Tea Country & Beach</p>
                             </div>
                         </div>
                         <div class="fact-card">
@@ -97,60 +98,56 @@ $OGdescription = "Browse our expertly designed Sri Lanka itineraries or create y
                             <!-- Day 1 Segment -->
                             <div class="timeline-item">
                                 <div class="timeline-dot"></div>
-                                <span class="day-label">Day 1</span>
-                                <h3>Cultural Heritage in Kandy</h3>
+                                <h3><span class="day-label">Day 1</span> Cultural Heritage in Kandy</h3>
                                 <div class="img-grid">
                                     <img src="<?= BASE_URL ?>images/destination/1.avif" alt="Temple of the Tooth Kandy">
                                     <img src="<?= BASE_URL ?>images/destination/2.avif" alt="Gregory Lake Nuwara Eliya">
                                 </div>
                                 <p>Arrive in Kandy, the last royal capital of Sri Lanka. Visit the sacred <strong>Temple of the Sacred Tooth Relic</strong> (Sri Dalada Maligawa), located inside the ancient royal palace complex. Witness traditional spiritual rituals before exploring the historic city square and enjoying a sunset walk along the lake perimeter.</p>
                                 <div class="meta-tags">
-                                    <span><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"></path></svg> Kandy</span>
+                                    <location><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"></path></svg> Kandy</location>
                                 </div>
                             </div>
 
                             <!-- Day 2 Segment -->
                             <div class="timeline-item">
                                 <div class="timeline-dot"></div>
-                                <span class="day-label">Day 2</span>
-                                <h3>Nuwara Eliya Tea Country &amp; Gregory Lake</h3>
+                                <h3><span class="day-label">Day 2</span> Nuwara Eliya Tea Country &amp; Gregory Lake</h3>
                                 <div class="img-grid">
                                     <img src="<?= BASE_URL ?>images/destination/3.avif" alt="Tea Plantations Nuwara Eliya">
                                     <img src="<?= BASE_URL ?>images/destination/4.avif" alt="Gregory Lake Nuwara Eliya">
                                 </div>
                                 <p>Climb into the cool emerald mist of the high-altitude tea country. Walk through historic colonial-era <strong>tea plantations</strong> to see traditional pickers at work, tour a manufacturing plant to see production steps, and enjoy tea tasting. Spend your afternoon strolling along the waterfront paths of <strong>Gregory Lake</strong>.</p>
                                 <div class="meta-tags">
-                                    <span><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"></path></svg> Nuwara Eliya</span>
+                                    <location><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"></path></svg> Nuwara Eliya</location>
                                 </div>
                             </div>
 
                             <!-- Day 3 Segment -->
                             <div class="timeline-item">
                                 <div class="timeline-dot"></div>
-                                <span class="day-label">Day 3</span>
-                                <h3>Scenic Ella Valley &amp; Mountain Gaps</h3>
+                                <h3><span class="day-label">Day 3</span> Scenic Ella Valley &amp; Mountain Gaps</h3>
                                 <div class="img-grid">
                                     <img src="<?= BASE_URL ?>images/destination/5.avif" alt="Tea Plantations Nuwara Eliya">
                                     <img src="<?= BASE_URL ?>images/destination/6.avif" alt="Gregory Lake Nuwara Eliya">
                                 </div>
                                 <p>Travel south along spectacular mountain corridors into the valley village of Ella. Walk across the architectural stone marvel of the colonial-era Nine Arch Bridge wrapped deep in dense jungle, and hike up Little Adam's Peak to watch sweeping panoramas over the deep Ella Gap mountain drop-offs.</p>
                                 <div class="meta-tags">
-                                    <span><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"></path></svg> Ella</span>
+                                    <location><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"></path></svg> Ella</location>
                                 </div>
                             </div>
 
                             <!-- Day 4 Segment -->
                             <div class="timeline-item">
                                 <div class="timeline-dot"></div>
-                                <span class="day-label">Day 4</span>
-                                <h3>Coastal Finish at Bentota Beach</h3>
+                                <h3><span class="day-label">Day 4</span> Coastal Finish at Bentota Beach</h3>
                                 <div class="img-grid">
                                     <img src="<?= BASE_URL ?>images/destination/7.avif" alt="Bentota Beach Sri Lanka">
                                     <img src="<?= BASE_URL ?>images/destination/8.avif" alt="Bentota Beach Sri Lanka">
                                 </div>
                                 <p>Descend out of the central highlands and make your way to the sandy southwestern coastline to reach <strong>Bentota Beach</strong>. Relax under leaning coconut palms, wade in the warm Indian Ocean waves, or opt for riverboat safaris along the Bentota estuary before your departure flight transfer.</p>
                                 <div class="meta-tags">
-                                    <span><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"></path></svg> Bentota</span>
+                                    <location><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"></path></svg> Bentota</location>
                                 </div>
                             </div>
 
@@ -158,9 +155,10 @@ $OGdescription = "Browse our expertly designed Sri Lanka itineraries or create y
                     </section>
 
                     <!-- Interactive Route Map Block -->
-                    <!--section class="map-section">
+                    <section class="map-section">
                         <h2>Interactive Route Map</h2>
-                    </section-->
+                        <iframe src="https://www.google.com/maps/d/embed?mid=13u7kDnGq9fU69p0zLvVgyPvWbsxPJ7g&ehbc=2E312F" width="640" height="480"></iframe>
+                    </section>
 
                     <section id="booking-form">
                         
@@ -202,6 +200,7 @@ $OGdescription = "Browse our expertly designed Sri Lanka itineraries or create y
                                     <div class="input-group">
                                         <label for="message">Tell us about your custom tour plan</label>
                                         <textarea name="message" id="message" rows="4" placeholder="E.g. We want to visit Kandy, Nuwara Eliya and Ella over 6 days..."></textarea>
+                                        <input type="hidden" name="title" id="title" value="http://ceylontravellanka.com/sri-lanka-tours/4-day-short-itinerary">
                                     </div>
                                     <button type="submit" id="submit-btn" class="nir-btn me-4 submit-btn">Request My Custom Quote</button>
                                 </form>
@@ -219,7 +218,7 @@ $OGdescription = "Browse our expertly designed Sri Lanka itineraries or create y
                         <div class="author-news mb-4 box-shadow p-5 text-center rounded overflow-hidden border-all">
                             <div class="author-news-content">
                                 <div class="author-thumb mb-2">
-                                    <img src="images/logo.svg" alt="Logo - Ceylon Travel Lanka">
+                                    <img src="<?= BASE_URL ?>images/logo.svg" alt="Logo - Ceylon Travel Lanka">
                                 </div>
                                 <div class="author-content">
                                     <h3 class="title mb-2">Ceylon Travel Lanka</h3>

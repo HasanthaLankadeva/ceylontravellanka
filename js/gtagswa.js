@@ -22,3 +22,15 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 });
+
+(function(){
+  if(window._fired) return;
+  var obs = new MutationObserver(function(){
+    if(document.body.innerText.indexOf('Inquiry Sent Successfully!') > -1 && !window._fired){
+      window._fired = true;
+      console.log('FIRING CONVERSION NOW');
+      gtag('event','conversion',{'send_to':'AW-18163798890/lgxaCNGd2d4cEOqmltVD'});
+    }
+  });
+  obs.observe(document.body,{childList:true, subtree:true});
+})();
