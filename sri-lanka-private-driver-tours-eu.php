@@ -170,6 +170,17 @@ $OGdescription = "Experience Sri Lanka with a professional private driver. All-i
             </div>
         </div>
     </section>
+
+    <section class="video-review">
+        <div class="container">
+            <h2 class="video-section-title">Hear from Our EU Travellers</h2>
+            <p class="video-section-subtitle">Real video stories and unedited reviews from European guests who explored Sri Lanka with their dedicated private driver.</p>
+            
+            <div class="video-review-wrapper">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/eVwSfGC4QAc?si=sX20ArAfC7eXAJCJ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+        </div>
+    </section>
  
     <section class="bg-light">
         <div class="container">

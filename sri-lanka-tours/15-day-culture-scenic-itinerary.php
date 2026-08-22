@@ -101,11 +101,11 @@ $OGdescription = "Majestic heritage sites, lush highlands and coastal relaxation
                                 <h3><span class="day-label">Day 1</span> Arrival in Colombo & Ancient Dambulla to Sigiriya</h3>
                                 <div class="img-grid">
                                     <img src="<?= BASE_URL ?>images/destination/9.avif" alt="Dambulla Cave Temple">
-                                    <img src="<?= BASE_URL ?>images/destination/11.avif" alt="Sigiriya Lion Rock">
+                                    <img src="<?= BASE_URL ?>images/destination/2.avif" alt="Gregory Lake Nuwara Eliya">
                                 </div>
                                 <p>Arrive at Bandaranaike International Airport and drive to the Cultural Triangle. En route, explore the UNESCO-listed <b>Dambulla Cave Temple</b>, a magnificent complex of 5 caves filled with over 150 Buddha statues and murals. Continue to Sigiriya for overnight stay among paddy fields and jungle.</p>
                                 <div class="meta-tags">
-                                    <location><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"></path></svg> Sigiriya</location>
+                                    <location><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"></path></svg> Kandy</location>
                                 </div>
                             </div>
 
@@ -114,12 +114,12 @@ $OGdescription = "Majestic heritage sites, lush highlands and coastal relaxation
                                 <div class="timeline-dot"></div>
                                 <h3><span class="day-label">Day 2</span> Sigiriya Lion Rock & Village Culture</h3>
                                 <div class="img-grid">
-                                    <img src="<?= BASE_URL ?>images/destination/10.avif" alt="Sigiriya Lion Rock">
-                                    <img src="<?= BASE_URL ?>images/destination/12.avif" alt="Village Culture">
+                                    <img src="<?= BASE_URL ?>images/destination/3.avif" alt="Tea Plantations Nuwara Eliya">
+                                    <img src="<?= BASE_URL ?>images/destination/4.avif" alt="Gregory Lake Nuwara Eliya">
                                 </div>
-                                <p>sample</p>
+                                <p>Climb into the cool emerald mist of the high-altitude tea country. Walk through historic colonial-era <strong>tea plantations</strong> to see traditional pickers at work, tour a manufacturing plant to see production steps, and enjoy tea tasting. Spend your afternoon strolling along the waterfront paths of <strong>Gregory Lake</strong>.</p>
                                 <div class="meta-tags">
-                                    <location><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"></path></svg> Sigiriya</location>
+                                    <location><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"></path></svg> Nuwara Eliya</location>
                                 </div>
                             </div>
 
@@ -128,12 +128,12 @@ $OGdescription = "Majestic heritage sites, lush highlands and coastal relaxation
                                 <div class="timeline-dot"></div>
                                 <h3><span class="day-label">Day 3</span> Sigiriya to Kandy – Temple of the Tooth & Dance Show</h3>
                                 <div class="img-grid">
-                                    <img src="<?= BASE_URL ?>images/destination/1.avif" alt="Tea Plantations Nuwara Eliya">
-                                    <img src="<?= BASE_URL ?>images/destination/2.avif" alt="Gregory Lake Nuwara Eliya">
+                                    <img src="<?= BASE_URL ?>images/destination/5.avif" alt="Tea Plantations Nuwara Eliya">
+                                    <img src="<?= BASE_URL ?>images/destination/6.avif" alt="Gregory Lake Nuwara Eliya">
                                 </div>
-                                <p>The last royal capital of Sri Lanka. Visit the sacred Temple of the Sacred Tooth Relic (Sri Dalada Maligawa), located inside the ancient royal palace complex. Witness traditional spiritual rituals before exploring the historic city square and enjoying a sunset walk along the lake perimeter.</p>
+                                <p>Travel south along spectacular mountain corridors into the valley village of Ella. Walk across the architectural stone marvel of the colonial-era Nine Arch Bridge wrapped deep in dense jungle, and hike up Little Adam's Peak to watch sweeping panoramas over the deep Ella Gap mountain drop-offs.</p>
                                 <div class="meta-tags">
-                                    <location><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"></path></svg> Kandy</location>
+                                    <location><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"></path></svg> Ella</location>
                                 </div>
                             </div>
 
@@ -142,12 +142,12 @@ $OGdescription = "Majestic heritage sites, lush highlands and coastal relaxation
                                 <div class="timeline-dot"></div>
                                 <h3><span class="day-label">Day 4</span> Kandy to Nuwara Eliya – Tea Country Journey</h3>
                                 <div class="img-grid">
-                                    <img src="<?= BASE_URL ?>images/destination/3.avif" alt="Tea Plantations Nuwara Eliya">
-                                    <img src="<?= BASE_URL ?>images/destination/4.avif" alt="Gregory Lake Nuwara Eliya">
+                                    <img src="<?= BASE_URL ?>images/destination/7.avif" alt="Bentota Beach Sri Lanka">
+                                    <img src="<?= BASE_URL ?>images/destination/8.avif" alt="Bentota Beach Sri Lanka">
                                 </div>
-                                <p>Climb into the cool emerald mist of the high-altitude tea country. Walk through historic colonial-era tea plantations to see traditional pickers at work, tour a manufacturing plant to see production steps, and enjoy tea tasting. Spend your afternoon strolling along the waterfront paths of Gregory Lake.</p>
+                                <p>Descend out of the central highlands and make your way to the sandy southwestern coastline to reach <strong>Bentota Beach</strong>. Relax under leaning coconut palms, wade in the warm Indian Ocean waves, or opt for riverboat safaris along the Bentota estuary before your departure flight transfer.</p>
                                 <div class="meta-tags">
-                                    <location><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"></path></svg> Nuwara Eliya</location>
+                                    <location><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"></path></svg> Bentota</location>
                                 </div>
                             </div>
 
@@ -157,7 +157,7 @@ $OGdescription = "Majestic heritage sites, lush highlands and coastal relaxation
                                 <h3><span class="day-label">Day 5</span> Nuwara Eliya to Bentota – Waterfalls & Scenic Drive</h3>
                                 <div class="img-grid">
                                     <img src="<?= BASE_URL ?>images/destination/7.avif" alt="Bentota Beach Sri Lanka">
-                                    <img src="<?= BASE_URL ?>images/destination/13.avif" alt="Waterfall Sri Lanka">
+                                    <img src="<?= BASE_URL ?>images/destination/8.avif" alt="Bentota Beach Sri Lanka">
                                 </div>
                                 <p>Descend out of the central highlands and make your way to the sandy southwestern coastline to reach <strong>Bentota Beach</strong>. Relax under leaning coconut palms, wade in the warm Indian Ocean waves, or opt for riverboat safaris along the Bentota estuary before your departure flight transfer.</p>
                                 <div class="meta-tags">

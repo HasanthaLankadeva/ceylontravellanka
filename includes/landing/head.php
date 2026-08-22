@@ -267,6 +267,8 @@
 
     /* Seamless Inline Iframe Target Elements */
     .video-iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; z-index: 3; border-radius: var(--border-radius); }
+
+    .video-review{ text-align: center; } iframe { width: auto; max-width: 100%; aspect-ratio: 16/9; }
     
     /* Gallery - International Branding */
     .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(calc(100% / 5), 1fr)); gap: 1rem; }
