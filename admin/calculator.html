@@ -6,121 +6,238 @@
     <title>Tour Cost Calculator</title>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f6f9;
-            margin: 20px;
+        /* Base Styles & Reset */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
         }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #f4f6f9;
+            color: #333;
+            padding: 12px;
+            line-height: 1.5;
+        }
+
+        /* Main Container Card */
         .calculator-card {
             max-width: 650px;
+            width: 100%;
             margin: 0 auto;
-            background: #fff;
-            padding: 25px;
-            border-radius: 8px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
         }
+
         h2 {
             text-align: center;
-            color: #333;
+            color: #1a252f;
+            font-size: 1.5rem;
             margin-bottom: 20px;
         }
+
+        /* Sections */
         .section {
-            border-bottom: 1px solid #eee;
+            border-bottom: 1px solid #edf2f7;
             padding-bottom: 15px;
             margin-bottom: 15px;
         }
+
         .section-title {
-            font-size: 1.1em;
-            font-weight: bold;
+            font-size: 1rem;
+            font-weight: 700;
             color: #007bff;
-            margin-bottom: 10px;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
+
+        /* Form Groups (Stacked on Mobile, Side-by-Side on Desktop) */
         .form-group {
             display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 10px;
+            flex-direction: column; /* Stacks label and input vertically for touch screens */
+            margin-bottom: 12px;
         }
+
         .form-group label {
-            flex: 1;
-            font-weight: 500;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 5px;
+            color: #4a5568;
         }
-        .form-group input, .form-group select {
-            flex: 1;
-            padding: 8px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
+
+        /* Touch-Friendly Inputs & Select Dropdowns */
+        .form-group input, 
+        .form-group select,
+        .quote-template-area {
+            width: 100%;
+            min-height: 44px; /* Touch target standard for mobile tap area */
+            padding: 10px 12px;
+            font-size: 16px; /* Prevents iOS auto-zoom on input focus */
+            border: 1px solid #cbd5e0;
+            border-radius: 8px;
+            background-color: #fff;
+            transition: border-color 0.2s ease, box-shadow 0.2s ease;
         }
+
+        .form-group input:focus, 
+        .form-group select:focus,
+        .quote-template-area:focus {
+            outline: none;
+            border-color: #007bff;
+            box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.15);
+        }
+
         input[readonly] {
-            background-color: #e9ecef;
+            background-color: #f7fafc;
+            color: #718096;
+            border-color: #e2e8f0;
             cursor: not-allowed;
         }
+
+        /* Quotation Display Box */
         .quotation-box {
             margin-top: 20px;
-            display: flex;
-            gap: 30px;
         }
+
+        .quotation-box .left{
+            margin-bottom: 18px;
+        }
+        
         .quotation-box .left,
         .quotation-box .right{
-            width: 50%;
-            background-color: #28a745;
-            color: white;
-            padding: 15px;
-            border-radius: 6px;
+            background: #0f172a; /* Slate 900 */
+            color: #f8fafc; /* Slate 50 */
+            padding: 18px;
+            border: 1px solid #1e293b; /* Slate 800 */
+            border-radius: 12px;
+            box-shadow: 0 10px 15px -3px rgba(15, 23, 42, 0.12), 0 4px 6px -4px rgba(15, 23, 42, 0.08);
         }
+
         .quotation-box h3 {
-            margin-top: 0;
-            border-bottom: 1px solid rgba(255,255,255,0.3);
-            padding-bottom: 5px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #38bdf8; /* Sky Blue accent for section title */
+            border-bottom: 1px solid #334155; /* Subtle divider */
+            padding-bottom: 10px;
+            margin-bottom: 14px;
         }
+
+        /* Price Rows */
         .quotation-row {
             display: flex;
             justify-content: space-between;
-            font-size: 1.1em;
-            margin: 5px 0;
+            align-items: center;
+            font-size: 0.95rem;
+            color: #cbd5e1; /* Muted slate for labels */
+            margin: 8px 0;
         }
-        /* New Quote Generation Styles */
+
+        .quotation-row strong {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #ffffff; /* Crisp white for values */
+        }
+
+        /* Action Button */
+        .btn-generate {
+            background-color: #2563eb; /* Royal Blue */
+            color: #ffffff;
+            font-weight: 600;
+            font-size: 0.95rem;
+            border: none;
+            border-radius: 8px;
+            padding: 12px;
+            width: 100%;
+            margin-top: 16px;
+            cursor: pointer;
+            transition: background-color 0.2s ease, transform 0.1s ease;
+        }
+
+        .btn-generate:hover {
+            background-color: #1d4ed8;
+        }
+
+        .btn-generate:active {
+            transform: scale(0.99);
+        }
+
+        /* Mobile-friendly Buttons */
         .btn-action {
             width: 100%;
-            padding: 12px;
-            font-size: 16px;
-            font-weight: bold;
+            min-height: 48px; /* Larger tap area for thumbs */
+            font-size: 1rem;
+            font-weight: 700;
             border: none;
-            border-radius: 5px;
+            border-radius: 8px;
             cursor: pointer;
             margin-top: 15px;
-            transition: background 0.2s ease-in-out;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.2s ease, transform 0.1s ease;
         }
+
+        .btn-action:active {
+            transform: scale(0.98);
+        }
+
         .btn-generate {
-            background-color: #007bff;
-            color: #fff;
+            background-color: #2563eb;
+            color: #ffffff;
         }
+
         .btn-generate:hover {
             background-color: #0056b3;
         }
+
         .btn-copy {
             background-color: #ffc107;
-            color: #212529;
-            margin-top: 10px;
+            color: #1a252f;
+            margin-top: 12px;
             display: none;
         }
+
         .btn-copy:hover {
             background-color: #e0a800;
         }
+
         .quote-template-area {
-            width: 100%;
-            height: 320px;
+            height: 250px;
             margin-top: 15px;
-            padding: 12px;
-            box-sizing: border-box;
-            border: 1px solid #ccc;
-            border-radius: 6px;
-            font-family: inherit;
-            font-size: 14px;
-            line-height: 1.5;
-            background-color: #f9f9f9;
             resize: vertical;
+            font-family: inherit;
+            line-height: 1.4;
             display: none;
+        }
+
+        /* Desktop & Larger Screens Optimization */
+        @media (min-width: 576px) {
+            body {
+                padding: 30px 15px;
+            }
+
+            .calculator-card {
+                padding: 30px;
+            }
+
+            .form-group {
+                flex-direction: row; /* Horizontal alignment on wide screens */
+                align-items: center;
+            }
+
+            .form-group label {
+                flex: 1;
+                margin-bottom: 0;
+            }
+
+            .form-group input, 
+            .form-group select {
+                flex: 1.2;
+            }
         }
     </style>
 </head>
