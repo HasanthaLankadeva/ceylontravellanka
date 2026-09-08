@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data>
+    <vehicles>
+        <vehicle name="Sedan">
+            <daily_rate>17000</daily_rate>
+            <extra_mileage_rate>100</extra_mileage_rate>
+            <bata>2000</bata>
+            <accommodation>3000</accommodation>
+        </vehicle>
+        <vehicle name="SUV Mini">
+            <daily_rate>19000</daily_rate>
+            <extra_mileage_rate>110</extra_mileage_rate>
+            <bata>2000</bata>
+            <accommodation>3000</accommodation>
+        </vehicle>
+        <vehicle name="SUV New">
+            <daily_rate>25000</daily_rate>
+            <extra_mileage_rate>150</extra_mileage_rate>
+            <bata>3000</bata>
+            <accommodation>3000</accommodation>
+        </vehicle>
+        <vehicle name="KDH Flat Roof">
+            <daily_rate>21000</daily_rate>
+            <extra_mileage_rate>120</extra_mileage_rate>
+            <bata>3000</bata>
+            <accommodation>3000</accommodation>
+        </vehicle>
+        <vehicle name="KDH High Roof">
+            <daily_rate>24000</daily_rate>
+            <extra_mileage_rate>140</extra_mileage_rate>
+            <bata>3000</bata>
+            <accommodation>3000</accommodation>
+        </vehicle>
+        <vehicle name="Mini Bus">
+            <daily_rate>35000</daily_rate>
+            <extra_mileage_rate>170</extra_mileage_rate>
+            <bata>5000</bata>
+            <accommodation>4000</accommodation>
+        </vehicle>
+    </vehicles>
+    <exchange_rates>
+        <usd>320</usd>
+        <gbp>430</gbp>
+    </exchange_rates>
+</data>
