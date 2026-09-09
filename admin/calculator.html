@@ -454,9 +454,7 @@ $(document.body).ready(function() {
             }
         //}
         
-        // Step 2: Calculate Max Mileage
-        let maxMileage = totalDays > 0 ? (100 * totalDays) + 200 : 0;
-        $('#maxMileage').val(maxMileage);
+        
 
         // Step 3: Vehicle Daily Rates
         let selectedVehicle = $('#vehicleType').val();
@@ -480,6 +478,11 @@ $(document.body).ready(function() {
         $('#driverAccommodation').val(dailyAccommodation);
         $('#extraMileageRate').val(extraRate);
 
+        // Step 2: Calculate Max Mileage
+        let extra = (selectedVehicle && selectedVehicle == 'Mini Bus') ? 0 : 200;
+        let maxMileage = totalDays > 0 ? (100 * totalDays) + extra : 0;
+        $('#maxMileage').val(maxMileage);
+
         // step 3: Calculate Mileage Rate
         let transportCharge = maxMileage > 0 ? (extraRate * maxMileage) : 0;
         let totalBata = totalDays > 0 ? (dailyBata * totalDays) : 0;
@@ -487,7 +490,7 @@ $(document.body).ready(function() {
         let ticketParkingValue = parseFloat($('#ticketParking').val()) || 0;
         let ticketParking = ticketParkingValue > 0 ? ticketParkingValue : 0;
         let totalMileageRate = transportCharge + totalBata + ticketParking + totalAccommodation;
-        
+
         $('#totalMileageRate').val(totalMileageRate);
 
         // Step 4: Extra Mileage Cost
@@ -564,9 +567,7 @@ The price includes all transport-related costs:
     ● Flexible driver who can assist as a guide and adjust the daily schedule according to your plans
     ● Full commercial passenger insurance is included, covering all passengers in the vehicle for the entire duration of the journey.
 
-The driver will take care of you throughout the journey and help make your Sri Lanka trip safe, comfortable, and enjoyable.
-
-Please note that this is our all-inclusive best rate, offering you the complete experience with no hidden costs or service fees, rather than a basic bargain rate.`;
+The driver will take care of you throughout the journey and help make your Sri Lanka trip safe, comfortable, and enjoyable.`;
 
         $('#quoteOutput').val(quoteTemplate).show();
         $('#btnCopyQuote').show();
