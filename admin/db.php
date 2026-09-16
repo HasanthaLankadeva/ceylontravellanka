@@ -1,7 +1,7 @@
 <?php
 $host = "localhost";
 $user = "root"; // ceylontr_admin
-$pass = ""; // Hasantha@88
+$pass = ""; // Hasantha@88   
 $dbname = "tour_inventory"; // ceylontr_live_db / ceylontr_dev_db
 
 $conn = new mysqli($host, $user, $pass, $dbname);
