@@ -7,11 +7,25 @@ if (file_exists($xmlFilePath)) {
     $vehicles = [];
     foreach ($xml->vehicles->vehicle as $v) {
         $name = (string)$v['name'];
+
+        // Parse nested driver list
+        $drivers = [];
+        if (isset($v->drivers->driver)) {
+            foreach ($v->drivers->driver as $d) {
+                $drivers[] = [
+                    'name'    => (string)$d['name'],
+                    'vehicle' => (string)$d->vehicle,
+                    'mobile'  => (string)$d->mobile
+                ];
+            }
+        }
+
         $vehicles[$name] = [
-            'daily_rate' => (float)$v->daily_rate,
-            'extra_mileage_rate' => (float)$v->extra_mileage_rate,
-            'bata' => (float)$v->bata,
-            'accommodation' => (float)$v->accommodation
+            'daily_rate'            => (float)$v->daily_rate,
+            'extra_mileage_rate'    => (float)$v->extra_mileage_rate,
+            'bata'                  => (float)$v->bata,
+            'accommodation'         => (float)$v->accommodation,
+            'drivers'               => $drivers
         ];
     }
 
