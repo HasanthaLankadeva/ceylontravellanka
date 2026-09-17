@@ -15,6 +15,8 @@
         
         .max-w-7xl{ max-width: 90rem !important; }
 
+        #bookingModal.modal{ display: none; }
+
         /* Base Pill Style for Dropdown */
         .status-select {
             appearance: none;
@@ -88,79 +90,19 @@
             border-left: 6px solid #00bf60 !important;
         }
 
-        /* Layout & Card Scaffolding */
-        .modal { display: none; position: fixed; top: 36px; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); }
-        .modal-content {
-            background: #f8fafc;
-            width: 80%;
-            max-width: 950px;
-            margin: 2% auto;
-            padding: 25px;
-            border-radius: 12px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-            max-height: 90vh;
-            overflow-y: auto;
+        #inventoryCards .status-select{
+            font-size: 0.75rem;
+            line-height: 1rem;
         }
-        .modal-header { display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #e2e8f0; padding-bottom: 10px; margin-bottom: 20px; }
-        .modal-header h3 { margin: 0; color: #0f172a; font-size: 18px; }
-        .close-btn { font-size: 24px; cursor: pointer; color: #64748b; }
-
-        .form-section {
-            background: #ffffff;
-            padding: 16px;
-            border-radius: 8px;
-            border: 1px solid #e2e8f0;
-            margin-bottom: 16px;
+        #inventoryCards .agreement-doc{
+            display: none;
         }
-        .section-heading {
-            font-size: 13px;
-            font-weight: 700;
-            color: #2563eb;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin-bottom: 12px;
-            border-bottom: 1px solid #f1f5f9;
-            padding-bottom: 6px;
+        table #agreement-doc{
+            display: none;
         }
-        .section-subheading {
-            font-size: 12px;
-            font-weight: 700;
-            color: #5e78b1;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin: 20px 0 4px;
-            padding-bottom: 6px;
+        .modal-content{
+            margin: 0 auto;
         }
-
-        /* Grids */
-        .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
-        .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
-        .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
-        .grid-2-compact { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
-
-        /* Form Controls */
-        .form-group { display: flex; flex-direction: column; }
-        .form-group label { font-weight: 600; font-size: 11px; color: #475569; margin-bottom: 4px; }
-        .form-group input, .form-group select, .form-group textarea {
-            padding: 8px 10px;
-            border: 1px solid #cbd5e1;
-            border-radius: 6px;
-            font-size: 12px;
-            outline: none;
-            transition: border 0.2s;
-        }
-        .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: #2563eb; }
-
-        /* Package Row Item */
-        .package-row { display: grid; grid-template-columns: 3fr 2fr; gap: 8px; margin-bottom: 8px; align-items: center; }
-        #packageSummaryContainer .package-row { grid-template-columns: 1fr 2fr 1fr 1fr 40px; }
-        .btn-remove-row { background: #ef4444; color: #fff; border: none; border-radius: 4px; padding: 8px; cursor: pointer; font-weight: bold; }
-
-        /* Buttons */
-        .modal-footer { display: flex; justify-content: flex-end; gap: 10px; margin-top: 15px; }
-        .btn-save { background: #16a34a; color: #fff; border: none; padding: 10px 20px; border-radius: 6px; font-weight: 600; cursor: pointer; font-size: 14px; }
-        .btn-cancel { background: #64748b; color: #fff; border: none; padding: 10px 20px; border-radius: 6px; cursor: pointer; font-size: 14px; }
-        .btn-secondary { background: #e2e8f0; color: #1e293b; border: none; padding: 6px 12px; border-radius: 6px; font-size: 11px; font-weight: 600; cursor: pointer; }
     </style>
 </head>
 <body class="bg-slate-50 text-slate-800 antialiased min-h-screen flex flex-col">
@@ -295,9 +237,17 @@
             </div>
         </div>
     
+        <!-- ================================================================= -->
+        <!-- MOBILE VIEW: Interactive Card Layout (Visible on screens < md)    -->
+        <!-- ================================================================= -->
+        <div id="inventoryCards" class="grid grid-cols-1 gap-4 md:hidden">
+            <!-- Data loaded via jQuery AJAX -->
+        </div>
 
-        <!-- Data Table Container -->
-        <div class="bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden">
+        <!-- ================================================================= -->
+        <!-- DESKTOP VIEW: Full Data Table (Visible on screens >= md)           -->
+        <!-- ================================================================= -->
+        <div class="hidden md:block bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden">
             <div class="overflow-x-auto">
                 <table class="w-full text-left border-collapse text-sm">
                     <thead>
@@ -321,155 +271,269 @@
     </main>
 
     <!-- Booking Form Modal -->
-    <div id="bookingModal" class="modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h3 id="modalTitle">Booking Information</h3>
-                <span class="close-btn" id="closeModalBtn">&times;</span>
+    <div id="bookingModal" class="modal fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 overflow-y-auto bg-slate-900/60 backdrop-blur-sm">
+
+        <!-- Modal Content Box -->
+        <div class="modal-content bg-white rounded-2xl shadow-2xl border border-slate-200 w-full max-w-5xl max-h-[92vh] flex flex-col overflow-hidden my-auto">
+            <!-- Sticky Modal Header -->
+            <div class="px-5 py-4 border-b border-slate-100 flex items-center justify-between bg-white sticky top-0 z-10">
+                <div class="flex items-center space-x-3">
+                    <div class="bg-emerald-100 text-emerald-700 p-2 rounded-xl">
+                        <i class="fa-solid fa-pen-to-square text-base"></i>
+                    </div>
+                    <div>
+                        <h3 id="modalTitle" class="text-base sm:text-lg font-bold text-slate-900"></h3>
+                        <p class="text-xs text-slate-500">Update reservation details, vehicle assignment, and financial summaries</p>
+                    </div>
+                </div>
+                <button id="closeModalBtn" class="text-slate-400 hover:text-slate-600 p-2 rounded-xl hover:bg-slate-100 transition">
+                    <i class="fa-solid fa-xmark text-lg"></i>
+                </button>
             </div>
-            
-            <form id="bookingForm">
-                <input type="hidden" id="booking_id" name="id" value="">
+
+            <!-- Scrollable Form Container -->
+             <form id="bookingForm" class="flex-1 overflow-y-auto custom-scrollbar p-4 sm:p-6 space-y-6 bg-slate-50/50">
+                
+                <input type="hidden" id="booking_id" name="id" value="61">
                 <input type="hidden" id="agreement_id" name="agreement_id" value="">
                 <input type="hidden" id="paging_id" name="paging_id" value="">
 
                 <!-- 1. Booking Details -->
-                <div class="form-section">
-                    <div class="section-heading">Booking Details</div>
-                    <div class="grid-4">
-                        <div class="form-group"><label>Order Number</label><input type="text" name="order_number" placeholder="#BKG-2026-001" readonly></div>
-                        <div class="form-group"><label>Start Date</label><input type="date" name="tour_start_date" id="tour_start_date"></div>
-                        <div class="form-group"><label>End Date</label><input type="date" name="tour_end_date" id="tour_end_date"></div>
-                        <div class="form-group"><label>Tour Days</label><input type="number" name="tour_days" id="tour_days" value="0" readonly style="background:#f3f4f6; cursor: not-allowed;"></div>
+                <div class="bg-white p-4 sm:p-5 rounded-xl border border-slate-200/80 shadow-sm space-y-4">
+                    <div class="flex items-center space-x-2 border-b border-slate-100 pb-2">
+                        <i class="fa-solid fa-calendar-days text-emerald-600 text-sm"></i>
+                        <h4 class="text-xs font-bold uppercase tracking-wider text-slate-700">1. Booking Details</h4>
+                    </div>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 text-xs">
+                        <div>
+                            <label class="block font-medium text-slate-700 mb-1">Order Number</label>
+                            <input type="text" name="order_number" value="" readonly="" class="w-full bg-slate-100 border border-slate-200 rounded-lg px-3 py-2 font-medium text-slate-500 cursor-not-allowed outline-none">
+                        </div>
+                        <div>
+                            <label class="block font-medium text-slate-700 mb-1">Start Date</label>
+                            <input type="date" name="tour_start_date" id="tour_start_date" value="" class="w-full border border-slate-300 focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 rounded-lg px-3 py-2 text-slate-800 outline-none transition">
+                        </div>
+                        <div>
+                            <label class="block font-medium text-slate-700 mb-1">End Date</label>
+                            <input type="date" name="tour_end_date" id="tour_end_date" value="" class="w-full border border-slate-300 focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 rounded-lg px-3 py-2 text-slate-800 outline-none transition">
+                        </div>
+                        <div>
+                            <label class="block font-medium text-slate-700 mb-1">Tour Days</label>
+                            <input type="number" name="tour_days" id="tour_days" value="" readonly="" class="w-full bg-slate-100 border border-slate-200 rounded-lg px-3 py-2 font-bold text-slate-700 cursor-not-allowed outline-none">
+                        </div>
                     </div>
                 </div>
 
                 <!-- 2. Client Details -->
-                <div class="form-section">
-                    <div class="section-heading">Client Details</div>
-                    <div class="grid-2">
-                        <div class="form-group">
-                            <label>Guest Name</label>
-                            <div class="grid-2-compact">
-                                <input type="text" name="guest_name" placeholder="Guest Name" required>
-                                <input type="text" name="paging_name" placeholder="Paging Name">
+                <div class="bg-white p-4 sm:p-5 rounded-xl border border-slate-200/80 shadow-sm space-y-4">
+                    <div class="flex items-center space-x-2 border-b border-slate-100 pb-2">
+                        <i class="fa-solid fa-user text-emerald-600 text-sm"></i>
+                        <h4 class="text-xs font-bold uppercase tracking-wider text-slate-700">2. Client Details</h4>
+                    </div>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
+                        <div>
+                            <label class="block font-medium text-slate-700 mb-1">Guest &amp; Paging Name</label>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                                <input type="text" name="guest_name" value="" placeholder="Guest Name" required="" class="w-full border border-slate-300 focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 rounded-lg px-3 py-2 text-slate-800 outline-none transition">
+                                <input type="text" name="paging_name" placeholder="Paging Name (Optional)" class="w-full border border-slate-300 focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 rounded-lg px-3 py-2 text-slate-800 outline-none transition">
                             </div>
                         </div>
-                        <div class="form-group">
-                            <label>Head Count</label>
-                            <div class="grid-2-compact">
-                                <input type="number" name="adults_count" placeholder="Adults" min="0">
-                                <input type="number" name="children_count" placeholder="Children" min="0">
+                        <div>
+                            <label class="block font-medium text-slate-700 mb-1">Head Count</label>
+                            <div class="grid grid-cols-2 gap-2">
+                                <input type="number" name="adults_count" placeholder="Adults" min="0" value="" class="w-full border border-slate-300 focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 rounded-lg px-3 py-2 text-slate-800 outline-none transition">
+                                <input type="number" name="children_count" placeholder="Children" min="0" value="" class="w-full border border-slate-300 focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 rounded-lg px-3 py-2 text-slate-800 outline-none transition">
                             </div>
                         </div>
-                        <div class="form-group"><label>Guest Mobile</label><input type="text" name="guest_mobile"></div>
-                        <div class="form-group"><label>Guest Email</label><input type="email" name="guest_email"></div>
+                        <div>
+                            <label class="block font-medium text-slate-700 mb-1">Guest Mobile</label>
+                            <input type="text" name="guest_mobile" placeholder="+94 7X XXX XXXX" class="w-full border border-slate-300 focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 rounded-lg px-3 py-2 text-slate-800 outline-none transition">
+                        </div>
+                        <div>
+                            <label class="block font-medium text-slate-700 mb-1">Guest Email</label>
+                            <input type="email" name="guest_email" placeholder="guest@example.com" class="w-full border border-slate-300 focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 rounded-lg px-3 py-2 text-slate-800 outline-none transition">
+                        </div>
                     </div>
                 </div>
 
                 <!-- 3. Vehicle Details -->
-                <div class="form-section">
-                    <div class="section-heading">Vehicle Details</div>
-                    <div class="grid-3">
-                        <div class="form-group"><label>Vehicle</label><select id="vehicle_model" name="vehicle_model"><option value="">-- Select Vehicle --</option></select></div>
-                        <div class="form-group"><label>Mileage Limit (km)</label><input id="mileage_limit" type="number" name="mileage_limit" placeholder="1200"></div>
-                        <div class="form-group"><label>Extra Mileage Charge (/km)</label><input id="extra_mileage_charge" type="number" step="0.01" name="extra_mileage_charge" placeholder="0.00"></div>
+                <div class="bg-white p-4 sm:p-5 rounded-xl border border-slate-200/80 shadow-sm space-y-4">
+                    <div class="flex items-center space-x-2 border-b border-slate-100 pb-2">
+                        <i class="fa-solid fa-car-side text-emerald-600 text-sm"></i>
+                        <h4 class="text-xs font-bold uppercase tracking-wider text-slate-700">3. Vehicle Details</h4>
+                    </div>
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs">
+                        <div>
+                            <label class="block font-medium text-slate-700 mb-1">Vehicle Category</label>
+                            <select id="vehicle_model" name="vehicle_model" class="w-full border border-slate-300 focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 rounded-lg px-3 py-2 text-slate-800 outline-none bg-white transition">
+                                <option value="">-- Select Vehicle --</option>
+                                <option value="Sedan">Sedan</option>
+                                <option value="SUV Mini">SUV Mini</option>
+                                <option value="SUV New">SUV New</option>
+                                <option value="KDH Flat Roof">KDH Flat Roof</option>
+                                <option value="KDH High Roof">KDH High Roof</option>
+                                <option value="Luxury Van">Luxury Van</option>
+                                <option value="Mini Bus">Mini Bus</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block font-medium text-slate-700 mb-1">Mileage Limit (km)</label>
+                            <input id="mileage_limit" type="number" name="mileage_limit" value="" placeholder="1200" class="w-full border border-slate-300 focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 rounded-lg px-3 py-2 text-slate-800 outline-none transition">
+                        </div>
+                        <div>
+                            <label class="block font-medium text-slate-700 mb-1">Extra Mileage Charge (/km)</label>
+                            <input id="extra_mileage_charge" type="number" step="0.01" name="extra_mileage_charge" value="" placeholder="0.00" class="w-full border border-slate-300 focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 rounded-lg px-3 py-2 text-slate-800 outline-none transition">
+                        </div>
                     </div>
                 </div>
 
                 <!-- 4. Financial & Package Summary -->
-                <div class="form-section">
-                    <div class="section-heading">Financial & Package Summary</div>
-                    <div class="section-subheading">Full Tour</div>
-                    <div class="default-row form-group package-row">
-                        <input id="tour_title" type="text" name="tour_title" placeholder="Title (e.g., Tour Fee)" value="">
-                        <!--input type="text" name="details" placeholder="Details" value="" readonly style="background:#f3f4f6; cursor: not-allowed;"-->
-                        <input id="tour_charge" type="number" step="0.01" name="tour_charge" placeholder="Amount" value="">
-                        <!--button type="button" class="btn-remove-row">&times;</button-->
+                <div class="bg-white p-4 sm:p-5 rounded-xl border border-slate-200/80 shadow-sm space-y-4">
+                    <div class="flex items-center space-x-2 border-b border-slate-100 pb-2">
+                        <i class="fa-solid fa-receipt text-emerald-600 text-sm"></i>
+                        <h4 class="text-xs font-bold uppercase tracking-wider text-slate-700">4. Financial &amp; Package Summary</h4>
                     </div>
-                    <div id="packageSummaryContainer">
-                        <div class="section-subheading">Seporate Transfers</div>
-                        <!-- Dynamic Rows Rendered Here -->
+                    
+                    <!-- Full Tour Section -->
+                    <div class="space-y-2">
+                        <label class="block text-[11px] font-bold text-slate-500 uppercase tracking-wide">Full Tour Package</label>
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-2 text-xs">
+                            <input id="tour_title" type="text" name="tour_title" placeholder="Title (e.g., Tour Fee)" value="" class="sm:col-span-2 border border-slate-300 focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 rounded-lg px-3 py-2 text-slate-800 outline-none transition">
+                            <input id="tour_charge" type="number" step="0.01" name="tour_charge" placeholder="Amount (LKR)" value="" class="border border-slate-300 focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 rounded-lg px-3 py-2 text-slate-800 outline-none transition font-semibold">
+                        </div>
                     </div>
-                    <button type="button" class="btn btn-secondary" id="addPackageRowBtn" style="margin-top:10px;">+ Add New Row</button>
+
+                    <!-- Separate Transfers Section -->
+                    <div class="pt-2 space-y-2">
+                        <label class="block text-[11px] font-bold text-slate-500 uppercase tracking-wide">Separate Transfers</label>
+                        <div id="packageSummaryContainer" class="space-y-2">
+                            <!-- Dynamic Rows Rendered Here -->
+                        </div>
+                        <button type="button" class="mt-2 bg-slate-100 hover:bg-slate-200 text-slate-700 px-3 py-1.5 rounded-lg text-xs font-semibold flex items-center space-x-1 transition" id="addPackageRowBtn">
+                            <i class="fa-solid fa-plus text-[10px]"></i>
+                            <span>Add New Transfer Row</span>
+                        </button>
+                    </div>
                 </div>
 
-                <!-- 4.1 Financial & Package Summary -->
-                <div class="form-section">
-                    <div class="section-heading">Itinerary</div>
-                    <div class="form-group">
-                        <textarea name="itinerary" rows="10" placeholder="Enter Itinerary..."></textarea>
+                <!-- 4.1 Itinerary -->
+                <div class="bg-white p-4 sm:p-5 rounded-xl border border-slate-200/80 shadow-sm space-y-3">
+                    <div class="flex items-center space-x-2 border-b border-slate-100 pb-2">
+                        <i class="fa-solid fa-map-location-dot text-emerald-600 text-sm"></i>
+                        <h4 class="text-xs font-bold uppercase tracking-wider text-slate-700">5. Itinerary Details</h4>
                     </div>
+                    <textarea name="itinerary" rows="4" placeholder="Day 1: Airport Pickup to Kandy
+Day 2: Kandy City Tour..." class="w-full text-xs border border-slate-300 focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 rounded-lg p-3 text-slate-800 outline-none transition leading-relaxed"></textarea>
                 </div>
 
                 <!-- 5. Flight & Schedule Details -->
-                <div class="form-section">
-                    <div class="section-heading">Flight & Schedule Details</div>
-                    <div class="grid-3">
-                        <div class="form-group"><label>Pickup From / Flight</label><input type="text" name="pickup_from" placeholder="e.g., Airport / Hotel Pickup"></div>
-                        <div class="form-group"><label>Pickup Date</label><input type="date" name="pickup_date"></div>
-                        <div class="form-group"><label>Time</label><input type="time" name="arrival_time"></div>
+                <div class="bg-white p-4 sm:p-5 rounded-xl border border-slate-200/80 shadow-sm space-y-4">
+                    <div class="flex items-center space-x-2 border-b border-slate-100 pb-2">
+                        <i class="fa-solid fa-plane-arrival text-emerald-600 text-sm"></i>
+                        <h4 class="text-xs font-bold uppercase tracking-wider text-slate-700">6. Flight &amp; Schedule Details</h4>
+                    </div>
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs">
+                        <div>
+                            <label class="block font-medium text-slate-700 mb-1">Pickup From / Flight</label>
+                            <input type="text" name="pickup_from" placeholder="e.g. BIA Airport / UL-504" class="w-full border border-slate-300 focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 rounded-lg px-3 py-2 text-slate-800 outline-none transition">
+                        </div>
+                        <div>
+                            <label class="block font-medium text-slate-700 mb-1">Pickup Date</label>
+                            <input type="date" name="pickup_date" class="w-full border border-slate-300 focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 rounded-lg px-3 py-2 text-slate-800 outline-none transition">
+                        </div>
+                        <div>
+                            <label class="block font-medium text-slate-700 mb-1">Arrival Time</label>
+                            <input type="time" name="arrival_time" class="w-full border border-slate-300 focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 rounded-lg px-3 py-2 text-slate-800 outline-none transition">
+                        </div>
                     </div>
                 </div>
 
                 <!-- 6. Driver Details -->
-                <div class="form-section">
-                    <div class="section-heading">Driver Details</div>
-                    <div class="grid-2">
-                        <div class="form-group"><label>Driver Name</label>
-                        <!--select id="driver_name" name="driver_name"><option value="">-- Select Driver --</option></select></div-->
-                        <input type="text" name="driver_name" list="driver_list" placeholder="Select or type a driver"><datalist id="driver_list"></datalist></div>
-                        <div class="form-group"><label>Driver Mobile</label><input type="text" name="driver_mobile"></div>
+                <div class="bg-white p-4 sm:p-5 rounded-xl border border-slate-200/80 shadow-sm space-y-4">
+                    <div class="flex items-center space-x-2 border-b border-slate-100 pb-2">
+                        <i class="fa-solid fa-id-card text-emerald-600 text-sm"></i>
+                        <h4 class="text-xs font-bold uppercase tracking-wider text-slate-700">7. Driver Assignment</h4>
+                    </div>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
+                        <div>
+                            <label class="block font-medium text-slate-700 mb-1">Driver Name</label>
+                            <input id="driver_name" type="text" name="driver_name" list="driver_list" placeholder="Select or type driver..." value="" class="w-full border border-slate-300 focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 rounded-lg px-3 py-2 text-slate-800 outline-none transition">
+                            <datalist id="driver_list"></datalist>
+                        </div>
+                        <div>
+                            <label class="block font-medium text-slate-700 mb-1">Driver Mobile</label>
+                            <input id="driver_mobile" type="text" name="driver_mobile" placeholder="+94 7X XXX XXXX" class="w-full border border-slate-300 focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 rounded-lg px-3 py-2 text-slate-800 outline-none transition">
+                        </div>
                     </div>
                 </div>
 
-                <!-- 7. Financial Details -->
-                <div class="form-section">
-                    <div class="section-heading">Financial Details</div>
-                    <div class="grid-4">
-                        <div class="form-group"><label>Advance from Client</label><input type="number" step="0.01" name="income_advance" value="0.00"></div>
-                        <div class="form-group"><label>Driver Charges</label><input type="number" step="0.01" class="calc-profit" name="driver_charges" value="0.00"></div>
-                        <div class="form-group"><label>Other Expenses</label><input type="number" step="0.01" class="calc-profit" name="expense_other" value="0.00"></div>
-                        <div class="form-group"><label>Advance to Driver</label><input type="number" step="0.01" name="expense_advance" value="0.00"></div>
+                <!-- 7. Driver & Extra Financials -->
+                <div class="bg-white p-4 sm:p-5 rounded-xl border border-slate-200/80 shadow-sm space-y-4">
+                    <div class="flex items-center space-x-2 border-b border-slate-100 pb-2">
+                        <i class="fa-solid fa-wallet text-emerald-600 text-sm"></i>
+                        <h4 class="text-xs font-bold uppercase tracking-wider text-slate-700">8. Financial Breakdown</h4>
+                    </div>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 text-xs">
+                        <div>
+                            <label class="block font-medium text-slate-700 mb-1">Client Advance</label>
+                            <input type="number" step="0.01" name="income_advance" value="20000.00" class="w-full border border-slate-300 focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 rounded-lg px-3 py-2 text-slate-800 outline-none transition font-semibold">
+                        </div>
+                        <div>
+                            <label class="block font-medium text-slate-700 mb-1">Driver Charges</label>
+                            <input type="number" step="0.01" class="calc-profit w-full border border-slate-300 focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 rounded-lg px-3 py-2 text-slate-800 outline-none transition" name="driver_charges" value="">
+                        </div>
+                        <div>
+                            <label class="block font-medium text-slate-700 mb-1">Other Expenses</label>
+                            <input type="number" step="0.01" class="calc-profit w-full border border-slate-300 focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 rounded-lg px-3 py-2 text-slate-800 outline-none transition" name="expense_other" value="0.00">
+                        </div>
+                        <div>
+                            <label class="block font-medium text-slate-700 mb-1">Driver Advance</label>
+                            <input type="number" step="0.01" name="expense_advance" value="10000.00" class="w-full border border-slate-300 focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 rounded-lg px-3 py-2 text-slate-800 outline-none transition font-semibold">
+                        </div>
                     </div>
                 </div>
 
-                <!-- 8. Special Notes & Payment Options -->
-                <div class="form-section">
-                    <div class="grid-2">
-                        <div class="form-group">
-                            <div class="section-heading">Payment Options</div>
-                            <textarea name="payment_options" rows="6" placeholder="Enter special instructions or notes...">Payment Schedule : (Cash in LKR/USD/EURO/GBP).
+                <!-- 8. Payment Schedule & Special Notes -->
+                <div class="bg-white p-4 sm:p-5 rounded-xl border border-slate-200/80 shadow-sm space-y-4">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
+                        <div>
+                            <label class="block font-bold uppercase tracking-wider text-slate-700 mb-2">Payment Options</label>
+                            <textarea name="payment_options" rows="4" class="w-full border border-slate-300 focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 rounded-lg p-3 text-slate-800 outline-none transition leading-relaxed">Payment Schedule : (Cash in LKR/USD/EURO/GBP).
 * First 50% Payment: Due on the second day of the tour. 
 * Final Balance: Due one day before the tour finishes.</textarea>
                         </div>
-                        <div class="form-group">
-                            <div class="section-heading">Special Notes</div>
-                            <textarea name="special_notes" rows="6" placeholder="Enter special instructions or notes..."></textarea>
+                        <div>
+                            <label class="block font-bold uppercase tracking-wider text-slate-700 mb-2">Special Notes</label>
+                            <textarea name="special_notes" rows="4" placeholder="Enter special instructions or notes..." class="w-full border border-slate-300 focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 rounded-lg p-3 text-slate-800 outline-none transition leading-relaxed"></textarea>
                         </div>
                     </div>
                 </div>
 
-                <!-- 9. Status -->
-                <div class="form-section">
-                    <div class="grid-4">
-                        <div class="form-group">
-                            <div class="section-heading">Status</div>
-                            <select name="status" class="status-select">
-                                <option value="Upcoming">Upcoming</option>
-                                <option value="Ongoing">Ongoing</option>
-                                <option value="Completed">Completed</option>
-                                <option value="Payment Recieved">Payment Recieved</option>
-                            </select>
-                        </div>
+                <!-- 9. Reservation Status -->
+                <div class="bg-white p-4 sm:p-5 rounded-xl border border-slate-200/80 shadow-sm space-y-2">
+                    <label class="block text-xs font-bold uppercase tracking-wider text-slate-700">Booking Status</label>
+                    <div class="max-w-xs text-xs">
+                        <select name="status" class="w-full border border-slate-300 focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 rounded-lg px-3 py-2 text-slate-800 font-semibold outline-none bg-white transition">
+                            <option value="Upcoming" selected="">Upcoming</option>
+                            <option value="Ongoing">Ongoing</option>
+                            <option value="Completed">Completed</option>
+                            <option value="Payment Recieved">Payment Recieved</option>
+                        </select>
                     </div>
                 </div>
 
-                <div class="modal-footer">
-                    <button type="submit" class="btn btn-save">Save Booking</button>
-                    <button type="button" class="btn btn-cancel" id="closeModalBtn2">Cancel</button>
-                </div>
             </form>
+
+            <!-- Sticky Modal Footer -->
+             <div class="px-5 py-3.5 border-t border-slate-100 flex items-center justify-end space-x-3 bg-slate-50 sticky bottom-0 z-10">
+                <button type="button" id="closeModalBtn2" class="px-4 py-2 bg-white border border-slate-300 hover:bg-slate-100 text-slate-700 rounded-xl text-xs font-semibold shadow-sm transition">
+                    Cancel
+                </button>
+                <button type="submit" form="bookingForm" class="bookingForm-submit px-5 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-xs font-semibold shadow-md shadow-emerald-200 transition flex items-center space-x-1.5">
+                    <i class="fa-solid fa-check text-[10px]"></i>
+                    <span>Save Booking</span>
+                </button>
+            </div>
         </div>
     </div>
 
@@ -539,6 +603,8 @@
                         calculateDashboardStats(data);
                         
                         let rows = '';
+                        let cards = '';
+
                         $.each(data, function(i, row) {
                             
                             let badgeClass = 'badge-upcoming';
@@ -585,7 +651,7 @@
                             let fullTour = parseFloat(row.tour_charge) > 0 ? 'Yes' : 'No';
 
                             // Build transfer count span dynamically
-                            let transferSpan = row.transfers_count > 1 ? `${row.transfers_count}` : '-';
+                            let transferSpan = row.transfers_count > 0 ? `${row.transfers_count}` : '-';
 
                             // Function to format "YYYY-MM-DD" into "Sep 22 - Sep 26"
                             function formatTourDates(startDateStr, endDateStr) {
@@ -640,12 +706,12 @@
                                     }
                                 </td>
                                 <td class="py-4 px-4">
-                                    <div class="flex flex-wrap gap-1.5 text-xs">
+                                    <div class="grid grid-cols-2 gap-2">
                                         ${agreement}
                                         <!--a href="https://drive.google.com/file/d/19UX-WLQbKeysj4nbrhjnt5XOoq2FylpI/preview" target="_blank" rel="noopener" download class="px-2 py-0.5 bg-slate-100 text-slate-600 hover:bg-slate-200 rounded transition">Mileage</a>
-                                        <a href="https://drive.google.com/file/d/1LBj6PElXf5OhqHPzZ8SjFZ7hGpT_U533/preview" target="_blank" rel="noopener" download="Mileage_Sheet.pdf" class="px-2 py-0.5 bg-slate-100 text-slate-600 hover:bg-slate-200 rounded transition">Shops</a-->
+                                        <a href="https://drive.google.com/file/d/1LBj6PElXf5OhqHPzZ8SjFZ7hGpT_U533/preview" target="_blank" rel="noopener" download="Mileage_Sheet.pdf" class="px-2 py-0.5 bg-slate-100 text-slate-600 hover:bg-slate-200 rounded transition">Shops</a>
                                         <button id="client-links" data-mobile="${row.guest_mobile}" class="mt-2 px-2 py-0.5 bg-green-100 text-green-600 hover:bg-indigo-100 rounded font-medium transition">📲 Send Client Links</button>
-                                        <button id="driver-links" data-mobile="${row.driver_mobile}" class="mt-1 px-2 py-0.5 bg-green-100 text-green-600 hover:bg-indigo-100 rounded font-medium transition">📲 Send Driver Links</button>
+                                        <button id="driver-links" data-mobile="${row.driver_mobile}" class="mt-1 px-2 py-0.5 bg-green-100 text-green-600 hover:bg-indigo-100 rounded font-medium transition">📲 Send Driver Links</button-->
                                     </div>
                                 </td>
                                 <td class="py-4 px-4 text-right whitespace-nowrap">
@@ -666,7 +732,97 @@
                                     </div>
                                 </td>
                             </tr>`;
+
+                            cards += `<!-- Card 2 -->
+                                <div class="bg-white rounded-2xl border border-slate-200 shadow-sm p-4 hover:border-emerald-300 transition-colors">
+                                    <div class="flex items-start justify-between border-b border-slate-100 pb-3 mb-3">
+                                        <div>
+                                            <div class="flex items-center space-x-2">
+                                                <span class="text-xs font-bold text-emerald-700 bg-emerald-50 px-2.5 py-1 rounded-md border border-emerald-100">
+                                                    ${row.order_number || '-'}
+                                                </span>
+                                                <span class="text-xs">
+                                                    ${dropdownHtml}
+                                                </span>
+                                            </div>
+                                            <h3 class="text-base font-bold text-slate-900 mt-2">${row.guest_name}</h3>
+                                            <a href="https://wa.me/${row.guest_mobile || '-'}" class="text-xs text-emerald-600 font-medium hover:underline inline-flex items-center mt-0.5">
+                                                <i class="fa-solid fa-phone text-[10px] mr-1"></i> ${row.guest_mobile || '-'}
+                                            </a>
+                                        </div>
+                                    </div>
+
+                                    <div class="grid grid-cols-2 gap-3 text-xs mb-4">
+                                        <div class="bg-slate-50 p-2.5 rounded-xl border border-slate-100">
+                                            <span class="text-slate-400 block font-medium mb-1"><i class="fa-regular fa-calendar-check mr-1 text-slate-500"></i> Schedule</span>
+                                            <span class="font-semibold text-slate-700 block">${formattedRange || '-'}</span>
+                                            <span class="text-slate-500 text-[11px]">${row.tour_days} Days</span>
+                                        </div>
+                                        <div class="bg-slate-50 p-2.5 rounded-xl border border-slate-100">
+                                            <span class="text-slate-400 block font-medium mb-1"><i class="fa-solid fa-car-side mr-1 text-slate-500"></i> Vehicle</span>
+                                            <span class="font-semibold text-slate-700 block">${row.vehicle_model || '-'}</span>
+                                            ${
+                                                row.driver_name 
+                                                ? `<span class="text-emerald-600 font-medium text-[11px]"><i class="fa-solid fa-user-check mr-1"></i>${row.driver_name}</span>`
+                                                : `<span class="text-amber-600 font-medium text-[11px]"><i class="fa-solid fa-triangle-exclamation mr-1"></i>Unassigned</span>`
+                                            }
+                                        </div>
+                                    </div>
+
+                                    <div class="flex items-center justify-between pt-2 border-t border-slate-100">
+                                        <div>
+                                            <span class="text-[11px] text-slate-400 block uppercase tracking-wider font-medium">Total Charge</span>
+                                            <span class="text-base font-black text-slate-900">LKR ${parseFloat(row.tour_charge).toLocaleString()}</span>
+                                        </div>
+                                        <div class="flex space-x-2">
+                                            <button class="p-2 text-slate-600 hover:bg-slate-100 rounded-lg transition edit-btn" data-booking='${rowJson}'>
+                                                <i class="fa-regular fa-pen-to-square"></i>
+                                            </button>
+                                            <button class="toggle-details-btn px-3 py-1.5 bg-emerald-50 text-emerald-700 hover:bg-emerald-100 rounded-lg text-xs font-semibold transition flex items-center space-x-1">
+                                                <span>Details</span>
+                                                <i class="fa-solid fa-chevron-down text-[10px] transition-transform duration-200"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <!-- Slide Toggle Details Panel -->
+                                    <div class="details-panel hidden mt-4 pt-4 border-t border-slate-100 space-y-3 text-xs">
+                                        <!-- Client Advance -->
+                                        <div class="bg-slate-50 p-3 rounded-xl border border-slate-100">
+                                            <div class="flex justify-between items-center mb-1">
+                                                <span class="font-bold text-slate-700"><i class="fa-solid fa-wallet text-emerald-600 mr-1.5"></i>Client Advance</span>
+                                                <span class="font-bold text-slate-900">${parseFloat(row.income_advance).toLocaleString() || '-'}</span>
+                                            </div>
+                                        </div>
+
+                                        <!-- Driver Advance -->
+                                        <div class="bg-slate-50 p-3 rounded-xl border border-slate-100">
+                                            <div class="flex justify-between items-center mb-1">
+                                                <span class="font-bold text-slate-700"><i class="fa-solid fa-hand-holding-dollar text-emerald-600 mr-1.5"></i>Driver Advance</span>
+                                                <span class="font-bold text-slate-900">${parseFloat(row.expense_advance).toLocaleString() || '-'}</span>
+                                            </div>
+                                        </div>
+                                        <!-- Documents -->
+                                        <div class="bg-slate-50 p-3 rounded-xl border border-slate-100">
+                                            <span class="font-bold text-slate-700 block mb-2"><i class="fa-solid fa-folder-open text-emerald-600 mr-1.5"></i>Documents</span>
+                                            <div class="grid grid-cols-2 gap-2">
+                                                ${agreement}
+                                                <a href="https://drive.google.com/file/d/19UX-WLQbKeysj4nbrhjnt5XOoq2FylpI/preview" target="_blank" rel="noopener" download class="bg-white p-2 rounded-lg border border-slate-200 flex items-center justify-between">
+                                                <span class="text-slate-600 text-[11px] truncate"><i class="fa-solid fa-file-csv text-emerald-500 mr-1"></i>Mileage</span>
+                                                <button class="text-emerald-600 text-[11px]"><i class="fa-solid fa-download"></i></button>
+                                                </a>
+                                                <a href="https://drive.google.com/file/d/1LBj6PElXf5OhqHPzZ8SjFZ7hGpT_U533/preview" target="_blank" rel="noopener" download="Mileage_Sheet.pdf" class="bg-white p-2 rounded-lg border border-slate-200 flex items-center justify-between">
+                                                <span class="text-slate-600 text-[11px] truncate"><i class="fa-solid fa-store text-amber-500 mr-1"></i>Shops</span>
+                                                <button class="text-emerald-600 text-[11px]"><i class="fa-solid fa-download"></i></button>
+                                                </a>
+                                                <button id="client-links" data-mobile="${row.guest_mobile}" class="bg-white p-2 rounded-lg border border-slate-200 flex items-center justify-between" fdprocessedid="gn1aj"><span class="text-slate-600 text-[11px] truncate">📲 Send Client Links</span></button>
+                                                <button id="driver-links" data-mobile="${row.driver_mobile}" class="bg-white p-2 rounded-lg border border-slate-200 flex items-center justify-between" fdprocessedid="gn1aj"><span class="text-slate-600 text-[11px] truncate">📲 Send Driver Links</span></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>`;
                         });
+
+                        $('#inventoryCards').html(cards);
                         $('#inventoryTable').html(rows);
 
                     },
@@ -772,13 +928,22 @@
 
             // 1. Add Dynamic Financial Package Row
             function addPackageRow(date = '', title = '', details = '', amount = '') {
-                let html = `
-                    <div class="form-group package-row">
-                        <input type="date" name="drop_date[]" value="${date}">
-                        <input type="text" name="drop_title[]" placeholder="Title (e.g., Tour Fee)" value="${title}">
-                        <input type="text" name="drop_details[]" placeholder="Details" value="${details}">
-                        <input type="number" step="0.01" name="drop_charge[]" placeholder="Amount" value="${amount}">
-                        <button type="button" class="btn-remove-row">&times;</button>
+                let html = `<div class="form-group package-row grid grid-cols-1 sm:grid-cols-12 gap-2 text-xs items-center bg-slate-50/80 p-2.5 rounded-lg border border-slate-200">
+                        <div class="sm:col-span-2">
+                            <input type="date" name="drop_date[]" value="${date}" class="w-full border border-slate-300 focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 rounded-lg px-2.5 py-1.5 text-slate-800 outline-none bg-white transition">
+                        </div>
+                        <div class="sm:col-span-3">
+                            <input type="text" name="drop_title[]" placeholder="Title (e.g., Tour Fee)" value="${title}" class="w-full border border-slate-300 focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 rounded-lg px-2.5 py-1.5 text-slate-800 outline-none bg-white transition">
+                        </div>
+                        <div class="sm:col-span-4">
+                            <input type="text" name="drop_details[]" placeholder="Details" value="${details}" class="w-full border border-slate-300 focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 rounded-lg px-2.5 py-1.5 text-slate-800 outline-none bg-white transition">
+                        </div>
+                        <div class="sm:col-span-2">
+                            <input type="number" step="0.01" name="drop_charge[]" placeholder="Amount" value="${amount}" class="w-full border border-slate-300 focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 rounded-lg px-2.5 py-1.5 text-slate-800 outline-none bg-white font-semibold transition">
+                        </div>
+                        <div class="sm:col-span-1 flex justify-end">
+                            <button type="button" class="btn-remove-row text-red-500 hover:text-white hover:bg-red-500 w-7 h-7 rounded-lg transition duration-150 flex items-center justify-center font-bold text-base leading-none">×</button>
+                        </div>
                     </div>`;
                 $('#packageSummaryContainer').append(html);
             }
@@ -791,6 +956,22 @@
                 $(this).closest('.package-row').remove();
             });
 
+            $(document).on('click', '.toggle-details-btn', function() {
+                // Find nearest details panel (works for both mobile cards and table rows)
+                let panel = $(this).closest('.bg-white, tr').next('.details-panel');
+                
+                if (panel.length === 0) {
+                    panel = $(this).closest('.bg-white').find('.details-panel');
+                }
+
+                // Toggle visibility with slide animation
+                panel.slideToggle(200);
+
+                // Rotate chevron icon
+                const icon = $(this).find('.fa-chevron-down');
+                icon.toggleClass('rotate-180');
+            });
+
             // Modal Controls
             $('#openModalBtn').click(function() { $('#bookingForm')[0].reset(); $('#bookingModal').show(); });
             $('#closeModalBtn, #closeModalBtn2').click(function() { $('#bookingModal').hide(); });
@@ -799,9 +980,9 @@
             $('#bookingForm').on('submit', function(e) {
                 e.preventDefault();
 
-                let submitButton = e.target.querySelector('button[type="submit"]');
+                let submitButton = $('.bookingForm-submit');
                 submitButton.disabled = true;
-                submitButton.innerText = 'Generating Documents...';
+                submitButton.find('span').text('Generating Documents...');
 
                 let formdata = $(this).serialize();
                 let params = new URLSearchParams(formdata);
@@ -873,7 +1054,7 @@
                     if (data.result === 'success') {
                     // Display the shareable link on your web page
                     
-                    let links = `<a href="${data.docUrl}" target="_blank" rel="noopener" class="px-2 py-0.5 bg-indigo-50 text-indigo-600 hover:bg-indigo-100 rounded font-medium transition">Document</a> <a id="agreement-pdf" data-docid="${data.agreement_file_id}" href="${data.pdfUrl}" target="_blank" rel="noopener" class="px-2 py-0.5 bg-slate-100 text-slate-600 hover:bg-slate-200 rounded transition">PDF</a> <a id="paging-pdf" data-docid="${data.paging_file_id}" href="${data.pagingUrl}" target="_blank" rel="noopener" class="px-2 py-0.5 bg-slate-100 text-slate-600 hover:bg-slate-200 rounded transition">Paging</a>`;
+                    let links = `<a id="agreement-doc" href="${data.docUrl}" target="_blank" rel="noopener" class="agreement-doc bg-white p-2 rounded-lg border border-slate-200 flex items-center justify-between"><span class="text-slate-600 text-[11px] truncate"><i class="fa-solid fa-file-pdf text-red-500 mr-1"></i>Agreement</span><button class="text-emerald-600 text-[11px]" fdprocessedid="g9kb1"><i class="fa-solid fa-download"></i></button></a><a id="agreement-pdf" data-docid="${data.agreement_file_id}" href="${data.pdfUrl}" target="_blank" rel="noopener" class="bg-white p-2 rounded-lg border border-slate-200 flex items-center justify-between"><span class="text-slate-600 text-[11px] truncate"><i class="fa-solid fa-file-pdf text-red-500 mr-1"></i>Agreement</span><button class="text-emerald-600 text-[11px]" fdprocessedid="4ggpl"><i class="fa-solid fa-download"></i></button></a> <a id="paging-pdf" data-docid="${data.paging_file_id}" href="${data.pagingUrl}" target="_blank" rel="noopener" class="bg-white p-2 rounded-lg border border-slate-200 flex items-center justify-between"><span class="text-slate-600 text-[11px] truncate"><i class="fa-solid fa-file-image text-blue-500 mr-1"></i>Paging</span><button class="text-emerald-600 text-[11px]" fdprocessedid="4ggpl"><i class="fa-solid fa-download"></i></button></a>`;
 
                     // Append Google Doc and PDF links to FormData object
                     formdata += '&agreement_link=' + encodeURIComponent(links);
@@ -995,6 +1176,17 @@
                     );
                 });
                 
+            });
+
+            $(document).on('change', '#driver_name', function(e) {
+                let vehicle = $('#vehicle_model').val();
+                let driver = $(this).val();
+                
+                $.each(vehicleData[vehicle].drivers, function(key, val) {
+                    if(val.name == driver){
+                        $('#driver_mobile').val(val.mobile);
+                    }
+                });
             });
 
             function calculateAll(id) {

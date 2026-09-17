@@ -61,9 +61,9 @@ if ($action === 'fetch') {
             $transfers = !empty($row['transfers']) ? json_decode($row['transfers'], true) : [];
             $transfers_count = is_array($transfers) ? count($transfers) : 0;
 
-            if (isset($row['tour_charge']) && (float)$row['tour_charge'] > 0) {
+            /*if (isset($row['tour_charge']) && (float)$row['tour_charge'] > 0) {
                 $transfers_count += 1;
-            }
+            }*/
 
             $row['transfers_count'] = $transfers_count;
             $data[] = $row;
