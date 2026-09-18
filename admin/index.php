@@ -212,8 +212,6 @@
 
                 <select id="filter-vehicle" class="py-2 px-3 text-sm bg-slate-50 border border-slate-200 rounded-lg text-slate-600 focus:outline-none focus:ring-2 focus:ring-indigo-500">
                     <option value="">All Vehicles</option>
-                    <option value="sedan">Sedan</option>
-                    <option value="suv">SUV Mini</option>
                 </select>
 
                 <select id="filter-status" class="py-2 px-3 text-sm bg-slate-50 border border-slate-200 rounded-lg text-slate-600 focus:outline-none focus:ring-2 focus:ring-indigo-500">
@@ -913,11 +911,19 @@ Day 2: Kandy City Tour..." class="w-full text-xs border border-slate-300 focus:b
                         exchangeRates = response.exchange_rates;
 
                         let vehicleOptionCount = $('#vehicle_model option').length;
-                     
                         if(vehicleOptionCount == 1){
                             // Populate Vehicle Dropdown
                             $.each(vehicleData, function(key, val) {
                                 $('#vehicle_model').append(new Option(key, key));
+                                $('#filter-vehicle').append(new Option(key, key));
+                            });
+                        }
+
+                        let filterVehicleOptionCount = $('#filter-vehicle option').length;
+                        if(filterVehicleOptionCount == 1){
+                            // Populate Vehicle Dropdown
+                            $.each(vehicleData, function(key, val) {
+                                $('#filter-vehicle').append(new Option(key, key));
                             });
                         }
                     } else {
