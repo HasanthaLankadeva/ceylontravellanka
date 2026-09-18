@@ -221,7 +221,7 @@
                     <option value="Upcoming">Upcoming</option>
                     <option value="On Going">On Going</option>
                     <option value="Completed">Completed</option>
-                    <option value="Payment Recieved">Payment Recieved</option>
+                    <option value="Payment Received">Payment Received</option>
                     <option value="Canceled">Canceled</option>
                 </select>
             </div>
@@ -347,7 +347,7 @@
                         </div>
                         <div>
                             <label class="block font-medium text-slate-700 mb-1">Guest Mobile</label>
-                            <input type="text" name="guest_mobile" placeholder="+94 7X XXX XXXX" class="w-full border border-slate-300 focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 rounded-lg px-3 py-2 text-slate-800 outline-none transition">
+                            <input type="text" name="guest_mobile" placeholder="+XX XX XXX XXXX" class="w-full border border-slate-300 focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 rounded-lg px-3 py-2 text-slate-800 outline-none transition">
                         </div>
                         <div>
                             <label class="block font-medium text-slate-700 mb-1">Guest Email</label>
@@ -476,19 +476,19 @@ Day 2: Kandy City Tour..." class="w-full text-xs border border-slate-300 focus:b
                     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 text-xs">
                         <div>
                             <label class="block font-medium text-slate-700 mb-1">Client Advance</label>
-                            <input type="number" step="0.01" name="income_advance" value="20000.00" class="w-full border border-slate-300 focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 rounded-lg px-3 py-2 text-slate-800 outline-none transition font-semibold">
+                            <input type="number" step="0.01" name="income_advance" value="" placeholder="Amount (LKR)" class="w-full border border-slate-300 focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 rounded-lg px-3 py-2 text-slate-800 outline-none transition font-semibold">
                         </div>
                         <div>
                             <label class="block font-medium text-slate-700 mb-1">Driver Charges</label>
-                            <input type="number" step="0.01" class="calc-profit w-full border border-slate-300 focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 rounded-lg px-3 py-2 text-slate-800 outline-none transition" name="driver_charges" value="">
+                            <input type="number" step="0.01" class="calc-profit w-full border border-slate-300 focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 rounded-lg px-3 py-2 text-slate-800 outline-none transition" name="driver_charges" placeholder="Amount (LKR)" value="">
                         </div>
                         <div>
                             <label class="block font-medium text-slate-700 mb-1">Other Expenses</label>
-                            <input type="number" step="0.01" class="calc-profit w-full border border-slate-300 focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 rounded-lg px-3 py-2 text-slate-800 outline-none transition" name="expense_other" value="0.00">
+                            <input type="number" step="0.01" class="calc-profit w-full border border-slate-300 focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 rounded-lg px-3 py-2 text-slate-800 outline-none transition" name="expense_other" placeholder="Amount (LKR)" value="">
                         </div>
                         <div>
                             <label class="block font-medium text-slate-700 mb-1">Driver Advance</label>
-                            <input type="number" step="0.01" name="expense_advance" value="10000.00" class="w-full border border-slate-300 focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 rounded-lg px-3 py-2 text-slate-800 outline-none transition font-semibold">
+                            <input type="number" step="0.01" name="expense_advance" placeholder="Amount (LKR)" value="" class="w-full border border-slate-300 focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 rounded-lg px-3 py-2 text-slate-800 outline-none transition font-semibold">
                         </div>
                     </div>
                 </div>
@@ -733,8 +733,8 @@ Day 2: Kandy City Tour..." class="w-full text-xs border border-slate-300 focus:b
                                 </td>
                             </tr>`;
 
-                            cards += `<!-- Card 2 -->
-                                <div class="bg-white rounded-2xl border border-slate-200 shadow-sm p-4 hover:border-emerald-300 transition-colors">
+                            cards += `<!-- Card -->
+                                <div class="bg-white rounded-2xl border border-slate-200 shadow-sm p-4 hover:border-emerald-300 transition-colors ${rowClass}">
                                     <div class="flex items-start justify-between border-b border-slate-100 pb-3 mb-3">
                                         <div>
                                             <div class="flex items-center space-x-2">

@@ -15,7 +15,24 @@ if ($action === 'fetch') {
     $vehicle = trim($_GET['vehicle'] ?? '');
     $status  = trim($_GET['status'] ?? '');
 
-    $sql = "SELECT * FROM bookings WHERE 1=1";
+    $sql = "SELECT *,
+            LEAST(
+                IF(
+                    tour_start_date IS NOT NULL
+                    AND tour_start_date >= CURDATE(),
+                    DATEDIFF(tour_start_date, CURDATE()),
+                    999999
+                ),
+                IF(
+                    pickup_date IS NOT NULL
+                    AND pickup_date >= CURDATE(),
+                    DATEDIFF(pickup_date, CURDATE()),
+                    999999
+                )
+            ) AS closest_days
+
+        FROM bookings
+        WHERE 1=1";
     $params = [];
     $types = "";
 
@@ -44,7 +61,18 @@ if ($action === 'fetch') {
         $types .= "s";
     }
 
-    $sql .= " ORDER BY id DESC";
+    $sql .= " ORDER BY
+            CASE
+                WHEN status = 'On Going' THEN 1
+                WHEN status = 'Upcoming' THEN 2
+                WHEN status = 'Completed' THEN 3
+                WHEN status = 'Payment Received' THEN 4
+                ELSE 5
+            END ASC,
+
+            closest_days ASC,
+
+            id DESC";
 
     $stmt = $conn->prepare($sql);
 
