@@ -15,35 +15,16 @@ if ($action === 'fetch') {
     $vehicle = trim($_GET['vehicle'] ?? '');
     $status  = trim($_GET['status'] ?? '');
 
-    $sql = "SELECT *,
-            LEAST(
-                IF(
-                    tour_start_date IS NOT NULL
-                    AND tour_start_date >= CURDATE(),
-                    DATEDIFF(tour_start_date, CURDATE()),
-                    999999
-                ),
-                IF(
-                    pickup_date IS NOT NULL
-                    AND pickup_date >= CURDATE(),
-                    DATEDIFF(pickup_date, CURDATE()),
-                    999999
-                )
-            ) AS closest_days
-
-        FROM bookings
-        WHERE 1=1";
+    // Fetch records from database
+    $sql = "SELECT * FROM bookings WHERE 1=1";
     $params = [];
     $types = "";
 
-    // 1. Filter by text input (order_number, guest_name, or vehicle_model)
+    // 1. Filter by text input
     if (!empty($search)) {
         $sql .= " AND (order_number LIKE ? OR guest_name LIKE ? OR vehicle_model LIKE ? OR driver_name LIKE ?)";
         $searchTerm = "%" . $search . "%";
-        $params[] = $searchTerm;
-        $params[] = $searchTerm;
-        $params[] = $searchTerm;
-        $params[] = $searchTerm;
+        $params = array_merge($params, [$searchTerm, $searchTerm, $searchTerm, $searchTerm]);
         $types .= "ssss";
     }
 
@@ -61,21 +42,7 @@ if ($action === 'fetch') {
         $types .= "s";
     }
 
-    $sql .= " ORDER BY
-            CASE
-                WHEN status = 'On Going' THEN 1
-                WHEN status = 'Upcoming' THEN 2
-                WHEN status = 'Completed' THEN 3
-                WHEN status = 'Payment Received' THEN 4
-                ELSE 5
-            END ASC,
-
-            closest_days ASC,
-
-            id DESC";
-
     $stmt = $conn->prepare($sql);
-
     if (!empty($params)) {
         $stmt->bind_param($types, ...$params);
     }
@@ -83,21 +50,98 @@ if ($action === 'fetch') {
     $stmt->execute();
     $result = $stmt->get_result();
 
-    $data = [];
+    $today = date('Y-m-d');
+
+    // Helper function to extract earliest activity date
+    function getEffectiveDate($booking) {
+        $tourStartRaw = $booking['tour_start_date'] ?? null;
+        $tourStart    = $tourStartRaw ? date('Y-m-d', strtotime($tourStartRaw)) : null;
+
+        $transfers = $booking['transfers_decoded'] ?? [];
+        $earliestPickup = null;
+
+        if (is_array($transfers)) {
+            foreach ($transfers as $transfer) {
+                // Check for various possible date keys in JSON
+                $dateVal = $transfer['pickup_date'] 
+                        ?? $transfer['date'] 
+                        ?? $transfer['pickupDate'] 
+                        ?? $transfer['transfer_date'] 
+                        ?? null;
+
+                if (!empty($dateVal)) {
+                    $formattedPickup = date('Y-m-d', strtotime($dateVal));
+                    if ($earliestPickup === null || $formattedPickup < $earliestPickup) {
+                        $earliestPickup = $formattedPickup;
+                    }
+                }
+            }
+        }
+
+        if ($earliestPickup && $tourStart) {
+            return ($earliestPickup < $tourStart) ? $earliestPickup : $tourStart;
+        }
+
+        return $earliestPickup ?: $tourStart;
+    }
+
+    $processedBookings = [];
+
     if ($result) {
         while ($row = $result->fetch_assoc()) {
+            // Decode transfers JSON
             $transfers = !empty($row['transfers']) ? json_decode($row['transfers'], true) : [];
-            $transfers_count = is_array($transfers) ? count($transfers) : 0;
+            $row['transfers_decoded'] = is_array($transfers) ? $transfers : [];
+            $row['transfers_count'] = count($row['transfers_decoded']);
 
-            /*if (isset($row['tour_charge']) && (float)$row['tour_charge'] > 0) {
-                $transfers_count += 1;
-            }*/
+            // Calculate effective date
+            $effectiveDate = getEffectiveDate($row);
+            $row['effective_activity_date'] = $effectiveDate;
 
-            $row['transfers_count'] = $transfers_count;
-            $data[] = $row;
+            // Optional: Calculate days until activity
+            if ($effectiveDate) {
+                $diff = (new DateTime($effectiveDate))->diff(new DateTime($today));
+                $row['closest_days'] = $effectiveDate >= $today ? $diff->days : -1 * $diff->days;
+            } else {
+                $row['closest_days'] = 999999;
+            }
+
+            // Remove temporary key before output
+            unset($row['transfers_decoded']);
+
+            $processedBookings[] = $row;
         }
     }
-    echo json_encode($data);
+
+    // Status priority mapping
+    $statusPriority = [
+        'On Going'         => 1,
+        'Upcoming'         => 2,
+        'Completed'        => 3,
+        'Payment Received' => 4,
+    ];
+
+    // Sort in PHP by Status Priority ASC -> Effective Date ASC -> ID DESC
+    usort($processedBookings, function($a, $b) use ($statusPriority) {
+        $pA = $statusPriority[$a['status']] ?? 5;
+        $pB = $statusPriority[$b['status']] ?? 5;
+
+        if ($pA !== $pB) {
+            return $pA <=> $pB;
+        }
+
+        $dateA = $a['effective_activity_date'] ?? '9999-12-31';
+        $dateB = $b['effective_activity_date'] ?? '9999-12-31';
+
+        if ($dateA !== $dateB) {
+            return strcmp($dateA, $dateB);
+        }
+
+        return $b['id'] <=> $a['id'];
+    });
+
+    header('Content-Type: application/json');
+    echo json_encode($processedBookings);
     exit;
 }
 
