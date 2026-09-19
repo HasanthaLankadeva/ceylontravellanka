@@ -376,7 +376,7 @@
                         </div>
                         <div>
                             <label class="block font-medium text-slate-700 mb-1">Mileage Limit (km)</label>
-                            <input id="mileage_limit" type="number" name="mileage_limit" value="" placeholder="1200" class="w-full border border-slate-300 focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 rounded-lg px-3 py-2 text-slate-800 outline-none transition">
+                            <input id="mileage_limit" type="number" name="mileage_limit" value="" placeholder="0.00" class="w-full border border-slate-300 focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 rounded-lg px-3 py-2 text-slate-800 outline-none transition">
                         </div>
                         <div>
                             <label class="block font-medium text-slate-700 mb-1">Extra Mileage Charge (/km)</label>
@@ -396,7 +396,7 @@
                     <div class="space-y-2">
                         <label class="block text-[11px] font-bold text-slate-500 uppercase tracking-wide">Full Tour Package</label>
                         <div class="grid grid-cols-1 sm:grid-cols-3 gap-2 text-xs">
-                            <input id="tour_title" type="text" name="tour_title" placeholder="Title (e.g., Tour Fee)" value="" class="sm:col-span-2 border border-slate-300 focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 rounded-lg px-3 py-2 text-slate-800 outline-none transition">
+                            <input id="tour_title" type="text" name="tour_title" placeholder="Title (e.g., 5-Day Private Sedan Rental)" value="" class="sm:col-span-2 border border-slate-300 focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 rounded-lg px-3 py-2 text-slate-800 outline-none transition">
                             <input id="tour_charge" type="number" step="0.01" name="tour_charge" placeholder="Amount (LKR)" value="" class="border border-slate-300 focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 rounded-lg px-3 py-2 text-slate-800 outline-none transition font-semibold">
                         </div>
                     </div>
@@ -433,7 +433,7 @@ Day 2: Kandy City Tour..." class="w-full text-xs border border-slate-300 focus:b
                     <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs">
                         <div>
                             <label class="block font-medium text-slate-700 mb-1">Pickup From / Flight</label>
-                            <input type="text" name="pickup_from" placeholder="e.g. BIA Airport / UL-504" class="w-full border border-slate-300 focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 rounded-lg px-3 py-2 text-slate-800 outline-none transition">
+                            <input type="text" name="pickup_from" placeholder="e.g. CMB Airport / UL-504" class="w-full border border-slate-300 focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 rounded-lg px-3 py-2 text-slate-800 outline-none transition">
                         </div>
                         <div>
                             <label class="block font-medium text-slate-700 mb-1">Pickup Date</label>
@@ -939,7 +939,7 @@ Day 2: Kandy City Tour..." class="w-full text-xs border border-slate-300 focus:b
                             <input type="date" name="drop_date[]" value="${date}" class="w-full border border-slate-300 focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 rounded-lg px-2.5 py-1.5 text-slate-800 outline-none bg-white transition">
                         </div>
                         <div class="sm:col-span-3">
-                            <input type="text" name="drop_title[]" placeholder="Title (e.g., Tour Fee)" value="${title}" class="w-full border border-slate-300 focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 rounded-lg px-2.5 py-1.5 text-slate-800 outline-none bg-white transition">
+                            <input type="text" name="drop_title[]" placeholder="Title (e.g., Airport to Kandy )" value="${title}" class="w-full border border-slate-300 focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 rounded-lg px-2.5 py-1.5 text-slate-800 outline-none bg-white transition">
                         </div>
                         <div class="sm:col-span-4">
                             <input type="text" name="drop_details[]" placeholder="Details" value="${details}" class="w-full border border-slate-300 focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 rounded-lg px-2.5 py-1.5 text-slate-800 outline-none bg-white transition">
@@ -989,6 +989,11 @@ Day 2: Kandy City Tour..." class="w-full text-xs border border-slate-300 focus:b
                 let submitButton = $('.bookingForm-submit');
                 submitButton.disabled = true;
                 submitButton.find('span').text('Generating Documents...');
+
+                // Prevent duplicate submissions
+                if (submitButton.prop('disabled')) {
+                    return false;
+                }
 
                 let formdata = $(this).serialize();
                 let params = new URLSearchParams(formdata);
@@ -1141,6 +1146,7 @@ Day 2: Kandy City Tour..." class="w-full text-xs border border-slate-300 focus:b
                 $('#modalTitle').text('Add Booking');
                 $('#booking_id').val(''); 
                 $('#bookingForm')[0].reset(); 
+                $('#packageSummaryContainer .package-row').remove();
                 //$('#calculated_profit').val('0.00');
                 //addPackageRow();
 
