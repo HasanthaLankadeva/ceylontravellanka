@@ -54,35 +54,49 @@ if ($action === 'fetch') {
 
     // Helper function to extract earliest activity date
     function getEffectiveDate($booking) {
-        $tourStartRaw = $booking['tour_start_date'] ?? null;
-        $tourStart    = $tourStartRaw ? date('Y-m-d', strtotime($tourStartRaw)) : null;
 
+        $today = date('Y-m-d');
+        $candidateDates = [];
+
+        // Tour start date
+        if (!empty($booking['tour_start_date'])) {
+            $tourStart = date('Y-m-d', strtotime($booking['tour_start_date']));
+
+            if ($tourStart >= $today) {
+                $candidateDates[] = $tourStart;
+            }
+        }
+
+        // Transfer dates
         $transfers = $booking['transfers_decoded'] ?? [];
-        $earliestPickup = null;
 
         if (is_array($transfers)) {
-            foreach ($transfers as $transfer) {
-                // Check for various possible date keys in JSON
-                $dateVal = $transfer['pickup_date'] 
-                        ?? $transfer['date'] 
-                        ?? $transfer['pickupDate'] 
-                        ?? $transfer['transfer_date'] 
-                        ?? null;
 
-                if (!empty($dateVal)) {
-                    $formattedPickup = date('Y-m-d', strtotime($dateVal));
-                    if ($earliestPickup === null || $formattedPickup < $earliestPickup) {
-                        $earliestPickup = $formattedPickup;
-                    }
+            foreach ($transfers as $transfer) {
+
+                $dateVal = $transfer['date'] ?? null;
+
+                if (empty($dateVal)) {
+                    continue;
+                }
+
+                $pickupDate = date('Y-m-d', strtotime($dateVal));
+
+                // Ignore past dates
+                if ($pickupDate >= $today) {
+                    $candidateDates[] = $pickupDate;
                 }
             }
         }
 
-        if ($earliestPickup && $tourStart) {
-            return ($earliestPickup < $tourStart) ? $earliestPickup : $tourStart;
+        // No future dates found
+        if (empty($candidateDates)) {
+            return null;
         }
 
-        return $earliestPickup ?: $tourStart;
+        sort($candidateDates);
+
+        return $candidateDates[0]; // nearest future date
     }
 
     $processedBookings = [];
