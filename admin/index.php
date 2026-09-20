@@ -1,3 +1,6 @@
+<?php
+    require_once __DIR__ . '/../config/config.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -125,15 +128,15 @@
             <!-- Center: Desktop Navigation Links -->
             <nav class="hidden md:flex items-center space-x-1">
             <!-- Active Page Link (Bookings List) -->
-            <a href="#" class="px-3.5 py-2 text-sm font-semibold rounded-lg bg-indigo-50 text-indigo-600 transition">
+            <a href="<?= BASE_URL ?>admin/" class="px-3.5 py-2 text-sm font-semibold rounded-lg bg-indigo-50 text-indigo-600 transition">
                 Bookings List
             </a>
             <!-- Tour Calendar Link -->
-            <a href="calendar.html" class="px-3.5 py-2 text-sm font-semibold rounded-lg text-slate-600 hover:text-slate-900 hover:bg-slate-100 transition">
+            <a href="<?= BASE_URL ?>admin/calendar" class="px-3.5 py-2 text-sm font-semibold rounded-lg text-slate-600 hover:text-slate-900 hover:bg-slate-100 transition">
                 Tour Calendar
             </a>
             <!-- Reports Link -->
-            <a href="calculator.html" class="px-3.5 py-2 text-sm font-semibold rounded-lg text-slate-600 hover:text-slate-900 hover:bg-slate-100 transition">
+            <a href="<?= BASE_URL ?>admin/calculator" class="px-3.5 py-2 text-sm font-semibold rounded-lg text-slate-600 hover:text-slate-900 hover:bg-slate-100 transition">
                 Quotation
             </a>
             </nav>
@@ -169,13 +172,13 @@
 
         <!-- Mobile Navigation Dropdown -->
         <div id="mobileMenu" class="hidden md:hidden border-t border-slate-100 py-3 space-y-1">
-            <a href="#" class="block px-3 py-2 text-sm font-semibold rounded-lg bg-indigo-50 text-indigo-600">
+            <a href="<?= BASE_URL ?>admin/" class="block px-3 py-2 text-sm font-semibold rounded-lg bg-indigo-50 text-indigo-600">
             Bookings List
             </a>
-            <a href="calendar.html" class="block px-3 py-2 text-sm font-semibold rounded-lg text-slate-600 hover:text-slate-900 hover:bg-slate-100 transition">
+            <a href="<?= BASE_URL ?>admin/calendar" class="block px-3 py-2 text-sm font-semibold rounded-lg text-slate-600 hover:text-slate-900 hover:bg-slate-100 transition">
             Tour Calendar
             </a>
-            <a href="calculator.html" class="block px-3 py-2 text-sm font-semibold rounded-lg text-slate-600 hover:text-slate-900 hover:bg-slate-100 transition">
+            <a href="<?= BASE_URL ?>admin/calculator" class="block px-3 py-2 text-sm font-semibold rounded-lg text-slate-600 hover:text-slate-900 hover:bg-slate-100 transition">
             Quotation
             </a>
         </div>
@@ -593,7 +596,7 @@ Day 2: Kandy City Tour..." class="w-full text-xs border border-slate-300 focus:b
                     icon.removeClass('fa-bars');
                     icon.addClass('fa-xmark');
                 }
-                });
+            });
 
             // Real-time search input trigger with keyup
             $('#filter-search').on('keyup input', function() {
@@ -639,7 +642,8 @@ Day 2: Kandy City Tour..." class="w-full text-xs border border-slate-300 focus:b
 
             function loadBookings() {
 
-                const searchVal = $('#filter-search').val();
+                const urlParams = new URLSearchParams(window.location.search);console.log(urlParams.get('search'));
+                const searchVal = urlParams.get('search') || $('#filter-search').val();
                 const vehicleVal = $('#filter-vehicle').val();
                 const statusVal = $('#filter-status').val();
 
@@ -1186,6 +1190,9 @@ Day 2: Kandy City Tour..." class="w-full text-xs border border-slate-300 focus:b
 
             // Populate Modal Form when Edit Button is clicked
             $(document).on('click', '.edit-btn', function() {
+
+                $('.bookingForm-submit').find('span').text('Save Booking');
+
                 let booking = $(this).data('booking');
 
                 $('#modalTitle').text('Edit Booking ' + (booking.order_number || booking.id));

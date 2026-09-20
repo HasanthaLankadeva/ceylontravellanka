@@ -1,3 +1,6 @@
+<?php
+    require_once __DIR__ . '/../config/config.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,6 +8,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Tour Schedule Calendar - Admin</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <style>
     .calendar-grid {
@@ -16,7 +21,7 @@
   </style>
 </head>
 <body class="bg-slate-50 text-slate-800 antialiased min-h-screen flex flex-col">
-<!-- Top Navigation Header -->
+    <!-- Top Navigation Header -->
     <header class="bg-white border-b border-slate-200 sticky top-0 z-30 shadow-sm">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-16 items-center gap-2">
@@ -35,15 +40,15 @@
             <!-- Center: Desktop Navigation Links -->
             <nav class="hidden md:flex items-center space-x-1">
             <!-- Active Page Link (Bookings List) -->
-            <a href="#" class="px-3.5 py-2 text-sm font-semibold rounded-lg bg-indigo-50 text-indigo-600 transition">
+            <a href="<?= BASE_URL ?>admin/" class="px-3.5 py-2 text-sm font-semibold rounded-lg text-slate-600 hover:text-slate-900 hover:bg-slate-100 transition">
                 Bookings List
             </a>
             <!-- Tour Calendar Link -->
-            <a href="calendar.html" class="px-3.5 py-2 text-sm font-semibold rounded-lg text-slate-600 hover:text-slate-900 hover:bg-slate-100 transition">
+            <a href="<?= BASE_URL ?>admin/calendar" class="px-3.5 py-2 text-sm font-semibold rounded-lg bg-indigo-50 text-indigo-600 transition">
                 Tour Calendar
             </a>
             <!-- Reports Link -->
-            <a href="calculator.html" class="px-3.5 py-2 text-sm font-semibold rounded-lg text-slate-600 hover:text-slate-900 hover:bg-slate-100 transition">
+            <a href="<?= BASE_URL ?>admin/calculator" class="px-3.5 py-2 text-sm font-semibold rounded-lg text-slate-600 hover:text-slate-900 hover:bg-slate-100 transition">
                 Quotation
             </a>
             </nav>
@@ -79,13 +84,13 @@
 
         <!-- Mobile Navigation Dropdown -->
         <div id="mobileMenu" class="hidden md:hidden border-t border-slate-100 py-3 space-y-1">
-            <a href="#" class="block px-3 py-2 text-sm font-semibold rounded-lg text-slate-600 hover:text-slate-900 hover:bg-slate-100 transition">
+            <a href="<?= BASE_URL ?>admin/" class="block px-3 py-2 text-sm font-semibold rounded-lg text-slate-600 hover:text-slate-900 hover:bg-slate-100 transition">
             Bookings List
             </a>
-            <a href="calendar.html" class="block px-3 py-2 text-sm font-semibold rounded-lg bg-indigo-50 text-indigo-600">
+            <a href="<?= BASE_URL ?>admin/calendar" class="block px-3 py-2 text-sm font-semibold rounded-lg bg-indigo-50 text-indigo-600">
             Tour Calendar
             </a>
-            <a href="calculator.html" class="block px-3 py-2 text-sm font-semibold rounded-lg text-slate-600 hover:text-slate-900 hover:bg-slate-100 transition">
+            <a href="<?= BASE_URL ?>admin/calculator" class="block px-3 py-2 text-sm font-semibold rounded-lg text-slate-600 hover:text-slate-900 hover:bg-slate-100 transition">
             Quotation
             </a>
         </div>
@@ -143,7 +148,7 @@
           </div>
           
           <div class="mt-4 space-y-2 text-sm text-slate-600">
-            <p><strong>Order #:</strong> <span id="modalRef"></span></p>
+            <p><strong>Order:</strong> <a href="#"><span id="modalRef"></span></a></p>
             <p><strong>Guest Name:</strong> <span id="modalGuest"></span></p>
             <p><strong>Contact:</strong> <span id="modalContact"></span></p>
             <p><strong>Driver:</strong> <span id="modalDriver"></span></p>
@@ -310,6 +315,9 @@
             $('#modalTitle').text(tour.tour_title || 'Tour Details');
           }
 
+          const link = `<?= BASE_URL ?>admin/?search=${encodeURIComponent(tour.order_number || '')}`;
+
+          $('#modalRef').parent('a').attr('href', link);
           $('#modalRef').text(tour.order_number || tour.booking_ref || '-');
           $('#modalType').text(eventType || (isMultiDay ? 'Multi-Day Tour' : 'Single-Day Tour'));
           $('#modalGuest').text(tour.guest_name || '-');
@@ -319,15 +327,15 @@
           let mobile = tour.guest_mobile || tour.mobile || tour.guest_phone || tour.phone || '';
 
           let contactHtml = '-';
-          if (email && email.trim() !== '') {
-            contactHtml = `<a href="mailto:${email}" class="text-indigo-600 hover:underline">${email}</a>`;
-          } else if (mobile && mobile.trim() !== '') {
+          if (mobile && mobile.trim() !== '') {
             let cleanPhone = mobile.replace(/[^0-9]/g, '');
             contactHtml = `
               <a href="https://wa.me/${cleanPhone}" target="_blank" rel="noopener" class="inline-flex items-center text-emerald-600 hover:underline font-medium">
                 ${mobile} 
                 <span class="ml-1 text-xs bg-emerald-100 text-emerald-700 px-1.5 py-0.5 rounded font-semibold">WhatsApp</span>
               </a>`;
+          } else if (email && email.trim() !== '') {
+            contactHtml = `<a href="mailto:${email}" class="text-indigo-600 hover:underline">${email}</a>`;
           }
           $('#modalContact').html(contactHtml);
 
