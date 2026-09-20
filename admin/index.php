@@ -578,7 +578,7 @@ Day 2: Kandy City Tour..." class="w-full text-xs border border-slate-300 focus:b
             </div>
         </div>
     </div>
-
+ 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
         $(document).ready(function() {
