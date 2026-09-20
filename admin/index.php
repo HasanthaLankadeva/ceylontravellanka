@@ -1337,8 +1337,8 @@ Day 2: Kandy City Tour..." class="w-full text-xs border border-slate-300 focus:b
 
             $(document).on('click', '#driver-links', function(){
                 let mobile = $(this).attr('data-mobile');
-                let agreement = $('#agreement-pdf').attr('href');
-                let paging = $('#paging-pdf').attr('href');
+                let agreement = $(this).siblings('#agreement-pdf').attr('href');
+                let paging = $(this).siblings('#paging-pdf').attr('href');
                 let mileage = 'https://drive.google.com/file/d/19UX-WLQbKeysj4nbrhjnt5XOoq2FylpI/preview';
                 let shops = 'https://drive.google.com/file/d/1LBj6PElXf5OhqHPzZ8SjFZ7hGpT_U533/preview';
 
