@@ -107,38 +107,79 @@
 </head>
 <body class="bg-slate-50 text-slate-800 antialiased min-h-screen flex flex-col">
     <!-- Top Navigation Header -->
-    <header class="bg-white border-b border-slate-200 sticky top-0 z-30">
+    <header class="bg-white border-b border-slate-200 sticky top-0 z-30 shadow-sm">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between h-16 items-center">
-                <!-- Left: Branding -->
-                <div class="flex items-center gap-3">
-                    <div class="bg-indigo-600 text-white p-2 rounded-lg">
-                        <i class="fa-solid fa-compass text-xl"></i>
-                    </div>
-                    <div>
-                        <h1 class="text-lg font-bold text-slate-900 leading-tight">Tour Inventory</h1>
-                        <p class="text-xs text-slate-500">Fleet & Booking Management</p>
-                    </div>
-                </div>
+        <div class="flex justify-between h-16 items-center gap-2">
+            
+            <!-- Left: Branding -->
+            <div class="flex items-center gap-3 shrink-0">
+            <div class="bg-indigo-600 text-white p-2 rounded-lg flex items-center justify-center">
+                <i class="fa-solid fa-compass text-xl"></i>
+            </div>
+            <div>
+                <h1 class="text-base sm:text-lg font-bold text-slate-900 leading-tight">Tour Inventory</h1>
+                <p class="text-[11px] sm:text-xs text-slate-500">Fleet &amp; Booking Management</p>
+            </div>
+            </div>
 
-                <!-- Right: Actions & User -->
-                <div class="flex items-center gap-4">
-                    <button class="relative p-2 text-slate-500 hover:text-slate-600 rounded-full hover:bg-slate-100 transition">
-                        <i class="fa-regular fa-bell text-lg"></i>
-                        <span class="absolute top-1.5 right-1.5 w-2 h-2 bg-indigo-600 rounded-full"></span>
-                    </button>
-                    <div class="h-6 w-px bg-slate-200"></div>
-                    <div class="flex items-center gap-3">
-                        <div class="w-9 h-9 rounded-full bg-indigo-100 text-indigo-700 font-semibold flex items-center justify-center text-sm border border-indigo-200">
-                            CTL
-                        </div>
-                        <div class="hidden sm:block text-left">
-                            <p class="text-sm font-medium text-slate-700">Ceylon T.</p>
-                            <p class="text-xs text-slate-500">Administrator</p>
-                        </div>
-                    </div>
+            <!-- Center: Desktop Navigation Links -->
+            <nav class="hidden md:flex items-center space-x-1">
+            <!-- Active Page Link (Bookings List) -->
+            <a href="#" class="px-3.5 py-2 text-sm font-semibold rounded-lg bg-indigo-50 text-indigo-600 transition">
+                Bookings List
+            </a>
+            <!-- Tour Calendar Link -->
+            <a href="calendar.html" class="px-3.5 py-2 text-sm font-semibold rounded-lg text-slate-600 hover:text-slate-900 hover:bg-slate-100 transition">
+                Tour Calendar
+            </a>
+            <!-- Reports Link -->
+            <a href="calculator.html" class="px-3.5 py-2 text-sm font-semibold rounded-lg text-slate-600 hover:text-slate-900 hover:bg-slate-100 transition">
+                Quotation
+            </a>
+            </nav>
+
+            <!-- Right: Actions & User -->
+            <div class="flex items-center gap-2 sm:gap-4 shrink-0">
+            <!-- Notification Bell -->
+            <button class="relative p-2 text-slate-500 hover:text-slate-600 rounded-full hover:bg-slate-100 transition">
+                <i class="fa-regular fa-bell text-lg"></i>
+                <span class="absolute top-1.5 right-1.5 w-2 h-2 bg-indigo-600 rounded-full"></span>
+            </button>
+            
+            <div class="h-6 w-px bg-slate-200"></div>
+            
+            <!-- User Profile -->
+            <div class="flex items-center gap-2 sm:gap-3">
+                <div class="w-9 h-9 rounded-full bg-indigo-100 text-indigo-700 font-semibold flex items-center justify-center text-sm border border-indigo-200 shrink-0">
+                CTL
+                </div>
+                <div class="hidden sm:block text-left">
+                <p class="text-sm font-medium text-slate-700 leading-tight">Ceylon T.</p>
+                <p class="text-xs text-slate-500">Administrator</p>
                 </div>
             </div>
+
+            <!-- Mobile Menu Toggle Button -->
+            <button id="mobileMenuBtn" class="md:hidden p-2 ml-1 text-slate-600 hover:text-slate-900 hover:bg-slate-100 rounded-lg transition" aria-label="Toggle Navigation">
+                <i id="mobileMenuIcon" class="fa-solid fa-bars text-xl"></i>
+            </button>
+            </div>
+
+        </div>
+
+        <!-- Mobile Navigation Dropdown -->
+        <div id="mobileMenu" class="hidden md:hidden border-t border-slate-100 py-3 space-y-1">
+            <a href="#" class="block px-3 py-2 text-sm font-semibold rounded-lg bg-indigo-50 text-indigo-600">
+            Bookings List
+            </a>
+            <a href="calendar.html" class="block px-3 py-2 text-sm font-semibold rounded-lg text-slate-600 hover:text-slate-900 hover:bg-slate-100 transition">
+            Tour Calendar
+            </a>
+            <a href="calculator.html" class="block px-3 py-2 text-sm font-semibold rounded-lg text-slate-600 hover:text-slate-900 hover:bg-slate-100 transition">
+            Quotation
+            </a>
+        </div>
+
         </div>
     </header>
 
@@ -376,7 +417,7 @@
                         </div>
                         <div>
                             <label class="block font-medium text-slate-700 mb-1">Mileage Limit (km)</label>
-                            <input id="mileage_limit" type="number" name="mileage_limit" value="" placeholder="1200" class="w-full border border-slate-300 focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 rounded-lg px-3 py-2 text-slate-800 outline-none transition">
+                            <input id="mileage_limit" type="number" name="mileage_limit" value="" placeholder="0.00" class="w-full border border-slate-300 focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 rounded-lg px-3 py-2 text-slate-800 outline-none transition">
                         </div>
                         <div>
                             <label class="block font-medium text-slate-700 mb-1">Extra Mileage Charge (/km)</label>
@@ -396,7 +437,7 @@
                     <div class="space-y-2">
                         <label class="block text-[11px] font-bold text-slate-500 uppercase tracking-wide">Full Tour Package</label>
                         <div class="grid grid-cols-1 sm:grid-cols-3 gap-2 text-xs">
-                            <input id="tour_title" type="text" name="tour_title" placeholder="Title (e.g., Tour Fee)" value="" class="sm:col-span-2 border border-slate-300 focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 rounded-lg px-3 py-2 text-slate-800 outline-none transition">
+                            <input id="tour_title" type="text" name="tour_title" placeholder="Title (e.g., 5-Day Private Sedan Rental)" value="" class="sm:col-span-2 border border-slate-300 focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 rounded-lg px-3 py-2 text-slate-800 outline-none transition">
                             <input id="tour_charge" type="number" step="0.01" name="tour_charge" placeholder="Amount (LKR)" value="" class="border border-slate-300 focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 rounded-lg px-3 py-2 text-slate-800 outline-none transition font-semibold">
                         </div>
                     </div>
@@ -433,7 +474,7 @@ Day 2: Kandy City Tour..." class="w-full text-xs border border-slate-300 focus:b
                     <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs">
                         <div>
                             <label class="block font-medium text-slate-700 mb-1">Pickup From / Flight</label>
-                            <input type="text" name="pickup_from" placeholder="e.g. BIA Airport / UL-504" class="w-full border border-slate-300 focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 rounded-lg px-3 py-2 text-slate-800 outline-none transition">
+                            <input type="text" name="pickup_from" placeholder="e.g. CMB Airport / UL-504" class="w-full border border-slate-300 focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 rounded-lg px-3 py-2 text-slate-800 outline-none transition">
                         </div>
                         <div>
                             <label class="block font-medium text-slate-700 mb-1">Pickup Date</label>
@@ -538,6 +579,22 @@ Day 2: Kandy City Tour..." class="w-full text-xs border border-slate-300 focus:b
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
         $(document).ready(function() {
+            // Mobile menu toggle script
+            $('#mobileMenuBtn').on('click', function() {
+                let menu = $('#mobileMenu');
+                let icon = $('#mobileMenuIcon');
+                
+                menu.toggleClass('hidden');
+                
+                if (menu.classList.contains('hidden')) {
+                    icon.removeClass('fa-xmark');
+                    icon.addClass('fa-bars');
+                } else {
+                    icon.removeClass('fa-bars');
+                    icon.addClass('fa-xmark');
+                }
+                });
+
             // Real-time search input trigger with keyup
             $('#filter-search').on('keyup input', function() {
                 loadBookings();
@@ -618,10 +675,45 @@ Day 2: Kandy City Tour..." class="w-full text-xs border border-slate-300 focus:b
                             // Convert row object to JSON string to safely pass into data attribute
                             let rowJson = JSON.stringify(row).replace(/'/g, "&apos;");
 
-                            // Parse dates to calculate the difference in days
                             let today = new Date();
-                            today.setHours(0, 0, 0, 0); // Reset time for accurate date comparison
+                            today.setHours(0, 0, 0, 0);
 
+                            let rowClass = ''; // Default status class
+
+                           // Safely parse transfers if it's a JSON string
+                            let transfers = row.transfers;
+                            if (typeof transfers === 'string') {
+                                try {
+                                    transfers = JSON.parse(transfers);
+                                } catch (e) {
+                                    transfers = [];
+                                }
+                            }
+
+                            // Now check if it's a non-empty array
+                            if (Array.isArray(transfers) && transfers.length > 0) {
+                                console.log("Transfers length:", transfers.length);
+
+                                for (let transfer of transfers) {
+                                    if (!transfer.date) continue;
+
+                                    let transferDate = new Date(`${transfer.date}T00:00:00`);
+                                    let timeDiff = transferDate.getTime() - today.getTime();
+                                    let daysUntilTransfer = Math.ceil(timeDiff / (1000 * 3600 * 24));
+
+                                    /*if (today > transferDate) {
+                                        rowClass = 'row-completed';
+                                    } */
+                                    
+                                    if (today.getTime() === transferDate.getTime()) {
+                                        rowClass = 'row-ongoing';
+                                    } else if (daysUntilTransfer > 0 && daysUntilTransfer <= 2) {
+                                        rowClass = 'upcoming-soon';
+                                    }
+                                }
+                            }
+
+                            // Parse dates to calculate the difference in days
                             let startDate = new Date(row.tour_start_date);
                             let endDate = new Date(row.tour_end_date);
 
@@ -632,16 +724,14 @@ Day 2: Kandy City Tour..." class="w-full text-xs border border-slate-300 focus:b
                             let timeDiff = startDate.getTime() - today.getTime();
                             let daysUntilStart = Math.ceil(timeDiff / (1000 * 3600 * 24));
 
-                            let rowClass = '';
-
                             if (today > endDate) {
                                 // Tour date has already passed
                                 rowClass = 'row-completed';
                             } else if (today >= startDate && today <= endDate) {
                                 // Currently active / in progress
                                 rowClass = 'row-ongoing';
-                            } else if (daysUntilStart >= 0 && daysUntilStart <= 3) {
-                                // Starting within 7 days
+                            } else if (daysUntilStart >= 0 && daysUntilStart <= 2) {
+                                // Starting within 2 days
                                 rowClass = 'upcoming-soon';
                             }
 
@@ -939,7 +1029,7 @@ Day 2: Kandy City Tour..." class="w-full text-xs border border-slate-300 focus:b
                             <input type="date" name="drop_date[]" value="${date}" class="w-full border border-slate-300 focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 rounded-lg px-2.5 py-1.5 text-slate-800 outline-none bg-white transition">
                         </div>
                         <div class="sm:col-span-3">
-                            <input type="text" name="drop_title[]" placeholder="Title (e.g., Tour Fee)" value="${title}" class="w-full border border-slate-300 focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 rounded-lg px-2.5 py-1.5 text-slate-800 outline-none bg-white transition">
+                            <input type="text" name="drop_title[]" placeholder="Title (e.g., Airport to Kandy )" value="${title}" class="w-full border border-slate-300 focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 rounded-lg px-2.5 py-1.5 text-slate-800 outline-none bg-white transition">
                         </div>
                         <div class="sm:col-span-4">
                             <input type="text" name="drop_details[]" placeholder="Details" value="${details}" class="w-full border border-slate-300 focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 rounded-lg px-2.5 py-1.5 text-slate-800 outline-none bg-white transition">
@@ -989,6 +1079,11 @@ Day 2: Kandy City Tour..." class="w-full text-xs border border-slate-300 focus:b
                 let submitButton = $('.bookingForm-submit');
                 submitButton.disabled = true;
                 submitButton.find('span').text('Generating Documents...');
+
+                // Prevent duplicate submissions
+                if (submitButton.prop('disabled')) {
+                    return false;
+                }
 
                 let formdata = $(this).serialize();
                 let params = new URLSearchParams(formdata);
@@ -1141,6 +1236,8 @@ Day 2: Kandy City Tour..." class="w-full text-xs border border-slate-300 focus:b
                 $('#modalTitle').text('Add Booking');
                 $('#booking_id').val(''); 
                 $('#bookingForm')[0].reset(); 
+                $('#packageSummaryContainer .package-row').remove();
+                $('.bookingForm-submit').find('span').text('Save Booking');
                 //$('#calculated_profit').val('0.00');
                 //addPackageRow();
 
@@ -1241,7 +1338,7 @@ Day 2: Kandy City Tour..." class="w-full text-xs border border-slate-300 focus:b
             $(document).on('click', '#driver-links', function(){
                 let mobile = $(this).attr('data-mobile');
                 let agreement = $('#agreement-pdf').attr('href');
-                let paging = $('#agreement-pdf').attr('href');
+                let paging = $('#paging-pdf').attr('href');
                 let mileage = 'https://drive.google.com/file/d/19UX-WLQbKeysj4nbrhjnt5XOoq2FylpI/preview';
                 let shops = 'https://drive.google.com/file/d/1LBj6PElXf5OhqHPzZ8SjFZ7hGpT_U533/preview';
 
