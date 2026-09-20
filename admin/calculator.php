@@ -486,6 +486,7 @@
             <button type="button" id="btnCopyQuote" class="btn-action btn-copy">Copy Quotation</button>
         </div>
     </main>
+    
 <script>
 $(document.body).ready(function() {
     // Mobile menu toggle script
