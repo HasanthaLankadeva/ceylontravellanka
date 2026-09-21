@@ -637,8 +637,8 @@ $(document.body).ready(function() {
             maxMileage: maxMileage,
             extraRate: extraRate,
             totalLKR: (id && id == 'per-day') ? pd_totalLKR.toLocaleString('en-US') : pkm_totalLKR.toLocaleString('en-US'),
-            totalUSD: Math.round(pd_totalUSD),
-            totalGBP: Math.round(pd_totalGBP)
+            totalUSD: (id && id == 'per-day') ? Math.round(pd_totalUSD) : Math.round(pkm_totalUSD),
+            totalGBP: (id && id == 'per-day') ? Math.round(pd_totalGBP) : Math.round(pkm_totalGBP)
         };
     }
 
