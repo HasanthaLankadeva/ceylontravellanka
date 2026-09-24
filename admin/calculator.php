@@ -509,6 +509,8 @@
             <button type="button" id="btnCopyQuote" class="btn-action btn-copy">Copy Quotation</button>
         </div>
     </main>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     
 <script>
 $(document.body).ready(function() {
