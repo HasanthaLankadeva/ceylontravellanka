@@ -6,12 +6,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tour Schedule Calendar - Admin</title>
+  <title>Executive Analytics & Business Intelligence - Tour Schedule Calendar</title>
+  
+  <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <!-- Font Awesome Icons -->
+  <!-- FontAwesome Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
+    #tourModal{
+      margin-top: 0 !important;
+    }
     .calendar-grid {
       grid-template-columns: repeat(7, minmax(0, 1fr));
     }
@@ -20,50 +26,101 @@
     }
   </style>
 </head>
-<body class="bg-slate-50 text-slate-800 antialiased min-h-screen flex flex-col">
-    <!-- Top Navigation Header -->
-    <header class="bg-white border-b border-slate-200 sticky top-0 z-30 shadow-sm">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex justify-between h-16 items-center gap-2">
-            
-            <!-- Left: Branding -->
-            <div class="flex items-center gap-3 shrink-0">
-            <div class="bg-indigo-600 text-white p-2 rounded-lg flex items-center justify-center">
-                <i class="fa-solid fa-compass text-xl"></i>
-            </div>
-            <div>
-                <h1 class="text-base sm:text-lg font-bold text-slate-900 leading-tight">Tour Inventory</h1>
-                <p class="text-[11px] sm:text-xs text-slate-500">Fleet &amp; Booking Management</p>
-            </div>
-            </div>
+<body class="bg-slate-100 font-sans text-slate-800 flex h-screen overflow-hidden">
+    <!-- MOBILE OVERLAY BACKDROP -->
+  <div id="sidebarBackdrop" class="fixed inset-0 bg-slate-900/50 z-30 hidden md:hidden transition-opacity"></div>
 
-            <!-- Center: Desktop Navigation Links -->
-            <nav class="hidden md:flex items-center space-x-1">
-            <!-- Active Page Link (Bookings List) -->
-            <a href="<?= BASE_URL ?>admin/" class="px-3.5 py-2 text-sm font-semibold rounded-lg text-slate-600 hover:text-slate-900 hover:bg-slate-100 transition">
-                Bookings List
-            </a>
-            <!-- Tour Calendar Link -->
-            <a href="<?= BASE_URL ?>admin/calendar" class="px-3.5 py-2 text-sm font-semibold rounded-lg bg-indigo-50 text-indigo-600 transition">
-                Tour Calendar
-            </a>
-            <!-- Reports Link -->
-            <a href="<?= BASE_URL ?>admin/calculator" class="px-3.5 py-2 text-sm font-semibold rounded-lg text-slate-600 hover:text-slate-900 hover:bg-slate-100 transition">
-                Quotation
-            </a>
-            </nav>
+  <!-- SIDEBAR NAVIGATION -->
+  <aside id="sidebar" class="fixed md:relative inset-y-0 left-0 -translate-x-full md:translate-x-0 w-64 bg-slate-900 text-slate-300 flex flex-col justify-between transition-transform duration-300 ease-in-out flex-shrink-0 z-40">
+    <div>
+      <div class="h-16 flex items-center justify-between px-6 bg-slate-950 border-b border-slate-800">
+        <div class="flex items-center gap-3">
+          <div class="bg-indigo-600 text-white p-2 rounded-lg shrink-0">
+            <i class="fa-solid fa-compass text-xl"></i>
+          </div>
+          <div class="sidebar-text">
+            <h1 class="text-base font-bold text-white leading-tight">Tour Inventory</h1>
+            <p class="text-xs text-slate-400">Enterprise BI Admin</p>
+          </div>
+        </div>
+        <!-- Mobile Close Button -->
+        <button id="closeSidebarBtn" class="md:hidden text-slate-400 hover:text-white">
+          <i class="fa-solid fa-xmark text-xl"></i>
+        </button>
+      </div>
 
-            <!-- Right: Actions & User -->
-            <div class="flex items-center gap-2 sm:gap-4 shrink-0">
-            <!-- Notification Bell -->
-            <button class="relative p-2 text-slate-500 hover:text-slate-600 rounded-full hover:bg-slate-100 transition">
-                <i class="fa-regular fa-bell text-lg"></i>
-                <span class="absolute top-1.5 right-1.5 w-2 h-2 bg-indigo-600 rounded-full"></span>
-            </button>
-            
-            <div class="h-6 w-px bg-slate-200"></div>
-            
-            <!-- User Profile -->
+      <nav class="p-4 space-y-1 overflow-y-auto max-h-[calc(100vh-120px)]">
+        <div class="px-3 py-2 text-[11px] font-semibold text-slate-500 uppercase tracking-wider sidebar-text">Core Operations</div>
+        
+        <a href="<?= BASE_URL ?>admin/calculator" class="flex items-center gap-3 px-3.5 py-2.5 text-sm font-medium rounded-lg text-slate-400 hover:bg-slate-800 hover:text-white transition">
+          <i class="fa-solid fa-calculator text-lg w-5"></i>
+          <span class="sidebar-text">Calculator</span>
+        </a>
+
+        <a href="<?= BASE_URL ?>admin/" class="flex items-center gap-3 px-3.5 py-2.5 text-sm font-medium rounded-lg text-slate-400 hover:bg-slate-800 hover:text-white transition">
+          <i class="fa-solid fa-list-check text-lg w-5"></i>
+          <span class="sidebar-text">Bookings List</span>
+        </a>
+
+        <a href="<?= BASE_URL ?>admin/calendar" class="flex items-center gap-3 px-3.5 py-2.5 text-sm font-medium rounded-lg bg-indigo-600 text-white transition">
+          <i class="fa-regular fa-calendar-days text-lg w-5"></i>
+          <span class="sidebar-text">Tour Calendar</span>
+        </a>
+
+        <a href="<?= BASE_URL ?>admin/dashboard" class="flex items-center gap-3 px-3.5 py-2.5 text-sm font-medium rounded-lg text-slate-400 hover:bg-slate-800 hover:text-white transition">
+          <i class="fa-solid fa-chart-line text-lg w-5"></i>
+          <span class="sidebar-text">Analytics & Reports</span>
+        </a>
+
+        <div class="px-3 py-2 mt-4 text-[11px] font-semibold text-slate-500 uppercase tracking-wider sidebar-text">Management</div>
+
+        <a href="#" class="flex items-center gap-3 px-3.5 py-2.5 text-sm font-medium rounded-lg text-slate-400 hover:bg-slate-800 hover:text-white transition">
+          <i class="fa-solid fa-car-side text-lg w-5"></i>
+          <span class="sidebar-text">Fleet & Drivers</span>
+        </a>
+
+        <a href="#" class="flex items-center gap-3 px-3.5 py-2.5 text-sm font-medium rounded-lg text-slate-400 hover:bg-slate-800 hover:text-white transition">
+          <i class="fa-solid fa-file-invoice-dollar text-lg w-5"></i>
+          <span class="sidebar-text">Invoices & Logs</span>
+        </a>
+      </nav>
+    </div>
+
+    <!-- Desktop Collapse Button -->
+    <div class="p-3 border-t border-slate-800 hidden md:block">
+      <button id="toggleSidebarBtn" class="w-full flex items-center justify-center gap-2 py-2 text-xs font-semibold text-slate-400 bg-slate-800 hover:bg-slate-700 hover:text-white rounded-lg transition">
+        <i class="fa-solid fa-angles-left text-sm" id="collapseIcon"></i>
+        <span class="sidebar-text">Collapse Menu</span>
+      </button>
+    </div>
+  </aside>
+
+  <!-- MAIN CONTENT CONTAINER -->
+  <div class="flex-1 flex flex-col h-full overflow-y-auto w-full">
+
+    <header class="bg-white border-b border-slate-200 sticky top-0 z-20 shadow-sm">
+      <div class="px-4 sm:px-6 h-16 flex items-center justify-between gap-2">
+        <div class="flex items-center gap-3">
+          <!-- Mobile Drawer Toggle Button -->
+          <button id="mobileSidebarToggle" class="md:hidden p-2 text-slate-600 hover:text-slate-900 rounded-lg focus:bg-slate-100">
+            <i class="fa-solid fa-bars text-xl"></i>
+          </button>
+          <div>
+            <h2 class="text-sm sm:text-base font-bold text-slate-800 leading-tight">Country Intelligence & Analytics</h2>
+            <p class="text-[11px] sm:text-xs text-slate-500 hidden sm:block">Real-time business insights derived from guest contact records</p>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-2 sm:gap-3">
+          <!-- Right: Actions & User -->
+          <div class="flex items-center gap-2 sm:gap-4 shrink-0">
+          <!-- Notification Bell -->
+          <button class="relative p-2 text-slate-500 hover:text-slate-600 rounded-full hover:bg-slate-100 transition">
+            <i class="fa-regular fa-bell text-lg"></i>
+            <span class="absolute top-1.5 right-1.5 w-2 h-2 bg-indigo-600 rounded-full"></span>
+          </button>
+          <div class="h-6 w-px bg-slate-200"></div>
+          <!-- User Profile -->
             <div class="flex items-center gap-2 sm:gap-3">
                 <div class="w-9 h-9 rounded-full bg-indigo-100 text-indigo-700 font-semibold flex items-center justify-center text-sm border border-indigo-200 shrink-0">
                 CTL
@@ -73,33 +130,12 @@
                 <p class="text-xs text-slate-500">Administrator</p>
                 </div>
             </div>
-
-            <!-- Mobile Menu Toggle Button -->
-            <button id="mobileMenuBtn" class="md:hidden p-2 ml-1 text-slate-600 hover:text-slate-900 hover:bg-slate-100 rounded-lg transition" aria-label="Toggle Navigation">
-                <i id="mobileMenuIcon" class="fa-solid fa-bars text-xl"></i>
-            </button>
-            </div>
-
         </div>
-
-        <!-- Mobile Navigation Dropdown -->
-        <div id="mobileMenu" class="hidden md:hidden border-t border-slate-100 py-3 space-y-1">
-            <a href="<?= BASE_URL ?>admin/" class="block px-3 py-2 text-sm font-semibold rounded-lg text-slate-600 hover:text-slate-900 hover:bg-slate-100 transition">
-            Bookings List
-            </a>
-            <a href="<?= BASE_URL ?>admin/calendar" class="block px-3 py-2 text-sm font-semibold rounded-lg bg-indigo-50 text-indigo-600">
-            Tour Calendar
-            </a>
-            <a href="<?= BASE_URL ?>admin/calculator" class="block px-3 py-2 text-sm font-semibold rounded-lg text-slate-600 hover:text-slate-900 hover:bg-slate-100 transition">
-            Quotation
-            </a>
-        </div>
-
-        </div>
+      </div>
     </header>
 
     <!-- Main Container -->
-    <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-6">
+    <main class="p-4 sm:p-6 space-y-6 max-w-7xl w-full mx-auto">
       <div class="max-w-7xl mx-auto p-6">
         
         <!-- Calendar Header Controls -->
@@ -162,21 +198,31 @@
       </div>
     </main>
  
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
   <script>
     $(document).ready(function() {
 
-      // Mobile menu toggle script
-      $('#mobileMenuBtn').on('click', function() {
-          let menu = $('#mobileMenu');
-          let icon = $('#mobileMenuIcon');
-          
-          menu.toggleClass('hidden');
-          
-          if (menu.hasClass('hidden')) {
-            icon.removeClass('fa-xmark').addClass('fa-bars');
-          } else {
-            icon.removeClass('fa-bars').addClass('fa-xmark');
-          }
+      // Mobile Drawer Toggle Handler
+      function openMobileSidebar() {
+          $('#sidebar').removeClass('-translate-x-full');
+          $('#sidebarBackdrop').removeClass('hidden');
+      }
+
+      function closeMobileSidebar() {
+          $('#sidebar').addClass('-translate-x-full');
+          $('#sidebarBackdrop').addClass('hidden');
+      }
+
+      $('#mobileSidebarToggle').on('click', openMobileSidebar);
+      $('#closeSidebarBtn, #sidebarBackdrop').on('click', closeMobileSidebar);
+
+      // Desktop Collapse Handler
+      $('#toggleSidebarBtn').on('click', function() {
+          const sidebar = $('#sidebar');
+          sidebar.toggleClass('w-64 w-20');
+          $('.sidebar-text').toggleClass('hidden');
+          $('#collapseIcon').toggleClass('fa-angles-left fa-angles-right');
       });
 
       let currentDate = new Date();
