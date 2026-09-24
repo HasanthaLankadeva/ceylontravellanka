@@ -512,21 +512,27 @@
     
 <script>
 $(document.body).ready(function() {
-    // Mobile menu toggle script
-    $('#mobileMenuBtn').on('click', function() {
-        let menu = $('#mobileMenu');
-        let icon = $('#mobileMenuIcon');
-        
-        menu.toggleClass('hidden');
-        
-        if (menu.classList.contains('hidden')) {
-            icon.removeClass('fa-xmark');
-            icon.addClass('fa-bars');
-        } else {
-            icon.removeClass('fa-bars');
-            icon.addClass('fa-xmark');
-        }
-    });
+    // Mobile Drawer Toggle Handler
+      function openMobileSidebar() {
+          $('#sidebar').removeClass('-translate-x-full');
+          $('#sidebarBackdrop').removeClass('hidden');
+      }
+
+      function closeMobileSidebar() {
+          $('#sidebar').addClass('-translate-x-full');
+          $('#sidebarBackdrop').addClass('hidden');
+      }
+
+      $('#mobileSidebarToggle').on('click', openMobileSidebar);
+      $('#closeSidebarBtn, #sidebarBackdrop').on('click', closeMobileSidebar);
+
+      // Desktop Collapse Handler
+      $('#toggleSidebarBtn').on('click', function() {
+          const sidebar = $('#sidebar');
+          sidebar.toggleClass('w-64 w-20');
+          $('.sidebar-text').toggleClass('hidden');
+          $('#collapseIcon').toggleClass('fa-angles-left fa-angles-right');
+      });
 
     let vehicleData = {};
     let exchangeRates = {};
