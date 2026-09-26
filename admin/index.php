@@ -62,7 +62,7 @@
         border-color: #bae6fd;
     }
 
-    .status-select[data-status="On Going"] {
+    .status-select[data-status="Ongoing"] {
         background-color: #fef3c7;
         color: #b45309;
         border-color: #fde68a;
@@ -113,6 +113,12 @@
     .modal-content{
         margin: 0 auto;
     }
+    @media (max-width: 800px) {
+        .filter select{
+            width: 100%;
+        }    
+    }
+    
   </style>
 </head>
 <body class="bg-slate-100 font-sans text-slate-800 flex h-screen overflow-hidden">
@@ -282,7 +288,7 @@
         </div>
 
         <!-- Dashboard Action Bar & Table Controls -->
-        <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm flex flex-col md:flex-row md:items-center justify-between gap-4">
+        <div class="filter bg-white p-4 rounded-xl border border-slate-200 shadow-sm flex flex-col md:flex-row md:items-center justify-between gap-4">
             
             <!-- Left: Search and Filters -->
             <div class="flex flex-1 flex-wrap items-center gap-3">
@@ -298,7 +304,7 @@
                 <select id="filter-status" class="py-2 px-3 text-sm bg-slate-50 border border-slate-200 rounded-lg text-slate-600 focus:outline-none focus:ring-2 focus:ring-indigo-500">
                     <option value="">All Statuses</option>
                     <option value="Upcoming">Upcoming</option>
-                    <option value="On Going">On Going</option>
+                    <option value="Ongoing">Ongoing</option>
                     <option value="Completed">Completed</option>
                     <option value="Payment Received">Payment Received</option>
                     <option value="Canceled">Canceled</option>
@@ -804,7 +810,7 @@ Day 2: Kandy City Tour..." class="w-full text-xs border border-slate-300 focus:b
 
                             let formattedRange = formatTourDates(tour_start_date, tour_end_date);
 
-                            let statusOptions = ['Upcoming', 'On Going', 'Completed', 'Payment Recieved', 'Canceled'];
+                            let statusOptions = ['Upcoming', 'Ongoing', 'Completed', 'Payment Recieved', 'Canceled'];
 
                             let dropdownHtml = `<select class="status-select" data-id="${row.id}" data-status="${row.status}">`;
                             statusOptions.forEach(opt => {
@@ -1261,6 +1267,13 @@ Day 2: Kandy City Tour..." class="w-full text-xs border border-slate-300 focus:b
                                 addPackageRow(item.date, item.title, item.details, item.charge);
                             });
                         }
+                    }
+
+                    if(key == 'status'){
+                        let selectedOption = value;
+                        let $select =$('select[name="status"]');
+                        console.log(selectedOption);
+                        $select.find('option').removeAttr('selected');$select.find(`option[value="${selectedOption}"]`).prop('selected', true);
                     }
                     
                 });
