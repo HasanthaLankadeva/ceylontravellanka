@@ -129,7 +129,7 @@ if ($action === 'fetch') {
 
     // Status priority mapping
     $statusPriority = [
-        'On Going'         => 1,
+        'Ongoing'         => 1,
         'Upcoming'         => 2,
         'Completed'        => 3,
         'Payment Received' => 4,
@@ -259,7 +259,7 @@ if ($action === 'update_status') {
     $id     = (int)($_POST['id'] ?? 0);
     $status = trim($_POST['status'] ?? '');
 
-    $allowed_statuses = ['Upcoming', 'On Going', 'Completed', 'Payment Recieved', 'Canceled'];
+    $allowed_statuses = ['Upcoming', 'Ongoing', 'Completed', 'Payment Recieved', 'Canceled'];
 
     if ($id > 0 && in_array($status, $allowed_statuses, true)) {
         $stmt = $conn->prepare("UPDATE bookings SET status = ? WHERE id = ?");
