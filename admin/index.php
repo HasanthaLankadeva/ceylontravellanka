@@ -811,7 +811,7 @@ Day 2: Kandy City Tour..." class="w-full text-xs border border-slate-300 focus:b
                                 }
                             }
 
-                            let tour_charge = totalTransferCharge + (parseFloat(row.tour_charge) || 0);
+                            let tour_charge = (parseFloat(row.tour_charge)) ? parseFloat(row.tour_charge) : totalTransferCharge;
                             
                             // Function to format "YYYY-MM-DD" into "Sep 22 - Sep 26"
                             function formatTourDates(startDateStr, endDateStr) {
