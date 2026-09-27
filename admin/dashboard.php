@@ -32,7 +32,7 @@ function getCountryFromMobile($mobile) {
 }
 
 // Fetch All Tours using Database Schema Fields
-$sql = "SELECT id, order_number, guest_name, guest_mobile, tour_charge, tour_start_date, status FROM bookings";
+$sql = "SELECT id, order_number, guest_name, guest_mobile, tour_charge, tour_start_date, status, total_vehicle_cost FROM bookings";
 $result = $conn->query($sql);
 
 $countryTotals = [];
@@ -43,7 +43,10 @@ $totalBookings = 0;
 
 if ($result && $result->num_rows > 0) {
     while ($row = $result->fetch_assoc()) {
-        $amount  = floatval($row['tour_charge']);
+        $tourCharge  = floatval($row['tour_charge']);
+        $vehicleCost = floatval($row['total_vehicle_cost'] ?? 0);
+        $amount      = $tourCharge - $vehicleCost; // Net revenue
+
         $mobile  = $row['guest_mobile'];
         $country = getCountryFromMobile($mobile);
 

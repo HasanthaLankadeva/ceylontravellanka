@@ -382,6 +382,7 @@
                 <input type="hidden" id="booking_id" name="id" value="61">
                 <input type="hidden" id="agreement_id" name="agreement_id" value="">
                 <input type="hidden" id="paging_id" name="paging_id" value="">
+                <input type="hidden" id="total_vehicle_cost" name="total_vehicle_cost" value="">
 
                 <!-- 1. Booking Details -->
                 <div class="bg-white p-4 sm:p-5 rounded-xl border border-slate-200/80 shadow-sm space-y-4">
@@ -598,7 +599,7 @@ Day 2: Kandy City Tour..." class="w-full text-xs border border-slate-300 focus:b
                 <div class="bg-white p-4 sm:p-5 rounded-xl border border-slate-200/80 shadow-sm space-y-2">
                     <label class="block text-xs font-bold uppercase tracking-wider text-slate-700">Booking Status</label>
                     <div class="max-w-xs text-xs">
-                        <select name="status" class="w-full border border-slate-300 focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 rounded-lg px-3 py-2 text-slate-800 font-semibold outline-none bg-white transition">
+                        <select id="status" name="status" class="w-full border border-slate-300 focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 rounded-lg px-3 py-2 text-slate-800 font-semibold outline-none bg-white transition">
                             <option value="Upcoming" selected="">Upcoming</option>
                             <option value="Ongoing">Ongoing</option>
                             <option value="Completed">Completed</option>
@@ -691,7 +692,7 @@ Day 2: Kandy City Tour..." class="w-full text-xs border border-slate-300 focus:b
 
             function loadBookings() {
 
-                const urlParams = new URLSearchParams(window.location.search);console.log(urlParams.get('search'));
+                const urlParams = new URLSearchParams(window.location.search);
                 const searchVal = urlParams.get('search') || $('#filter-search').val();
                 const vehicleVal = $('#filter-vehicle').val();
                 const statusVal = $('#filter-status').val();
@@ -745,8 +746,6 @@ Day 2: Kandy City Tour..." class="w-full text-xs border border-slate-300 focus:b
 
                             // Now check if it's a non-empty array
                             if (Array.isArray(transfers) && transfers.length > 0) {
-                                console.log("Transfers length:", transfers.length);
-
                                 for (let transfer of transfers) {
                                     if (!transfer.date) continue;
 
@@ -794,6 +793,26 @@ Day 2: Kandy City Tour..." class="w-full text-xs border border-slate-300 focus:b
                             // Build transfer count span dynamically
                             let transferSpan = row.transfers_count > 0 ? `${row.transfers_count}` : '-';
 
+                            let totalTransferCharge = 0;
+
+                            if (row.transfers) {
+                                try {
+                                    // Parse the JSON string into an array
+                                    const transfersList = typeof row.transfers === 'string' 
+                                    ? JSON.parse(row.transfers) 
+                                    : row.transfers;
+
+                                    // Sum up the charges
+                                    totalTransferCharge = transfersList.reduce((sum, transfer) => {
+                                    return sum + (Number(transfer.charge) || 0);
+                                    }, 0);
+                                } catch (error) {
+                                    console.error("Error parsing transfers JSON:", error);
+                                }
+                            }
+
+                            let tour_charge = totalTransferCharge + (parseFloat(row.tour_charge) || 0);
+                            
                             // Function to format "YYYY-MM-DD" into "Sep 22 - Sep 26"
                             function formatTourDates(startDateStr, endDateStr) {
                                 let options = { month: 'short', day: 'numeric', timeZone: 'UTC' };
@@ -856,7 +875,7 @@ Day 2: Kandy City Tour..." class="w-full text-xs border border-slate-300 focus:b
                                     </div>
                                 </td>
                                 <td class="py-4 px-4 text-right whitespace-nowrap">
-                                    <div class="font-semibold text-slate-800">LKR ${parseFloat(row.tour_charge).toLocaleString()}</div>
+                                    <div class="font-semibold text-slate-800">LKR ${parseFloat(tour_charge).toLocaleString()}</div>
                                     <div class="text-xs text-slate-500">Adv: ${parseFloat(row.income_advance).toLocaleString()} / Driver: ${parseFloat(row.expense_advance).toLocaleString()}</div>
                                 </td>
                                 <td class="py-4 px-4 text-center whitespace-nowrap">
@@ -913,7 +932,7 @@ Day 2: Kandy City Tour..." class="w-full text-xs border border-slate-300 focus:b
                                     <div class="flex items-center justify-between pt-2 border-t border-slate-100">
                                         <div>
                                             <span class="text-[11px] text-slate-400 block uppercase tracking-wider font-medium">Total Charge</span>
-                                            <span class="text-base font-black text-slate-900">LKR ${parseFloat(row.tour_charge).toLocaleString()}</span>
+                                            <span class="text-base font-black text-slate-900">LKR ${parseFloat(tour_charge).toLocaleString()}</span>
                                         </div>
                                         <div class="flex space-x-2">
                                             <button class="p-2 text-slate-600 hover:bg-slate-100 rounded-lg transition edit-btn" data-booking='${rowJson}'>
@@ -1129,112 +1148,138 @@ Day 2: Kandy City Tour..." class="w-full text-xs border border-slate-300 focus:b
             $('#bookingForm').on('submit', function(e) {
                 e.preventDefault();
 
-                let submitButton = $('.bookingForm-submit');
-                submitButton.disabled = true;
-                submitButton.find('span').text('Generating Documents...');
+                let $submitButton =$('.bookingForm-submit');
 
-                // Prevent duplicate submissions
-                if (submitButton.prop('disabled')) {
+                // Prevent duplicate submissions if already disabled
+                if ($submitButton.prop('disabled')) {
                     return false;
                 }
 
+                // Disable button immediately
+                $submitButton.prop('disabled', true);$submitButton.find('span').text('Processing...');
+
                 let formdata = $(this).serialize();
                 let params = new URLSearchParams(formdata);
+                let status = $("#status").val();
 
-                let tourChargeLKR = params.get('tour_charge'); // Your tour charge in LKR
-
-                // Calculate and round to nearest whole number
-                var tourChargeUSD = Math.round(tourChargeLKR / exchangeRates.USD);
-                var tourChargeGBP = Math.round(tourChargeLKR / exchangeRates.GBP);
-
-                // Gather dynamic rows from form
-                var transfers = [];
-                $('.package-row').each(function() {
-                    var date = $(this).find('input[name="drop_date[]"]').val();
-                    var title = $(this).find('input[name="drop_title[]"]').val();
-                    var details = $(this).find('input[name="drop_details[]"]').val();
-                    var amount = $(this).find('input[name="drop_charge[]"]').val();
-
-                    // Only append if at least title or amount is filled out
-                    if (title || amount) {
-                        transfers.push({
-                            date: date,
-                            title: title,
-                            details: details,
-                            amount: amount
-                        });
-                    }
-                });
-
-                // Build payload object matching your placeholder keys
-                let payload = {
-                    agreementID: params.get('agreement_id'),
-                    pagingID: params.get('paging_id'),
-                    bookingRef: params.get('order_number'),
-                    guest_name: params.get('guest_name'),
-                    paging_name: params.get('paging_name'),
-                    adults: params.get('adults_count'),
-                    children: params.get('children_count'),
-                    guest_mobile: params.get('guest_mobile'),
-                    guest_email: params.get('guest_email'),
-                    tour_start_date: params.get('tour_start_date'),
-                    tour_end_date: params.get('tour_end_date'),
-                    tour_title: params.get('tour_title'),
-                    vehicle_model: params.get('vehicle_model'),
-                    mileage_limit: params.get('mileage_limit'),
-                    extra_mileage_charge: params.get('extra_mileage_charge'),
-                    tour_charge: tourChargeLKR,
-                    usd: tourChargeUSD,
-                    gbp: tourChargeGBP,
-                    pickup_from: params.get('pickup_from'),
-                    pickup_date: params.get('pickup_date'),
-                    pickup_time: params.get('arrival_time'),
-                    transfers: transfers,
-                    itinerary: params.get('itinerary'),
-                    driver_name: params.get('driver_name'),
-                    driver_mobile: params.get('driver_mobile'),
-                    payment_options: params.get('payment_options')
-                };
-
-                let scriptURL = 'https://script.google.com/macros/s/AKfycbxlgA3xrX8HKT4BmFHEP25vB5sRyg10KcSN37z5YqbdyMvUS6eXe93yBSWZ27ybhAJS/exec';
-
-                fetch(scriptURL, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'text/plain;charset=utf-8' }, // Prevents CORS preflight issues in Apps Script
-                    body: JSON.stringify(payload)
-                })
-                .then(response => response.json())
-                .then(data => {
-                    if (data.result === 'success') {
-                    // Display the shareable link on your web page
-                    
-                    let links = `<a id="agreement-doc" href="${data.docUrl}" target="_blank" rel="noopener" class="agreement-doc bg-white p-2 rounded-lg border border-slate-200 flex items-center justify-between"><span class="text-slate-600 text-[11px] truncate"><i class="fa-solid fa-file-pdf text-red-500 mr-1"></i>Agreement</span><button class="text-emerald-600 text-[11px]" fdprocessedid="g9kb1"><i class="fa-solid fa-download"></i></button></a><a id="agreement-pdf" data-docid="${data.agreement_file_id}" href="${data.pdfUrl}" target="_blank" rel="noopener" class="bg-white p-2 rounded-lg border border-slate-200 flex items-center justify-between"><span class="text-slate-600 text-[11px] truncate"><i class="fa-solid fa-file-pdf text-red-500 mr-1"></i>Agreement</span><button class="text-emerald-600 text-[11px]" fdprocessedid="4ggpl"><i class="fa-solid fa-download"></i></button></a> <a id="paging-pdf" data-docid="${data.paging_file_id}" href="${data.pagingUrl}" target="_blank" rel="noopener" class="bg-white p-2 rounded-lg border border-slate-200 flex items-center justify-between"><span class="text-slate-600 text-[11px] truncate"><i class="fa-solid fa-file-image text-blue-500 mr-1"></i>Paging</span><button class="text-emerald-600 text-[11px]" fdprocessedid="4ggpl"><i class="fa-solid fa-download"></i></button></a>`;
-
-                    // Append Google Doc and PDF links to FormData object
-                    formdata += '&agreement_link=' + encodeURIComponent(links);
-
-                    $.post('ajax_handler?action=save', formdata, function(res) {
-                        let response = JSON.parse(res);
-                        if(response.status === 'success') {
+                // Helper function to save directly to Database via AJAX
+                function saveBooking(formDataToSave) {
+                    $.post('ajax_handler?action=save', formDataToSave, function(res) {
+                        let response = (typeof res === 'object') ? res : JSON.parse(res);
+                        if (response.status === 'success') {
                             $('#bookingModal').hide();
                             loadBookings();
                         } else {
                             alert('Error saving record: ' + response.message);
                         }
+                    })
+                    .fail(function(xhr, status, error) {
+                        console.error('AJAX Error:', error);
+                        alert('An error occurred while saving the booking.');
+                    })
+                    .always(function() {
+                        // Re-enable button
+                        $submitButton.prop('disabled', false);$submitButton.find('span').text('Save Booking');
+                    });
+                }
+
+                // Check if status requires Google Apps Script document generation
+                if (status === 'Upcoming') {
+                    $submitButton.find('span').text('Generating Documents...');
+
+                    let tourChargeLKR = params.get('tour_charge');
+
+                    if (tourChargeLKR) {
+                        tourChargeLKR = tourChargeLKR.replace(/\.00$/, '');
+                    }
+
+                    var tourChargeUSD = Math.round(tourChargeLKR / exchangeRates.USD);
+                    var tourChargeGBP = Math.round(tourChargeLKR / exchangeRates.GBP);
+
+                    // Gather dynamic rows from form
+                    var transfers = [];
+                    $('.package-row').each(function() {
+                        var date = $(this).find('input[name="drop_date[]"]').val();
+                        var title = $(this).find('input[name="drop_title[]"]').val();
+                        var details = $(this).find('input[name="drop_details[]"]').val();
+                        var amountLKR = $(this).find('input[name="drop_charge[]"]').val();
+                        var amountUSD = Math.round(amountLKR / exchangeRates.USD);
+                        var amountGBP = Math.round(amountLKR / exchangeRates.GBP);
+
+                        if (title || amountLKR) {
+                            transfers.push({
+                                date: date,
+                                title: title,
+                                details: details,
+                                amountLKR: amountLKR,
+                                amountUSD: amountUSD,
+                                amountGBP: amountGBP
+                            });
+                        }
                     });
 
-                    } else {
-                        alert('Error creating document: ' + data.error);
-                    }
-                })
-                .catch(err => {
-                    console.error('Fetch error:', err);
-                })
-                .finally(() => {
-                    submitButton.disabled = false;
-                    submitButton.innerText = 'Save Booking';
-                });
-                
+                    // Build payload for Google Apps Script
+                    let payload = {
+                        agreementID: params.get('agreement_id'),
+                        pagingID: params.get('paging_id'),
+                        bookingRef: params.get('order_number'),
+                        guest_name: params.get('guest_name'),
+                        paging_name: params.get('paging_name'),
+                        adults: params.get('adults_count'),
+                        children: params.get('children_count'),
+                        guest_mobile: params.get('guest_mobile'),
+                        guest_email: params.get('guest_email'),
+                        tour_start_date: params.get('tour_start_date'),
+                        tour_end_date: params.get('tour_end_date'),
+                        tour_title: params.get('tour_title'),
+                        vehicle_model: params.get('vehicle_model'),
+                        mileage_limit: params.get('mileage_limit'),
+                        extra_mileage_charge: params.get('extra_mileage_charge'),
+                        tour_charge: tourChargeLKR,
+                        usd: tourChargeUSD,
+                        gbp: tourChargeGBP,
+                        pickup_from: params.get('pickup_from'),
+                        pickup_date: params.get('pickup_date'),
+                        pickup_time: params.get('arrival_time'),
+                        transfers: transfers,
+                        itinerary: params.get('itinerary'),
+                        driver_name: params.get('driver_name'),
+                        driver_mobile: params.get('driver_mobile'),
+                        payment_options: params.get('payment_options')
+                    };
+
+                    let scriptURL = 'https://script.google.com/macros/s/AKfycbxlgA3xrX8HKT4BmFHEP25vB5sRyg10KcSN37z5YqbdyMvUS6eXe93yBSWZ27ybhAJS/exec';
+
+                    fetch(scriptURL, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+                        body: JSON.stringify(payload)
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.result === 'success') {
+                            let links = `<a id="agreement-doc" href="${data.docUrl}" target="_blank" rel="noopener" class="agreement-doc bg-white p-2 rounded-lg border border-slate-200 flex items-center justify-between"><span class="text-slate-600 text-[11px] truncate"><i class="fa-solid fa-file-pdf text-red-500 mr-1"></i>Agreement</span><button class="text-emerald-600 text-[11px]"><i class="fa-solid fa-download"></i></button></a><a id="agreement-pdf" data-docid="${data.agreement_file_id}" href="${data.pdfUrl}" target="_blank" rel="noopener" class="bg-white p-2 rounded-lg border border-slate-200 flex items-center justify-between"><span class="text-slate-600 text-[11px] truncate"><i class="fa-solid fa-file-pdf text-red-500 mr-1"></i>Agreement</span><button class="text-emerald-600 text-[11px]"><i class="fa-solid fa-download"></i></button></a> <a id="paging-pdf" data-docid="${data.paging_file_id}" href="${data.pagingUrl}" target="_blank" rel="noopener" class="bg-white p-2 rounded-lg border border-slate-200 flex items-center justify-between"><span class="text-slate-600 text-[11px] truncate"><i class="fa-solid fa-file-image text-blue-500 mr-1"></i>Paging</span><button class="text-emerald-600 text-[11px]"><i class="fa-solid fa-download"></i></button></a>`;
+
+                            // Append agreement links to FormData
+                            formdata += '&agreement_link=' + encodeURIComponent(links);
+
+                            // Save to database
+                            saveBooking(formdata);
+                        } else {
+                            alert('Error creating document: ' + data.error);
+                            $submitButton.prop('disabled', false);$submitButton.find('span').text('Save Booking');
+                        }
+                    })
+                    .catch(err => {
+                        console.error('Fetch error:', err);
+                        alert('An error occurred while contacting the document generation script.');
+                        $submitButton.prop('disabled', false);$submitButton.find('span').text('Save Booking');
+                    });
+
+                } else {
+                    // Status is NOT 'Upcoming' -> Skip Google Apps Script and save directly
+                    saveBooking(formdata);
+                }
             });
 
             // Populate Modal Form when Edit Button is clicked
@@ -1271,9 +1316,7 @@ Day 2: Kandy City Tour..." class="w-full text-xs border border-slate-300 focus:b
 
                     if(key == 'status'){
                         let selectedOption = value;
-                        let $select =$('select[name="status"]');
-                        console.log(selectedOption);
-                        $select.find('option').removeAttr('selected');$select.find(`option[value="${selectedOption}"]`).prop('selected', true);
+                        $('select[name="status"]').val(selectedOption).change();
                     }
                     
                 });
@@ -1283,13 +1326,15 @@ Day 2: Kandy City Tour..." class="w-full text-xs border border-slate-300 focus:b
                 $('#driver_list').empty();
                 
                 // Populate Driver Dropdown
-                $.each(vehicleData[vehicle].drivers, function(key, val) {
-                    $('#driver_list').append(
-                        $('<option>', {
-                            value: val.name
-                        })
-                    );
-                });
+                if(vehicle){
+                    $.each(vehicleData[vehicle].drivers, function(key, val) {
+                        $('#driver_list').append(
+                            $('<option>', {
+                                value: val.name
+                            })
+                        );
+                    });
+                }
 
                 $('#bookingModal').show();
             });
@@ -1301,6 +1346,7 @@ Day 2: Kandy City Tour..." class="w-full text-xs border border-slate-300 focus:b
                 $('#bookingForm')[0].reset(); 
                 $('#packageSummaryContainer .package-row').remove();
                 $('.bookingForm-submit').find('span').text('Save Booking');
+                $('#total_vehicle_cost').val('');
                 //$('#calculated_profit').val('0.00');
                 //addPackageRow();
 
@@ -1330,7 +1376,22 @@ Day 2: Kandy City Tour..." class="w-full text-xs border border-slate-300 focus:b
                 calculateAll();
                 
                 let vehicle = $(this).val();
+                let totalDays = $('#tour_days').val();
+                let mileageLimit = $('#mileage_limit').val();
+                let mileageCharge = $('#extra_mileage_charge').val();
+                let dailyBata = vehicleData[vehicle].bata;
+                let dailyAccommodation = vehicleData[vehicle].accommodation;
+                let totalBata = totalDays > 0 ? (dailyBata * totalDays) : 0;
+                let totalAccommodation = totalDays > 0 ? (dailyAccommodation * (totalDays - 1)) : 0;
+                let ticketParkingValue = 4000;
+
+                let vehicleBaseCost = (mileageLimit * mileageCharge);
+
+                // Total LKR calculation
+                let totalVehicleCost = vehicleBaseCost + totalBata + totalAccommodation + ticketParkingValue;
                 
+                $('#total_vehicle_cost').val(totalVehicleCost);
+
                 $('#driver_list').empty();
                 
                 // Populate Driver Dropdown

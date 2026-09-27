@@ -179,7 +179,7 @@ if ($action === 'get_next_order_number') {
 if ($action === 'save') {
     // Correctly check if ID is present
     $id = isset($_POST['id']) && $_POST['id'] !== '' ? (int)$_POST['id'] : null;
-
+    $total_vehicle_cost     = $_POST['total_vehicle_cost'] ?? '';
     $order_number           = $_POST['order_number'] ?? '';
     $tour_start_date        = !empty($_POST['tour_start_date']) ? $_POST['tour_start_date'] : NULL;
     $tour_end_date          = !empty($_POST['tour_end_date']) ? $_POST['tour_end_date'] : NULL;
@@ -237,14 +237,14 @@ if ($action === 'save') {
 
     if ($id === null) {
         // Create new record
-        $sql = "INSERT INTO bookings (order_number, tour_start_date, tour_end_date, tour_days, guest_name, paging_name, adults, children, guest_mobile, guest_email, transfers, itinerary, vehicle_model, mileage_limit, extra_mileage_charge, tour_title, pickup_from, pickup_date, arrival_time, driver_name, driver_mobile, agreement_link, tour_charge, income_advance, driver_charges, expense_other, expense_advance, payment_options, special_notes, status) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        $sql = "INSERT INTO bookings (order_number, tour_start_date, tour_end_date, tour_days, guest_name, paging_name, adults, children, guest_mobile, guest_email, transfers, itinerary, vehicle_model, mileage_limit, extra_mileage_charge, tour_title, pickup_from, pickup_date, arrival_time, driver_name, driver_mobile, agreement_link, tour_charge, income_advance, driver_charges, expense_other, expense_advance, payment_options, special_notes, status, total_vehicle_cost) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         $stmt = $conn->prepare($sql);
-        $stmt->bind_param("sssissiisssssiisssssssdddddsss", $order_number, $tour_start_date, $tour_end_date, $tour_days, $guest_name, $paging_name, $adults, $children, $guest_mobile, $guest_email, $transfers, $itinerary, $vehicle_model, $mileage_limit, $extra_mileage_charge, $tour_title, $pickup_from, $pickup_date, $arrival_time, $driver_name, $driver_mobile, $agreement_link, $tour_charge, $income_advance, $driver_charges, $expense_other, $expense_advance, $payment_options, $special_notes, $status);
+        $stmt->bind_param("sssissiisssssiisssssssdddddsssi", $order_number, $tour_start_date, $tour_end_date, $tour_days, $guest_name, $paging_name, $adults, $children, $guest_mobile, $guest_email, $transfers, $itinerary, $vehicle_model, $mileage_limit, $extra_mileage_charge, $tour_title, $pickup_from, $pickup_date, $arrival_time, $driver_name, $driver_mobile, $agreement_link, $tour_charge, $income_advance, $driver_charges, $expense_other, $expense_advance, $payment_options, $special_notes, $status, $total_vehicle_cost);
     } else {
         // Update existing record
-        $sql = "UPDATE bookings SET tour_start_date=?, tour_end_date=?, tour_days=?, guest_name=?, paging_name=?, adults=?, children=?, guest_mobile=?, guest_email=?, transfers=?, itinerary=?, vehicle_model=?, mileage_limit=?, extra_mileage_charge=?, tour_title=?, pickup_from=?, pickup_date=?, arrival_time=?, driver_name=?, driver_mobile=?, agreement_link=?, tour_charge=?, income_advance=?, driver_charges=?, expense_other=?, expense_advance=?, payment_options=?, special_notes=?, status=? WHERE id=?";
+        $sql = "UPDATE bookings SET tour_start_date=?, tour_end_date=?, tour_days=?, guest_name=?, paging_name=?, adults=?, children=?, guest_mobile=?, guest_email=?, transfers=?, itinerary=?, vehicle_model=?, mileage_limit=?, extra_mileage_charge=?, tour_title=?, pickup_from=?, pickup_date=?, arrival_time=?, driver_name=?, driver_mobile=?, agreement_link=?, tour_charge=?, income_advance=?, driver_charges=?, expense_other=?, expense_advance=?, payment_options=?, special_notes=?, status=?, total_vehicle_cost=? WHERE id=?";
         $stmt = $conn->prepare($sql);
-        $stmt->bind_param("ssissiisssssiisssssssdddddsssi", $tour_start_date, $tour_end_date, $tour_days, $guest_name, $paging_name, $adults, $children, $guest_mobile, $guest_email, $transfers, $itinerary, $vehicle_model, $mileage_limit, $extra_mileage_charge, $tour_title, $pickup_from, $pickup_date, $arrival_time, $driver_name, $driver_mobile, $agreement_link, $tour_charge, $income_advance, $driver_charges, $expense_other, $expense_advance, $payment_options, $special_notes, $status, $id);
+        $stmt->bind_param("ssissiisssssiisssssssdddddsssii", $tour_start_date, $tour_end_date, $tour_days, $guest_name, $paging_name, $adults, $children, $guest_mobile, $guest_email, $transfers, $itinerary, $vehicle_model, $mileage_limit, $extra_mileage_charge, $tour_title, $pickup_from, $pickup_date, $arrival_time, $driver_name, $driver_mobile, $agreement_link, $tour_charge, $income_advance, $driver_charges, $expense_other, $expense_advance, $payment_options, $special_notes, $status, $total_vehicle_cost, $id);
     }
 
     if ($stmt->execute()) {
