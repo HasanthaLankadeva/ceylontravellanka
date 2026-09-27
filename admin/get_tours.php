@@ -1,37 +1,51 @@
 <?php
-header('Content-Type: application/json');
+header('Content-Type: application/json; charset=utf-8');
 
-include 'db.php';
+include 'db.php'; // Expects $pdo instance of PDO
 
-$month = isset($_GET['month']) ? intval($_GET['month']) : date('n');$year  = isset($_GET['year'])  ? intval($_GET['year'])  : date('Y');
+$month = isset($_GET['month']) ? intval($_GET['month']) : (int)date('n');
+$year  = isset($_GET['year'])  ? intval($_GET['year'])  : (int)date('Y');
 
-// Fetch tours overlapping with selected month
-$startDate = sprintf('%04d-%02d-01', $year,$month);
+// Fetch tours/transfers overlapping with selected month
+$startDate = sprintf('%04d-%02d-01', $year, $month);
 $endDate   = date('Y-m-t', strtotime($startDate));
 
-// Selected extra contact columns (guest_email, guest_mobile, transfers)
-$stmt =$conn->prepare("
-    SELECT id, order_number, guest_name, guest_email, guest_mobile, tour_title, driver_name, tour_start_date, tour_end_date, transfers, status 
-    FROM bookings 
-    WHERE tour_start_date <= ? AND tour_end_date >= ?
-");
+// Create a wildcard search pattern for transfer dates in the target month (e.g., '%"date":"2026-10-%')
+$monthPrefix = sprintf('%04d-%02d-', $year, $month);
+$jsonDatePattern = '%"date":"' . $monthPrefix . '%';
 
-if (!$stmt) {
-    echo json_encode(['status' => 'error', 'message' => $conn->error]);
-    exit;
-}
+try {
+    // Matches if:
+    // 1. Main tour date range overlaps with the month OR
+    // 2. Pickup date falls within the month OR
+    // 3. Any transfer date in the JSON string matches the month
+    $stmt = $pdo->prepare("
+        SELECT id, order_number, guest_name, guest_email, guest_mobile, tour_title, driver_name, tour_start_date, tour_end_date, pickup_date, transfers, status 
+        FROM bookings 
+        WHERE (tour_start_date <= ? AND (tour_end_date >= ? OR tour_end_date IS NULL))
+           OR (pickup_date BETWEEN ? AND ?)
+           OR (transfers LIKE ?)
+    ");
 
-$stmt->bind_param("ss", $endDate, $startDate);$stmt->execute();
+    $stmt->execute([$endDate, $startDate, $startDate, $endDate, $jsonDatePattern]);
+    $tours = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-$result =$stmt->get_result();
-$tours  =$result->fetch_all(MYSQLI_ASSOC);
-
-// Decode transfers JSON if stored as JSON string in database
-foreach ($tours as &$tour) {
-    if (!empty($tour['transfers']) && is_string($tour['transfers'])) {
-        $tour['transfers'] = json_decode($tour['transfers'], true);
-    } elseif (empty($tour['transfers'])) {$tour['transfers'] = [];
+    // Safely decode transfers JSON
+    foreach ($tours as &$tour) {
+        if (!empty($tour['transfers']) && is_string($tour['transfers'])) {
+            $decoded = json_decode($tour['transfers'], true);
+            $tour['transfers'] = is_array($decoded) ? $decoded : [];
+        } else {
+            $tour['transfers'] = [];
+        }
     }
-}
+    unset($tour); // Break reference
 
-echo json_encode(['status' => 'success', 'data' => $tours]);
+    echo json_encode(['status' => 'success', 'data' => $tours]);
+
+} catch (PDOException $e) {
+    http_response_code(500);
+    echo json_encode(['status' => 'error', 'message' => $e->getMessage()]);
+}
+exit;
+?>

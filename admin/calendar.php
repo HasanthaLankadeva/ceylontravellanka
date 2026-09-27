@@ -244,6 +244,7 @@
           dataType: 'json',
           success: function(response) {
             if (response.status === 'success') {
+              console.log(response);
               tourEvents = response.data;
               buildGrid(year, month);
             }
