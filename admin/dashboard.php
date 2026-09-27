@@ -2,25 +2,26 @@
 require_once __DIR__ . '/../config/config.php';
 
 // --- DATABASE & DATA LOGIC ---
-include 'db.php';
+include 'db.php'; // Expects $pdo instance of PDO
 
 // Helper function: Parse Country from Mobile Number (E.164 Prefix Mapping)
 function getCountryFromMobile($mobile) {
     if (empty($mobile)) return 'Unknown';
     $cleanMobile = preg_replace('/[^0-9]/', '', $mobile);
 
-    // Common phone prefixes
+    // Common phone prefixes (Longer prefixes first to prevent false matches)
     $prefixes = [
+        '358' => ['name' => 'Finland', 'code' => 'fi'],
+        '971' => ['name' => 'UAE', 'code' => 'ae'],
         '94'  => ['name' => 'Sri Lanka', 'code' => 'lk'],
         '44'  => ['name' => 'United Kingdom', 'code' => 'gb'],
-        '1'   => ['name' => 'USA / Canada', 'code' => 'us'],
         '61'  => ['name' => 'Australia', 'code' => 'au'],
         '49'  => ['name' => 'Germany', 'code' => 'de'],
         '33'  => ['name' => 'France', 'code' => 'fr'],
-        '358' => ['name' => 'Finland', 'code' => 'fi'],
+        '31'  => ['name' => 'Netherlands', 'code' => 'nl'],
         '91'  => ['name' => 'India', 'code' => 'in'],
-        '971' => ['name' => 'UAE', 'code' => 'ae'],
         '65'  => ['name' => 'Singapore', 'code' => 'sg'],
+        '1'   => ['name' => 'USA / Canada', 'code' => 'us'],
     ];
 
     foreach ($prefixes as $prefix => $info) {
@@ -31,21 +32,22 @@ function getCountryFromMobile($mobile) {
     return 'Other / Unmapped';
 }
 
-// Fetch All Tours using Database Schema Fields
-$sql = "SELECT id, order_number, guest_name, guest_mobile, tour_charge, tour_start_date, status, total_vehicle_cost FROM bookings";
-$result = $conn->query($sql);
-
 $countryTotals = [];
 $overallMonthly = array_fill(1, 12, 0); // Jan to Dec overall
 $countryMonthly = [];                   // Jan to Dec breakdown per country
 $totalRevenue = 0;
 $totalBookings = 0;
 
-if ($result && $result->num_rows > 0) {
-    while ($row = $result->fetch_assoc()) {
-        $tourCharge  = floatval($row['tour_charge']);
+try {
+    // Fetch All Tours using Database Schema Fields
+    $sql = "SELECT id, order_number, guest_name, guest_mobile, tour_charge, tour_start_date, status, total_vehicle_cost FROM bookings";
+    $stmt = $pdo->query($sql);
+    $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+    foreach ($rows as $row) {
+        $tourCharge  = floatval($row['tour_charge'] ?? 0);
         $vehicleCost = floatval($row['total_vehicle_cost'] ?? 0);
-        $amount      = $tourCharge - $vehicleCost; // Net revenue
+        $amount      = $tourCharge - $vehicleCost; // Revenue calculation
 
         $mobile  = $row['guest_mobile'];
         $country = getCountryFromMobile($mobile);
@@ -55,7 +57,7 @@ if ($result && $result->num_rows > 0) {
             $countryTotals[$country] = ['revenue' => 0, 'count' => 0];
         }
         $countryTotals[$country]['revenue'] += $amount;
-        $countryTotals[$country]['count'] += 1;
+        $countryTotals[$country]['count']   += 1;
 
         // Aggregate Monthly Revenue
         if (!empty($row['tour_start_date'])) {
@@ -74,6 +76,10 @@ if ($result && $result->num_rows > 0) {
         $totalRevenue += $amount;
         $totalBookings++;
     }
+
+} catch (PDOException $e) {
+    // Log error or set fallback values
+    error_log("Database Error: " . $e->getMessage());
 }
 
 // Sort Countries by Overall Revenue (Descending)
