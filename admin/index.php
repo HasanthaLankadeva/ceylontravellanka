@@ -732,8 +732,6 @@ Day 2: Kandy City Tour..." class="w-full text-xs border border-slate-300 focus:b
                             let today = new Date();
                             today.setHours(0, 0, 0, 0);
 
-                            let rowClass = ''; // Default status class
-
                            // Safely parse transfers if it's a JSON string
                             let transfers = row.transfers;
                             if (typeof transfers === 'string') {
@@ -744,47 +742,67 @@ Day 2: Kandy City Tour..." class="w-full text-xs border border-slate-300 focus:b
                                 }
                             }
 
-                            // Now check if it's a non-empty array
+                            // Normalize 'today' to midnight for accurate date-only comparisons
+                            const todayDate = new Date(today);
+                            todayDate.setHours(0, 0, 0, 0);
+
+                            let transferClass = null;
+
+                            // 1. Process Transfers (Look for ongoing or upcoming-soon transfers)
                             if (Array.isArray(transfers) && transfers.length > 0) {
-                                for (let transfer of transfers) {
+                                for (const transfer of transfers) {
                                     if (!transfer.date) continue;
 
-                                    let transferDate = new Date(`${transfer.date}T00:00:00`);
-                                    let timeDiff = transferDate.getTime() - today.getTime();
-                                    let daysUntilTransfer = Math.ceil(timeDiff / (1000 * 3600 * 24));
+                                    const transferDate = new Date(`${transfer.date}T00:00:00`);
+                                    transferDate.setHours(0, 0, 0, 0);
 
-                                    /*if (today > transferDate) {
-                                        rowClass = 'row-completed';
-                                    } */
-                                    
-                                    if (today.getTime() === transferDate.getTime()) {
-                                        rowClass = 'row-ongoing';
+                                    // Difference in full calendar days
+                                    const timeDiff = transferDate.getTime() - todayDate.getTime();
+                                    const daysUntilTransfer = Math.round(timeDiff / (1000 * 3600 * 24));
+
+                                    if (daysUntilTransfer === 0) {
+                                        transferClass = 'row-ongoing';
+                                        break; // Highest possible transfer priority reached
                                     } else if (daysUntilTransfer > 0 && daysUntilTransfer <= 2) {
-                                        rowClass = 'upcoming-soon';
+                                        // Found an upcoming transfer; save it unless we already found an ongoing one
+                                        if (transferClass !== 'row-ongoing') {
+                                            transferClass = 'upcoming-soon';
+                                        }
                                     }
                                 }
                             }
 
-                            // Parse dates to calculate the difference in days
-                            let startDate = new Date(row.tour_start_date);
-                            let endDate = new Date(row.tour_end_date);
+                            // 2. Process Tour Dates
+                            let tourClass = null;
 
-                            // Strip time components from start and end dates
-                            startDate.setHours(0, 0, 0, 0);
-                            endDate.setHours(0, 0, 0, 0);
+                            if (row.tour_start_date && row.tour_end_date) {
+                                const startDate = new Date(row.tour_start_date);
+                                const endDate = new Date(row.tour_end_date);
 
-                            let timeDiff = startDate.getTime() - today.getTime();
-                            let daysUntilStart = Math.ceil(timeDiff / (1000 * 3600 * 24));
+                                startDate.setHours(0, 0, 0, 0);
+                                endDate.setHours(0, 0, 0, 0);
 
-                            if (today > endDate) {
-                                // Tour date has already passed
-                                rowClass = (rowClass == 'row-ongoing') ? 'row-ongoing' : 'row-completed';
-                            } else if (today >= startDate && today <= endDate) {
-                                // Currently active / in progress
+                                const timeDiff = startDate.getTime() - todayDate.getTime();
+                                const daysUntilStart = Math.round(timeDiff / (1000 * 3600 * 24));
+
+                                if (todayDate >= startDate && todayDate <= endDate) {
+                                    tourClass = 'row-ongoing';
+                                } else if (daysUntilStart > 0 && daysUntilStart <= 2) {
+                                    tourClass = 'upcoming-soon';
+                                } else if (todayDate > endDate) {
+                                    tourClass = 'row-completed';
+                                }
+                            }
+
+                            // 3. Resolve to a Single Final Row Class
+                            if (transferClass === 'row-ongoing' || tourClass === 'row-ongoing') {
                                 rowClass = 'row-ongoing';
-                            } else if (daysUntilStart >= 0 && daysUntilStart <= 2) {
-                                // Starting within 2 days
+                            } else if (transferClass === 'upcoming-soon' || tourClass === 'upcoming-soon') {
                                 rowClass = 'upcoming-soon';
+                            } else if (tourClass === 'row-completed') {
+                                rowClass = 'row-completed';
+                            } else {
+                                rowClass = ''; // Default / Future standard booking
                             }
 
                             // Check full tour or not
