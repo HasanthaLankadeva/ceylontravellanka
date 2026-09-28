@@ -746,6 +746,31 @@ Day 2: Kandy City Tour..." class="w-full text-xs border border-slate-300 focus:b
                             const todayDate = new Date(today);
                             todayDate.setHours(0, 0, 0, 0);
 
+                            // 1. Process and format transfer date ranges
+                            let transferDateRangeStr = '';
+
+                            if (Array.isArray(transfers) && transfers.length > 0) {
+                                // Extract valid Date objects and sort them chronologically
+                                const sortedTransferDates = transfers
+                                    .filter(t => t && t.date)
+                                    .map(t => new Date(`${t.date}T00:00:00`))
+                                    .filter(d => !isNaN(d.getTime()))
+                                    .sort((a, b) => a.getTime() - b.getTime());
+
+                                if (sortedTransferDates.length > 0) {
+                                    const dateFormatter = new Intl.DateTimeFormat('en-US', { month: 'short', day: 'numeric' });
+
+                                    const firstDate = dateFormatter.format(sortedTransferDates[0]);
+                                    const lastDate = dateFormatter.format(sortedTransferDates[sortedTransferDates.length - 1]);
+
+                                    if (sortedTransferDates.length === 1 || firstDate === lastDate) {
+                                        transferDateRangeStr = firstDate; // e.g., "Sep 14"
+                                    } else {
+                                        transferDateRangeStr = `${firstDate} - ${lastDate}`; // e.g., "Sep 14 - Sep 30"
+                                    }
+                                }
+                            }
+
                             let transferClass = null;
 
                             // 1. Process Transfers (Look for ongoing or upcoming-soon transfers)
@@ -845,7 +870,9 @@ Day 2: Kandy City Tour..." class="w-full text-xs border border-slate-300 focus:b
                             let tour_start_date = row.tour_start_date;
                             let tour_end_date = row.tour_end_date;
 
-                            let formattedRange = formatTourDates(tour_start_date, tour_end_date);
+                            let formattedRange = (fullTour == 'Yes') ? formatTourDates(tour_start_date, tour_end_date) : transferDateRangeStr;
+
+                            let days = (fullTour == 'Yes') ? row.tour_days : `${row.transfers_count}` + 'tranfers';
 
                             let statusOptions = ['Upcoming', 'Ongoing', 'Completed', 'Payment Recieved', 'Canceled'];
 
@@ -861,7 +888,7 @@ Day 2: Kandy City Tour..." class="w-full text-xs border border-slate-300 focus:b
                                 <div class="text-xs text-slate-600">Full Tour: ${fullTour}</div>
                                 <div class="text-xs text-slate-600">Transfers: ${transferSpan}</div></td>
                                 <td class="py-4 px-4 whitespace-nowrap"><div class="font-medium text-slate-800">${formattedRange || '-'}</div>
-                                    <div class="text-xs text-slate-500">${row.tour_days} Days</div></td>
+                                    <div class="text-xs text-slate-500">${days} Days</div></td>
                                 <td class="py-4 px-4">
                                     <div class="font-medium text-slate-800">${row.guest_name}</div>
                                     <div class="text-xs text-slate-500 flex items-center gap-2 m-1">
@@ -934,7 +961,7 @@ Day 2: Kandy City Tour..." class="w-full text-xs border border-slate-300 focus:b
                                         <div class="bg-slate-50 p-2.5 rounded-xl border border-slate-100">
                                             <span class="text-slate-400 block font-medium mb-1"><i class="fa-regular fa-calendar-check mr-1 text-slate-500"></i> Schedule</span>
                                             <span class="font-semibold text-slate-700 block">${formattedRange || '-'}</span>
-                                            <span class="text-slate-500 text-[11px]">${row.tour_days} Days</span>
+                                            <span class="text-slate-500 text-[11px]">${days} Days</span>
                                         </div>
                                         <div class="bg-slate-50 p-2.5 rounded-xl border border-slate-100">
                                             <span class="text-slate-400 block font-medium mb-1"><i class="fa-solid fa-car-side mr-1 text-slate-500"></i> Vehicle</span>
