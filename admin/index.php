@@ -872,7 +872,7 @@ Day 2: Kandy City Tour..." class="w-full text-xs border border-slate-300 focus:b
 
                             let formattedRange = (fullTour == 'Yes') ? formatTourDates(tour_start_date, tour_end_date) : transferDateRangeStr;
 
-                            let days = (fullTour == 'Yes') ? row.tour_days : `${row.transfers_count}` + 'tranfers';
+                            let days = (fullTour == 'Yes') ? row.tour_days + ' Days' : `${row.transfers_count}` + ' Tranfers';
 
                             let statusOptions = ['Upcoming', 'Ongoing', 'Completed', 'Payment Recieved', 'Canceled'];
 
@@ -888,7 +888,7 @@ Day 2: Kandy City Tour..." class="w-full text-xs border border-slate-300 focus:b
                                 <div class="text-xs text-slate-600">Full Tour: ${fullTour}</div>
                                 <div class="text-xs text-slate-600">Transfers: ${transferSpan}</div></td>
                                 <td class="py-4 px-4 whitespace-nowrap"><div class="font-medium text-slate-800">${formattedRange || '-'}</div>
-                                    <div class="text-xs text-slate-500">${days} Days</div></td>
+                                    <div class="text-xs text-slate-500">${days}</div></td>
                                 <td class="py-4 px-4">
                                     <div class="font-medium text-slate-800">${row.guest_name}</div>
                                     <div class="text-xs text-slate-500 flex items-center gap-2 m-1">
