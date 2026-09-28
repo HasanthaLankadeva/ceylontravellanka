@@ -22,6 +22,7 @@ function getCountryFromMobile($mobile) {
         '91'  => ['name' => 'India', 'code' => 'in'],
         '65'  => ['name' => 'Singapore', 'code' => 'sg'],
         '1'   => ['name' => 'USA / Canada', 'code' => 'us'],
+        '27'   => ['name' => 'South Africa', 'code' => 'za'],
     ];
 
     foreach ($prefixes as $prefix => $info) {
