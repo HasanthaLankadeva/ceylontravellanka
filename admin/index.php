@@ -778,7 +778,7 @@ Day 2: Kandy City Tour..." class="w-full text-xs border border-slate-300 focus:b
 
                             if (today > endDate) {
                                 // Tour date has already passed
-                                rowClass = 'row-completed';
+                                rowClass = (rowClass == 'row-ongoing') ? 'row-ongoing' : 'row-completed';
                             } else if (today >= startDate && today <= endDate) {
                                 // Currently active / in progress
                                 rowClass = 'row-ongoing';
