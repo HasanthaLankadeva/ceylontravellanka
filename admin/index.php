@@ -532,6 +532,15 @@ Day 2: Kandy City Tour..." class="w-full text-xs border border-slate-300 focus:b
                             <input type="time" name="arrival_time" class="w-full border border-slate-300 focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 rounded-lg px-3 py-2 text-slate-800 outline-none transition">
                         </div>
                     </div>
+                    <!-- Flight & Schedule Section -->
+                    <div id="flightScheduleContainer" class="space-y-2">
+                        <!-- Dynamic Rows Rendered Here -->
+                    </div>
+
+                    <button type="button" class="mt-2 bg-slate-100 hover:bg-slate-200 text-slate-700 px-3 py-1.5 rounded-lg text-xs font-semibold flex items-center space-x-1 transition" id="addFlightRowBtn">
+                        <i class="fa-solid fa-plus text-[10px]"></i>
+                        <span>Add Flight / Schedule Row</span>
+                    </button>
                 </div>
 
                 <!-- 6. Driver Details -->
@@ -1169,6 +1178,35 @@ Day 2: Kandy City Tour..." class="w-full text-xs border border-slate-300 focus:b
                 $(this).closest('.package-row').remove();
             });
 
+            // Function to append a new Flight/Schedule row
+            function addFlightRow(scheduleFrom = '', scheduleDate = '', scheduleTime = '') {
+                let html = `
+                    <div class="flight-row gap-4 grid grid-cols-1 items-center sm:grid-cols-12 text-xs">
+                        <div class="sm:col-span-4">
+                            <input type="text" name="schedule_from[]" placeholder="e.g. CMB Airport / UL-504" value="${scheduleFrom}" class="w-full border border-slate-300 focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 rounded-lg px-2.5 py-1.5 text-slate-800 outline-none bg-white transition">
+                        </div>
+                        <div class="sm:col-span-4">
+                            <input type="date" name="schedule_date[]" value="${scheduleDate}" class="w-full border border-slate-300 focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 rounded-lg px-2.5 py-1.5 text-slate-800 outline-none bg-white transition">
+                        </div>
+                        <div class="sm:col-span-3">
+                            <input type="time" name="schedule_time[]" value="${scheduleTime}" class="w-full border border-slate-300 focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 rounded-lg px-2.5 py-1.5 text-slate-800 outline-none bg-white transition">
+                        </div>
+                        <div class="sm:col-span-1 flex justify-end">
+                            <button type="button" class="btn-remove-flight-row text-red-500 hover:text-white hover:bg-red-500 w-7 h-7 rounded-lg transition duration-150 flex items-center justify-center font-bold text-base leading-none">×</button>
+                        </div>
+                    </div>`;
+                $('#flightScheduleContainer').append(html);
+            }
+
+            // Click event to add a new row
+            $('#addFlightRowBtn').click(function() {
+                addFlightRow();
+            });
+
+            // Event delegation to handle row removal
+            $(document).on('click', '.btn-remove-flight-row', function() {$(this).closest('.flight-row').remove();
+            });
+
             $(document).on('click', '.toggle-details-btn', function() {
                 // Find nearest details panel (works for both mobile cards and table rows)
                 let panel = $(this).closest('.bg-white, tr').next('.details-panel');
@@ -1390,6 +1428,7 @@ Day 2: Kandy City Tour..." class="w-full text-xs border border-slate-300 focus:b
                 $('#booking_id').val(''); 
                 $('#bookingForm')[0].reset(); 
                 $('#packageSummaryContainer .package-row').remove();
+                $('#flightScheduleContainer .flight-row').remove();
                 $('.bookingForm-submit').find('span').text('Save Booking');
                 $('#total_vehicle_cost').val('');
                 //$('#calculated_profit').val('0.00');
