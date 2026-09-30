@@ -1469,7 +1469,9 @@ Day 2: Kandy City Tour..." class="w-full text-xs border border-slate-300 focus:b
             // Reset Modal Title and Fields when clicking "Add New Booking"
             $('#openModalBtn').click(function() { 
                 $('#modalTitle').text('Add Booking');
-                $('#booking_id').val(''); 
+                $('#booking_id').val('');
+                $('#agreement_id').val(''); 
+                $('#paging_id').val(''); 
                 $('#bookingForm')[0].reset(); 
                 $('#packageSummaryContainer .package-row').remove();
                 $('#flightScheduleContainer .flight-row').remove();
