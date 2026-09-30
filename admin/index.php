@@ -1412,6 +1412,7 @@ Day 2: Kandy City Tour..." class="w-full text-xs border border-slate-300 focus:b
                 $('#paging_id').val('');
                 $('.bookingForm-submit').find('span').text('Save Booking');
 
+                let editBtn = $(this);
                 let booking = $(this).data('booking');
 
                 $('#modalTitle').text('Edit Booking ' + (booking.order_number || booking.id));
@@ -1420,11 +1421,23 @@ Day 2: Kandy City Tour..." class="w-full text-xs border border-slate-300 focus:b
                 
                 // Populate form inputs by matching input [name] with data keys
                 $.each(booking, function(key, value) {
+                    
                     $(`[name="${key}"]`).val(value);
-                    if(key == 'agreement_link'){
-                        let agreementFileId = $('a[data-docid]').eq(0).data('docid');
-                        let pagingFileId    = $('a[data-docid]').eq(1).data('docid');
 
+                    if(key == 'agreement_link'){
+
+                        // 1. Guard against null, undefined, or empty values
+                        if (!value) return;
+                        let htmlString = (Array.isArray(value) ? value[0] : value).trim();
+
+                        // Safely parse into jQuery DOM elements
+                        let $html = $($.parseHTML(htmlString));
+
+                        // Extract the values by ID
+                        let agreementFileId = $html.filter('#agreement-pdf').attr('data-docid');
+                        let pagingFileId    = $html.filter('#paging-pdf').attr('data-docid');
+
+                        // Populate your inputs
                         $('#agreement_id').val(agreementFileId);
                         $('#paging_id').val(pagingFileId);
                     }
