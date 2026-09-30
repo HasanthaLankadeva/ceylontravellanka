@@ -508,7 +508,7 @@
                         <i class="fa-solid fa-map-location-dot text-emerald-600 text-sm"></i>
                         <h4 class="text-xs font-bold uppercase tracking-wider text-slate-700">5. Itinerary Details</h4>
                     </div>
-                    <textarea name="itinerary" rows="4" placeholder="Day 1: Airport Pickup to Kandy
+                    <textarea id="itinerary" name="itinerary" rows="4" placeholder="Day 1: Airport Pickup to Kandy
 Day 2: Kandy City Tour..." class="w-full text-xs border border-slate-300 focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 rounded-lg p-3 text-slate-800 outline-none transition leading-relaxed"></textarea>
                 </div>
 
@@ -633,6 +633,8 @@ Day 2: Kandy City Tour..." class="w-full text-xs border border-slate-300 focus:b
     </div>
   </div> 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- TinyMCE CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tinymce/6.8.2/tinymce.min.js" referrerpolicy="origin"></script>
     <script>
         $(document).ready(function() {
             // Mobile Drawer Toggle Handler
@@ -1225,7 +1227,7 @@ Day 2: Kandy City Tour..." class="w-full text-xs border border-slate-300 focus:b
 
             // Modal Controls
             $('#openModalBtn').click(function() { $('#bookingForm')[0].reset(); $('#bookingModal').show(); });
-            $('#closeModalBtn, #closeModalBtn2').click(function() { $('#bookingModal').hide(); });
+            $('#closeModalBtn, #closeModalBtn2').click(function() { $('#bookingForm')[0].reset(); $('#bookingModal').hide(); });
 
             // Form Submit via AJAX
             $('#bookingForm').on('submit', function(e) {
@@ -1241,15 +1243,31 @@ Day 2: Kandy City Tour..." class="w-full text-xs border border-slate-300 focus:b
                 // Disable button immediately
                 $submitButton.prop('disabled', true);$submitButton.find('span').text('Processing...');
 
+                // Method A: Sync TinyMCE back to the original <textarea> element
+                tinymce.triggerSave();
+
                 let formdata = $(this).serialize();
                 let params = new URLSearchParams(formdata);
                 let status = $("#status").val();
+
+                // Helper function to turn HTML into clean plain text for Google Docs/Apps Script
+                function formatHtmlToPlainText(htmlString) {
+                    if (!htmlString) return '';
+                    let formatted = htmlString
+                        .replace(/<br\s*[\/]?>/gi, '\n')
+                        .replace(/<\/p>/gi, '\n')
+                        .replace(/&nbsp;/gi, ' ');
+                    let temp = document.createElement('div');
+                    temp.innerHTML = formatted;
+                    return temp.textContent.trim();
+                }
 
                 // Helper function to save directly to Database via AJAX
                 function saveBooking(formDataToSave) {
                     $.post('ajax_handler?action=save', formDataToSave, function(res) {
                         let response = (typeof res === 'object') ? res : JSON.parse(res);
                         if (response.status === 'success') {
+                            $('#bookingForm')[0].reset();
                             $('#bookingModal').hide();
                             loadBookings();
                         } else {
@@ -1301,6 +1319,27 @@ Day 2: Kandy City Tour..." class="w-full text-xs border border-slate-300 focus:b
                         }
                     });
 
+                    // Gather dynamic rows from Flight Schedule
+                    var flight_details = [];
+                    $('.flight-row').each(function() {
+
+                        var schedule_from = $(this).find('input[name="schedule_from[]"]').val();
+                        var schedule_date = $(this).find('input[name="schedule_date[]"]').val();
+                        var schedule_time = $(this).find('input[name="schedule_time[]"]').val();
+
+                        if (schedule_from || schedule_date) {
+                            flight_details.push({
+                                schedule_from: schedule_from,
+                                schedule_date: schedule_date,
+                                schedule_time: schedule_time
+                            });
+                        }
+                    });
+
+                    // Get clean plain text for Google Apps Script document generation
+                    let rawItineraryHtml = params.get('itinerary') || '';
+                    let cleanItineraryText = formatHtmlToPlainText(rawItineraryHtml);
+
                     // Build payload for Google Apps Script
                     let payload = {
                         agreementID: params.get('agreement_id'),
@@ -1323,9 +1362,10 @@ Day 2: Kandy City Tour..." class="w-full text-xs border border-slate-300 focus:b
                         gbp: tourChargeGBP,
                         pickup_from: params.get('pickup_from'),
                         pickup_date: params.get('pickup_date'),
-                        pickup_time: params.get('arrival_time'),
+                        pickup_time: params.get('arrival_time'),                        
+                        flight_details: flight_details,
                         transfers: transfers,
-                        itinerary: params.get('itinerary'),
+                        itinerary: cleanItineraryText,
                         driver_name: params.get('driver_name'),
                         driver_mobile: params.get('driver_mobile'),
                         payment_options: params.get('payment_options')
@@ -1385,6 +1425,10 @@ Day 2: Kandy City Tour..." class="w-full text-xs border border-slate-300 focus:b
 
                         $('#agreement_id').val(agreementFileId);
                         $('#paging_id').val(pagingFileId);
+                    }
+
+                    if(key == 'itinerary'){
+                        tinymce.get('itinerary').setContent(value || '');
                     }
 
                     if(key == 'transfers'){
@@ -1569,6 +1613,26 @@ Day 2: Kandy City Tour..." class="w-full text-xs border border-slate-300 focus:b
     // Launch WhatsApp
     let whatsappUrl = "https://api.whatsapp.com/send?phone=" + mobile + "&text=" + encodedMessage;
     window.open(whatsappUrl, '_blank');
+            });
+
+
+            // TinyMCE Initialization 
+            tinymce.init({
+                selector: '#itinerary',
+                height: 250,
+                menubar: false,
+                plugins: [
+                'advlist', 'autolink', 'lists', 'link', 'charmap', 'preview',
+                'searchreplace', 'visualblocks', 'code', 'fullscreen',
+                'insertdatetime', 'table', 'code', 'help', 'wordcount'
+                ],
+                toolbar: 'undo redo | blocks | ' +
+                'bold italic backcolor | alignleft aligncenter ' +
+                'alignright alignjustify | bullist numlist outdent indent | ' +
+                'removeformat | help',
+                content_style: 'body { font-family:Inter,sans-serif; font-size:14px }',
+                branding: false,
+                promotion: false
             });
         });
     </script>
