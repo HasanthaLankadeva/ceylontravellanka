@@ -1408,6 +1408,8 @@ Day 2: Kandy City Tour..." class="w-full text-xs border border-slate-300 focus:b
             // Populate Modal Form when Edit Button is clicked
             $(document).on('click', '.edit-btn', function() {
 
+                $('#agreement_id').val('');
+                $('#paging_id').val('');
                 $('.bookingForm-submit').find('span').text('Save Booking');
 
                 let booking = $(this).data('booking');
