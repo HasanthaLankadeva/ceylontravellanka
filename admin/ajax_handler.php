@@ -215,13 +215,33 @@ if ($action === 'save') {
 
         $transfers = json_encode($transfers_array);
 
+        $scheduleFrom   = $_POST['schedule_from'] ?? [];
+        $scheduleDate  = $_POST['schedule_date'] ?? [];
+        $scheduleTime = $_POST['schedule_time'] ?? [];
+
+        $flight_details = [];
+
+        for ($i = 0; $i < count($scheduleFrom); $i++) {
+            if (empty($scheduleFrom[$i]) && empty($scheduleDate[$i])) {
+                continue;
+            }
+
+            $flight_details[] = [
+                'schedule_from'    => $scheduleFrom[$i] ?? '',
+                'schedule_date'   => $scheduleDate[$i],
+                'schedule_time' => $scheduleTime[$i] ?? '',
+            ];
+        }
+
+        $flightDetailsJson = json_encode($flight_details);
+
         if ($id === null) {
             // Create new record
             $sql = "INSERT INTO bookings (
                         order_number, tour_start_date, tour_end_date, tour_days, guest_name, 
                         paging_name, adults, children, guest_mobile, guest_email, 
                         transfers, itinerary, vehicle_model, mileage_limit, extra_mileage_charge, 
-                        tour_title, pickup_from, pickup_date, arrival_time, driver_name, 
+                        tour_title, pickup_from, pickup_date, arrival_time, flight_details, driver_name, 
                         driver_mobile, agreement_link, tour_charge, income_advance, driver_charges, 
                         expense_other, expense_advance, payment_options, special_notes, status, 
                         total_vehicle_cost
@@ -232,13 +252,13 @@ if ($action === 'save') {
                         ?, ?, ?, ?, ?, 
                         ?, ?, ?, ?, ?, 
                         ?, ?, ?, ?, ?, 
-                        ?
+                        ?, ?
                     )";
             $params = [
                 $order_number, $tour_start_date, $tour_end_date, $tour_days, $guest_name,
                 $paging_name, $adults, $children, $guest_mobile, $guest_email,
                 $transfers, $itinerary, $vehicle_model, $mileage_limit, $extra_mileage_charge,
-                $tour_title, $pickup_from, $pickup_date, $arrival_time, $driver_name,
+                $tour_title, $pickup_from, $pickup_date, $arrival_time, $flightDetailsJson, $driver_name,
                 $driver_mobile, $agreement_link, $tour_charge, $income_advance, $driver_charges,
                 $expense_other, $expense_advance, $payment_options, $special_notes, $status,
                 $total_vehicle_cost
@@ -249,7 +269,7 @@ if ($action === 'save') {
                         tour_start_date=?, tour_end_date=?, tour_days=?, guest_name=?, paging_name=?, 
                         adults=?, children=?, guest_mobile=?, guest_email=?, transfers=?, 
                         itinerary=?, vehicle_model=?, mileage_limit=?, extra_mileage_charge=?, tour_title=?, 
-                        pickup_from=?, pickup_date=?, arrival_time=?, driver_name=?, driver_mobile=?, 
+                        pickup_from=?, pickup_date=?, arrival_time=?, flight_details=?, driver_name=?, driver_mobile=?, 
                         agreement_link=?, tour_charge=?, income_advance=?, driver_charges=?, expense_other=?, 
                         expense_advance=?, payment_options=?, special_notes=?, status=?, total_vehicle_cost=? 
                     WHERE id=?";
@@ -257,7 +277,7 @@ if ($action === 'save') {
                 $tour_start_date, $tour_end_date, $tour_days, $guest_name, $paging_name,
                 $adults, $children, $guest_mobile, $guest_email, $transfers,
                 $itinerary, $vehicle_model, $mileage_limit, $extra_mileage_charge, $tour_title,
-                $pickup_from, $pickup_date, $arrival_time, $driver_name, $driver_mobile,
+                $pickup_from, $pickup_date, $arrival_time, $flightDetailsJson, $driver_name, $driver_mobile,
                 $agreement_link, $tour_charge, $income_advance, $driver_charges, $expense_other,
                 $expense_advance, $payment_options, $special_notes, $status, $total_vehicle_cost,
                 $id

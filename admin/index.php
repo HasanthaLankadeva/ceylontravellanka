@@ -508,7 +508,7 @@
                         <i class="fa-solid fa-map-location-dot text-emerald-600 text-sm"></i>
                         <h4 class="text-xs font-bold uppercase tracking-wider text-slate-700">5. Itinerary Details</h4>
                     </div>
-                    <textarea name="itinerary" rows="4" placeholder="Day 1: Airport Pickup to Kandy
+                    <textarea id="itinerary" name="itinerary" rows="4" placeholder="Day 1: Airport Pickup to Kandy
 Day 2: Kandy City Tour..." class="w-full text-xs border border-slate-300 focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 rounded-lg p-3 text-slate-800 outline-none transition leading-relaxed"></textarea>
                 </div>
 
@@ -532,6 +532,15 @@ Day 2: Kandy City Tour..." class="w-full text-xs border border-slate-300 focus:b
                             <input type="time" name="arrival_time" class="w-full border border-slate-300 focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 rounded-lg px-3 py-2 text-slate-800 outline-none transition">
                         </div>
                     </div>
+                    <!-- Flight & Schedule Section -->
+                    <div id="flightScheduleContainer" class="space-y-2">
+                        <!-- Dynamic Rows Rendered Here -->
+                    </div>
+
+                    <button type="button" class="mt-2 bg-slate-100 hover:bg-slate-200 text-slate-700 px-3 py-1.5 rounded-lg text-xs font-semibold flex items-center space-x-1 transition" id="addFlightRowBtn">
+                        <i class="fa-solid fa-plus text-[10px]"></i>
+                        <span>Add Flight / Schedule Row</span>
+                    </button>
                 </div>
 
                 <!-- 6. Driver Details -->
@@ -624,6 +633,8 @@ Day 2: Kandy City Tour..." class="w-full text-xs border border-slate-300 focus:b
     </div>
   </div> 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- TinyMCE CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tinymce/6.8.2/tinymce.min.js" referrerpolicy="origin"></script>
     <script>
         $(document).ready(function() {
             // Mobile Drawer Toggle Handler
@@ -872,7 +883,7 @@ Day 2: Kandy City Tour..." class="w-full text-xs border border-slate-300 focus:b
 
                             let formattedRange = (fullTour == 'Yes') ? formatTourDates(tour_start_date, tour_end_date) : transferDateRangeStr;
 
-                            let days = (fullTour == 'Yes') ? row.tour_days : `${row.transfers_count}` + 'tranfers';
+                            let days = (fullTour == 'Yes') ? row.tour_days + ' Days' : `${row.transfers_count}` + ' Tranfers';
 
                             let statusOptions = ['Upcoming', 'Ongoing', 'Completed', 'Payment Recieved', 'Canceled'];
 
@@ -888,7 +899,7 @@ Day 2: Kandy City Tour..." class="w-full text-xs border border-slate-300 focus:b
                                 <div class="text-xs text-slate-600">Full Tour: ${fullTour}</div>
                                 <div class="text-xs text-slate-600">Transfers: ${transferSpan}</div></td>
                                 <td class="py-4 px-4 whitespace-nowrap"><div class="font-medium text-slate-800">${formattedRange || '-'}</div>
-                                    <div class="text-xs text-slate-500">${days} Days</div></td>
+                                    <div class="text-xs text-slate-500">${days}</div></td>
                                 <td class="py-4 px-4">
                                     <div class="font-medium text-slate-800">${row.guest_name}</div>
                                     <div class="text-xs text-slate-500 flex items-center gap-2 m-1">
@@ -1169,6 +1180,35 @@ Day 2: Kandy City Tour..." class="w-full text-xs border border-slate-300 focus:b
                 $(this).closest('.package-row').remove();
             });
 
+            // Function to append a new Flight/Schedule row
+            function addFlightRow(scheduleFrom = '', scheduleDate = '', scheduleTime = '') {
+                let html = `
+                    <div class="flight-row gap-4 grid grid-cols-1 items-center sm:grid-cols-12 text-xs">
+                        <div class="sm:col-span-4">
+                            <input type="text" name="schedule_from[]" placeholder="e.g. CMB Airport / UL-504" value="${scheduleFrom}" class="w-full border border-slate-300 focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 rounded-lg px-2.5 py-1.5 text-slate-800 outline-none bg-white transition">
+                        </div>
+                        <div class="sm:col-span-4">
+                            <input type="date" name="schedule_date[]" value="${scheduleDate}" class="w-full border border-slate-300 focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 rounded-lg px-2.5 py-1.5 text-slate-800 outline-none bg-white transition">
+                        </div>
+                        <div class="sm:col-span-3">
+                            <input type="time" name="schedule_time[]" value="${scheduleTime}" class="w-full border border-slate-300 focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 rounded-lg px-2.5 py-1.5 text-slate-800 outline-none bg-white transition">
+                        </div>
+                        <div class="sm:col-span-1 flex justify-end">
+                            <button type="button" class="btn-remove-flight-row text-red-500 hover:text-white hover:bg-red-500 w-7 h-7 rounded-lg transition duration-150 flex items-center justify-center font-bold text-base leading-none">×</button>
+                        </div>
+                    </div>`;
+                $('#flightScheduleContainer').append(html);
+            }
+
+            // Click event to add a new row
+            $('#addFlightRowBtn').click(function() {
+                addFlightRow();
+            });
+
+            // Event delegation to handle row removal
+            $(document).on('click', '.btn-remove-flight-row', function() {$(this).closest('.flight-row').remove();
+            });
+
             $(document).on('click', '.toggle-details-btn', function() {
                 // Find nearest details panel (works for both mobile cards and table rows)
                 let panel = $(this).closest('.bg-white, tr').next('.details-panel');
@@ -1187,7 +1227,7 @@ Day 2: Kandy City Tour..." class="w-full text-xs border border-slate-300 focus:b
 
             // Modal Controls
             $('#openModalBtn').click(function() { $('#bookingForm')[0].reset(); $('#bookingModal').show(); });
-            $('#closeModalBtn, #closeModalBtn2').click(function() { $('#bookingModal').hide(); });
+            $('#closeModalBtn, #closeModalBtn2').click(function() { $('#bookingForm')[0].reset(); $('#bookingModal').hide(); });
 
             // Form Submit via AJAX
             $('#bookingForm').on('submit', function(e) {
@@ -1203,15 +1243,31 @@ Day 2: Kandy City Tour..." class="w-full text-xs border border-slate-300 focus:b
                 // Disable button immediately
                 $submitButton.prop('disabled', true);$submitButton.find('span').text('Processing...');
 
+                // Method A: Sync TinyMCE back to the original <textarea> element
+                tinymce.triggerSave();
+
                 let formdata = $(this).serialize();
                 let params = new URLSearchParams(formdata);
                 let status = $("#status").val();
+
+                // Helper function to turn HTML into clean plain text for Google Docs/Apps Script
+                function formatHtmlToPlainText(htmlString) {
+                    if (!htmlString) return '';
+                    let formatted = htmlString
+                        .replace(/<br\s*[\/]?>/gi, '\n')
+                        .replace(/<\/p>/gi, '\n')
+                        .replace(/&nbsp;/gi, ' ');
+                    let temp = document.createElement('div');
+                    temp.innerHTML = formatted;
+                    return temp.textContent.trim();
+                }
 
                 // Helper function to save directly to Database via AJAX
                 function saveBooking(formDataToSave) {
                     $.post('ajax_handler?action=save', formDataToSave, function(res) {
                         let response = (typeof res === 'object') ? res : JSON.parse(res);
                         if (response.status === 'success') {
+                            $('#bookingForm')[0].reset();
                             $('#bookingModal').hide();
                             loadBookings();
                         } else {
@@ -1263,6 +1319,27 @@ Day 2: Kandy City Tour..." class="w-full text-xs border border-slate-300 focus:b
                         }
                     });
 
+                    // Gather dynamic rows from Flight Schedule
+                    var flight_details = [];
+                    $('.flight-row').each(function() {
+
+                        var schedule_from = $(this).find('input[name="schedule_from[]"]').val();
+                        var schedule_date = $(this).find('input[name="schedule_date[]"]').val();
+                        var schedule_time = $(this).find('input[name="schedule_time[]"]').val();
+
+                        if (schedule_from || schedule_date) {
+                            flight_details.push({
+                                schedule_from: schedule_from,
+                                schedule_date: schedule_date,
+                                schedule_time: schedule_time
+                            });
+                        }
+                    });
+
+                    // Get clean plain text for Google Apps Script document generation
+                    let rawItineraryHtml = params.get('itinerary') || '';
+                    let cleanItineraryText = formatHtmlToPlainText(rawItineraryHtml);
+
                     // Build payload for Google Apps Script
                     let payload = {
                         agreementID: params.get('agreement_id'),
@@ -1285,9 +1362,10 @@ Day 2: Kandy City Tour..." class="w-full text-xs border border-slate-300 focus:b
                         gbp: tourChargeGBP,
                         pickup_from: params.get('pickup_from'),
                         pickup_date: params.get('pickup_date'),
-                        pickup_time: params.get('arrival_time'),
+                        pickup_time: params.get('arrival_time'),                        
+                        flight_details: flight_details,
                         transfers: transfers,
-                        itinerary: params.get('itinerary'),
+                        itinerary: cleanItineraryText,
                         driver_name: params.get('driver_name'),
                         driver_mobile: params.get('driver_mobile'),
                         payment_options: params.get('payment_options')
@@ -1349,6 +1427,10 @@ Day 2: Kandy City Tour..." class="w-full text-xs border border-slate-300 focus:b
                         $('#paging_id').val(pagingFileId);
                     }
 
+                    if(key == 'itinerary'){
+                        tinymce.get('itinerary').setContent(value || '');
+                    }
+
                     if(key == 'transfers'){
                         if (value) {
                             let data = typeof value === 'string' ? JSON.parse(value) : value;
@@ -1390,6 +1472,7 @@ Day 2: Kandy City Tour..." class="w-full text-xs border border-slate-300 focus:b
                 $('#booking_id').val(''); 
                 $('#bookingForm')[0].reset(); 
                 $('#packageSummaryContainer .package-row').remove();
+                $('#flightScheduleContainer .flight-row').remove();
                 $('.bookingForm-submit').find('span').text('Save Booking');
                 $('#total_vehicle_cost').val('');
                 //$('#calculated_profit').val('0.00');
@@ -1530,6 +1613,26 @@ Day 2: Kandy City Tour..." class="w-full text-xs border border-slate-300 focus:b
     // Launch WhatsApp
     let whatsappUrl = "https://api.whatsapp.com/send?phone=" + mobile + "&text=" + encodedMessage;
     window.open(whatsappUrl, '_blank');
+            });
+
+
+            // TinyMCE Initialization 
+            tinymce.init({
+                selector: '#itinerary',
+                height: 250,
+                menubar: false,
+                plugins: [
+                'advlist', 'autolink', 'lists', 'link', 'charmap', 'preview',
+                'searchreplace', 'visualblocks', 'code', 'fullscreen',
+                'insertdatetime', 'table', 'code', 'help', 'wordcount'
+                ],
+                toolbar: 'undo redo | blocks | ' +
+                'bold italic backcolor | alignleft aligncenter ' +
+                'alignright alignjustify | bullist numlist outdent indent | ' +
+                'removeformat | help',
+                content_style: 'body { font-family:Inter,sans-serif; font-size:14px }',
+                branding: false,
+                promotion: false
             });
         });
     </script>
