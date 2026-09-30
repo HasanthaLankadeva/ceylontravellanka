@@ -1547,6 +1547,7 @@ Day 2: Kandy City Tour..." class="w-full text-xs border border-slate-300 focus:b
             function calculateAll(id) {
                 let start = new Date($('#tour_start_date').val());
                 let end = new Date($('#tour_end_date').val());
+                let tourDays = $('#tour_days').val();
                 let diffDays = $('#tour_days').val();
 
                 if (start && end && end >= start) {
@@ -1569,7 +1570,7 @@ Day 2: Kandy City Tour..." class="w-full text-xs border border-slate-300 focus:b
                 let maxMileage = diffDays > 0 ? (100 * diffDays) + extra : 0;
                 $('#mileage_limit').val(maxMileage);
 
-                let packageName = (diffDays && selectedVehicle) ? `${diffDays}-Day Private ${selectedVehicle} Rental` : '';
+                let packageName = (tourDays && selectedVehicle) ? `${tourDays}-Day Private ${selectedVehicle} Rental` : '';
                 $('#tour_title').val(packageName);
                 
             }
