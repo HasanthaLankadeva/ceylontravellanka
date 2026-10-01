@@ -116,7 +116,10 @@
     @media (max-width: 800px) {
         .filter select{
             width: 100%;
-        }    
+        }
+        #inventoryCards{
+            min-height: 285px;
+        }  
     }
     
   </style>
