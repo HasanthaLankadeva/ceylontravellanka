@@ -48,8 +48,12 @@ try {
     foreach ($rows as $row) {
         $tourCharge  = floatval($row['tour_charge'] ?? 0);
         $vehicleCost = floatval($row['total_vehicle_cost'] ?? 0);
-        $amount      = $tourCharge - $vehicleCost; // Revenue calculation
 
+        if ($tourCharge == 0){
+          continue;
+        }
+
+        $amount      = $tourCharge - $vehicleCost; // Revenue calculation
         $mobile  = $row['guest_mobile'];
         $country = getCountryFromMobile($mobile);
 
