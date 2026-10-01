@@ -33,12 +33,6 @@
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
         }
 
-        h2 {
-            text-align: center;
-            color: #1a252f;
-            font-size: 1.5rem;
-            margin-bottom: 20px;
-        }
 
         /* Sections */
         .section {
@@ -264,12 +258,12 @@
 
       <nav class="p-4 space-y-1 overflow-y-auto max-h-[calc(100vh-120px)]">
         <div class="px-3 py-2 text-[11px] font-semibold text-slate-500 uppercase tracking-wider sidebar-text">Core Operations</div>
-        
+
         <a href="<?= BASE_URL ?>admin/calculator" class="flex items-center gap-3 px-3.5 py-2.5 text-sm font-medium rounded-lg bg-indigo-600 text-white transition">
           <i class="fa-solid fa-calculator text-lg w-5"></i>
           <span class="sidebar-text">Calculator</span>
         </a>
-
+        
         <a href="<?= BASE_URL ?>admin/" class="flex items-center gap-3 px-3.5 py-2.5 text-sm font-medium rounded-lg text-slate-400 hover:bg-slate-800 hover:text-white transition">
           <i class="fa-solid fa-list-check text-lg w-5"></i>
           <span class="sidebar-text">Bookings List</span>
@@ -285,6 +279,13 @@
           <span class="sidebar-text">Analytics & Reports</span>
         </a>
 
+        <div class="px-3 py-2 mt-4 text-[11px] font-semibold text-slate-500 uppercase tracking-wider sidebar-text">Accounting</div>
+
+        <a href="<?= BASE_URL ?>admin/cashbook" class="flex items-center gap-3 px-3.5 py-2.5 text-sm font-medium rounded-lg text-slate-400 hover:bg-slate-800 hover:text-white transition">
+          <i class="fa-solid fa-wallet text-lg w-5"></i>
+          <span class="sidebar-text">Cash Book</span>
+        </a>
+
         <div class="px-3 py-2 mt-4 text-[11px] font-semibold text-slate-500 uppercase tracking-wider sidebar-text">Management</div>
 
         <a href="#" class="flex items-center gap-3 px-3.5 py-2.5 text-sm font-medium rounded-lg text-slate-400 hover:bg-slate-800 hover:text-white transition">
@@ -292,9 +293,9 @@
           <span class="sidebar-text">Fleet & Drivers</span>
         </a>
 
-        <a href="#" class="flex items-center gap-3 px-3.5 py-2.5 text-sm font-medium rounded-lg text-slate-400 hover:bg-slate-800 hover:text-white transition">
+        <a href="<?= BASE_URL ?>admin/invoice" class="flex items-center gap-3 px-3.5 py-2.5 text-sm font-medium rounded-lg text-slate-400 hover:bg-slate-800 hover:text-white transition">
           <i class="fa-solid fa-file-invoice-dollar text-lg w-5"></i>
-          <span class="sidebar-text">Invoices & Logs</span>
+          <span class="sidebar-text">Invoices</span>
         </a>
       </nav>
     </div>
@@ -319,8 +320,8 @@
             <i class="fa-solid fa-bars text-xl"></i>
           </button>
           <div>
-            <h2 class="text-sm sm:text-base font-bold text-slate-800 leading-tight">Country Intelligence & Analytics</h2>
-            <p class="text-[11px] sm:text-xs text-slate-500 hidden sm:block">Real-time business insights derived from guest contact records</p>
+            <h2 class="text-sm sm:text-base font-bold text-slate-800 leading-tight">Route & Rate Calculator</h2>
+            <p class="text-[11px] sm:text-xs text-slate-500 hidden sm:block">Estimate tour pricing, mileage, and driver allowances</p>
           </div>
         </div>
 

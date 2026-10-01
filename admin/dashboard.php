@@ -189,6 +189,13 @@ $yearlyDataJson = json_encode($yearlyData);
           <span class="sidebar-text">Analytics & Reports</span>
         </a>
 
+        <div class="px-3 py-2 mt-4 text-[11px] font-semibold text-slate-500 uppercase tracking-wider sidebar-text">Accounting</div>
+
+        <a href="<?= BASE_URL ?>admin/cashbook" class="flex items-center gap-3 px-3.5 py-2.5 text-sm font-medium rounded-lg text-slate-400 hover:bg-slate-800 hover:text-white transition">
+          <i class="fa-solid fa-wallet text-lg w-5"></i>
+          <span class="sidebar-text">Cash Book</span>
+        </a>
+
         <div class="px-3 py-2 mt-4 text-[11px] font-semibold text-slate-500 uppercase tracking-wider sidebar-text">Management</div>
 
         <a href="#" class="flex items-center gap-3 px-3.5 py-2.5 text-sm font-medium rounded-lg text-slate-400 hover:bg-slate-800 hover:text-white transition">
@@ -196,9 +203,9 @@ $yearlyDataJson = json_encode($yearlyData);
           <span class="sidebar-text">Fleet & Drivers</span>
         </a>
 
-        <a href="#" class="flex items-center gap-3 px-3.5 py-2.5 text-sm font-medium rounded-lg text-slate-400 hover:bg-slate-800 hover:text-white transition">
+        <a href="<?= BASE_URL ?>admin/invoice" class="flex items-center gap-3 px-3.5 py-2.5 text-sm font-medium rounded-lg text-slate-400 hover:bg-slate-800 hover:text-white transition">
           <i class="fa-solid fa-file-invoice-dollar text-lg w-5"></i>
-          <span class="sidebar-text">Invoices & Logs</span>
+          <span class="sidebar-text">Invoices</span>
         </a>
       </nav>
     </div>
@@ -223,20 +230,30 @@ $yearlyDataJson = json_encode($yearlyData);
             <i class="fa-solid fa-bars text-xl"></i>
           </button>
           <div>
-            <h2 class="text-sm sm:text-base font-bold text-slate-800 leading-tight">Country Intelligence & Analytics</h2>
-            <p class="text-[11px] sm:text-xs text-slate-500 hidden sm:block">Real-time business insights derived from guest contact records</p>
+            <h2 class="text-sm sm:text-base font-bold text-slate-800 leading-tight">Business Intelligence & Reports</h2>
+            <p class="text-[11px] sm:text-xs text-slate-500 hidden sm:block">Overview of booking metrics, tour revenue, and operational performance</p>
           </div>
         </div>
 
         <div class="flex items-center gap-2 sm:gap-3">
-          <button class="px-2.5 sm:px-3.5 py-1.5 text-xs font-semibold bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-lg transition border border-slate-200 flex items-center gap-1.5">
-            <i class="fa-solid fa-download"></i> <span class="hidden sm:inline">Export PDF</span>
+          <!-- Right: Actions & User -->
+          <div class="flex items-center gap-2 sm:gap-4 shrink-0">
+          <!-- Notification Bell -->
+          <button class="relative p-2 text-slate-500 hover:text-slate-600 rounded-full hover:bg-slate-100 transition">
+            <i class="fa-regular fa-bell text-lg"></i>
+            <span class="absolute top-1.5 right-1.5 w-2 h-2 bg-indigo-600 rounded-full"></span>
           </button>
           <div class="h-6 w-px bg-slate-200"></div>
-          <div class="flex items-center gap-2">
-            <div class="w-8 h-8 rounded-full bg-indigo-100 text-indigo-700 font-semibold flex items-center justify-center text-xs border border-indigo-200 shrink-0">CTL</div>
-            <span class="text-xs font-medium text-slate-700 hidden lg:inline">Ceylon T. Admin</span>
-          </div>
+          <!-- User Profile -->
+            <div class="flex items-center gap-2 sm:gap-3">
+                <div class="w-9 h-9 rounded-full bg-indigo-100 text-indigo-700 font-semibold flex items-center justify-center text-sm border border-indigo-200 shrink-0">
+                CTL
+                </div>
+                <div class="hidden sm:block text-left">
+                <p class="text-sm font-medium text-slate-700 leading-tight">Ceylon T.</p>
+                <p class="text-xs text-slate-500">Administrator</p>
+                </div>
+            </div>
         </div>
       </div>
     </header>
