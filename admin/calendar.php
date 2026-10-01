@@ -393,7 +393,7 @@
           if (drivermobile && drivermobile.trim() !== '') {
             let cleanDriverPhone = drivermobile.replace(/[^0-9]/g, '');
              driverContactHtml = `
-              <a href="https://wa.me/${cleanPhone}" target="_blank" rel="noopener" class="inline-flex items-center text-emerald-600 hover:underline font-medium">
+              <a href="https://wa.me/${cleanDriverPhone}" target="_blank" rel="noopener" class="inline-flex items-center text-emerald-600 hover:underline font-medium">
                 ${mobile} 
                 <span class="ml-1 text-xs bg-emerald-100 text-emerald-700 px-1.5 py-0.5 rounded font-semibold">WhatsApp</span>
               </a>`;
