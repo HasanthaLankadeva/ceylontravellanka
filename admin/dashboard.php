@@ -7,7 +7,7 @@ include 'db.php'; // Expects $pdo instance of PDO
 // Helper function: Parse Country from Mobile Number (E.164 Prefix Mapping)
 function getCountryFromMobile($mobile) {
     if (empty($mobile)) return 'Unknown';
-    $cleanMobile = preg_replace('/[^0-9]/', '', $mobile);
+    $cleanMobile = preg_replace('/[^0-9]/', '',$mobile);
 
     // Common phone prefixes (Longer prefixes first to prevent false matches)
     $prefixes = [
@@ -22,81 +22,102 @@ function getCountryFromMobile($mobile) {
         '91'  => ['name' => 'India', 'code' => 'in'],
         '65'  => ['name' => 'Singapore', 'code' => 'sg'],
         '1'   => ['name' => 'USA / Canada', 'code' => 'us'],
-        '27'   => ['name' => 'South Africa', 'code' => 'za'],
+        '27'  => ['name' => 'South Africa', 'code' => 'za'],
     ];
 
-    foreach ($prefixes as $prefix => $info) {
-        if (strpos($cleanMobile, $prefix) === 0) {
+    foreach ($prefixes as $prefix =>$info) {
+        if (strpos($cleanMobile,$prefix) === 0) {
             return $info['name'];
         }
     }
     return 'Other / Unmapped';
 }
 
-$countryTotals = [];
-$overallMonthly = array_fill(1, 12, 0); // Jan to Dec overall
-$countryMonthly = [];                   // Jan to Dec breakdown per country
-$totalRevenue = 0;
-$totalBookings = 0;
+$currentYear = (int)date('Y');
+$yearlyData  = [];$yearsFound  = [];
 
 try {
-    // Fetch All Tours using Database Schema Fields
-    $sql = "SELECT id, order_number, guest_name, guest_mobile, tour_charge, tour_start_date, status, total_vehicle_cost FROM bookings";
+    // Fetch all booking records with valid start dates
+    $sql = "SELECT id, order_number, guest_name, guest_mobile, tour_charge, tour_start_date, status, total_vehicle_cost 
+            FROM bookings 
+            WHERE tour_start_date IS NOT NULL AND tour_start_date != '0000-00-00'";
     $stmt = $pdo->query($sql);
-    $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    $rows =$stmt->fetchAll(PDO::FETCH_ASSOC);
 
-    foreach ($rows as $row) {
+    foreach ($rows as$row) {
         $tourCharge  = floatval($row['tour_charge'] ?? 0);
         $vehicleCost = floatval($row['total_vehicle_cost'] ?? 0);
 
-        if ($tourCharge == 0){
-          continue;
+        if ($tourCharge == 0) {
+            continue;
         }
 
-        $amount      = $tourCharge - $vehicleCost; // Revenue calculation
-        $mobile  = $row['guest_mobile'];
+        $amount  = $tourCharge -$vehicleCost;
+        $mobile  =$row['guest_mobile'];
         $country = getCountryFromMobile($mobile);
 
-        // Aggregate Country Revenue & Booking Count
-        if (!isset($countryTotals[$country])) {
-            $countryTotals[$country] = ['revenue' => 0, 'count' => 0];
-        }
-        $countryTotals[$country]['revenue'] += $amount;
-        $countryTotals[$country]['count']   += 1;
+        $timestamp = strtotime($row['tour_start_date']);
+        $year      = (int)date('Y',$timestamp);
+        $month     = (int)date('n',$timestamp);
 
-        // Aggregate Monthly Revenue
-        if (!empty($row['tour_start_date'])) {
-            $month = intval(date('n', strtotime($row['tour_start_date'])));
-            
-            // Overall Monthly Total
-            $overallMonthly[$month] += $amount;
+        $yearsFound[$year] = true;
 
-            // Country-wise Monthly Total
-            if (!isset($countryMonthly[$country])) {
-                $countryMonthly[$country] = array_fill(1, 12, 0);
-            }
-            $countryMonthly[$country][$month] += $amount;
+        // Structure yearly aggregated container
+        if (!isset($yearlyData[$year])) {
+            $yearlyData[$year] = [
+                'totalRevenue'   => 0,
+                'totalBookings'  => 0,
+                'overallMonthly' => array_fill(1, 12, 0),
+                'countryTotals'  => [],
+                'countryMonthly' => []
+            ];
         }
 
-        $totalRevenue += $amount;
-        $totalBookings++;
+        // Increment Year Totals
+        $yearlyData[$year]['totalRevenue']  +=$amount;
+        $yearlyData[$year]['totalBookings'] += 1;
+        $yearlyData[$year]['overallMonthly'][$month] +=$amount;
+
+        // Aggregate Country Totals
+        if (!isset($yearlyData[$year]['countryTotals'][$country])) {$yearlyData[$year]['countryTotals'][$country] = ['revenue' => 0, 'count' => 0];
+        }
+        $yearlyData[$year]['countryTotals'][$country]['revenue'] +=$amount;
+        $yearlyData[$year]['countryTotals'][$country]['count']   += 1;
+
+        // Aggregate Country Monthly Breakdown
+        if (!isset($yearlyData[$year]['countryMonthly'][$country])) {
+            $yearlyData[$year]['countryMonthly'][$country] = array_fill(1, 12, 0);         }$yearlyData[$year]['countryMonthly'][$country][$month] +=$amount;
     }
 
 } catch (PDOException $e) {
-    // Log error or set fallback values
     error_log("Database Error: " . $e->getMessage());
 }
 
-// Sort Countries by Overall Revenue (Descending)
-uasort($countryTotals, function($a, $b) {
-    return $b['revenue'] <=> $a['revenue'];
-});
+// Ensure the current year exists in the list of selectable years
+$yearsFound[$currentYear] = true;
+$availableYears = array_keys($yearsFound);
+rsort($availableYears);
 
-// Convert arrays to JSON for Chart.js rendering
-$countryLabelsJson  = json_encode(array_keys($countryTotals));
-$countryDataJson    = json_encode(array_column($countryTotals, 'revenue'));
-$overallMonthlyJson = json_encode(array_values($overallMonthly));
-$countryMonthlyJson = json_encode($countryMonthly);
+// Ensure every available year has a default structure
+foreach ($availableYears as$yr) {
+    if (!isset($yearlyData[$yr])) {
+        $yearlyData[$yr] = [
+            'totalRevenue'   => 0,
+            'totalBookings'  => 0,
+            'overallMonthly' => array_fill(1, 12, 0),
+            'countryTotals'  => [],
+            'countryMonthly' => []
+        ];
+    } else {
+        // Sort country totals descending by revenue
+        uasort($yearlyData[$yr]['countryTotals'], function($a,$b) {
+            return $b['revenue'] <=>$a['revenue'];
+        });
+    }
+}
+
+// Convert all yearly dataset logic to JSON for client-side JavaScript rendering
+$yearlyDataJson = json_encode($yearlyData);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -227,8 +248,8 @@ $countryMonthlyJson = json_encode($countryMonthly);
         <div class="bg-white p-4 sm:p-5 rounded-xl border border-slate-200 shadow-sm">
           <div class="flex justify-between items-start">
             <div>
-              <p class="text-xs font-semibold uppercase text-slate-500 tracking-wider">Total Revenue</p>
-              <h3 class="text-xl sm:text-2xl font-black text-slate-900 mt-1">LKR <?php echo number_format($totalRevenue, 2); ?></h3>
+              <p class="text-xs font-semibold uppercase text-slate-500 tracking-wider">Total Revenue (<span class="selected-year-label"><?php echo $currentYear; ?></span>)</p>
+              <h3 id="kpiTotalRevenue" class="text-xl sm:text-2xl font-black text-slate-900 mt-1">LKR 0.00</h3>
             </div>
             <div class="p-2.5 bg-emerald-50 text-emerald-600 rounded-lg shrink-0"><i class="fa-solid fa-sack-dollar text-lg sm:text-xl"></i></div>
           </div>
@@ -239,20 +260,18 @@ $countryMonthlyJson = json_encode($countryMonthly);
           <div class="flex justify-between items-start">
             <div>
               <p class="text-xs font-semibold uppercase text-slate-500 tracking-wider">Total Bookings</p>
-              <h3 class="text-xl sm:text-2xl font-black text-slate-900 mt-1"><?php echo $totalBookings; ?></h3>
+              <h3 id="kpiTotalBookings" class="text-xl sm:text-2xl font-black text-slate-900 mt-1">0</h3>
             </div>
             <div class="p-2.5 bg-indigo-50 text-indigo-600 rounded-lg shrink-0"><i class="fa-solid fa-plane-departure text-lg sm:text-xl"></i></div>
           </div>
-          <p class="text-xs text-slate-500 font-medium mt-3">All recorded tours</p>
+          <p class="text-xs text-slate-500 font-medium mt-3">Recorded tours for <span class="selected-year-label"><?php echo $currentYear; ?></span></p>
         </div>
 
         <div class="bg-white p-4 sm:p-5 rounded-xl border border-slate-200 shadow-sm">
           <div class="flex justify-between items-start">
             <div>
               <p class="text-xs font-semibold uppercase text-slate-500 tracking-wider">Top Country Market</p>
-              <h3 class="text-xl sm:text-2xl font-black text-slate-900 mt-1">
-                <?php echo !empty($countryTotals) ? array_key_first($countryTotals) : 'N/A'; ?>
-              </h3>
+              <h3 id="kpiTopCountry" class="text-xl sm:text-2xl font-black text-slate-900 mt-1">N/A</h3>
             </div>
             <div class="p-2.5 bg-sky-50 text-sky-600 rounded-lg shrink-0"><i class="fa-solid fa-earth-americas text-lg sm:text-xl"></i></div>
           </div>
@@ -263,9 +282,7 @@ $countryMonthlyJson = json_encode($countryMonthly);
           <div class="flex justify-between items-start">
             <div>
               <p class="text-xs font-semibold uppercase text-slate-500 tracking-wider">Avg. Booking Value</p>
-              <h3 class="text-xl sm:text-2xl font-black text-slate-900 mt-1">
-                LKR <?php echo $totalBookings > 0 ? number_format($totalRevenue / $totalBookings, 2) : '0.00'; ?>
-              </h3>
+              <h3 id="kpiAvgBooking" class="text-xl sm:text-2xl font-black text-slate-900 mt-1">LKR 0.00</h3>
             </div>
             <div class="p-2.5 bg-purple-50 text-purple-600 rounded-lg shrink-0"><i class="fa-solid fa-chart-pie text-lg sm:text-xl"></i></div>
           </div>
@@ -285,13 +302,17 @@ $countryMonthlyJson = json_encode($countryMonthly);
             <div class="flex items-center gap-2">
               <select id="growthViewSelect" class="text-xs border border-slate-300 rounded-lg px-2.5 py-1 bg-white font-medium text-slate-700 focus:outline-none focus:ring-2 focus:ring-indigo-500">
                 <option value="overall">Overall Revenue</option>
-                <optgroup label="By Country">
-                  <?php foreach (array_keys($countryMonthly) as $cName): ?>
-                    <option value="<?php echo htmlspecialchars($cName); ?>"><?php echo htmlspecialchars($cName); ?></option>
-                  <?php endforeach; ?>
-                </optgroup>
+                <optgroup id="growthViewCountryOptions" label="By Country"></optgroup>
               </select>
-              <span class="text-[11px] sm:text-xs bg-slate-100 text-slate-600 font-medium px-2 py-1 rounded-md"><?php echo date('Y'); ?></span>
+
+              <!-- Year Filter Select Dropdown -->
+              <select id="yearSelect" class="text-xs border border-slate-300 rounded-lg px-2.5 py-1 bg-slate-100 font-semibold text-slate-700 focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                <?php foreach ($availableYears as$yr): ?>
+                  <option value="<?php echo $yr; ?>" <?php echo ($yr ===$currentYear) ? 'selected' : ''; ?>>
+                    <?php echo $yr; ?>
+                  </option>
+                <?php endforeach; ?>
+              </select>
             </div>
           </div>
           <div class="h-56 sm:h-64">
@@ -333,34 +354,7 @@ $countryMonthlyJson = json_encode($countryMonthly);
                 <th class="px-4 sm:px-6 py-3">Revenue Share</th>
               </tr>
             </thead>
-            <tbody class="divide-y divide-slate-200">
-              <?php if (!empty($countryTotals)): ?>
-                <?php foreach ($countryTotals as $country => $cData): 
-                  $percentage = $totalRevenue > 0 ? round(($cData['revenue'] / $totalRevenue) * 100, 1) : 0;
-                ?>
-                  <tr class="hover:bg-slate-50 transition">
-                    <td class="px-4 sm:px-6 py-3.5 font-semibold text-slate-800 flex items-center gap-2 whitespace-nowrap">
-                      <i class="fa-solid fa-location-dot text-indigo-500"></i>
-                      <?php echo htmlspecialchars($country); ?>
-                    </td>
-                    <td class="px-4 sm:px-6 py-3.5 whitespace-nowrap"><?php echo $cData['count']; ?> Tours</td>
-                    <td class="px-4 sm:px-6 py-3.5 font-bold text-slate-900 whitespace-nowrap">LKR <?php echo number_format($cData['revenue'], 2); ?></td>
-                    <td class="px-4 sm:px-6 py-3.5 whitespace-nowrap">
-                      <div class="flex items-center gap-3">
-                        <div class="w-20 sm:w-32 bg-slate-100 rounded-full h-2 overflow-hidden">
-                          <div class="bg-indigo-600 h-2 rounded-full" style="width: <?php echo $percentage; ?>%"></div>
-                        </div>
-                        <span class="text-xs font-semibold text-slate-600"><?php echo $percentage; ?>%</span>
-                      </div>
-                    </td>
-                  </tr>
-                <?php endforeach; ?>
-              <?php else: ?>
-                <tr>
-                  <td colspan="4" class="px-6 py-4 text-center text-slate-400">No booking records found.</td>
-                </tr>
-              <?php endif; ?>
-            </tbody>
+            <tbody id="countryTableBody" class="divide-y divide-slate-200"></tbody>
           </table>
         </div>
       </div>
@@ -389,18 +383,14 @@ $countryMonthlyJson = json_encode($countryMonthly);
       $('#toggleSidebarBtn').on('click', function() {
         const sidebar = $('#sidebar');
         sidebar.toggleClass('w-64 w-20');
-        $('.sidebar-text').toggleClass('hidden');
-        $('#collapseIcon').toggleClass('fa-angles-left fa-angles-right');
+        $('.sidebar-text').toggleClass('hidden');$('#collapseIcon').toggleClass('fa-angles-left fa-angles-right');
       });
 
-      // Data mappings from PHP
-      const countryLabels   = <?php echo $countryLabelsJson; ?>;
-      const countryData     = <?php echo $countryDataJson; ?>;
-      const overallData     = <?php echo $overallMonthlyJson; ?>;
-      const countryDataMap  = <?php echo $countryMonthlyJson; ?>;
-      const months          = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+      // Datasets payload dynamically grouped by Year
+      const yearlyData = <?php echo $yearlyDataJson; ?>;
+      const months     = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 
-      // Render Monthly Growth Line Chart
+      // Initialize Chart Instances
       const ctxMonthly = document.getElementById('monthlyChart').getContext('2d');
       const monthlyChart = new Chart(ctxMonthly, {
         type: 'line',
@@ -408,7 +398,7 @@ $countryMonthlyJson = json_encode($countryMonthly);
           labels: months,
           datasets: [{
             label: 'Revenue (LKR)',
-            data: overallData,
+            data: [],
             borderColor: '#4f46e5',
             backgroundColor: 'rgba(79, 70, 229, 0.1)',
             fill: true,
@@ -428,33 +418,14 @@ $countryMonthlyJson = json_encode($countryMonthly);
         }
       });
 
-      // Toggle Monthly View (Overall vs Country-Wise)
-      $('#growthViewSelect').on('change', function() {
-        const selectedView = $(this).val();
-
-        if (selectedView === 'overall') {
-          monthlyChart.data.datasets[0].data = overallData;
-          monthlyChart.data.datasets[0].borderColor = '#4f46e5';
-          monthlyChart.data.datasets[0].backgroundColor = 'rgba(79, 70, 229, 0.1)';
-        } else if (countryDataMap[selectedView]) {
-          const cValues = Object.values(countryDataMap[selectedView]);
-          monthlyChart.data.datasets[0].data = cValues;
-          monthlyChart.data.datasets[0].borderColor = '#0284c7';
-          monthlyChart.data.datasets[0].backgroundColor = 'rgba(2, 132, 199, 0.1)';
-        }
-
-        monthlyChart.update();
-      });
-
-      // Render Country Source Bar Chart
       const ctxCountry = document.getElementById('countryChart').getContext('2d');
-      new Chart(ctxCountry, {
+      const countryChart = new Chart(ctxCountry, {
         type: 'bar',
         data: {
-          labels: countryLabels,
+          labels: [],
           datasets: [{
             label: 'Revenue by Country',
-            data: countryData,
+            data: [],
             backgroundColor: '#0284c7',
             borderRadius: 6
           }]
@@ -469,6 +440,124 @@ $countryMonthlyJson = json_encode($countryMonthly);
           }
         }
       });
+
+      // Master function to render full analytics dynamically without changing URL
+      function renderDashboard(year) {
+        const data = yearlyData[year] || {
+          totalRevenue: 0,
+          totalBookings: 0,
+          overallMonthly: Array(12).fill(0),
+          countryTotals: {},
+          countryMonthly: {}
+        };
+
+        // Update Dynamic UI Labels
+        $('.selected-year-label').text(year);
+
+        // 1. KPI Cards
+        const totalRev = data.totalRevenue;
+        const totalBks = data.totalBookings;
+        const avgBkg  = totalBks > 0 ? (totalRev / totalBks) : 0;
+        const topCtry = Object.keys(data.countryTotals).length > 0 ? Object.keys(data.countryTotals)[0] : 'N/A';
+
+        $('#kpiTotalRevenue').text('LKR ' + totalRev.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 }));
+        $('#kpiTotalBookings').text(totalBks);
+        $('#kpiTopCountry').text(topCtry);
+        $('#kpiAvgBooking').text('LKR ' + avgBkg.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 }));
+
+        // 2. Growth View Select Options (Country Dropdown)
+        const $countryOptGroup =$('#growthViewCountryOptions');
+        $countryOptGroup.empty();
+        
+        const countries = Object.keys(data.countryMonthly);
+        countries.forEach(country => {
+          $countryOptGroup.append(`<option value="${country}">${country}</option>`);
+        });
+
+        // Reset Growth Select view to "overall"
+        $('#growthViewSelect').val('overall');
+
+        // 3. Update Monthly Chart
+        const overallValues = Object.values(data.overallMonthly);
+        monthlyChart.data.datasets[0].data = overallValues;
+        monthlyChart.data.datasets[0].borderColor = '#4f46e5';
+        monthlyChart.data.datasets[0].backgroundColor = 'rgba(79, 70, 229, 0.1)';
+        monthlyChart.update();
+
+        // 4. Update Country Chart
+        const countryLabels = Object.keys(data.countryTotals);
+        const countryRevenues = countryLabels.map(c => data.countryTotals[c].revenue);
+
+        countryChart.data.labels = countryLabels;
+        countryChart.data.datasets[0].data = countryRevenues;
+        countryChart.update();
+
+        // 5. Update Breakdown Table
+        const $tableBody =$('#countryTableBody');
+        $tableBody.empty();
+
+        if (countryLabels.length > 0) {
+          countryLabels.forEach(country => {
+            const cData = data.countryTotals[country];
+            const pct = totalRev > 0 ? ((cData.revenue / totalRev) * 100).toFixed(1) : 0;
+            const revFormatted = cData.revenue.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+
+            $tableBody.append(`
+              <tr class="hover:bg-slate-50 transition">
+                <td class="px-4 sm:px-6 py-3.5 font-semibold text-slate-800 flex items-center gap-2 whitespace-nowrap">
+                  <i class="fa-solid fa-location-dot text-indigo-500"></i> ${country}
+                </td>
+                <td class="px-4 sm:px-6 py-3.5 whitespace-nowrap">${cData.count} Tours</td>
+                <td class="px-4 sm:px-6 py-3.5 font-bold text-slate-900 whitespace-nowrap">LKR ${revFormatted}</td>
+                <td class="px-4 sm:px-6 py-3.5 whitespace-nowrap">
+                  <div class="flex items-center gap-3">
+                    <div class="w-20 sm:w-32 bg-slate-100 rounded-full h-2 overflow-hidden">
+                      <div class="bg-indigo-600 h-2 rounded-full" style="width: ${pct}%"></div>
+                    </div>
+                    <span class="text-xs font-semibold text-slate-600">${pct}%</span>
+                  </div>
+                </td>
+              </tr>
+            `);
+          });
+        } else {
+          $tableBody.append(`
+            <tr>
+              <td colspan="4" class="px-6 py-4 text-center text-slate-400">No booking records found for ${year}.</td>
+            </tr>
+          `);
+        }
+      }
+
+      // Handle Year Selection Event
+      $('#yearSelect').on('change', function() {
+        const selectedYear = parseInt($(this).val());
+        renderDashboard(selectedYear);
+      });
+
+      // Handle View Switcher Event (Overall vs Country-Wise for Selected Year)
+      $('#growthViewSelect').on('change', function() {
+        const selectedYear = parseInt($('#yearSelect').val());
+        const selectedView = $(this).val();
+        const yearObj = yearlyData[selectedYear];
+
+        if (!yearObj) return;
+
+        if (selectedView === 'overall') {
+          monthlyChart.data.datasets[0].data = Object.values(yearObj.overallMonthly);
+          monthlyChart.data.datasets[0].borderColor = '#4f46e5';
+          monthlyChart.data.datasets[0].backgroundColor = 'rgba(79, 70, 229, 0.1)';
+        } else if (yearObj.countryMonthly[selectedView]) {
+          monthlyChart.data.datasets[0].data = Object.values(yearObj.countryMonthly[selectedView]);
+          monthlyChart.data.datasets[0].borderColor = '#0284c7';
+          monthlyChart.data.datasets[0].backgroundColor = 'rgba(2, 132, 199, 0.1)';
+        }
+
+        monthlyChart.update();
+      });
+
+      // Initial page setup rendering default current year
+      renderDashboard(<?php echo $currentYear; ?>);
 
     });
   </script>
