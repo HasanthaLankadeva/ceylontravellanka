@@ -188,6 +188,7 @@
             <p><strong>Guest Name:</strong> <span id="modalGuest"></span></p>
             <p><strong>Contact:</strong> <span id="modalContact"></span></p>
             <p><strong>Driver:</strong> <span id="modalDriver"></span></p>
+            <p><strong>Driver Mobile:</strong> <span id="modalDriverContact"></span></p>
             <p><strong>Dates:</strong> <span id="modalDates"></span></p>
           </div>
 
@@ -244,7 +245,6 @@
           dataType: 'json',
           success: function(response) {
             if (response.status === 'success') {
-              console.log(response);
               tourEvents = response.data;
               buildGrid(year, month);
             }
@@ -387,6 +387,21 @@
           $('#modalContact').html(contactHtml);
 
           $('#modalDriver').text(tour.driver_name || 'Unassigned');
+          
+          let drivermobile = tour.driver_mobile || '';
+          
+          if (drivermobile && drivermobile.trim() !== '') {
+            let cleanDriverPhone = drivermobile.replace(/[^0-9]/g, '');
+             driverContactHtml = `
+              <a href="https://wa.me/${cleanPhone}" target="_blank" rel="noopener" class="inline-flex items-center text-emerald-600 hover:underline font-medium">
+                ${mobile} 
+                <span class="ml-1 text-xs bg-emerald-100 text-emerald-700 px-1.5 py-0.5 rounded font-semibold">WhatsApp</span>
+              </a>`;
+          } else {
+            driverContactHtml = `-`;
+          }
+
+          $('#modalDriverContact').html(driverContactHtml);
 
           // 3. Set display date (transfer date if transfer badge clicked, else tour date range)
           if (eventType === 'Transfer' && transferDate) {

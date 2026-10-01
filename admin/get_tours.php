@@ -20,7 +20,7 @@ try {
     // 2. Pickup date falls within the month OR
     // 3. Any transfer date in the JSON string matches the month
     $stmt = $pdo->prepare("
-        SELECT id, order_number, guest_name, guest_email, guest_mobile, tour_title, driver_name, tour_start_date, tour_end_date, pickup_date, transfers, status 
+        SELECT id, order_number, guest_name, guest_email, guest_mobile, tour_title, driver_name, driver_mobile, tour_start_date, tour_end_date, pickup_date, transfers, status 
         FROM bookings 
         WHERE (tour_start_date <= ? AND (tour_end_date >= ? OR tour_end_date IS NULL))
            OR (pickup_date BETWEEN ? AND ?)
