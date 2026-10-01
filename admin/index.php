@@ -119,6 +119,7 @@
         }
         #inventoryCards{
             min-height: 285px;
+            margin-bottom: 65px;
         }  
     }
     
