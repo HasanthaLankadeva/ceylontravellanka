@@ -1640,7 +1640,7 @@ Day 2: Kandy City Tour..." class="w-full text-xs border border-slate-300 focus:b
     let encodedMessage = lines.map(line => encodeURIComponent(line)).join('%0A');
 
     // Launch WhatsApp
-    let whatsappUrl = "https://api.whatsapp.com/send?phone=" + mobile + "&text=" + encodedMessage;
+    let whatsappUrl = "intent://send?phone=" + mobile + "&text=" + encodedMessage + "#Intent;scheme=whatsapp;package=com.whatsapp.w4b;end";
     window.open(whatsappUrl, '_blank');
             });
 
