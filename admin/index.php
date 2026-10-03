@@ -513,7 +513,7 @@
                     </div>
                 </div>
 
-                <!-- 4.1 Itinerary -->
+                <!-- 5 Itinerary -->
                 <div class="bg-white p-4 sm:p-5 rounded-xl border border-slate-200/80 shadow-sm space-y-3">
                     <div class="flex items-center space-x-2 border-b border-slate-100 pb-2">
                         <i class="fa-solid fa-map-location-dot text-emerald-600 text-sm"></i>
@@ -523,11 +523,20 @@
 Day 2: Kandy City Tour..." class="w-full text-xs border border-slate-300 focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 rounded-lg p-3 text-slate-800 outline-none transition leading-relaxed"></textarea>
                 </div>
 
-                <!-- 5. Flight & Schedule Details -->
+                <!-- 6 Special Requests -->
+                <div class="bg-white p-4 sm:p-5 rounded-xl border border-slate-200/80 shadow-sm space-y-4">
+                    <div class="flex items-center space-x-2 border-b border-slate-100 pb-2">
+                        <i class="fa-solid fa-comment-dots text-emerald-600 text-sm"></i>
+                        <h4 class="text-xs font-bold uppercase tracking-wider text-slate-700">6. Guest's Special Requests</h4>
+                    </div>
+                    <textarea id="customer_requests" name="customer_requests" rows="4" placeholder="Enter any special preferences, dietary requests, or custom arrangements..." class="w-full text-xs border border-slate-300 focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 rounded-lg p-3 text-slate-800 outline-none transition leading-relaxed"></textarea>
+                </div>
+
+                <!-- 7. Flight & Schedule Details -->
                 <div class="bg-white p-4 sm:p-5 rounded-xl border border-slate-200/80 shadow-sm space-y-4">
                     <div class="flex items-center space-x-2 border-b border-slate-100 pb-2">
                         <i class="fa-solid fa-plane-arrival text-emerald-600 text-sm"></i>
-                        <h4 class="text-xs font-bold uppercase tracking-wider text-slate-700">6. Flight &amp; Schedule Details</h4>
+                        <h4 class="text-xs font-bold uppercase tracking-wider text-slate-700">7. Flight &amp; Schedule Details</h4>
                     </div>
                     <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs">
                         <div>
@@ -554,11 +563,11 @@ Day 2: Kandy City Tour..." class="w-full text-xs border border-slate-300 focus:b
                     </button>
                 </div>
 
-                <!-- 6. Driver Details -->
+                <!-- 8. Driver Details -->
                 <div class="bg-white p-4 sm:p-5 rounded-xl border border-slate-200/80 shadow-sm space-y-4">
                     <div class="flex items-center space-x-2 border-b border-slate-100 pb-2">
                         <i class="fa-solid fa-id-card text-emerald-600 text-sm"></i>
-                        <h4 class="text-xs font-bold uppercase tracking-wider text-slate-700">7. Driver Assignment</h4>
+                        <h4 class="text-xs font-bold uppercase tracking-wider text-slate-700">8. Driver Assignment</h4>
                     </div>
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
                         <div>
@@ -573,11 +582,11 @@ Day 2: Kandy City Tour..." class="w-full text-xs border border-slate-300 focus:b
                     </div>
                 </div>
 
-                <!-- 7. Driver & Extra Financials -->
+                <!-- 9. Driver & Extra Financials -->
                 <div class="bg-white p-4 sm:p-5 rounded-xl border border-slate-200/80 shadow-sm space-y-4">
                     <div class="flex items-center space-x-2 border-b border-slate-100 pb-2">
                         <i class="fa-solid fa-wallet text-emerald-600 text-sm"></i>
-                        <h4 class="text-xs font-bold uppercase tracking-wider text-slate-700">8. Financial Breakdown</h4>
+                        <h4 class="text-xs font-bold uppercase tracking-wider text-slate-700">9. Financial Breakdown</h4>
                     </div>
                     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 text-xs">
                         <div>
@@ -599,7 +608,7 @@ Day 2: Kandy City Tour..." class="w-full text-xs border border-slate-300 focus:b
                     </div>
                 </div>
 
-                <!-- 8. Payment Schedule & Special Notes -->
+                <!-- 10. Payment Schedule & Special Notes -->
                 <div class="bg-white p-4 sm:p-5 rounded-xl border border-slate-200/80 shadow-sm space-y-4">
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
                         <div>
@@ -609,7 +618,7 @@ Day 2: Kandy City Tour..." class="w-full text-xs border border-slate-300 focus:b
 * Final Balance: Due one day before the tour finishes.</textarea>
                         </div>
                         <div>
-                            <label class="block font-bold uppercase tracking-wider text-slate-700 mb-2">Special Notes</label>
+                            <label class="block font-bold uppercase tracking-wider text-slate-700 mb-2">Admin Special Notes</label>
                             <textarea name="special_notes" rows="4" placeholder="Enter special instructions or notes..." class="w-full border border-slate-300 focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 rounded-lg p-3 text-slate-800 outline-none transition leading-relaxed"></textarea>
                         </div>
                     </div>
@@ -1351,6 +1360,10 @@ Day 2: Kandy City Tour..." class="w-full text-xs border border-slate-300 focus:b
                     let rawItineraryHtml = params.get('itinerary') || '';
                     let cleanItineraryText = formatHtmlToPlainText(rawItineraryHtml);
 
+                    // Get clean plain text for Google Apps Script document generation
+                    let rawCustomerRequestsHtml = params.get('customer_requests') || '';
+                    let cleanCustomerRequestsText = formatHtmlToPlainText(rawCustomerRequestsHtml);
+
                     // Build payload for Google Apps Script
                     let payload = {
                         agreementID: params.get('agreement_id'),
@@ -1377,6 +1390,7 @@ Day 2: Kandy City Tour..." class="w-full text-xs border border-slate-300 focus:b
                         flight_details: flight_details,
                         transfers: transfers,
                         itinerary: cleanItineraryText,
+                        customer_requests: cleanCustomerRequestsText,
                         driver_name: params.get('driver_name'),
                         driver_mobile: params.get('driver_mobile'),
                         payment_options: params.get('payment_options')
@@ -1455,6 +1469,10 @@ Day 2: Kandy City Tour..." class="w-full text-xs border border-slate-300 focus:b
 
                     if(key == 'itinerary'){
                         tinymce.get('itinerary').setContent(value || '');
+                    }
+
+                    if(key == 'customer_requests'){
+                        tinymce.get('customer_requests').setContent(value || '');
                     }
 
                     if(key == 'transfers'){
@@ -1647,7 +1665,7 @@ Day 2: Kandy City Tour..." class="w-full text-xs border border-slate-300 focus:b
 
             // TinyMCE Initialization 
             tinymce.init({
-                selector: '#itinerary',
+                selector: '#itinerary, #customer_requests',
                 height: 250,
                 menubar: false,
                 plugins: [
