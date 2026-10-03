@@ -438,8 +438,8 @@
                         <div>
                             <label class="block font-medium text-slate-700 mb-1">Head Count</label>
                             <div class="grid grid-cols-2 gap-2">
-                                <input type="number" name="adults_count" placeholder="Adults" min="0" value="" class="w-full border border-slate-300 focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 rounded-lg px-3 py-2 text-slate-800 outline-none transition">
-                                <input type="number" name="children_count" placeholder="Children" min="0" value="" class="w-full border border-slate-300 focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 rounded-lg px-3 py-2 text-slate-800 outline-none transition">
+                                <input type="number" name="adults" placeholder="Adults" min="0" value="" class="w-full border border-slate-300 focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 rounded-lg px-3 py-2 text-slate-800 outline-none transition">
+                                <input type="number" name="children" placeholder="Children" min="0" value="" class="w-full border border-slate-300 focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 rounded-lg px-3 py-2 text-slate-800 outline-none transition">
                             </div>
                         </div>
                         <div>
@@ -1358,8 +1358,8 @@ Day 2: Kandy City Tour..." class="w-full text-xs border border-slate-300 focus:b
                         bookingRef: params.get('order_number'),
                         guest_name: params.get('guest_name'),
                         paging_name: params.get('paging_name'),
-                        adults: params.get('adults_count'),
-                        children: params.get('children_count'),
+                        adults: params.get('adults'),
+                        children: params.get('children'),
                         guest_mobile: params.get('guest_mobile'),
                         guest_email: params.get('guest_email'),
                         tour_start_date: params.get('tour_start_date'),
