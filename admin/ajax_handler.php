@@ -18,9 +18,9 @@ if ($action === 'fetch') {
 
     // 1. Filter by text input
     if (!empty($search)) {
-        $sql .= " AND (order_number LIKE ? OR guest_name LIKE ? OR vehicle_model LIKE ? OR driver_name LIKE ?)";
+        $sql .= " AND (order_number LIKE ? OR guest_name LIKE ? OR vehicle_model LIKE ? OR driver_name LIKE ? OR guest_mobile LIKE ? OR guest_email LIKE ?)";
         $searchTerm = "%" . $search . "%";
-        $params = array_merge($params, [$searchTerm, $searchTerm, $searchTerm, $searchTerm]);
+        $params = array_merge($params, [$searchTerm, $searchTerm, $searchTerm, $searchTerm, $searchTerm, $searchTerm]);
     }
 
     // 2. Filter by vehicle type
@@ -33,6 +33,11 @@ if ($action === 'fetch') {
     if (!empty($status)) {
         $sql .= " AND status = ?";
         $params[] = $status;
+    }
+
+    // 4. default hide PlPayment Recieved & Canceledayment 
+    if (empty($search) && empty($vehicle) && empty($status) && empty($status)) {
+        $sql .= " AND status NOT IN ('Payment Recieved', 'Canceled')";
     }
 
     $stmt = $pdo->prepare($sql);
@@ -176,7 +181,8 @@ if ($action === 'save') {
         $mileage_limit         = $_POST['mileage_limit'] ?? 0;
         $extra_mileage_charge  = $_POST['extra_mileage_charge'] ?? 0;
         $tour_title            = $_POST['tour_title'] ?? '';
-        $itinerary              = $_POST['itinerary'] ?? '';
+        $itinerary             = $_POST['itinerary'] ?? '';
+        $customer_requests     = $_POST['customer_requests'] ?? '';
         $pickup_from           = $_POST['pickup_from'] ?? '';
         $pickup_date           = $_POST['pickup_date'] ?? '';
         $arrival_time          = $_POST['arrival_time'] ?? '';
@@ -240,7 +246,7 @@ if ($action === 'save') {
             $sql = "INSERT INTO bookings (
                         order_number, tour_start_date, tour_end_date, tour_days, guest_name, 
                         paging_name, adults, children, guest_mobile, guest_email, 
-                        transfers, itinerary, vehicle_model, mileage_limit, extra_mileage_charge, 
+                        transfers, itinerary, customer_requests, vehicle_model, mileage_limit, extra_mileage_charge, 
                         tour_title, pickup_from, pickup_date, arrival_time, flight_details, driver_name, 
                         driver_mobile, agreement_link, tour_charge, income_advance, driver_charges, 
                         expense_other, expense_advance, payment_options, special_notes, status, 
@@ -252,12 +258,12 @@ if ($action === 'save') {
                         ?, ?, ?, ?, ?, 
                         ?, ?, ?, ?, ?, 
                         ?, ?, ?, ?, ?, 
-                        ?, ?
+                        ?, ?, ?
                     )";
             $params = [
                 $order_number, $tour_start_date, $tour_end_date, $tour_days, $guest_name,
                 $paging_name, $adults, $children, $guest_mobile, $guest_email,
-                $transfers, $itinerary, $vehicle_model, $mileage_limit, $extra_mileage_charge,
+                $transfers, $itinerary, $customer_requests, $vehicle_model, $mileage_limit, $extra_mileage_charge,
                 $tour_title, $pickup_from, $pickup_date, $arrival_time, $flightDetailsJson, $driver_name,
                 $driver_mobile, $agreement_link, $tour_charge, $income_advance, $driver_charges,
                 $expense_other, $expense_advance, $payment_options, $special_notes, $status,
@@ -268,7 +274,7 @@ if ($action === 'save') {
             $sql = "UPDATE bookings SET 
                         tour_start_date=?, tour_end_date=?, tour_days=?, guest_name=?, paging_name=?, 
                         adults=?, children=?, guest_mobile=?, guest_email=?, transfers=?, 
-                        itinerary=?, vehicle_model=?, mileage_limit=?, extra_mileage_charge=?, tour_title=?, 
+                        itinerary=?, customer_requests=?, vehicle_model=?, mileage_limit=?, extra_mileage_charge=?, tour_title=?, 
                         pickup_from=?, pickup_date=?, arrival_time=?, flight_details=?, driver_name=?, driver_mobile=?, 
                         agreement_link=?, tour_charge=?, income_advance=?, driver_charges=?, expense_other=?, 
                         expense_advance=?, payment_options=?, special_notes=?, status=?, total_vehicle_cost=? 
@@ -276,7 +282,7 @@ if ($action === 'save') {
             $params = [
                 $tour_start_date, $tour_end_date, $tour_days, $guest_name, $paging_name,
                 $adults, $children, $guest_mobile, $guest_email, $transfers,
-                $itinerary, $vehicle_model, $mileage_limit, $extra_mileage_charge, $tour_title,
+                $itinerary, $customer_requests, $vehicle_model, $mileage_limit, $extra_mileage_charge, $tour_title,
                 $pickup_from, $pickup_date, $arrival_time, $flightDetailsJson, $driver_name, $driver_mobile,
                 $agreement_link, $tour_charge, $income_advance, $driver_charges, $expense_other,
                 $expense_advance, $payment_options, $special_notes, $status, $total_vehicle_cost,
