@@ -56,7 +56,7 @@ try {
         $amount  = $tourCharge -$vehicleCost;
         $mobile  = $row['guest_mobile'];
         $country = getCountryFromMobile($mobile);
-echo $country . '</br/>';
+
         $timestamp = strtotime($row['tour_start_date']);
         $year      = (int)date('Y',$timestamp);
         $month     = (int)date('n',$timestamp);

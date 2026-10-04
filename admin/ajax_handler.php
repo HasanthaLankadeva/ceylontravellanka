@@ -173,8 +173,8 @@ if ($action === 'save') {
         $tour_days             = (int)($_POST['tour_days'] ?? 0);
         $guest_name            = $_POST['guest_name'] ?? '';
         $paging_name           = $_POST['paging_name'] ?? $guest_name;
-        $adults                = $_POST['adults'] ?? 0;
-        $children              = $_POST['children'] ?? 0;
+        $adults                = $_POST['adults'] ?? '';
+        $children              = $_POST['children'] ?? '';
         $guest_mobile          = $_POST['guest_mobile'] ?? '';
         $guest_email           = $_POST['guest_email'] ?? '';
         $vehicle_model         = $_POST['vehicle_model'] ?? '';
