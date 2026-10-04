@@ -34,7 +34,8 @@ function getCountryFromMobile($mobile) {
 }
 
 $currentYear = (int)date('Y');
-$yearlyData  = [];$yearsFound  = [];
+$yearlyData  = [];
+$yearsFound  = [];
 
 try {
     // Fetch all booking records with valid start dates
@@ -53,9 +54,9 @@ try {
         }
 
         $amount  = $tourCharge -$vehicleCost;
-        $mobile  =$row['guest_mobile'];
+        $mobile  = $row['guest_mobile'];
         $country = getCountryFromMobile($mobile);
-
+echo $country . '</br/>';
         $timestamp = strtotime($row['tour_start_date']);
         $year      = (int)date('Y',$timestamp);
         $month     = (int)date('n',$timestamp);
