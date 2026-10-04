@@ -24,6 +24,22 @@
     .day-cell {
       min-height: 110px;
     }
+    .mobile{
+      display: none;
+    }
+    @media (max-width:768px) {
+      .day-cell .tour-item{
+        padding: 4px;
+      }
+      .mobile{
+        display: block;
+        font-size: 10px;
+      }
+      .tour-item .name,
+      .desktop{
+        display: none;
+      } 
+    }
   </style>
 </head>
 <body class="bg-slate-100 font-sans text-slate-800 flex h-screen overflow-hidden">
@@ -296,10 +312,10 @@
           // A. Start Date Badge (Indigo)
           if (tour.tour_start_date) {
             $(`.event-container[data-date="${tour.tour_start_date}"]`).append(`
-              <div class="tour-item truncate px-2 py-1 text-xs font-medium rounded bg-indigo-100 text-indigo-700 hover:bg-indigo-200 cursor-pointer transition" 
+              <div class="tour-item truncate px-2 py-1 text-xs font-medium rounded bg-emerald-100 text-emerald-700 hover:bg-emerald-200 cursor-pointer transition" 
                    data-id="${tour.id}" 
                    data-event-type="${isMultiDay ? 'Multi-Day Tour' : 'Single-Day Tour'}">
-                <span class="font-bold">[${tourTypeLabel}]</span> ${tour.guest_name || tour.order_number}
+                <span class="font-bold desktop">[${tourTypeLabel}]</span> <span class="font-bold mobile">${isMultiDay ? 'MD' : 'SD'}</span> <span class="name">${tour.guest_name || tour.order_number}</span>
               </div>
             `);
           }
@@ -309,12 +325,12 @@
             tour.transfers.forEach(function(transfer) {
               if (transfer.date) {
                 $(`.event-container[data-date="${transfer.date}"]`).append(`
-                  <div class="tour-item truncate px-2 py-1 text-xs font-medium rounded bg-sky-100 text-sky-700 hover:bg-sky-200 cursor-pointer transition" 
+                  <div class="tour-item truncate px-2 py-1 text-xs font-medium rounded bg-yellow-300 text-yellow-950 hover:bg-yellow-400 cursor-pointer transition" 
                        data-id="${tour.id}" 
                        data-event-type="Transfer" 
                        data-transfer-title="${transfer.title || transfer.transfer_title || 'Transfer'}"
                        data-transfer-date="${transfer.date}">
-                    <span class="font-bold">[Transfer]</span> ${transfer.title || transfer.transfer_title || tour.guest_name || 'Transfer'}
+                    <span class="font-bold desktop">[Transfer]</span> <span class="font-bold mobile">Tra</span> <span class="name">${transfer.title || transfer.transfer_title || tour.guest_name || 'Transfer'}</span>
                   </div>
                 `);
               }
@@ -324,10 +340,10 @@
           // C. End Date Badge (Amber / Multi-Day Only)
           if (isMultiDay && tour.tour_end_date) {
             $(`.event-container[data-date="${tour.tour_end_date}"]`).append(`
-              <div class="tour-item truncate px-2 py-1 text-xs font-medium rounded bg-amber-100 text-amber-700 hover:bg-amber-200 cursor-pointer transition" 
+              <div class="tour-item truncate px-2 py-1 text-xs font-medium rounded bg-rose-100 text-rose-700 hover:bg-rose-200 cursor-pointer transition" 
                    data-id="${tour.id}" 
                    data-event-type="Tour End">
-                <span class="font-bold">[End Tour]</span> ${tour.guest_name || tour.order_number}
+                <span class="font-bold desktop">[End Tour]</span> <span class="font-bold mobile">End</span> <span class="name">${tour.guest_name || tour.order_number}</span>
               </div>
             `);
           }
