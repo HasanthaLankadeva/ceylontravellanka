@@ -80,7 +80,7 @@ try {
                 continue;
             }
 
-            $amount    = $tourCharge - $vehicleCost;
+            $amount    = $tourCharge + $vehicleCost;
             $timestamp = strtotime($row['tour_start_date']);
             $year      = (int)date('Y', $timestamp);
             $month     = (int)date('n', $timestamp);
@@ -576,21 +576,48 @@ $yearlyDataJson = json_encode($yearlyData);
         enquiriesChart.data.datasets[0].data = enquiryValues;
         enquiriesChart.update();
 
-        // 5. Update Country Chart
-        const countryLabels = Object.keys(data.countryTotals);
-        const countryRevenues = countryLabels.map(c => data.countryTotals[c].revenue);
+        // 5. Aggregate Top 4 Countries + Group Others
+        const rawCountryKeys = Object.keys(data.countryTotals);
+        let groupedCountryTotals = {};
 
-        countryChart.data.labels = countryLabels;
-        countryChart.data.datasets[0].data = countryRevenues;
+        if (rawCountryKeys.length <= 4) {
+          groupedCountryTotals = { ...data.countryTotals };
+        } else {
+          const top4Keys = rawCountryKeys.slice(0, 4);
+          const remainingKeys = rawCountryKeys.slice(4);
+
+          top4Keys.forEach(k => {
+            groupedCountryTotals[k] = { ...data.countryTotals[k] };
+          });
+
+          let othersRevenue = 0;
+          let othersCount = 0;
+          remainingKeys.forEach(k => {
+            othersRevenue += data.countryTotals[k].revenue;
+            othersCount += data.countryTotals[k].count;
+          });
+
+          groupedCountryTotals['Others'] = {
+            revenue: othersRevenue,
+            count: othersCount
+          };
+        }
+
+        // 6. Update Country Chart
+        const chartLabels = Object.keys(groupedCountryTotals);
+        const chartData = chartLabels.map(c => groupedCountryTotals[c].revenue);
+
+        countryChart.data.labels = chartLabels;
+        countryChart.data.datasets[0].data = chartData;
         countryChart.update();
 
-        // 6. Update Breakdown Table
+        // 7. Update Breakdown Table
         const $tableBody =$('#countryTableBody');
         $tableBody.empty();
 
-        if (countryLabels.length > 0) {
-          countryLabels.forEach(country => {
-            const cData = data.countryTotals[country];
+        if (chartLabels.length > 0) {
+          chartLabels.forEach(country => {
+            const cData = groupedCountryTotals[country];
             const pct = totalRev > 0 ? ((cData.revenue / totalRev) * 100).toFixed(1) : 0;
             const revFormatted = cData.revenue.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
 
