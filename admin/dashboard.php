@@ -7,7 +7,7 @@ include 'db.php'; // Expects $pdo instance of PDO
 // Helper function: Parse Country from Mobile Number (E.164 Prefix Mapping)
 function getCountryFromMobile($mobile) {
     if (empty($mobile)) return 'Unknown';
-    $cleanMobile = preg_replace('/[^0-9]/', '',$mobile);
+    $cleanMobile = preg_replace('/[^0-9]/', '', $mobile);
 
     // Common phone prefixes (Longer prefixes first to prevent false matches)
     $prefixes = [
@@ -25,8 +25,8 @@ function getCountryFromMobile($mobile) {
         '27'  => ['name' => 'South Africa', 'code' => 'za'],
     ];
 
-    foreach ($prefixes as $prefix =>$info) {
-        if (strpos($cleanMobile,$prefix) === 0) {
+    foreach ($prefixes as $prefix => $info) {
+        if (strpos($cleanMobile, $prefix) === 0) {
             return $info['name'];
         }
     }
@@ -38,56 +38,85 @@ $yearlyData  = [];
 $yearsFound  = [];
 
 try {
-    // Fetch all booking records with valid start dates
-    $sql = "SELECT id, order_number, guest_name, guest_mobile, tour_charge, tour_start_date, status, total_vehicle_cost 
-            FROM bookings 
+    // Fetch all booking records with valid start dates or created dates
+    $sql = "SELECT id, order_number, guest_name, guest_mobile, tour_charge, tour_start_date, status, total_vehicle_cost, created_at 
+            FROM bookings
             WHERE tour_start_date IS NOT NULL AND tour_start_date != '0000-00-00'";
     $stmt = $pdo->query($sql);
-    $rows =$stmt->fetchAll(PDO::FETCH_ASSOC);
+    $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-    foreach ($rows as$row) {
+    foreach ($rows as $row) {
+      
         $tourCharge  = floatval($row['tour_charge'] ?? 0);
         $vehicleCost = floatval($row['total_vehicle_cost'] ?? 0);
+        $mobile      = $row['guest_mobile'];
+        $country     = getCountryFromMobile($mobile);
 
-        if ($tourCharge == 0) {
-            continue;
+        // Process Enquiries Trend by 'created_date'
+        if (!empty($row['created_at']) && $row['created_at'] !== '0000-00-00' && $row['created_at'] !== '0000-00-00 00:00:00') {
+            $createdTs   = strtotime($row['created_at']);
+            $createdYear  = (int)date('Y', $createdTs);
+            $createdMonth = (int)date('n', $createdTs);
+
+            $yearsFound[$createdYear] = true;
+
+            if (!isset($yearlyData[$createdYear])) {
+                $yearlyData[$createdYear] = [
+                    'totalRevenue'     => 0,
+                    'totalBookings'    => 0,
+                    'overallMonthly'   => array_fill(1, 12, 0),
+                    'enquiriesMonthly' => array_fill(1, 12, 0),
+                    'countryTotals'    => [],
+                    'countryMonthly'   => []
+                ];
+            }
+            // Increment Enquiry Count for Created Month
+            $yearlyData[$createdYear]['enquiriesMonthly'][$createdMonth] += 1;
         }
 
-        $amount  = $tourCharge -$vehicleCost;
-        $mobile  = $row['guest_mobile'];
-        $country = getCountryFromMobile($mobile);
+        // Process Financial & Tour Metrics by 'tour_start_date'
+        if (!empty($row['tour_start_date']) && $row['tour_start_date'] !== '0000-00-00') {
+            if ($tourCharge == 0) {
+                continue;
+            }
 
-        $timestamp = strtotime($row['tour_start_date']);
-        $year      = (int)date('Y',$timestamp);
-        $month     = (int)date('n',$timestamp);
+            $amount    = $tourCharge - $vehicleCost;
+            $timestamp = strtotime($row['tour_start_date']);
+            $year      = (int)date('Y', $timestamp);
+            $month     = (int)date('n', $timestamp);
 
-        $yearsFound[$year] = true;
+            $yearsFound[$year] = true;
 
-        // Structure yearly aggregated container
-        if (!isset($yearlyData[$year])) {
-            $yearlyData[$year] = [
-                'totalRevenue'   => 0,
-                'totalBookings'  => 0,
-                'overallMonthly' => array_fill(1, 12, 0),
-                'countryTotals'  => [],
-                'countryMonthly' => []
-            ];
+            // Structure yearly aggregated container if not created yet
+            if (!isset($yearlyData[$year])) {
+                $yearlyData[$year] = [
+                    'totalRevenue'     => 0,
+                    'totalBookings'    => 0,
+                    'overallMonthly'   => array_fill(1, 12, 0),
+                    'enquiriesMonthly' => array_fill(1, 12, 0),
+                    'countryTotals'    => [],
+                    'countryMonthly'   => []
+                ];
+            }
+
+            // Increment Year Totals
+            $yearlyData[$year]['totalRevenue']  += $amount;
+            $yearlyData[$year]['totalBookings'] += 1;
+            $yearlyData[$year]['overallMonthly'][$month] += $amount;
+
+            // Aggregate Country Totals
+            if (!isset($yearlyData[$year]['countryTotals'][$country])) {
+                $yearlyData[$year]['countryTotals'][$country] = ['revenue' => 0, 'count' => 0];
+            }
+            $yearlyData[$year]['countryTotals'][$country]['revenue'] += $amount;
+            $yearlyData[$year]['countryTotals'][$country]['count']   += 1;
+
+            // Aggregate Country Monthly Breakdown
+            if (!isset($yearlyData[$year]['countryMonthly'][$country])) {
+                $yearlyData[$year]['countryMonthly'][$country] = array_fill(1, 12, 0);
+            }
+            $yearlyData[$year]['countryMonthly'][$country][$month] += $amount;
         }
-
-        // Increment Year Totals
-        $yearlyData[$year]['totalRevenue']  +=$amount;
-        $yearlyData[$year]['totalBookings'] += 1;
-        $yearlyData[$year]['overallMonthly'][$month] +=$amount;
-
-        // Aggregate Country Totals
-        if (!isset($yearlyData[$year]['countryTotals'][$country])) {$yearlyData[$year]['countryTotals'][$country] = ['revenue' => 0, 'count' => 0];
-        }
-        $yearlyData[$year]['countryTotals'][$country]['revenue'] +=$amount;
-        $yearlyData[$year]['countryTotals'][$country]['count']   += 1;
-
-        // Aggregate Country Monthly Breakdown
-        if (!isset($yearlyData[$year]['countryMonthly'][$country])) {
-            $yearlyData[$year]['countryMonthly'][$country] = array_fill(1, 12, 0);         }$yearlyData[$year]['countryMonthly'][$country][$month] +=$amount;
     }
 
 } catch (PDOException $e) {
@@ -100,19 +129,20 @@ $availableYears = array_keys($yearsFound);
 rsort($availableYears);
 
 // Ensure every available year has a default structure
-foreach ($availableYears as$yr) {
+foreach ($availableYears as $yr) {
     if (!isset($yearlyData[$yr])) {
         $yearlyData[$yr] = [
-            'totalRevenue'   => 0,
-            'totalBookings'  => 0,
-            'overallMonthly' => array_fill(1, 12, 0),
-            'countryTotals'  => [],
-            'countryMonthly' => []
+            'totalRevenue'     => 0,
+            'totalBookings'    => 0,
+            'overallMonthly'   => array_fill(1, 12, 0),
+            'enquiriesMonthly' => array_fill(1, 12, 0),
+            'countryTotals'    => [],
+            'countryMonthly'   => []
         ];
     } else {
         // Sort country totals descending by revenue
-        uasort($yearlyData[$yr]['countryTotals'], function($a,$b) {
-            return $b['revenue'] <=>$a['revenue'];
+        uasort($yearlyData[$yr]['countryTotals'], function($a, $b) {
+            return $b['revenue'] <=> $a['revenue'];
         });
     }
 }
@@ -237,24 +267,22 @@ $yearlyDataJson = json_encode($yearlyData);
         </div>
 
         <div class="flex items-center gap-2 sm:gap-3">
-          <!-- Right: Actions & User -->
           <div class="flex items-center gap-2 sm:gap-4 shrink-0">
-          <!-- Notification Bell -->
-          <button class="relative p-2 text-slate-500 hover:text-slate-600 rounded-full hover:bg-slate-100 transition">
-            <i class="fa-regular fa-bell text-lg"></i>
-            <span class="absolute top-1.5 right-1.5 w-2 h-2 bg-indigo-600 rounded-full"></span>
-          </button>
-          <div class="h-6 w-px bg-slate-200"></div>
-          <!-- User Profile -->
+            <button class="relative p-2 text-slate-500 hover:text-slate-600 rounded-full hover:bg-slate-100 transition">
+              <i class="fa-regular fa-bell text-lg"></i>
+              <span class="absolute top-1.5 right-1.5 w-2 h-2 bg-indigo-600 rounded-full"></span>
+            </button>
+            <div class="h-6 w-px bg-slate-200"></div>
             <div class="flex items-center gap-2 sm:gap-3">
-                <div class="w-9 h-9 rounded-full bg-indigo-100 text-indigo-700 font-semibold flex items-center justify-center text-sm border border-indigo-200 shrink-0">
+              <div class="w-9 h-9 rounded-full bg-indigo-100 text-indigo-700 font-semibold flex items-center justify-center text-sm border border-indigo-200 shrink-0">
                 CTL
-                </div>
-                <div class="hidden sm:block text-left">
+              </div>
+              <div class="hidden sm:block text-left">
                 <p class="text-sm font-medium text-slate-700 leading-tight">Ceylon T.</p>
                 <p class="text-xs text-slate-500">Administrator</p>
-                </div>
+              </div>
             </div>
+          </div>
         </div>
       </div>
     </header>
@@ -325,8 +353,8 @@ $yearlyDataJson = json_encode($yearlyData);
 
               <!-- Year Filter Select Dropdown -->
               <select id="yearSelect" class="text-xs border border-slate-300 rounded-lg px-2.5 py-1 bg-slate-100 font-semibold text-slate-700 focus:outline-none focus:ring-2 focus:ring-indigo-500">
-                <?php foreach ($availableYears as$yr): ?>
-                  <option value="<?php echo $yr; ?>" <?php echo ($yr ===$currentYear) ? 'selected' : ''; ?>>
+                <?php foreach ($availableYears as $yr): ?>
+                  <option value="<?php echo $yr; ?>" <?php echo ($yr === $currentYear) ? 'selected' : ''; ?>>
                     <?php echo $yr; ?>
                   </option>
                 <?php endforeach; ?>
@@ -338,8 +366,21 @@ $yearlyDataJson = json_encode($yearlyData);
           </div>
         </div>
 
-        <!-- Revenue by Country Source Bar Chart -->
+        <!-- Monthly Enquiries Count Chart -->
         <div class="bg-white p-4 sm:p-5 rounded-xl border border-slate-200 shadow-sm">
+          <div class="flex justify-between items-center mb-4">
+            <h3 class="text-xs sm:text-sm font-bold text-slate-800 flex items-center gap-2">
+              <i class="fa-solid fa-envelope-open-text text-amber-600"></i> Monthly Enquiries Trend
+            </h3>
+            <span class="text-[11px] sm:text-xs bg-slate-100 text-slate-600 font-medium px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-md">By Created Date</span>
+          </div>
+          <div class="h-56 sm:h-64">
+            <canvas id="enquiriesChart"></canvas>
+          </div>
+        </div>
+
+        <!-- Revenue by Country Source Bar Chart -->
+        <div class="bg-white p-4 sm:p-5 rounded-xl border border-slate-200 shadow-sm lg:col-span-2">
           <div class="flex justify-between items-center mb-4">
             <h3 class="text-xs sm:text-sm font-bold text-slate-800 flex items-center gap-2">
               <i class="fa-solid fa-flag text-indigo-600"></i> Revenue by Country Source
@@ -401,14 +442,15 @@ $yearlyDataJson = json_encode($yearlyData);
       $('#toggleSidebarBtn').on('click', function() {
         const sidebar = $('#sidebar');
         sidebar.toggleClass('w-64 w-20');
-        $('.sidebar-text').toggleClass('hidden');$('#collapseIcon').toggleClass('fa-angles-left fa-angles-right');
+        $('.sidebar-text').toggleClass('hidden');
+        $('#collapseIcon').toggleClass('fa-angles-left fa-angles-right');
       });
 
       // Datasets payload dynamically grouped by Year
       const yearlyData = <?php echo $yearlyDataJson; ?>;
       const months     = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 
-      // Initialize Chart Instances
+      // Initialize Monthly Revenue Chart
       const ctxMonthly = document.getElementById('monthlyChart').getContext('2d');
       const monthlyChart = new Chart(ctxMonthly, {
         type: 'line',
@@ -436,6 +478,32 @@ $yearlyDataJson = json_encode($yearlyData);
         }
       });
 
+      // Initialize Monthly Enquiries Count Chart
+      const ctxEnquiries = document.getElementById('enquiriesChart').getContext('2d');
+      const enquiriesChart = new Chart(ctxEnquiries, {
+        type: 'bar',
+        data: {
+          labels: months,
+          datasets: [{
+            label: 'Enquiries Count',
+            data: [],
+            backgroundColor: '#f59e0b',
+            hoverBackgroundColor: '#d97706',
+            borderRadius: 6
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: { legend: { display: false } },
+          scales: {
+            y: { beginAtZero: true, ticks: { stepSize: 1 }, grid: { color: '#f1f5f9' } },
+            x: { grid: { display: false } }
+          }
+        }
+      });
+
+      // Initialize Country Chart
       const ctxCountry = document.getElementById('countryChart').getContext('2d');
       const countryChart = new Chart(ctxCountry, {
         type: 'bar',
@@ -465,6 +533,7 @@ $yearlyDataJson = json_encode($yearlyData);
           totalRevenue: 0,
           totalBookings: 0,
           overallMonthly: Array(12).fill(0),
+          enquiriesMonthly: Array(12).fill(0),
           countryTotals: {},
           countryMonthly: {}
         };
@@ -484,7 +553,7 @@ $yearlyDataJson = json_encode($yearlyData);
         $('#kpiAvgBooking').text('LKR ' + avgBkg.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 }));
 
         // 2. Growth View Select Options (Country Dropdown)
-        const $countryOptGroup =$('#growthViewCountryOptions');
+        const $countryOptGroup = $('#growthViewCountryOptions');
         $countryOptGroup.empty();
         
         const countries = Object.keys(data.countryMonthly);
@@ -495,14 +564,19 @@ $yearlyDataJson = json_encode($yearlyData);
         // Reset Growth Select view to "overall"
         $('#growthViewSelect').val('overall');
 
-        // 3. Update Monthly Chart
+        // 3. Update Monthly Revenue Chart
         const overallValues = Object.values(data.overallMonthly);
         monthlyChart.data.datasets[0].data = overallValues;
         monthlyChart.data.datasets[0].borderColor = '#4f46e5';
         monthlyChart.data.datasets[0].backgroundColor = 'rgba(79, 70, 229, 0.1)';
         monthlyChart.update();
 
-        // 4. Update Country Chart
+        // 4. Update Enquiries Count Chart
+        const enquiryValues = Object.values(data.enquiriesMonthly);
+        enquiriesChart.data.datasets[0].data = enquiryValues;
+        enquiriesChart.update();
+
+        // 5. Update Country Chart
         const countryLabels = Object.keys(data.countryTotals);
         const countryRevenues = countryLabels.map(c => data.countryTotals[c].revenue);
 
@@ -510,7 +584,7 @@ $yearlyDataJson = json_encode($yearlyData);
         countryChart.data.datasets[0].data = countryRevenues;
         countryChart.update();
 
-        // 5. Update Breakdown Table
+        // 6. Update Breakdown Table
         const $tableBody =$('#countryTableBody');
         $tableBody.empty();
 
