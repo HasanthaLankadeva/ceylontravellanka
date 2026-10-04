@@ -7,12 +7,12 @@ $page = basename($_SERVER['PHP_SELF'], '.php');
 $siteName = "Ceylon Travel Lanka";
 $baseUrl = "https://ceylontravellanka.com";
 
-$pageTitle = "Private Driver Sri Lanka | Airport Transfers & Tour Packages | " . $siteName;
+$pageTitle = "Private Driver Sri Lanka | Tours & Airport Transfers | " . $siteName;
 
 $canonical = "https://ceylontravellanka.com" . $_SERVER['REQUEST_URI'];
 
-$metaDescription = "Book private driver services in Sri Lanka. Reliable airport transfers, tour packages, and custom travel with experienced drivers. Affordable & 24/7 service.";
-$metaKeywords = "Sri Lanka private driver, Sri Lanka transport service, airport transfer Colombo, hire car with driver Sri Lanka, Sri Lanka tours, Sri Lanka taxi service";
+$metaDescription = "Explore Sri Lanka with a private driver, airport transfers and customized tours. Discover popular itineraries and request a personalized quote from Ceylon Travel Lanka.";
+$metaKeywords = "private driver Sri Lanka, Sri Lanka private tours, Sri Lanka airport transfers, Sri Lanka private driver, Sri Lanka transport service, airport transfer Colombo, hire car with driver Sri Lanka, Sri Lanka tours, Sri Lanka taxi service";
 
 $OGTitle = "Private Driver Sri Lanka | Airport Transfers & Tours | " . $siteName;
 $OGdescription = "Reliable private drivers, airport transfers, and Sri Lanka tour packages. Book safe and comfortable travel with local experts.";
@@ -48,11 +48,11 @@ $preloadBanner = BASE_URL . "images/videos/poster.webp";
                             </video>
                         </div>
                         <div class="swiper-content">
-                            <h1 class="mb-2">Private Driver & Transport Services in Sri Lanka</h1>
-                            <p class="white mb-4">Book airport transfers, private drivers, and comfortable travel across Sri Lanka with trusted local experts.</p>
+                            <h1 class="mb-2">Private Tours and Driver Hire in Sri Lanka</h1>
+                            <p class="white mb-4">Explore Sri Lanka your way with a trusted local driver, comfortable private transportation, and personalized tour itineraries designed around your travel plans.</p>
                             <div class="slider-button d-flex justify-content-center">
-                                <a href="https://wa.me/+94759800348?text=I'm%20interested%20in%20your%20services" class="nir-btn me-4">Book via WhatsApp</a>
-                                <a href="mailto:contact@ceylontravellanka.com" class="nir-btn-white">Get Free Quote</a>
+                                <a href="mailto:contact@ceylontravellanka.com" class="nir-btn me-4">Plan My Sri Lanka Tour</a>
+                                <a href="https://wa.me/+94759800348?text=I'm%20interested%20in%20your%20services" class="nir-btn-white">WhatsApp Us</a>
                             </div>
                         </div>
                         <div class="dot-overlay"></div>
@@ -79,7 +79,7 @@ $preloadBanner = BASE_URL . "images/videos/poster.webp";
               <div class="feature-box fbox-one d-flex justify-content-start align-items-center flex-row-reverse gap-3 text-end bg-lblue mb-3 px-4 py-2">
                 <div>
                     <a href="<?= BASE_URL ?>services/airport-transfer">
-                        <h5>Airport Transfers</h5>
+                        <h5>Sri Lanka Airport Transfers</h5>
                         <p>Safe and on-time pickup from Colombo Airport →</p>
                     </a>
                 </div>
@@ -87,7 +87,7 @@ $preloadBanner = BASE_URL . "images/videos/poster.webp";
               <div class="feature-box d-flex justify-content-start align-items-center flex-row-reverse gap-3 text-end bg-lyellow mt-3 px-3 py-2">
                 <div>
                     <a href="<?= BASE_URL ?>sri-lanka-tours/">
-                        <h5>Custom Tours</h5>
+                        <h5>Tailor-Made Sri Lanka Tours</h5>
                         <p>Tailored itineraries based on your preferences →</p>
                     </a>
                 </div>
@@ -102,7 +102,7 @@ $preloadBanner = BASE_URL . "images/videos/poster.webp";
               <div class="feature-box fbox-three d-flex justify-content-start align-items-center gap-3 bg-lyellow mb-3 px-4 py-2">
                 <div>
                     <a href="<?= BASE_URL ?>services/private-driver-in-sri-lanka">
-                        <h5>Private Driver Hire</h5>
+                        <h5>Private Driver Hire in Sri Lanka</h5>
                         <p>Flexible travel with experienced local drivers →</p>
                     </a>
                 </div>
@@ -110,8 +110,8 @@ $preloadBanner = BASE_URL . "images/videos/poster.webp";
               <div class="feature-box d-flex justify-content-start align-items-center gap-3 bg-lgreen mt-3 px-4 py-2">
                 <div>
                     <a href="<?= BASE_URL ?>services">
-                        <h5>Comfortable Vehicles</h5>
-                        <p>Clean, air-conditioned cars for long journeys →</p>
+                        <h5>Private Car, Van or Bus Hire</h5>
+                        <p>Clean, air-conditioned vehicles for long journeys →</p>
                     </a>
                 </div>
               </div>
@@ -123,7 +123,7 @@ $preloadBanner = BASE_URL . "images/videos/poster.webp";
     <div class="white-overlay"></div>
 </section>
 
-<section class="featured-counter featured-fleet pb-10">
+<section class="featured-counter featured-fleet pb-6">
     <div class="container">
         <div class="row align-items-center">
             <div class="col-lg-12">
@@ -291,6 +291,127 @@ $preloadBanner = BASE_URL . "images/videos/poster.webp";
 
 <?php require_once BASE_PATH . '/includes/testimonials.php';?>
 
+<!-- Faq starts-->
+<section class="faq-main pb-6 pt-6">
+    <div class="container">
+        <div class="section-title mb-6 text-center w-75 mx-auto">
+            <h2 class="mb-1">FAQ About Sri Lanka Private Tours</h2>
+        </div>
+        <div class="faq-accordian">
+            <div class="row">
+                <div class="col-lg-6 col-md-12 mb-4">
+                    <div class="accrodion-grp faq-accrodion" data-grp-name="faq-accrodion1">
+                        <div class="accrodion">
+                            <div class="accrodion-title">
+                                <h5>Why should I choose Ceylon Travel Lanka for my Sri Lanka tour?</h5>
+                            </div>
+                            <div class="accrodion-content">
+                                <div class="inner">
+                                    <p>Ceylon Travel Lanka offers reliable private transportation and personalized tour experiences for travelers exploring Sri Lanka. We provide private driver services, airport transfers, and customized itineraries designed around your interests, travel dates, and budget. Our air-conditioned vehicles and experienced local drivers help you explore Sri Lanka comfortably, from ancient cultural sites and scenic hill country to beautiful beaches and wildlife destinations. Whether you are traveling as a couple, family, or group, we help make your Sri Lanka holiday convenient and memorable.</p>
+                                </div><!-- /.inner -->
+                            </div>
+                        </div>
+                        <div class="accrodion">
+                            <div class="accrodion-title">
+                                <h5>Do you provide private driver services in Sri Lanka?</h5>
+                            </div>
+                            <div class="accrodion-content">
+                                <div class="inner">
+                                    <p>Yes! We provide private driver services in Sri Lanka for individuals, couples, families, and groups. You can hire a private driver for day trips, airport transfers, or multi-day tours around the island. Our service allows you to travel at your own pace, visit the destinations you prefer, and enjoy a more flexible alternative to group tours and public transportation. Contact us with your itinerary and travel dates so we can recommend a suitable vehicle and service option.</p>
+                                </div><!-- /.inner -->
+                            </div>
+                        </div>
+                        <div class="accrodion">
+                            <div class="accrodion-title">
+                                <h5>Do you offer airport transfers from Airport (CMB)?</h5>
+                            </div>
+                            <div class="accrodion-content">
+                                <div class="inner">
+                                    <p>Yes, Ceylon Travel Lanka provides airport pickup and transfer services from Bandaranaike International Airport (CMB), near Negombo. We can arrange transportation to your hotel, resort, or preferred destination in Sri Lanka. To organize your pickup, please share your flight number, arrival date and time, passenger count, luggage requirements, and destination. We recommend booking in advance so we can coordinate your arrival and transfer arrangements.</p>
+                                </div><!-- /.inner -->
+                            </div>
+                        </div>
+                        <div class="accrodion ">
+                            <div class="accrodion-title">
+                                <h5>Can I customize my Sri Lanka tour itinerary?</h5>
+                            </div>
+                            <div class="accrodion-content">
+                                <div class="inner">
+                                    <p>Absolutely! We can help you plan a customized Sri Lanka tour based on your travel duration, interests, preferred destinations, and budget. You can combine cultural attractions such as Sigiriya and Kandy with the scenic hill country, tea plantations, Ella, wildlife safaris, and southern coastal destinations. Whether you need a short getaway or a longer island tour, share your preferences with us and we will help you plan a suitable itinerary.</p>
+                                </div><!-- /.inner -->
+                            </div>
+                        </div>
+                        <div class="accrodion ">
+                            <div class="accrodion-title">
+                                <h5>How much does it cost to hire a private driver in Sri Lanka?</h5>
+                            </div>
+                            <div class="accrodion-content">
+                                <div class="inner">
+                                    <p>The cost of hiring a private driver in Sri Lanka depends on your travel dates, trip duration, destinations, vehicle type, passenger count, and total distance. Airport transfers, day trips, and multi-day tours may have different pricing structures. At Ceylon Travel Lanka, you can request a personalized quotation based on your travel plans. To receive an accurate estimate, please share your itinerary, arrival and departure dates, number of travelers, and preferred vehicle type. We recommend confirming all inclusions and exclusions before booking.</p>
+                                </div><!-- /.inner -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-12 mb-4">
+                    <div class="accrodion-grp faq-accrodion" data-grp-name="faq-accrodion2">
+                        <div class="accrodion">
+                            <div class="accrodion-title">
+                                <h5>What is included in your Sri Lanka tour packages?</h5>
+                            </div>
+                            <div class="accrodion-content">
+                                <div class="inner">
+                                    <p>The inclusions depend on the tour and transportation option you choose. Depending on your quotation, your service may include a private air-conditioned vehicle, driver service, fuel, and agreed transfers or journeys. Accommodation, meals, attraction entrance tickets, safari fees, and other expenses should be confirmed separately unless specifically included in your package. Before confirming your booking with Ceylon Travel Lanka, we will clarify the applicable inclusions and exclusions so you can plan your travel budget with confidence.</p>
+                                </div><!-- /.inner -->
+                            </div>
+                        </div>
+                        <div class="accrodion ">
+                            <div class="accrodion-title">
+                                <h5>Is Sri Lanka safe for tourists traveling with a private driver?</h5>
+                            </div>
+                            <div class="accrodion-content">
+                                <div class="inner">
+                                    <p>Traveling with a private driver can make getting around Sri Lanka more convenient, particularly when visiting several destinations during one trip. A local driver can help with route planning, transfers, and navigating unfamiliar roads. Ceylon Travel Lanka emphasizes comfortable transportation and professional service, with air-conditioned vehicles and tourist insurance as described on our website. We also recommend following local guidance, securing your belongings, and checking current travel advice before your journey.</p>
+                                </div><!-- /.inner -->
+                            </div>
+                        </div>
+                        <div class="accrodion">
+                            <div class="accrodion-title">
+                                <h5>What are the best places to visit in Sri Lanka on a private tour?</h5>
+                            </div>
+                            <div class="accrodion-content">
+                                <div class="inner">
+                                    <p>Sri Lanka offers a wonderful mix of cultural landmarks, mountains, wildlife, and beaches. Popular destinations include Sigiriya for its iconic rock fortress, Kandy for its cultural heritage, Nuwara Eliya for tea plantations, Ella for scenic mountain views, Yala for wildlife safaris, and Galle for its historic fort and coastal atmosphere. You can also explore destinations such as Anuradhapura, Polonnaruwa, Mirissa, Bentota, and Trincomalee. We can help you combine destinations into an itinerary that matches your available time and interests.</p>
+                                </div><!-- /.inner -->
+                            </div>
+                        </div>
+                        <div class="accrodion ">
+                            <div class="accrodion-title">
+                                <h5>How many days do I need to explore Sri Lanka?</h5>
+                            </div>
+                            <div class="accrodion-content">
+                                <div class="inner">
+                                    <p>The ideal duration depends on how many places you want to visit and how relaxed you would like your trip to be. A 4–6 day tour can cover a selection of major highlights, while 7–10 days allows more time for cultural sites, the hill country, and selected coastal destinations. A 12–15 day itinerary can offer a more extensive island experience with additional stops and activities. These are general guidelines, and travel times between destinations should be considered when planning your route. Ceylon Travel Lanka can help tailor your itinerary to your schedule.</p>
+                                </div><!-- /.inner -->
+                            </div>
+                        </div>
+                        <div class="accrodion ">
+                            <div class="accrodion-title">
+                                <h5>How Do I Book a Tour or Airport Transfer?</h5>
+                            </div>
+                            <div class="accrodion-content">
+                                <div class="inner">
+                                    <p>Booking with Ceylon Travel Lanka is simple. Contact us through our website, email, or WhatsApp and share your arrival date, departure date, number of travelers, preferred destinations, and transportation requirements. Our team can review your plans and provide a quotation based on your requested service. Once you have reviewed and agreed to the itinerary, price, and booking terms, we can coordinate the next steps for your reservation. For assistance, email <a href="mailto:contact@ceylontravellanka.com">contact@ceylontravellanka.com</a> or call/WhatsApp <a href="tel:+94759800348" title="Call">+94 75 980 0348</a>.</p>
+                                </div><!-- /.inner -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
 <section class="pt-9">
     <div class="container">
     <div class="row offer-banner shadow-lg">
@@ -298,10 +419,10 @@ $preloadBanner = BASE_URL . "images/videos/poster.webp";
         <div class="col-md-6 d-flex align-items-center bg-map">
         <div class="offer-text w-100">
             <h2 class="fw-bold theme1 mb-1">Book Your Sri Lanka <br/>Transport Today</h2>
-            <p class="mb-4">Contact us now for airport transfers, private drivers, or customized tour packages.</p>
+            <p class="mb-4">Tell us your travel plans, and let us help you create a comfortable, personalized journey around Sri Lanka.</p>
             <div class="slider-button d-flex">
-                <a href="https://wa.me/+94759800348?text=I'm%20interested%20in%20your%20services" class="nir-btn me-4" tabindex="0">Book via WhatsApp</a>
-                <a href="mailto:contact@ceylontravellanka.com" class="nir-btn-white" tabindex="0">Get Free Quote</a>
+                <a href="https://wa.me/+94759800348?text=I'm%20interested%20in%20your%20services" class="nir-btn me-4" tabindex="0">Chat on WhatsApp</a>
+                <a href="mailto:contact@ceylontravellanka.com" class="nir-btn-white" tabindex="0">Plan Your Tour</a>
             </div>
         </div>
         </div>
