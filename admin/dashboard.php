@@ -80,7 +80,7 @@ try {
                 continue;
             }
 
-            $amount    = $tourCharge + $vehicleCost;
+            $amount    = $tourCharge - $vehicleCost;
             $timestamp = strtotime($row['tour_start_date']);
             $year      = (int)date('Y', $timestamp);
             $month     = (int)date('n', $timestamp);
