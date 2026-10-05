@@ -39,7 +39,7 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": ["TravelAgency", "TourOperator"],
+  "@type": ["TravelAgency"],
   "@id": "https://ceylontravellanka.com/#organization",
   "name": "Ceylon Travel Lanka",
   "url": "https://ceylontravellanka.com/",
