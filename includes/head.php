@@ -84,12 +84,11 @@
 </script>
 
 <?php
-
 $baseUrl = rtrim(BASE_URL, '/') . '/';
 $canonical = rtrim($canonical, '/');
 $orgId = $baseUrl . '#organization';
 $websiteId = $baseUrl . '#website';
-
+print_r($page);
 $schema = [
     '@context' => 'https://schema.org'
 ];
@@ -108,9 +107,9 @@ $webPage = [
     'inLanguage' => 'en'
 ];
 
-switch ($page) {
+switch ($currentpage) {
 
-    case 'index':
+    case 'home':
 
         $schema['@graph'] = [
             [
