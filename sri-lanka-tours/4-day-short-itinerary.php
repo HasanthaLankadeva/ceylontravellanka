@@ -3,7 +3,15 @@
 require_once __DIR__ . '/../config/config.php';
 
 $currentpage = 'itineraries';
-$page = basename($_SERVER['PHP_SELF'], '.php');
+
+$path = trim(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH), '/');
+
+if ($path === '' || $path === 'index.php') {
+    $page = 'index';
+} else {
+    $page = basename($path);
+}
+
 $siteName = "Ceylon Travel Lanka";
 $baseUrl = "https://ceylontravellanka.com";
 
