@@ -440,7 +440,7 @@
                 <div style="font-weight: 600; color: #92400E; font-size: 13px; display: flex; align-items: center; gap: 6px;">
                   ⚠️ Special Notes:
                 </div>
-                <div style="color: #78350F; font-size: 13px; margin-top: 4px;">Check special notes</div>
+                <div style="color: #78350F; font-size: 13px; margin-top: 4px;">${tour.special_notes}</div>
               </div>
             `);
           } else {
