@@ -213,6 +213,7 @@
             <p><strong>Driver:</strong> <span id="modalDriver"></span></p>
             <p><strong>Driver Mobile:</strong> <span id="modalDriverContact"></span></p>
             <p><strong>Dates:</strong> <span id="modalDates"></span></p>
+            <div class="notes"></div>
           </div>
 
           <div class="mt-6 text-right">
@@ -431,6 +432,19 @@
             $('#modalDates').text(transferDate);
           } else {
             $('#modalDates').text(`${tour.tour_start_date}${isMultiDay ? ' to ' + tour.tour_end_date : ''}`);
+          }
+
+          if (tour.special_notes) {
+            $('.notes').html(`
+              <div style="background-color: #FEF3C7; border-left: 4px solid #F59E0B; padding: 12px; border-radius: 6px; margin-top: 14px;">
+                <div style="font-weight: 600; color: #92400E; font-size: 13px; display: flex; align-items: center; gap: 6px;">
+                  ⚠️ Special Notes:
+                </div>
+                <div style="color: #78350F; font-size: 13px; margin-top: 4px;">Check special notes</div>
+              </div>
+            `);
+          } else {
+            $('.notes').html('');
           }
 
           $('#tourModal').removeClass('hidden');
