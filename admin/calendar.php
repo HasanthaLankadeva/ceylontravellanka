@@ -27,6 +27,9 @@
     .mobile{
       display: none;
     }
+    .tour-item.with-border{
+      border: 1px solid red;
+    }
     @media (max-width:768px) {
       .day-cell .tour-item{
         padding: 4px;
@@ -313,7 +316,7 @@
           // A. Start Date Badge (Indigo)
           if (tour.tour_start_date) {
             $(`.event-container[data-date="${tour.tour_start_date}"]`).append(`
-              <div class="tour-item truncate px-2 py-1 text-xs font-medium rounded bg-emerald-100 text-emerald-700 hover:bg-emerald-200 cursor-pointer transition" 
+              <div class="tour-item truncate px-2 py-1 text-xs font-medium rounded bg-emerald-100 text-emerald-700 hover:bg-emerald-200 cursor-pointer transition ${tour.special_notes ? 'with-border' : ''}" 
                    data-id="${tour.id}" 
                    data-event-type="${isMultiDay ? 'Multi-Day Tour' : 'Single-Day Tour'}">
                 <span class="font-bold desktop">[${tourTypeLabel}]</span> <span class="font-bold mobile">${isMultiDay ? 'MD' : 'SD'}</span> <span class="name">${tour.guest_name || tour.order_number}</span>
@@ -326,7 +329,7 @@
             tour.transfers.forEach(function(transfer) {
               if (transfer.date) {
                 $(`.event-container[data-date="${transfer.date}"]`).append(`
-                  <div class="tour-item truncate px-2 py-1 text-xs font-medium rounded bg-yellow-300 text-yellow-950 hover:bg-yellow-400 cursor-pointer transition" 
+                  <div class="tour-item truncate px-2 py-1 text-xs font-medium rounded bg-yellow-300 text-yellow-950 hover:bg-yellow-400 cursor-pointer transition ${tour.special_notes ? 'with-border' : ''}" 
                        data-id="${tour.id}" 
                        data-event-type="Transfer" 
                        data-transfer-title="${transfer.title || transfer.transfer_title || 'Transfer'}"
@@ -341,7 +344,7 @@
           // C. End Date Badge (Amber / Multi-Day Only)
           if (isMultiDay && tour.tour_end_date) {
             $(`.event-container[data-date="${tour.tour_end_date}"]`).append(`
-              <div class="tour-item truncate px-2 py-1 text-xs font-medium rounded bg-rose-100 text-rose-700 hover:bg-rose-200 cursor-pointer transition" 
+              <div class="tour-item truncate px-2 py-1 text-xs font-medium rounded bg-rose-100 text-rose-700 hover:bg-rose-200 cursor-pointer transition ${tour.special_notes ? 'with-border' : ''}" 
                    data-id="${tour.id}" 
                    data-event-type="Tour End">
                 <span class="font-bold desktop">[End Tour]</span> <span class="font-bold mobile">End</span> <span class="name">${tour.guest_name || tour.order_number}</span>
