@@ -1378,7 +1378,7 @@ Day 2: Kandy City Tour..." class="w-full text-xs border border-slate-300 focus:b
                         tour_start_date: params.get('tour_start_date'),
                         tour_end_date: params.get('tour_end_date'),
                         tour_title: params.get('tour_title'),
-                        vehicle_model: params.get('vehicle_model'),
+                        vehicle_model: (params.get('vehicle_model') === 'SUV Mini' || params.get('vehicle_model') === 'SUV New') ? 'SUV' : params.get('vehicle_model'),
                         mileage_limit: params.get('mileage_limit'),
                         extra_mileage_charge: params.get('extra_mileage_charge'),
                         tour_charge: tourChargeLKR,
@@ -1616,7 +1616,9 @@ Day 2: Kandy City Tour..." class="w-full text-xs border border-slate-300 focus:b
                 let maxMileage = diffDays > 0 ? (100 * diffDays) + extra : 0;
                 $('#mileage_limit').val(maxMileage);
 
-                let packageName = (tourDays && selectedVehicle) ? `${tourDays}-Day Private ${selectedVehicle} Rental` : '';
+                let vehicleType = (selectedVehicle === 'SUV Mini' || selectedVehicle === 'SUV New') ? 'SUV' : selectedVehicle;
+
+                let packageName = (tourDays && vehicleType) ? `${tourDays}-Day Private ${vehicleType} Rental` : '';
                 $('#tour_title').val(packageName);
                 
             }

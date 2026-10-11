@@ -41,7 +41,7 @@ try {
     // Fetch all booking records with valid start dates or created dates
     $sql = "SELECT id, order_number, guest_name, guest_mobile, tour_charge, tour_start_date, status, total_vehicle_cost, created_at 
             FROM bookings
-            WHERE tour_start_date IS NOT NULL AND tour_start_date != '0000-00-00'";
+            WHERE tour_start_date IS NOT NULL AND tour_start_date != '0000-00-00' AND status != 'Canceled'";
     $stmt = $pdo->query($sql);
     $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
 

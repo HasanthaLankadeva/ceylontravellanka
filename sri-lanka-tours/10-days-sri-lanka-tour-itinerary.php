@@ -15,15 +15,15 @@ if ($path === '' || $path === 'index.php') {
 $siteName = "Ceylon Travel Lanka";
 $baseUrl = "https://ceylontravellanka.com";
 
-$pageTitle =  "6 Day Sri Lanka Tour Itinerary – Culture & Scenic Highlights | " . $siteName;
+$pageTitle =  "10 Days Sri Lanka Tour Itinerary | Complete Island Journey | " . $siteName;
 
 $canonical = "https://ceylontravellanka.com" . $_SERVER['REQUEST_URI'];
 
-$metaDescription = "Explore Sri Lanka in 6 days: Colombo to Sigiriya Lion Rock, Dambulla Cave Temple, Kandy Tooth Relic, tea country Nuwara Eliya & Bentota beach with private driver.";
-$metaKeywords = "6 day sri lanka tour, sri lanka culture scenic itinerary, Sigiriya Kandy Nuwara Eliya Bentota";
+$metaDescription = "Explore Sri Lanka in 10 days with Anuradhapura, Sigiriya, Kandy, Nuwara Eliya, Ella, Yala, Tangalle and Bentota. Private tour with culture, wildlife & beaches.";
+$metaKeywords = "10 day Sri Lanka tour, 10 days Sri Lanka itinerary, Sri Lanka tour itinerary, Sri Lanka private tour, Sri Lanka complete island tour, Sigiriya tour, Anuradhapura Ancient City, Kandy Temple of the Tooth, Nuwara Eliya tea plantations, Ella Nine Arches Bridge, Yala National Park safari, Bentota Beach, Sri Lanka cultural and wildlife tour";
 
-$OGTitle = "6 Day Culture & Scenic Highlights – Sri Lanka Tour | " . $siteName;
-$OGdescription = "Majestic heritage sites, lush highlands and coastal relaxation in one immersive 6-day private tour with driver.";
+$OGTitle = "10 Days Sri Lanka Tour Itinerary | Complete Island Journey | " . $siteName;
+$OGdescription = "Explore Sri Lanka in 10 days with Anuradhapura, Sigiriya, Kandy, Nuwara Eliya, Ella, Yala, Tangalle and Bentota. Private tour with culture, wildlife & beaches.";
 
 ?>
 
@@ -51,9 +51,11 @@ $OGdescription = "Majestic heritage sites, lush highlands and coastal relaxation
         <div class="row">
             <div class="col-lg-8 pe-lg-4">
                 <div class="details-pane">
-                    <h1 class="mb-1">6 Day Sri Lanka Tour Itinerary</h1>
-                    <p class="theme sub-title mb-4"><b>Culture & Scenic Highlights</b></p>
-                    <p class="mb-4">Experience the best of Sri Lanka’s cultural triangle and scenic south in just 6 days. This Culture & Scenic Highlights tour takes you from Colombo to the ancient wonders of Sigiriya and Dambulla, the sacred city of Kandy, the emerald tea plantations of Nuwara Eliya, and finally to the golden beaches of Bentota for river safaris and relaxation. Ideal for first-time visitors who want culture, nature, and coast without rushing.</p>
+                    <h1 class="mb-1">10 Days Sri Lanka Tour Itinerary</h1>
+                    <p class="theme sub-title mb-4"><b>Complete Island Journey</b></p>
+                    <p class="mb-4">Experience the highlights of Sri Lanka on a 10-day private island tour covering ancient kingdoms, UNESCO World Heritage sites, misty mountain landscapes, tea plantations, waterfalls, wildlife and tropical beaches.</p>
+                    <p class="mb-4">Travel from Colombo to Anuradhapura, Sigiriya, Kandy, Nuwara Eliya, Ella, Yala, Tangalle and Bentota, discovering Sri Lanka's cultural heritage, spectacular hill country and southern coastline along the way.</p>
+                    <p class="mb-4">This carefully planned Sri Lanka itinerary combines ancient cities, Buddhist heritage, village experiences, scenic train-country landscapes, tea estates, waterfalls, hiking, wildlife safari, beaches and water sports — making it ideal for first-time visitors looking for a complete Sri Lanka experience.</p>
                     <!-- Information Grid Widgets -->
                     <section class="facts-grid">
                         <div class="fact-card">
@@ -63,7 +65,7 @@ $OGdescription = "Majestic heritage sites, lush highlands and coastal relaxation
                             </div>
                             <div class="fact-info">
                                 <p>Duration</p>
-                                <p>6 Days / 5 Nights</p>
+                                <p>10 Days / 9 Nights</p>
                             </div>
                         </div>
                         <div class="fact-card">
@@ -83,7 +85,7 @@ $OGdescription = "Majestic heritage sites, lush highlands and coastal relaxation
                             </div>
                             <div class="fact-info">
                                 <p>Themes</p>
-                                <p>Culture, Tea Country & Coast</p>
+                                <p>Culture, Nature, Wildlife & Beach</p>
                             </div>
                         </div>
                         <div class="fact-card">
@@ -106,84 +108,171 @@ $OGdescription = "Majestic heritage sites, lush highlands and coastal relaxation
                             <!-- Day 1 Segment -->
                             <div class="timeline-item">
                                 <div class="timeline-dot"></div>
-                                <h3><span class="day-label">Day 1</span> Arrival in Colombo & Ancient Dambulla to Sigiriya</h3>
+                                <h3><span class="day-label">Day 1</span> Arrival in Colombo – Anuradhapura Ancient City</h3>
                                 <div class="img-grid">
                                     <img src="<?= BASE_URL ?>images/destination/9.avif" alt="Dambulla Cave Temple">
                                     <img src="<?= BASE_URL ?>images/destination/2.avif" alt="Gregory Lake Nuwara Eliya">
                                 </div>
-                                <p>Arrive at Bandaranaike International Airport and drive to the Cultural Triangle. En route, explore the UNESCO-listed <b>Dambulla Cave Temple</b>, a magnificent complex of 5 caves filled with over 150 Buddha statues and murals. Continue to Sigiriya for overnight stay among paddy fields and jungle.</p>
+                                <p>Welcome to Sri Lanka!</p>
+                                <p>Meet your private driver at Bandaranaike International Airport and begin your journey towards the historic northern cultural heart of Sri Lanka.</p>
+                                <p>Continue to Anuradhapura, one of Sri Lanka's ancient capitals and an important centre of Buddhist heritage. Depending on your arrival time, explore some of the city's sacred monuments and ancient ruins.</p>
+                                <p>Visit the revered Sri Maha Bodhi, one of the most important Buddhist pilgrimage sites in Sri Lanka, and experience the peaceful atmosphere of the ancient city.</p>
+                                <p>Relax at your hotel after your first day in Sri Lanka.</p>
                                 <div class="meta-tags">
-                                    <location><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"></path></svg> Kandy</location>
+                                    <location><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"></path></svg> Colombo Airport • Anuradhapura Ancient City • Sri Maha Bodhi</location>
                                 </div>
                             </div>
 
                             <!-- Day 2 Segment -->
                             <div class="timeline-item">
                                 <div class="timeline-dot"></div>
-                                <h3><span class="day-label">Day 2</span> Sigiriya Lion Rock & Village Culture</h3>
+                                <h3><span class="day-label">Day 2</span> Anuradhapura – Sigiriya – Ancient Kingdoms & Cultural Heritage</h3>
                                 <div class="img-grid">
                                     <img src="<?= BASE_URL ?>images/destination/3.avif" alt="Tea Plantations Nuwara Eliya">
                                     <img src="<?= BASE_URL ?>images/destination/4.avif" alt="Gregory Lake Nuwara Eliya">
                                 </div>
-                                <p>Climb into the cool emerald mist of the high-altitude tea country. Walk through historic colonial-era <strong>tea plantations</strong> to see traditional pickers at work, tour a manufacturing plant to see production steps, and enjoy tea tasting. Spend your afternoon strolling along the waterfront paths of <strong>Gregory Lake</strong>.</p>
+                                <p>After breakfast, continue your journey from Anuradhapura towards Sigiriya.</p>
+                                <p>Explore more of Sri Lanka's fascinating ancient heritage before travelling towards the Cultural Triangle. Arrive in the Sigiriya area and check into your hotel.</p>
+                                <p>Spend the remainder of the day relaxing or exploring the surrounding countryside.</p>
+                                <p>The area around Sigiriya provides the perfect introduction to Sri Lanka's ancient history, tropical landscapes and rural lifestyle.</p>
                                 <div class="meta-tags">
-                                    <location><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"></path></svg> Nuwara Eliya</location>
+                                    <location><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"></path></svg> Anuradhapura • Cultural Triangle • Sigiriya</location>
                                 </div>
                             </div>
 
                             <!-- Day 3 Segment -->
                             <div class="timeline-item">
                                 <div class="timeline-dot"></div>
-                                <h3><span class="day-label">Day 3</span> Sigiriya to Kandy – Temple of the Tooth & Dance Show</h3>
+                                <h3><span class="day-label">Day 3</span> Sigiriya Lion Rock – Village Tour Experience</h3>
                                 <div class="img-grid">
                                     <img src="<?= BASE_URL ?>images/destination/5.avif" alt="Tea Plantations Nuwara Eliya">
                                     <img src="<?= BASE_URL ?>images/destination/6.avif" alt="Gregory Lake Nuwara Eliya">
                                 </div>
-                                <p>Travel south along spectacular mountain corridors into the valley village of Ella. Walk across the architectural stone marvel of the colonial-era Nine Arch Bridge wrapped deep in dense jungle, and hike up Little Adam's Peak to watch sweeping panoramas over the deep Ella Gap mountain drop-offs.</p>
+                                <p>Today is one of the major highlights of your Sri Lanka holiday.</p>
+                                <p>Rise early and visit the spectacular Sigiriya Lion Rock Fortress. Climb through the historic entrance and discover the ancient gardens, frescoes, rock fortress and panoramic views across the surrounding jungle.</p>
+                                <p>Later, experience a traditional Sri Lankan village tour. Travel through rural landscapes and experience local life, traditional food and village culture.</p>
+                                <p>This combination gives you both sides of Sri Lanka — its extraordinary ancient heritage and its living rural traditions.</p>
                                 <div class="meta-tags">
-                                    <location><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"></path></svg> Ella</location>
+                                    <location><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"></path></svg> Sigiriya Lion Rock • Ancient Gardens • Village Tour • Traditional Sri Lankan Culture</location>
                                 </div>
                             </div>
 
                             <!-- Day 4 Segment -->
                             <div class="timeline-item">
                                 <div class="timeline-dot"></div>
-                                <h3><span class="day-label">Day 4</span> Kandy to Nuwara Eliya – Tea Country Journey</h3>
+                                <h3><span class="day-label">Day 4</span> Sigiriya – Kandy – Temple of the Tooth</h3>
                                 <div class="img-grid">
                                     <img src="<?= BASE_URL ?>images/destination/7.avif" alt="Bentota Beach Sri Lanka">
                                     <img src="<?= BASE_URL ?>images/destination/8.avif" alt="Bentota Beach Sri Lanka">
                                 </div>
-                                <p>Descend out of the central highlands and make your way to the sandy southwestern coastline to reach <strong>Bentota Beach</strong>. Relax under leaning coconut palms, wade in the warm Indian Ocean waves, or opt for riverboat safaris along the Bentota estuary before your departure flight transfer.</p>
+                                <p>Leave the Cultural Triangle behind and travel towards the beautiful hill capital of Kandy.</p>
+                                <p>Enjoy the scenic journey through changing landscapes before exploring the city.</p>
+                                <p>Visit the famous Temple of the Sacred Tooth Relic, one of Sri Lanka's most important Buddhist religious sites. Take time to explore the historic surroundings of Kandy and enjoy the atmosphere of the city beside Kandy Lake.</p>
+                                <p>In the evening, relax at your hotel and enjoy the cooler hill-country climate.</p>
                                 <div class="meta-tags">
-                                    <location><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"></path></svg> Bentota</location>
+                                    <location><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"></path></svg> Sigiriya • Kandy • Temple of the Tooth • Kandy Lake</location>
                                 </div>
                             </div>
 
                             <!-- Day 5 Segment -->
                             <div class="timeline-item">
                                 <div class="timeline-dot"></div>
-                                <h3><span class="day-label">Day 5</span> Nuwara Eliya to Bentota – Waterfalls & Scenic Drive</h3>
+                                <h3><span class="day-label">Day 5</span> Kandy – Peradeniya Botanical Gardens – Nuwara Eliya</h3>
                                 <div class="img-grid">
                                     <img src="<?= BASE_URL ?>images/destination/7.avif" alt="Bentota Beach Sri Lanka">
                                     <img src="<?= BASE_URL ?>images/destination/8.avif" alt="Bentota Beach Sri Lanka">
                                 </div>
-                                <p>Descend out of the central highlands and make your way to the sandy southwestern coastline to reach <strong>Bentota Beach</strong>. Relax under leaning coconut palms, wade in the warm Indian Ocean waves, or opt for riverboat safaris along the Bentota estuary before your departure flight transfer.</p>
+                                <p>After breakfast, visit the beautiful Royal Botanic Gardens at Peradeniya, home to an extensive collection of tropical plants, palms and flowering species.</p>
+                                <p>Continue your journey into Sri Lanka's spectacular central highlands.</p>
+                                <p>As the altitude increases, the landscape changes dramatically, with rolling green mountains, tea plantations and mist-covered valleys.</p>
+                                <p>Arrive in Nuwara Eliya, often associated with Sri Lanka's tea-growing highlands. Visit a local tea estate and tea factory to learn how Ceylon tea is cultivated and produced.</p>
                                 <div class="meta-tags">
-                                    <location><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"></path></svg> Bentota</location>
+                                    <location><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"></path></svg> Peradeniya Botanical Gardens • Scenic Hill Country • Tea Estates • Tea Factory • Nuwara Eliya</location>
                                 </div>
                             </div>
 
                             <!-- Day 6 Segment -->
                             <div class="timeline-item">
                                 <div class="timeline-dot"></div>
-                                <h3><span class="day-label">Day 6</span> Bentota River Safari & Departure via Colombo</h3>
+                                <h3><span class="day-label">Day 6</span> Nuwara Eliya – Waterfalls – Ella – Nine Arches Bridge</h3>
                                 <div class="img-grid">
                                     <img src="<?= BASE_URL ?>images/destination/7.avif" alt="Bentota Beach Sri Lanka">
                                     <img src="<?= BASE_URL ?>images/destination/8.avif" alt="Bentota Beach Sri Lanka">
                                 </div>
-                                <p>Descend out of the central highlands and make your way to the sandy southwestern coastline to reach <strong>Bentota Beach</strong>. Relax under leaning coconut palms, wade in the warm Indian Ocean waves, or opt for riverboat safaris along the Bentota estuary before your departure flight transfer.</p>
+                                <p>Continue your journey through the beautiful hill country towards Ella.</p>
+                                <p>Along the way, stop at scenic waterfalls and viewpoints surrounded by tea-covered mountains.</p>
+                                <p>Arrive in Ella and explore some of its most famous attractions, including the iconic Nine Arches Bridge. The bridge is surrounded by lush tropical scenery and is one of the most photographed landmarks in Sri Lanka's hill country.</p>
+                                <p>Enjoy the relaxed atmosphere of Ella in the evening.</p>
                                 <div class="meta-tags">
-                                    <location><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"></path></svg> Bentota</location>
+                                    <location><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"></path></svg> Nuwara Eliya • Waterfalls • Tea Country • Ella • Nine Arches Bridge</location>
+                                </div>
+                            </div>
+
+                            <!-- Day 7 Segment -->
+                            <div class="timeline-item">
+                                <div class="timeline-dot"></div>
+                                <h3><span class="day-label">Day 7</span> Ella – Little Adam's Peak – Yala National Park Safari</h3>
+                                <div class="img-grid">
+                                    <img src="<?= BASE_URL ?>images/destination/7.avif" alt="Bentota Beach Sri Lanka">
+                                    <img src="<?= BASE_URL ?>images/destination/8.avif" alt="Bentota Beach Sri Lanka">
+                                </div>
+                                <p>Start your day with a visit to Little Adam's Peak, one of Ella's most accessible scenic hikes. Enjoy panoramic views across the surrounding green valleys and mountains.</p>
+                                <p>Afterwards, travel south towards Yala National Park.</p>
+                                <p>In the afternoon, embark on an exciting Yala National Park safari. Explore the park's forests, grasslands and lagoons while looking for Sri Lankan wildlife.</p>
+                                <p>Keep an eye out for elephants, crocodiles, deer, wild buffalo and, with some luck, the park's famous leopards.</p>
+                                <div class="meta-tags">
+                                    <location><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"></path></svg> Little Adam's Peak • Scenic Views • Yala National Park • Wildlife Safari</location>
+                                </div>
+                            </div>
+
+                            <!-- Day 8 Segment -->
+                            <div class="timeline-item">
+                                <div class="timeline-dot"></div>
+                                <h3><span class="day-label">Day 8</span> Yala – Tangalle – Southern Coast</h3>
+                                <div class="img-grid">
+                                    <img src="<?= BASE_URL ?>images/destination/7.avif" alt="Bentota Beach Sri Lanka">
+                                    <img src="<?= BASE_URL ?>images/destination/8.avif" alt="Bentota Beach Sri Lanka">
+                                </div>
+                                <p>After breakfast, leave the wildlife-rich landscapes of Yala and continue towards the beautiful southern coast.</p>
+                                <p>Travel to Tangalle, known for its tropical scenery, sandy beaches and relaxed coastal atmosphere.</p>
+                                <p>Enjoy a slower-paced afternoon beside the Indian Ocean. Take a walk along the beach, relax at your hotel or simply enjoy the tropical surroundings.</p>
+                                <p>After several days of sightseeing and adventure, this is your opportunity to unwind.</p>
+                                <div class="meta-tags">
+                                    <location><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"></path></svg> Yala • Southern Coast • Tangalle • Tropical Beaches</location>
+                                </div>
+                            </div>
+
+                            <!-- Day 9 Segment -->
+                            <div class="timeline-item">
+                                <div class="timeline-dot"></div>
+                                <h3><span class="day-label">Day 9</span> Tangalle – Bentota – Beach & Water Sports</h3>
+                                <div class="img-grid">
+                                    <img src="<?= BASE_URL ?>images/destination/7.avif" alt="Bentota Beach Sri Lanka">
+                                    <img src="<?= BASE_URL ?>images/destination/8.avif" alt="Bentota Beach Sri Lanka">
+                                </div>
+                                <p>Continue along Sri Lanka's southern and western coastline towards Bentota.</p>
+                                <p>Bentota is a popular beach destination known for its sandy coastline, tropical surroundings and range of water-based activities.</p>
+                                <p>Spend the day enjoying the beach or choose from activities such as water sports, boat rides and other coastal experiences, depending on weather and availability.</p>
+                                <p>Enjoy your final evening beside the ocean.</p>
+                                <div class="meta-tags">
+                                    <location><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"></path></svg> Tangalle • Bentota Beach • Water Sports • Coastal Relaxation</location>
+                                </div>
+                            </div>
+
+                            <!-- Day 10 Segment -->
+                            <div class="timeline-item">
+                                <div class="timeline-dot"></div>
+                                <h3><span class="day-label">Day 10</span> Bentota – Colombo City Tour – Shopping – Departure</h3>
+                                <div class="img-grid">
+                                    <img src="<?= BASE_URL ?>images/destination/7.avif" alt="Bentota Beach Sri Lanka">
+                                    <img src="<?= BASE_URL ?>images/destination/8.avif" alt="Bentota Beach Sri Lanka">
+                                </div>
+                                <p>Enjoy your final morning in Sri Lanka before travelling towards Colombo.</p>
+                                <p>Explore the capital with a short Colombo city tour, discovering a combination of historic buildings, religious sites, modern shopping areas and the city's vibrant streets.</p>
+                                <p>Take some time for shopping in Colombo and pick up Sri Lankan tea, spices, handicrafts, souvenirs and other gifts before your private airport transfer.</p>
+                                <p>Continue to Bandaranaike International Airport for your departure.</p>
+                                <div class="meta-tags">
+                                    <location><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"></path></svg> Bentota • Colombo City Tour • Shopping • Airport Transfer</location>
                                 </div>
                             </div>
 
