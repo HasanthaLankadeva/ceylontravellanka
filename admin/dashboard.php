@@ -84,7 +84,9 @@ try {
             $timestamp = strtotime($row['tour_start_date']);
             $year      = (int)date('Y', $timestamp);
             $month     = (int)date('n', $timestamp);
-echo 'Month : ' . $month . '<br/>ID : ' . $row['order_number'] . '<br/>Amount : ' . $tourCharge . '<br/>Cost : ' . $vehicleCost .'<br/>Profit : ' . $amount . '<br/>######<br/><br/>';
+            
+            //echo 'Month : ' . $month . '<br/>ID : ' . $row['order_number'] . '<br/>Amount : ' . $tourCharge . '<br/>Cost : ' . $vehicleCost .'<br/>Profit : ' . $amount . '<br/>######<br/><br/>';
+            
             $yearsFound[$year] = true;
 
             // Structure yearly aggregated container if not created yet

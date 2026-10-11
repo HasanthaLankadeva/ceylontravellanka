@@ -390,7 +390,8 @@
             <!-- Scrollable Form Container -->
              <form id="bookingForm" class="flex-1 overflow-y-auto custom-scrollbar p-4 sm:p-6 space-y-6 bg-slate-50/50">
                 
-                <input type="hidden" id="booking_id" name="id" value="61">
+                <input type="hidden" id="booking_id" name="id" value="">
+                <input type="hidden" id="agreement_link" name="agreement_link" value="">
                 <input type="hidden" id="agreement_id" name="agreement_id" value="">
                 <input type="hidden" id="paging_id" name="paging_id" value="">
                 <input type="hidden" id="total_vehicle_cost" name="total_vehicle_cost" value="">
