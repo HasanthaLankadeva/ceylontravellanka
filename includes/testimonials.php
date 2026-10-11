@@ -5,7 +5,7 @@
         </div>
         <div class="row align-items-center">
 
-            <div class="col-lg-7 ps-4">
+            <div class="col-lg-5 ps-4">
                 <div class="row review-slider">
                     <div class="col-sm-4 item">
                         <div class="testimonial-item1 rounded">
@@ -139,9 +139,9 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-5 pe-4">
+            <div class="col-lg-7 pe-4">
                 <div class="testimonial-image">
-                    <img src="<?= BASE_URL ?>images/travel2.webp" alt>
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/eVwSfGC4QAc?si=Htct9o0VDFLLFzNi" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                 </div>
             </div>
         </div>
