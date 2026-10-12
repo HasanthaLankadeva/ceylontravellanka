@@ -513,8 +513,14 @@ var _base_path = (_host == 'localhost') ? '/ceylontravellanka/' : '';
             Self.find('.accrodion .accrodion-content').hide();
             Self.find('.accrodion.active').find('.accrodion-content').show();
 
-            if($(window).width > 999){
+            if($(window).width() > 999){
+               var $i = 0;
                accordion.each(function() {
+                    if($i == 0){
+                        $(this).addClass('active');
+                        $(this).find('.accrodion-title').addClass('active');
+                        $(this).find('.accrodion-content').slideDown();   
+                    }
                     $(this).find('.accrodion-title').on('click', function () {
                         if ($(this).parent().hasClass('active') === false ) {                   
                             $('.accrodion-grp.'+accrodionName).find('.accrodion').removeClass('active');
@@ -524,6 +530,7 @@ var _base_path = (_host == 'localhost') ? '/ceylontravellanka/' : '';
                         };
                         
                     });
+                    $i++;
                 }); 
             } else {
                 accordion.each(function() {
