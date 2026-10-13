@@ -51,7 +51,7 @@ $OGdescription = "Explore Sri Lanka in 7 days with Sigiriya, Dambulla, Polonnaru
         <div class="row">
             <div class="col-lg-8 pe-lg-4">
                 <div class="details-pane">
-                    <h1 class="mb-1">7 Days Sri Lanka Tour Itinerary | Sigiriya, Trincomalee & Colombo</h1>
+                    <h1 class="mb-1">7 Days Sri Lanka Tour Itinerary</h1>
                     <p class="theme sub-title mb-4"><b>Culture, Wildlife & East Coast Beach Escape</b></p>
                     <p class="mb-4">Experience the best of Sri Lanka in 7 days with a carefully planned journey through the island's ancient cultural heart, wildlife-rich landscapes and beautiful east coast. Explore the UNESCO World Heritage sites of <b>Dambulla, Sigiriya and Polonnaruwa,</b> enjoy an exciting <b>Minneriya elephant safari</b>, discover the Hindu temples of <b>Trincomalee</b>, relax on <b>Nilaveli Beach</b>, and finish your journey with a <b>Colombo city tour and shopping experience.</b></p>
                     <p class="mb-4">This private Sri Lanka tour is ideal for first-time visitors who want to combine <b>ancient history, cultural experiences, wildlife, beaches and city sightseeing</b> without spending the entire trip on the road.</p>
@@ -112,7 +112,8 @@ $OGdescription = "Explore Sri Lanka in 7 days with Sigiriya, Dambulla, Polonnaru
                                     <img src="<?= BASE_URL ?>images/destination/9.avif" alt="Dambulla Cave Temple">
                                     <img src="<?= BASE_URL ?>images/destination/2.avif" alt="Gregory Lake Nuwara Eliya">
                                 </div>
-                                <p>Dambulla's cave complex is one of Sri Lanka's most important living Buddhist heritage sites and contains five cave sanctuaries with extensive murals and sculptures.</p>
+                                <p>Begin your Sri Lanka holiday with a warm welcome at Bandaranaike International Airport. Meet your private driver and travel towards the Cultural Triangle. En route, visit the magnificent Dambulla Cave Temple, a UNESCO World Heritage Site famous for its ancient Buddhist murals and remarkable collection of Buddha statues.</p>
+                                <p>Continue towards Sigiriya and check into your hotel. Enjoy a relaxed evening surrounded by the tropical landscapes of Sri Lanka's Cultural Triangle.</p>
                                 <div class="meta-tags">
                                     <location><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"></path></svg> Colombo Airport • Dambulla Cave Temple • Sigiriya</location>
                                 </div>
@@ -222,7 +223,7 @@ $OGdescription = "Explore Sri Lanka in 7 days with Sigiriya, Dambulla, Polonnaru
                     <!-- Interactive Route Map Block -->
                     <section class="map-section">
                         <h2>Interactive Route Map</h2>
-                        <iframe src="https://www.google.com/maps/d/embed?mid=1hzX1a_IBMkZA26KwzNkAyWhDlpAH5Wg&ehbc=2E312F" width="640" height="480"></iframe>
+                        <iframe src="https://www.google.com/maps/d/embed?mid=1_9Gdc6UMGtBFQNYycz7W8dTjJDvUQV0&ehbc=2E312F" width="640" height="480"></iframe>
                     </section>
 
                     <section id="booking-form">

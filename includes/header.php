@@ -68,7 +68,10 @@
                                 <a href="<?= BASE_URL ?>">Home </a>
                             </li>
                             <li class="submenu dropdown <?php echo ($currentpage == 'services') ? 'active' : ''; ?>">
-                                <a href="<?= BASE_URL ?>services" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Services <i class="fa fa-angle-down" aria-hidden="true"></i></a>
+                                <a href="<?= BASE_URL ?>services" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                    Services 
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+                                </a>
                                 <ul class="dropdown-menu">
                                     <li><a href="<?= BASE_URL ?>services/airport-transfer">Airport Transfer</a></li>
                                     <li><a href="<?= BASE_URL ?>services/private-driver-in-sri-lanka">Private Driver in Sri Lanka</a></li>
@@ -79,7 +82,17 @@
                                 <a href="<?= BASE_URL ?>our-fleet">Our Fleet</a>
                             </li>
                             <li class="<?php echo ($currentpage == 'itineraries') ? 'active' : ''; ?>">
-                                <a href="<?= BASE_URL ?>sri-lanka-tours/">Sri Lanka Tours</a>
+                                <a href="<?= BASE_URL ?>sri-lanka-tours/" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                    Sri Lanka Tours 
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="<?= BASE_URL ?>sri-lanka-tours/4-days-sri-lanka-tour-itinerary">Airport Transfer</a></li>
+                                        <li><a href="<?= BASE_URL ?>sri-lanka-tours/6-days-sri-lanka-tour-itinerary">Private Driver in Sri Lanka</a></li>
+                                        <li><a href="<?= BASE_URL ?>sri-lanka-tours/7-days-sri-lanka-tour-itinerary">Car Rental with Driver</a></li>
+                                        <li><a href="<?= BASE_URL ?>sri-lanka-tours/10-days-sri-lanka-tour-itinerary">Car Rental with Driver</a></li>
+                                        <li><a href="<?= BASE_URL ?>sri-lanka-tours/15-days-sri-lanka-tour-itinerary">Car Rental with Driver</a></li>
+                                    </ul>
+                                </a>
                             </li>
                             <li class="<?php echo ($currentpage == 'tailormade') ? 'active' : ''; ?>">
                                 <a href="<?= BASE_URL ?>tailor-made-tours">Tailor Made Tours</a>

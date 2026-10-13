@@ -15,15 +15,15 @@ if ($path === '' || $path === 'index.php') {
 $siteName = "Ceylon Travel Lanka";
 $baseUrl = "https://ceylontravellanka.com";
 
-$pageTitle =  "Sri Lanka Tour Itineraries | Custom Travel Plans | " . $siteName;
+$pageTitle =  "4 Days Sri Lanka Tour Itinerary | Kandy, Tea Country & Beach | " . $siteName;
 
 $canonical = "https://ceylontravellanka.com" . $_SERVER['REQUEST_URI'];
 
-$metaDescription = "Explore carefully crafted Sri Lanka tour itineraries. Discover beaches, culture, wildlife and tailor-made travel plans with Ceylon Travel Lanka.";
-$metaKeywords = "Sri Lanka tour itineraries, travel plans Sri Lanka, Sri Lanka tours, holiday packages Sri Lanka, custom itineraries";
+$metaDescription = "Explore Sri Lanka in 4 days with Kandy Temple of the Tooth, Nuwara Eliya tea plantations, Gregory Lake and Bentota Beach. Private tour from Colombo Airport.";
+$metaKeywords = "4 day Sri Lanka tour, 4 days Sri Lanka itinerary, 4 day Sri Lanka tour package, short Sri Lanka tour, Sri Lanka private tour, Colombo airport tour, Kandy tour, Temple of the Tooth Kandy, Nuwara Eliya tour, Nuwara Eliya tea plantations, Ceylon tea factory, Gregory Lake, Bentota Beach, Sri Lanka hill country tour, Sri Lanka beach holiday, Kandy Nuwara Eliya Bentota tour, Sri Lanka cultural tour, Sri Lanka scenic tour";
 
-$OGTitle = "Sri Lanka Tour Itineraries | " . $siteName;
-$OGdescription = "Browse our expertly designed Sri Lanka itineraries or create your own custom travel plan.";
+$OGTitle = "4 Days Sri Lanka Tour Itinerary | Kandy, Tea Country & Beach | " . $siteName;
+$OGdescription = "Explore Sri Lanka in 4 days with Kandy Temple of the Tooth, Nuwara Eliya tea plantations, Gregory Lake and Bentota Beach. Private tour from Colombo Airport.";
 
 ?>
 
@@ -51,9 +51,10 @@ $OGdescription = "Browse our expertly designed Sri Lanka itineraries or create y
         <div class="row">
             <div class="col-lg-8 pe-lg-4">
                 <div class="details-pane">
-                    <h1 class="mb-1">4 Day Sri Lanka Tour Itinerary</h1>
+                    <h1 class="mb-1">4 Days Sri Lanka Tour Itinerary</h1>
                     <p class="theme sub-title mb-4"><b>Short Travel Package</b></p>
-                    <p class="mb-4">A perfect short escape covering Sri Lanka's cultural capital, misty tea country and southern beaches in a private AC car with driver. Fully customizable.</p>
+                    <p class="mb-4">Explore Sri Lanka's cultural heritage, misty hill-country landscapes and beautiful tropical coastline on this 4-day Sri Lanka tour package. Visit the historic city of Kandy, discover the sacred Temple of the Tooth, experience the island's famous tea plantations in Nuwara Eliya, and unwind on the golden sands of Bentota Beach.</p>
+                    <p class="mb-4">Starting and ending at Colombo's Bandaranaike International Airport (CMB), this short Sri Lanka holiday is ideal for travellers who want to experience culture, nature, tea country and beach relaxation in just four days.</p>
                     <!-- Information Grid Widgets -->
                     <section class="facts-grid">
                         <div class="fact-card">
@@ -111,51 +112,61 @@ $OGdescription = "Browse our expertly designed Sri Lanka itineraries or create y
                                     <img src="<?= BASE_URL ?>images/destination/1.avif" alt="Temple of the Tooth Kandy">
                                     <img src="<?= BASE_URL ?>images/destination/2.avif" alt="Gregory Lake Nuwara Eliya">
                                 </div>
-                                <p>Arrive in Kandy, the last royal capital of Sri Lanka. Visit the sacred <strong>Temple of the Sacred Tooth Relic</strong> (Sri Dalada Maligawa), located inside the ancient royal palace complex. Witness traditional spiritual rituals before exploring the historic city square and enjoying a sunset walk along the lake perimeter.</p>
+                                <p>Welcome to Sri Lanka! Upon arrival at Bandaranaike International Airport (CMB), meet your private driver and begin your journey towards Kandy, the island's historic cultural capital.</p>
+                                <p>On arrival, visit the famous Temple of the Sacred Tooth Relic, one of Sri Lanka's most important Buddhist pilgrimage sites. Explore the temple complex and enjoy the peaceful atmosphere surrounding Kandy Lake.</p>
+                                <p>Depending on your arrival time, take a stroll through the city or enjoy the views of the surrounding hills before checking into your hotel.</p>
                                 <div class="meta-tags">
-                                    <location><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"></path></svg> Kandy</location>
+                                    <location><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"></path></svg> Colombo Airport • Kandy • Temple of the Tooth • Kandy Lake</location>
                                 </div>
                             </div>
 
                             <!-- Day 2 Segment -->
                             <div class="timeline-item">
                                 <div class="timeline-dot"></div>
-                                <h3><span class="day-label">Day 2</span> Nuwara Eliya Tea Country &amp; Gregory Lake</h3>
+                                <h3><span class="day-label">Day 2</span> Kandy – Nuwara Eliya – Tea Plantations & Gregory Lake</h3>
                                 <div class="img-grid">
                                     <img src="<?= BASE_URL ?>images/destination/3.avif" alt="Tea Plantations Nuwara Eliya">
                                     <img src="<?= BASE_URL ?>images/destination/4.avif" alt="Gregory Lake Nuwara Eliya">
                                 </div>
-                                <p>Climb into the cool emerald mist of the high-altitude tea country. Walk through historic colonial-era <strong>tea plantations</strong> to see traditional pickers at work, tour a manufacturing plant to see production steps, and enjoy tea tasting. Spend your afternoon strolling along the waterfront paths of <strong>Gregory Lake</strong>.</p>
+                                <p>After breakfast, travel through the beautiful central highlands towards Nuwara Eliya, a scenic destination known for its cool climate, green hills and Ceylon tea plantations.</p>
+                                <p>Enjoy the picturesque journey through winding mountain roads and rolling tea estates. Visit a local tea plantation and tea factory to learn about the cultivation and production of world-famous Ceylon tea, subject to availability.</p>
+                                <p>Later, explore Gregory Lake, one of Nuwara Eliya's best-known attractions. Enjoy the lakeside scenery, take a relaxing walk or experience optional recreational activities available in the area.</p>
+                                <p>Spend the evening enjoying the refreshing highland atmosphere.</p>
                                 <div class="meta-tags">
-                                    <location><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"></path></svg> Nuwara Eliya</location>
+                                    <location><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"></path></svg> Kandy • Scenic Hill Country • Tea Plantations • Ceylon Tea Factory • Gregory Lake</location>
                                 </div>
                             </div>
 
                             <!-- Day 3 Segment -->
                             <div class="timeline-item">
                                 <div class="timeline-dot"></div>
-                                <h3><span class="day-label">Day 3</span> Scenic Ella Valley &amp; Mountain Gaps</h3>
+                                <h3><span class="day-label">Day 3</span> Nuwara Eliya – Bentota Beach – Coastal Relaxation</h3>
                                 <div class="img-grid">
                                     <img src="<?= BASE_URL ?>images/destination/5.avif" alt="Tea Plantations Nuwara Eliya">
                                     <img src="<?= BASE_URL ?>images/destination/6.avif" alt="Gregory Lake Nuwara Eliya">
                                 </div>
-                                <p>Travel south along spectacular mountain corridors into the valley village of Ella. Walk across the architectural stone marvel of the colonial-era Nine Arch Bridge wrapped deep in dense jungle, and hike up Little Adam's Peak to watch sweeping panoramas over the deep Ella Gap mountain drop-offs.</p>
+                                <p>After breakfast, depart Nuwara Eliya and travel towards Bentota, one of Sri Lanka's popular beach destinations on the southwestern coast.</p>
+                                <p>Enjoy the changing scenery as you leave the cool central highlands and travel towards the tropical coastline.</p>
+                                <p>On arrival, relax at Bentota Beach, famous for its sandy shores, palm-fringed coastline and Indian Ocean views. Spend the afternoon swimming where conditions are safe, walking along the beach or enjoying optional water sports.</p>
+                                <p>After your journey through the hill country, this is your opportunity to slow down and enjoy Sri Lanka's coastal beauty.</p>
                                 <div class="meta-tags">
-                                    <location><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"></path></svg> Ella</location>
+                                    <location><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"></path></svg> Nuwara Eliya • Scenic Countryside • Bentota Beach • Beach Relaxation</location>
                                 </div>
                             </div>
 
                             <!-- Day 4 Segment -->
                             <div class="timeline-item">
                                 <div class="timeline-dot"></div>
-                                <h3><span class="day-label">Day 4</span> Coastal Finish at Bentota Beach</h3>
+                                <h3><span class="day-label">Day 4</span> Bentota – Colombo – Airport Transfer</h3>
                                 <div class="img-grid">
                                     <img src="<?= BASE_URL ?>images/destination/7.avif" alt="Bentota Beach Sri Lanka">
                                     <img src="<?= BASE_URL ?>images/destination/8.avif" alt="Bentota Beach Sri Lanka">
                                 </div>
-                                <p>Descend out of the central highlands and make your way to the sandy southwestern coastline to reach <strong>Bentota Beach</strong>. Relax under leaning coconut palms, wade in the warm Indian Ocean waves, or opt for riverboat safaris along the Bentota estuary before your departure flight transfer.</p>
+                                <p>Enjoy breakfast at your hotel and take some time to relax by the beach before departing for Colombo's Bandaranaike International Airport (CMB).</p>
+                                <p>Depending on your flight schedule and traffic conditions, you may have time for a short stop in Colombo or a quick shopping experience before continuing to the airport.</p>
+                                <p>Your private driver will ensure a comfortable transfer for your onward journey.</p>
                                 <div class="meta-tags">
-                                    <location><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"></path></svg> Bentota</location>
+                                    <location><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"></path></svg> Bentota • Coastal Drive • Optional Colombo Stop • Airport Transfer</location>
                                 </div>
                             </div>
 
