@@ -72,7 +72,7 @@ $OGdescription = "Browse our expertly designed Sri Lanka itineraries or create y
                                     <div class="trend-content position-relative text-md-start">
                                         <h3 class="mb-1">4 Day Sri Lanka Tour Itinerary</h3>
                                         <h5 class="theme mb-1">Short Travel Package</h5>
-                                        <p class="mt-3 mb-3"><strong>Route:</strong> Kandy → Nuwara Eliya → Ella → Bentota</p>
+                                        <p class="mt-3 mb-3"><strong>Route:</strong> Colombo (CMB) → Kandy → Nuwara Eliya → Bentota → Colombo (CMB)</p>
                                         <p class="mb-3 itinerary-highlights">Temple of the Tooth • Tea Plantations • Gregory Lake • Bentota Beach</p>
                                         <p class="mb-3">Explore the cultural capital and scenic hill country before relaxing on the coast in this essential 4-day escape.</p>
                                         <p class="mb-4"><a href="<?= BASE_URL ?>sri-lanka-tours/4-days-sri-lanka-tour-itinerary"><span class="theme"> Read More →</span></a></p>
@@ -96,7 +96,7 @@ $OGdescription = "Browse our expertly designed Sri Lanka itineraries or create y
                                     <div class="trend-content position-relative text-md-start">
                                         <h3 class="mb-1">6 Day Sri Lanka Tour Itinerary</h3>
                                         <h5 class="theme mb-1">Culture & Scenic Highlights</h5>
-                                        <p class="mt-3 mb-3"><strong>Route:</strong> Colombo → Sigiriya → Kandy → Nuwara Eliya → Bentota</p>
+                                        <p class="mt-3 mb-3"><strong>Route:</strong> Colombo (CMB) → Sigiriya → Kandy → Nuwara Eliya → Bentota → Colombo (CMB)</p>
                                         <p class="mb-3 itinerary-highlights">Dambulla Cave Temple • Sigiriya Lion Rock • Temple of the Tooth • Cultural Dance Show • Tea Estates • Gregory Lake • Bentota Beach • River Safari</p>
                                         <p class="mb-3">Experience the perfect blend of majestic heritage sites, lush highlands, and coastal relaxation in one immersive week.</p>
                                         <p class="mb-4"><a href="<?= BASE_URL ?>sri-lanka-tours/6-days-sri-lanka-tour-itinerary"><span class="theme"> Read More →</span></a></p>
@@ -120,7 +120,7 @@ $OGdescription = "Browse our expertly designed Sri Lanka itineraries or create y
                                     <div class="trend-content position-relative text-md-start">
                                         <h3 class="mb-1">7 Day Sri Lanka Tour Itinerary</h3>
                                         <h5 class="theme mb-1">Culture, Wildlife & East Coast Beach Escape</h5>
-                                        <p class="mt-3 mb-3"><strong>Route:</strong> Sigiriya → Habarana → Polonnaruwa → Trincomalee → Colombo</p>
+                                        <p class="mt-3 mb-3"><strong>Route:</strong> Colombo (CMB) → Sigiriya → Habarana → Polonnaruwa → Trincomalee → Colombo (CMB)</p>
                                         <p class="mb-3 itinerary-highlights">Dambulla Cave Temple • Sigiriya Lion Rock • Polonnaruwa Ancient City • Minneriya Elephant Safari • Trincomalee Hindu Kovils • Nilaveli Beach • Colombo City Tour & Shopping</p>
                                         <p class="mb-3">Discover historic landmarks and majestic wildlife before heading to the beautiful beaches of Trincomalee.</p>
                                         <p class="mb-4"><a href="<?= BASE_URL ?>sri-lanka-tours/7-days-sri-lanka-tour-itinerary"><span class="theme"> Read More →</span></a></p>
@@ -144,7 +144,7 @@ $OGdescription = "Browse our expertly designed Sri Lanka itineraries or create y
                                     <div class="trend-content position-relative text-md-start">
                                         <h3 class="mb-1">10 Day Sri Lanka Tour Itinerary</h3>
                                         <h5 class="theme mb-1">Complete Island Journey</h5>
-                                        <p class="mt-3 mb-3"><strong>Route:</strong> Colombo → Anuradhapura → Sigiriya → Kandy → Nuwara Eliya → Ella → Yala → Tangalle → Bentota</p>
+                                        <p class="mt-3 mb-3"><strong>Route:</strong> Colombo (CMB) → Anuradhapura → Sigiriya → Kandy → Nuwara Eliya → Ella → Yala → Tangalle → Bentota → Colombo (CMB)</p>
                                         <p class="mb-3 itinerary-highlights">Sigiriya Lion Rock • Village Tour Experience • Anuradhapura Ancient City • Sri Maha Bodhi • Temple of the Tooth • Peradeniya Botanical Gardens • Tea Estates • Waterfalls • Ella Nine Arches Bridge • Little Adam’s Peak • Yala National Park Safari • Bentota Beach • Water Sports</p>
                                         <p class="mb-3">A comprehensive journey through the heart of the island, featuring world-class wildlife, sacred cities, and southern beaches.</p>
                                         <p class="mb-4"><a href="<?= BASE_URL ?>sri-lanka-tours/10-days-sri-lanka-tour-itinerary"><span class="theme"> Read More →</span></a></p>
@@ -168,7 +168,7 @@ $OGdescription = "Browse our expertly designed Sri Lanka itineraries or create y
                                     <div class="trend-content position-relative text-md-start">
                                         <h3 class="mb-1">15 Day Sri Lanka Tour Itinerary</h3>
                                         <h5 class="theme mb-1">Ultimate Sri Lanka Travel Experience</h5>
-                                        <p class="mt-3 mb-3"><strong>Route:</strong> Negombo → Anuradhapura → Sigiriya → Kandy → Haputhale → Ella → Yala → Mirissa → Galle → Hikkaduwa → Bentota → Colombo</p>
+                                        <p class="mt-3 mb-3"><strong>Route:</strong> Colombo (CMB) → Negombo → Anuradhapura → Sigiriya → Kandy → Haputhale → Ella → Yala → Mirissa → Galle → Hikkaduwa → Bentota → Colombo (CMB)</p>
                                         <p class="mb-3 itinerary-highlights">Negombo Lagoon & Fish Market • Anuradhapura Ancient City & Stupas • Sigiriya Lion Rock • Dambulla Cave Temple • Temple of the Tooth • Cultural Dance Show • Tea Plantations • Ella Nine Arches Bridge • Little Adam’s Peak • Yala National Park Safari • Mirissa Whale Watching • Galle Dutch Fort • Bentota Beach • Water Sports • River Safari</p>
                                         <p class="mb-3">Experience the soul of Sri Lanka in this 15-day odyssey featuring history, nature, mountains, and the entire southern coastline.</p>
                                         <p class="mb-4"><a href="<?= BASE_URL ?>sri-lanka-tours/15-days-sri-lanka-tour-itinerary"><span class="theme"> Read More →</span></a></p>
