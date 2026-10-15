@@ -282,7 +282,7 @@ $OGdescription = "Explore Sri Lanka in 10 days with Anuradhapura, Sigiriya, Kand
                     <!-- Interactive Route Map Block -->
                     <section class="map-section">
                         <h2>Interactive Route Map</h2>
-                        <iframe src="https://www.google.com/maps/d/embed?mid=1hzX1a_IBMkZA26KwzNkAyWhDlpAH5Wg&ehbc=2E312F" width="640" height="480"></iframe>
+                        <iframe src="https://www.google.com/maps/d/embed?mid=1xGzLD7ikcs9tKSf4iLDK8bplCy8sEtY&ehbc=2E312F" width="640" height="480"></iframe>
                     </section>
 
                     <section id="booking-form">
