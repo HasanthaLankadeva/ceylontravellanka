@@ -158,3 +158,19 @@
 <script defer src="<?= BASE_URL ?>js/plugin.js?v=20260514"></script>
 <script defer src="<?= BASE_URL ?>js/main.js?v=20261013"></script>
 <script defer src="<?= BASE_URL ?>js/custom-nav.js?v=20260514"></script>
+
+<?php
+// Replace this with your actual admin detection if one exists.
+// For this separate heatmap login, the session key is hm_admin_id.
+
+if (session_status() !== PHP_SESSION_ACTIVE) {
+    // If the site already starts sessions, don't start one twice.
+    session_start();
+}
+
+//$isHeatmapAdmin = !empty($_SESSION['hm_admin_id']);
+?>
+
+<?php //if (!$isHeatmapAdmin): ?>
+<script defer src="<?= BASE_URL ?>js/tracker.js"></script>
+<?php //endif; ?>
