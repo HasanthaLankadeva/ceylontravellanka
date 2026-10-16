@@ -212,7 +212,6 @@
     </main>
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<!-- Pinned release of heatmap.js -->
 <script src="https://cdn.jsdelivr.net/npm/heatmap.js@2.0.5/build/heatmap.min.js"></script>
     
 <script>
