@@ -220,7 +220,7 @@
         "use strict";
 
         var _host = window.location.host;
-        var _base_path = (_host == 'localhost') ? 'http://localhost/ceylontravellanka/' : 'https://ceylontravellanka.com/';
+        var _base_path = (_host == 'localhost') ? 'http://localhost/ceylontravellanka/' : 'https://dev.ceylontravellanka.com/';
 
         const $ = id => document.getElementById(id);
 
