@@ -84,14 +84,14 @@
                             <li class="<?php echo ($currentpage == 'itineraries') ? 'active' : ''; ?>">
                                 <a href="<?= BASE_URL ?>sri-lanka-tours/" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                                     Sri Lanka Tours 
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+                                    <!--svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
                                     <ul class="dropdown-menu">
                                         <li><a href="<?= BASE_URL ?>sri-lanka-tours/4-days-sri-lanka-tour-itinerary">Airport Transfer</a></li>
                                         <li><a href="<?= BASE_URL ?>sri-lanka-tours/6-days-sri-lanka-tour-itinerary">Private Driver in Sri Lanka</a></li>
                                         <li><a href="<?= BASE_URL ?>sri-lanka-tours/7-days-sri-lanka-tour-itinerary">Car Rental with Driver</a></li>
                                         <li><a href="<?= BASE_URL ?>sri-lanka-tours/10-days-sri-lanka-tour-itinerary">Car Rental with Driver</a></li>
                                         <li><a href="<?= BASE_URL ?>sri-lanka-tours/15-days-sri-lanka-tour-itinerary">Car Rental with Driver</a></li>
-                                    </ul>
+                                    </ul-->
                                 </a>
                             </li>
                             <li class="<?php echo ($currentpage == 'tailormade') ? 'active' : ''; ?>">
