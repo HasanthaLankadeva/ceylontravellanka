@@ -4,7 +4,7 @@
   var _host = window.location.host;
   var _base_path = (_host == 'localhost') ? '/ceylontravellanka/' : '';
 
-  const endpoint = "https://dev.ceylontravellanka.com/heatmap/collect";
+  const endpoint = _base_path + "heatmap/collect";
   let lastClickAt = 0;
 
   function deviceType() {
