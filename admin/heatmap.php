@@ -21,14 +21,6 @@
             margin: 0;
             padding: 0;
         }
-
-        header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 16px;
-            flex-wrap: wrap;
-        }
         .controls {
             display: flex;
             gap: 12px;
