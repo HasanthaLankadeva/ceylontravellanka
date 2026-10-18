@@ -309,6 +309,7 @@
     .flex-group {display: flex; flex-flow: nowrap; gap: 1rem;} /*.flex-group .wrap { flex: 1; }*/
     label { display: block; margin-bottom: 0.5rem; font-weight: 600; }
     input, textarea, select { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 6px; font-size: 1rem; }
+    .flex-group .wrap{ width: 50%; }
     .slick-dots { bottom: -30px; }
 
     /* Floating WhatsApp */
