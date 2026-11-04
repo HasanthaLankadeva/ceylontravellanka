@@ -242,7 +242,7 @@ $OGdescription = "Experience Sri Lanka with a professional private driver. All-i
                             <input type="date" name="arrivaldate" id="arrivaldate" required>
                         </div>
                         <div class="wrap date-wrap">
-                            <label for="depaturedate">Depature Date/Tour End Date</label>
+                            <label for="depaturedate">Departure Date/Tour End Date</label>
                             <input type="date" name="depaturedate" id="depaturedate" required>
                         </div>
                     </div>
