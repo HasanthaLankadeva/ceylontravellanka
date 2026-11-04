@@ -235,7 +235,7 @@ $OGdescription = "Experience Sri Lanka with a professional private driver. All-i
                     </div>
                     <div class="input-group">
                         <label for="phone">WhatsApp Number</label>
-                        <input type="tel" name="phone" id="phone" placeholder="+44..." required>
+                        <input type="tel" name="phone" id="phone" placeholder="For example, +44..." required>
                     </div>
                     <div class="input-group">
                         <label for="email">Email</label>
@@ -243,9 +243,15 @@ $OGdescription = "Experience Sri Lanka with a professional private driver. All-i
                     </div>
                     <div class="flex-group input-group">
                         <div class="wrap date-wrap">
-                            <label for="arrivaldate">Arrival Date</label>
+                            <label for="arrivaldate">Arrival Date/Tour Start Date</label>
                             <input type="date" name="arrivaldate" id="arrivaldate">
                         </div>
+                        <div class="wrap date-wrap">
+                            <label for="depaturedate">Departure Date/Tour End Date</label>
+                            <input type="date" name="depaturedate" id="depaturedate">
+                        </div>
+                    </div>
+                    <div class="flex-group input-group">
                         <div class="wrap adult-wrap">
                             <label for="adults">Adults</label>
                             <input type="number" name="adults" id="adults" value="2" min="1">
