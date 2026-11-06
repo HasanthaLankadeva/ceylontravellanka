@@ -1317,6 +1317,18 @@ Day 2: Kandy City Tour..." class="w-full text-xs border border-slate-300 focus:b
 
                     var tourChargeUSD = Math.round(tourChargeLKR / exchangeRates.USD);
                     var tourChargeGBP = Math.round(tourChargeLKR / exchangeRates.GBP);
+                    
+                    var tourAdvaceLKR = params.get('income_advance');
+                    var tourChargeBalanceLKR = '';
+                    var tourChargeBalanceUSD = '';
+                    var tourChargeBalanceGBP = '';
+
+                    if(tourAdvaceLKR){
+                        tourAdvaceLKR = tourAdvaceLKR.replace(/\.00$/, '');
+                        tourChargeBalanceLKR = tourChargeLKR - tourAdvaceLKR;
+                        tourChargeBalanceUSD = Math.round(tourChargeBalanceLKR / exchangeRates.USD);
+                        tourChargeBalanceGBP = Math.round(tourChargeBalanceLKR / exchangeRates.GBP);
+                    }
 
                     // Gather dynamic rows from form
                     var transfers = [];
@@ -1385,6 +1397,10 @@ Day 2: Kandy City Tour..." class="w-full text-xs border border-slate-300 focus:b
                         tour_charge: tourChargeLKR,
                         usd: tourChargeUSD,
                         gbp: tourChargeGBP,
+                        tour_advace_LKR: tourAdvaceLKR,
+                        tour_charge_balance_LKR: tourChargeBalanceLKR,
+                        tour_charge_balance_USD: tourChargeBalanceUSD,
+                        tour_charge_balance_GBP: tourChargeBalanceGBP,
                         pickup_from: params.get('pickup_from'),
                         pickup_date: params.get('pickup_date'),
                         pickup_time: params.get('arrival_time'),                        
@@ -1396,7 +1412,7 @@ Day 2: Kandy City Tour..." class="w-full text-xs border border-slate-300 focus:b
                         driver_mobile: params.get('driver_mobile'),
                         payment_options: params.get('payment_options')
                     };
-
+                    
                     let scriptURL = 'https://script.google.com/macros/s/AKfycbxlgA3xrX8HKT4BmFHEP25vB5sRyg10KcSN37z5YqbdyMvUS6eXe93yBSWZ27ybhAJS/exec';
 
                     fetch(scriptURL, {
