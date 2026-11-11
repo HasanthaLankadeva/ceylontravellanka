@@ -29,7 +29,7 @@
                 </driver>
             </drivers>
         </vehicle>
-        <vehicle name="SUV">
+        <vehicle name="SUV Mini">
             <daily_rate>19000</daily_rate>
             <extra_mileage_rate>110</extra_mileage_rate>
             <bata>2000</bata>
