@@ -15,26 +15,38 @@
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
-    body {
-      font-family: 'Inter', sans-serif;
-    }
-    #tourModal {
+    #tourModal{
       margin-top: 0 !important;
     }
     .calendar-grid {
       grid-template-columns: repeat(7, minmax(0, 1fr));
     }
     .day-cell {
-      min-height: 135px;
+      min-height: 110px;
     }
-    .tour-item.with-border {
-      outline: 2px solid #ef4444;
-      outline-offset: -2px;
+    .mobile{
+      display: none;
+    }
+    .tour-item.with-border{
+      border: 1px solid red;
+    }
+    @media (max-width:768px) {
+      .day-cell .tour-item{
+        padding: 4px;
+      }
+      .mobile{
+        display: block;
+        font-size: 10px;
+      }
+      .tour-item .name,
+      .desktop{
+        display: none;
+      } 
     }
   </style>
 </head>
 <body class="bg-slate-100 font-sans text-slate-800 flex h-screen overflow-hidden">
-  <!-- MOBILE OVERLAY BACKDROP -->
+    <!-- MOBILE OVERLAY BACKDROP -->
   <div id="sidebarBackdrop" class="fixed inset-0 bg-slate-900/50 z-30 hidden md:hidden transition-opacity"></div>
 
   <!-- SIDEBAR NAVIGATION -->
@@ -125,7 +137,9 @@
           </div>
         </div>
 
-        <div class="flex items-center gap-2 sm:gap-4 shrink-0">
+        <div class="flex items-center gap-2 sm:gap-3">
+          <!-- Right: Actions & User -->
+          <div class="flex items-center gap-2 sm:gap-4 shrink-0">
           <!-- Notification Bell -->
           <button class="relative p-2 text-slate-500 hover:text-slate-600 rounded-full hover:bg-slate-100 transition">
             <i class="fa-regular fa-bell text-lg"></i>
@@ -133,124 +147,84 @@
           </button>
           <div class="h-6 w-px bg-slate-200"></div>
           <!-- User Profile -->
-          <div class="flex items-center gap-2 sm:gap-3">
-            <div class="w-9 h-9 rounded-full bg-indigo-100 text-indigo-700 font-semibold flex items-center justify-center text-sm border border-indigo-200 shrink-0">
-              CTL
+            <div class="flex items-center gap-2 sm:gap-3">
+                <div class="w-9 h-9 rounded-full bg-indigo-100 text-indigo-700 font-semibold flex items-center justify-center text-sm border border-indigo-200 shrink-0">
+                CTL
+                </div>
+                <div class="hidden sm:block text-left">
+                <p class="text-sm font-medium text-slate-700 leading-tight">Ceylon T.</p>
+                <p class="text-xs text-slate-500">Administrator</p>
+                </div>
             </div>
-            <div class="hidden sm:block text-left">
-              <p class="text-sm font-medium text-slate-700 leading-tight">Ceylon T.</p>
-              <p class="text-xs text-slate-500">Administrator</p>
-            </div>
-          </div>
         </div>
       </div>
     </header>
 
     <!-- Main Container -->
-    <main class="p-4 sm:p-6 max-w-7xl w-full mx-auto space-y-5">
-      
-      <!-- Top Title & Navigation Bar (Desktop style) -->
-      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-        <div>
-          <h1 class="text-2xl font-bold text-slate-900">Tour Calendar</h1>
-          <p class="text-xs sm:text-sm text-slate-500 mt-0.5">View all upcoming and ongoing tours and transfers.</p>
-        </div>
-
-        <div class="flex items-center gap-2 self-start sm:self-auto">
-          <button id="prevBtn" class="px-3.5 py-2 bg-white hover:bg-slate-50 border border-slate-200 rounded-lg text-xs sm:text-sm font-medium text-slate-700 shadow-sm transition">
-            &#8592; Prev
-          </button>
-          <button id="todayBtn" class="px-3.5 py-2 bg-indigo-50 hover:bg-indigo-100 text-indigo-600 rounded-lg text-xs sm:text-sm font-semibold transition">
-            Today
-          </button>
-          <button id="nextBtn" class="px-3.5 py-2 bg-white hover:bg-slate-50 border border-slate-200 rounded-lg text-xs sm:text-sm font-medium text-slate-700 shadow-sm transition">
-            Next &#8594;
-          </button>
-        </div>
-      </div>
-
-      <!-- Calendar Card Wrapper -->
-      <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
+    <main class="p-4 sm:p-6 space-y-6 max-w-7xl w-full mx-auto">
+      <div class="max-w-7xl mx-auto p-6">
         
-        <!-- Month & Year Title -->
-        <div class="px-5 sm:px-6 pt-5 sm:pt-6 pb-4">
-          <h2 id="calendarMonthYear" class="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight"></h2>
-        </div>
+        <!-- Calendar Header Controls -->
+        <div class="flex flex-col sm:flex-row items-center justify-between bg-white p-4 rounded-t-xl border-b border-slate-200 shadow-sm gap-4">
+          <div class="flex items-center space-x-4">
+            <h2 id="calendarMonthYear" class="text-xl font-bold text-slate-800"></h2>
+            <button id="todayBtn" class="px-3 py-1 text-sm bg-slate-100 hover:bg-slate-200 text-slate-700 font-medium rounded-lg transition">Today</button>
+          </div>
 
-        <!-- Legend Bar -->
-        <div class="flex flex-wrap items-center gap-x-6 gap-y-2.5 px-5 sm:px-6 pb-4 border-b border-slate-200 text-xs font-medium text-slate-600">
-          <div class="flex items-center gap-2">
-            <span class="w-3.5 h-3.5 rounded bg-emerald-500 inline-block"></span>
-            <span>Multi Day</span>
-          </div>
-          <div class="flex items-center gap-2">
-            <span class="w-3.5 h-3.5 rounded bg-purple-500 inline-block"></span>
-            <span>Single Day</span>
-          </div>
-          <div class="flex items-center gap-2">
-            <span class="w-3.5 h-3.5 rounded bg-rose-500 inline-block"></span>
-            <span>End Day</span>
-          </div>
-          <div class="flex items-center gap-2">
-            <span class="w-3.5 h-3.5 rounded bg-amber-400 inline-block"></span>
-            <span>Transfer</span>
+          <div class="flex items-center space-x-2">
+            <button id="prevBtn" class="px-3 py-1.5 bg-slate-100 hover:bg-slate-200 rounded-lg text-slate-700 transition">
+              &#8592; Prev
+            </button>
+            <button id="nextBtn" class="px-3 py-1.5 bg-slate-100 hover:bg-slate-200 rounded-lg text-slate-700 transition">
+              Next &#8594;
+            </button>
           </div>
         </div>
 
-        <!-- ================= DESKTOP VIEW (7-Column Monthly Grid) ================= -->
-        <div class="hidden md:block">
-          <!-- Days of Week Header -->
-          <div class="grid calendar-grid bg-slate-50/80 border-b border-slate-200 text-center text-xs font-semibold uppercase text-slate-500 tracking-wider py-3">
-            <div>SUN</div>
-            <div>MON</div>
-            <div>TUE</div>
-            <div>WED</div>
-            <div>THU</div>
-            <div>FRI</div>
-            <div>SAT</div>
-          </div>
-
-          <!-- Calendar Grid Body -->
-          <div id="desktopCalendarGrid" class="grid calendar-grid bg-white divide-x divide-y divide-slate-200">
-            <!-- Generated via jQuery -->
-          </div>
+        <!-- Days of Week Header -->
+        <div class="grid calendar-grid bg-slate-100 border-x border-slate-200 text-center text-xs font-semibold uppercase text-slate-500 tracking-wider py-2">
+          <div>Sun</div>
+          <div>Mon</div>
+          <div>Tue</div>
+          <div>Wed</div>
+          <div>Thu</div>
+          <div>Fri</div>
+          <div>Sat</div>
         </div>
 
-        <!-- ================= MOBILE VIEW (Vertical Daily Agenda) ================= -->
-        <div id="mobileCalendarList" class="md:hidden divide-y divide-slate-100">
+        <!-- Calendar Grid Body -->
+        <div id="calendarGrid" class="grid calendar-grid bg-white border border-slate-200 rounded-b-xl shadow-sm divide-x divide-y divide-slate-200">
           <!-- Generated via jQuery -->
         </div>
+      </div>
 
+      <!-- Tour Detail Modal -->
+      <div id="tourModal" class="fixed inset-0 bg-slate-900/40 backdrop-blur-sm hidden flex items-center justify-center p-4 z-50">
+        <div class="bg-white rounded-xl shadow-xl max-w-md w-full p-6">
+          <div class="flex justify-between items-start border-b border-slate-100 pb-3">
+            <div>
+              <h3 id="modalTitle" class="text-lg font-bold text-slate-800">Tour Details</h3>
+              <span id="modalType" class="text-xs font-semibold text-indigo-600 bg-indigo-50 px-2 py-0.5 rounded"></span>
+            </div>
+            <button id="closeModal" class="text-slate-400 hover:text-slate-600 font-bold text-xl">&times;</button>
+          </div>
+          
+          <div class="mt-4 space-y-2 text-sm text-slate-600">
+            <p><strong>Order:</strong> <a href="#"><span id="modalRef"></span></a></p>
+            <p><strong>Guest Name:</strong> <span id="modalGuest"></span></p>
+            <p><strong>Contact:</strong> <span id="modalContact"></span></p>
+            <p><strong>Driver:</strong> <span id="modalDriver"></span></p>
+            <p><strong>Driver Mobile:</strong> <span id="modalDriverContact"></span></p>
+            <p><strong>Dates:</strong> <span id="modalDates"></span></p>
+            <div class="notes"></div>
+          </div>
+
+          <div class="mt-6 text-right">
+            <button id="closeModalBtn" class="px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-lg text-sm font-medium transition">Close</button>
+          </div>
+        </div>
       </div>
     </main>
-
-    <!-- Tour Detail Modal -->
-    <div id="tourModal" class="fixed inset-0 bg-slate-900/40 backdrop-blur-sm hidden flex items-center justify-center p-4 z-50">
-      <div class="bg-white rounded-xl shadow-xl max-w-md w-full p-6">
-        <div class="flex justify-between items-start border-b border-slate-100 pb-3">
-          <div>
-            <h3 id="modalTitle" class="text-lg font-bold text-slate-800">Tour Details</h3>
-            <span id="modalType" class="text-xs font-semibold text-indigo-600 bg-indigo-50 px-2 py-0.5 rounded"></span>
-          </div>
-          <button id="closeModal" class="text-slate-400 hover:text-slate-600 font-bold text-xl">&times;</button>
-        </div>
-        
-        <div class="mt-4 space-y-2 text-sm text-slate-600">
-          <p><strong>Order:</strong> <a href="#" class="text-indigo-600 hover:underline font-medium"><span id="modalRef"></span></a></p>
-          <p><strong>Guest Name:</strong> <span id="modalGuest"></span></p>
-          <p><strong>Contact:</strong> <span id="modalContact"></span></p>
-          <p><strong>Driver:</strong> <span id="modalDriver"></span></p>
-          <p><strong>Driver Mobile:</strong> <span id="modalDriverContact"></span></p>
-          <p><strong>Dates:</strong> <span id="modalDates"></span></p>
-          <div class="notes"></div>
-        </div>
-
-        <div class="mt-6 text-right">
-          <button id="closeModalBtn" class="px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-lg text-sm font-medium transition">Close</button>
-        </div>
-      </div>
-    </div>
-  </div>
  
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
@@ -259,13 +233,13 @@
 
       // Mobile Drawer Toggle Handler
       function openMobileSidebar() {
-        $('#sidebar').removeClass('-translate-x-full');
-        $('#sidebarBackdrop').removeClass('hidden');
+          $('#sidebar').removeClass('-translate-x-full');
+          $('#sidebarBackdrop').removeClass('hidden');
       }
 
       function closeMobileSidebar() {
-        $('#sidebar').addClass('-translate-x-full');
-        $('#sidebarBackdrop').addClass('hidden');
+          $('#sidebar').addClass('-translate-x-full');
+          $('#sidebarBackdrop').addClass('hidden');
       }
 
       $('#mobileSidebarToggle').on('click', openMobileSidebar);
@@ -273,10 +247,10 @@
 
       // Desktop Collapse Handler
       $('#toggleSidebarBtn').on('click', function() {
-        const sidebar = $('#sidebar');
-        sidebar.toggleClass('w-64 w-20');
-        $('.sidebar-text').toggleClass('hidden');
-        $('#collapseIcon').toggleClass('fa-angles-left fa-angles-right');
+          const sidebar = $('#sidebar');
+          sidebar.toggleClass('w-64 w-20');
+          $('.sidebar-text').toggleClass('hidden');
+          $('#collapseIcon').toggleClass('fa-angles-left fa-angles-right');
       });
 
       let currentDate = new Date();
@@ -299,213 +273,83 @@
           success: function(response) {
             if (response.status === 'success') {
               tourEvents = response.data;
-              buildDesktopGrid(year, month);
-              buildMobileAgenda(year, month);
+              buildGrid(year, month);
             }
           }
         });
       }
 
-      // Reusable card builder (bracketed label on desktop, plain label on mobile)
-      function createEventCardHtml(tour, typeKey, titleText, transferDate = '') {
-        const guestName = tour.guest_name || 'Guest';
-        const orderNo = tour.order_number || tour.booking_ref || '';
-        const noteBorderClass = tour.special_notes ? 'with-border' : '';
-
-        const styles = {
-          'Multi Day': {
-            wrapper: 'bg-emerald-50 border-l-4 border-emerald-500 hover:bg-emerald-100/80',
-            typeText: 'text-emerald-700',
-            guestText: 'text-emerald-950',
-            subText: 'text-emerald-700',
-            orderText: 'text-emerald-600',
-            modalType: 'Multi-Day Tour'
-          },
-          'Single Day': {
-            wrapper: 'bg-purple-50 border-l-4 border-purple-500 hover:bg-purple-100/80',
-            typeText: 'text-purple-700',
-            guestText: 'text-purple-950',
-            subText: 'text-purple-700',
-            orderText: 'text-purple-600',
-            modalType: 'Single-Day Tour'
-          },
-          'End Day': {
-            wrapper: 'bg-rose-50 border-l-4 border-rose-500 hover:bg-rose-100/80',
-            typeText: 'text-rose-700',
-            guestText: 'text-rose-950',
-            subText: 'text-rose-700',
-            orderText: 'text-rose-600',
-            modalType: 'Tour End'
-          },
-          'Transfer': {
-            wrapper: 'bg-amber-50 border-l-4 border-amber-400 hover:bg-amber-100/80',
-            typeText: 'text-amber-800',
-            guestText: 'text-amber-950',
-            subText: 'text-amber-800',
-            orderText: 'text-amber-700',
-            modalType: 'Transfer'
-          }
-        };
-
-        const s = styles[typeKey];
-        const transferAttrs = typeKey === 'Transfer' 
-          ? `data-transfer-title="${titleText}" data-transfer-date="${transferDate}"` 
-          : '';
-
-        return `
-          <div class="tour-item rounded-lg md:rounded-md p-3 md:p-2 cursor-pointer transition ${s.wrapper} ${noteBorderClass}"
-               data-id="${tour.id}"
-               data-event-type="${s.modalType}"
-               ${transferAttrs}>
-            <div class="text-xs md:text-[11px] font-bold ${s.typeText}">
-              <span class="hidden md:inline">[${typeKey}]</span>
-              <span class="md:hidden">${typeKey}</span>
-            </div>
-            <div class="text-sm md:text-xs font-bold ${s.guestText} mt-0.5 truncate">${guestName}</div>
-            <div class="text-xs md:text-[11px] font-medium ${s.subText} mt-0.5 truncate">${titleText}</div>
-            ${orderNo ? `<div class="text-xs md:text-[11px] ${s.orderText} mt-0.5 truncate">${orderNo}</div>` : ''}
-          </div>
-        `;
-      }
-
-      // ================= 1. BUILD DESKTOP 7-COLUMN GRID =================
-      function buildDesktopGrid(year, month) {
-        const grid = $('#desktopCalendarGrid');
+      function buildGrid(year, month) {
+        const grid = $('#calendarGrid');
         grid.empty();
 
         const firstDay = new Date(year, month, 1).getDay();
         const daysInMonth = new Date(year, month + 1, 0).getDate();
         const today = new Date();
 
-        // Blank leading cells
+        // 1. Render Blank leading cells
         for (let i = 0; i < firstDay; i++) {
-          grid.append('<div class="day-cell bg-slate-50/40 p-2"></div>');
+          grid.append('<div class="day-cell bg-slate-50/50 p-2"></div>');
         }
 
-        // Day Cells
+        // 2. Render Day Cells
         for (let day = 1; day <= daysInMonth; day++) {
           const dateStr = `${year}-${String(month + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
           const isToday = today.getFullYear() === year && today.getMonth() === month && today.getDate() === day;
 
-          grid.append(`
-            <div class="day-cell p-2 transition hover:bg-slate-50/70 ${isToday ? 'bg-indigo-50/40' : ''}">
-              <div class="text-right mb-1.5">
-                <span class="inline-flex items-center justify-center text-xs font-semibold ${isToday ? 'w-6 h-6 bg-indigo-600 text-white rounded-full' : 'text-slate-600 px-1'}">${day}</span>
+          let cellHtml = `
+            <div class="day-cell p-2 transition hover:bg-slate-50 ${isToday ? 'bg-indigo-50/40' : ''}">
+              <div class="text-right">
+                <span class="text-xs font-semibold ${isToday ? 'bg-indigo-600 text-white px-2 py-0.5 rounded-full' : 'text-slate-500'}">${day}</span>
               </div>
-              <div class="space-y-1.5 desktop-event-container" data-date="${dateStr}"></div>
+              <div class="mt-1 space-y-1 event-container" data-date="${dateStr}"></div>
             </div>
-          `);
+          `;
+          grid.append(cellHtml);
         }
 
-        // Trailing blank cells to complete the final week row cleanly
-        const totalCells = firstDay + daysInMonth;
-        const remainder = totalCells % 7;
-        if (remainder > 0) {
-          for (let i = 0; i < 7 - remainder; i++) {
-            grid.append('<div class="day-cell bg-slate-50/40 p-2"></div>');
-          }
-        }
-
-        // Populate Desktop Event Cards
+        // 3. Render Badges with Transfer Details attached
         tourEvents.forEach(function(tour) {
           const isMultiDay = tour.tour_start_date && tour.tour_end_date && (tour.tour_start_date !== tour.tour_end_date);
-          const tourTitle = tour.tour_title || 'Private Tour';
+          const tourTypeLabel = isMultiDay ? 'Multi-Day' : 'Single-Day';
 
+          // A. Start Date Badge (Indigo)
           if (tour.tour_start_date) {
-            const typeKey = isMultiDay ? 'Multi Day' : 'Single Day';
-            $(`.desktop-event-container[data-date="${tour.tour_start_date}"]`).append(
-              createEventCardHtml(tour, typeKey, tourTitle)
-            );
+            $(`.event-container[data-date="${tour.tour_start_date}"]`).append(`
+              <div class="tour-item truncate px-2 py-1 text-xs font-medium rounded bg-emerald-100 text-emerald-700 hover:bg-emerald-200 cursor-pointer transition ${tour.special_notes ? 'with-border' : ''}" 
+                   data-id="${tour.id}" 
+                   data-event-type="${isMultiDay ? 'Multi-Day Tour' : 'Single-Day Tour'}">
+                <span class="font-bold desktop">[${tourTypeLabel}]</span> <span class="font-bold mobile">${isMultiDay ? 'MD' : 'SD'}</span> <span class="name">${tour.guest_name || tour.order_number}</span>
+              </div>
+            `);
           }
 
+          // B. Transfer Date Badges (Sky Blue)
           if (tour.transfers && Array.isArray(tour.transfers)) {
             tour.transfers.forEach(function(transfer) {
               if (transfer.date) {
-                const trTitle = transfer.title || transfer.transfer_title || 'Transfer';
-                $(`.desktop-event-container[data-date="${transfer.date}"]`).append(
-                  createEventCardHtml(tour, 'Transfer', trTitle, transfer.date)
-                );
+                $(`.event-container[data-date="${transfer.date}"]`).append(`
+                  <div class="tour-item truncate px-2 py-1 text-xs font-medium rounded bg-yellow-300 text-yellow-950 hover:bg-yellow-400 cursor-pointer transition ${tour.special_notes ? 'with-border' : ''}" 
+                       data-id="${tour.id}" 
+                       data-event-type="Transfer" 
+                       data-transfer-title="${transfer.title || transfer.transfer_title || 'Transfer'}"
+                       data-transfer-date="${transfer.date}">
+                    <span class="font-bold desktop">[Transfer]</span> <span class="font-bold mobile">Tra</span> <span class="name">${transfer.title || transfer.transfer_title || tour.guest_name || 'Transfer'}</span>
+                  </div>
+                `);
               }
             });
           }
 
+          // C. End Date Badge (Amber / Multi-Day Only)
           if (isMultiDay && tour.tour_end_date) {
-            $(`.desktop-event-container[data-date="${tour.tour_end_date}"]`).append(
-              createEventCardHtml(tour, 'End Day', tourTitle)
-            );
-          }
-        });
-      }
-
-      // ================= 2. BUILD MOBILE VERTICAL AGENDA =================
-      function buildMobileAgenda(year, month) {
-        const listContainer = $('#mobileCalendarList');
-        listContainer.empty();
-
-        const daysInMonth = new Date(year, month + 1, 0).getDate();
-        const today = new Date();
-        const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-        const fullDayNames = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-        const shortDayNames = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"];
-
-        for (let day = 1; day <= daysInMonth; day++) {
-          const cellDate = new Date(year, month, day);
-          const dayOfWeek = cellDate.getDay();
-          const dateStr = `${year}-${String(month + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
-          const paddedDay = String(day).padStart(2, '0');
-          const isToday = today.getFullYear() === year && today.getMonth() === month && today.getDate() === day;
-
-          const badgeClasses = isToday ? 'bg-indigo-600 text-white shadow-sm' : 'bg-slate-100 text-slate-700';
-          const subTextClasses = isToday ? 'text-indigo-200' : 'text-slate-400';
-
-          listContainer.append(`
-            <div class="p-4 sm:p-5 transition ${isToday ? 'bg-indigo-50/30' : ''}">
-              <div class="flex items-center gap-3.5">
-                <div class="w-12 py-1.5 rounded-xl flex flex-col items-center justify-center shrink-0 ${badgeClasses}">
-                  <span class="text-base font-bold leading-none">${paddedDay}</span>
-                  <span class="text-[10px] font-semibold tracking-wider mt-1 ${subTextClasses}">${shortDayNames[dayOfWeek]}</span>
-                </div>
-                <div>
-                  <h3 class="text-sm font-semibold text-slate-800">${fullDayNames[dayOfWeek]}, ${paddedDay} ${monthNames[month]}</h3>
-                  ${isToday ? '<span class="text-xs font-semibold text-indigo-600 block mt-0.5">Today</span>' : ''}
-                </div>
+            $(`.event-container[data-date="${tour.tour_end_date}"]`).append(`
+              <div class="tour-item truncate px-2 py-1 text-xs font-medium rounded bg-rose-100 text-rose-700 hover:bg-rose-200 cursor-pointer transition ${tour.special_notes ? 'with-border' : ''}" 
+                   data-id="${tour.id}" 
+                   data-event-type="Tour End">
+                <span class="font-bold desktop">[End Tour]</span> <span class="font-bold mobile">End</span> <span class="name">${tour.guest_name || tour.order_number}</span>
               </div>
-
-              <div class="mt-3 space-y-2.5 mobile-event-container" data-date="${dateStr}">
-                <p class="no-bookings-msg text-xs text-slate-400 pt-1">No bookings</p>
-              </div>
-            </div>
-          `);
-        }
-
-        function appendMobileCard(dateStr, cardHtml) {
-          const container = $(`.mobile-event-container[data-date="${dateStr}"]`);
-          if (container.length) {
-            container.find('.no-bookings-msg').remove();
-            container.append(cardHtml);
-          }
-        }
-
-        tourEvents.forEach(function(tour) {
-          const isMultiDay = tour.tour_start_date && tour.tour_end_date && (tour.tour_start_date !== tour.tour_end_date);
-          const tourTitle = tour.tour_title || 'Private Tour';
-
-          if (tour.tour_start_date) {
-            const typeKey = isMultiDay ? 'Multi Day' : 'Single Day';
-            appendMobileCard(tour.tour_start_date, createEventCardHtml(tour, typeKey, tourTitle));
-          }
-
-          if (tour.transfers && Array.isArray(tour.transfers)) {
-            tour.transfers.forEach(function(transfer) {
-              if (transfer.date) {
-                const trTitle = transfer.title || transfer.transfer_title || 'Transfer';
-                appendMobileCard(transfer.date, createEventCardHtml(tour, 'Transfer', trTitle, transfer.date));
-              }
-            });
-          }
-
-          if (isMultiDay && tour.tour_end_date) {
-            appendMobileCard(tour.tour_end_date, createEventCardHtml(tour, 'End Day', tourTitle));
+            `);
           }
         });
       }
@@ -538,6 +382,7 @@
         if (tour) {
           const isMultiDay = tour.tour_start_date && tour.tour_end_date && (tour.tour_start_date !== tour.tour_end_date);
 
+          // 1. Show transfer title if clicked on a transfer badge, otherwise fallback to tour title
           if (eventType === 'Transfer' && transferTitle) {
             $('#modalTitle').text(transferTitle);
           } else {
@@ -551,7 +396,7 @@
           $('#modalType').text(eventType || (isMultiDay ? 'Multi-Day Tour' : 'Single-Day Tour'));
           $('#modalGuest').text(tour.guest_name || '-');
           
-          // Contact Info Fallback: Email -> Mobile (with WhatsApp link)
+          // 2. Contact Info Fallback: Email -> Mobile (with WhatsApp link)
           let email = tour.guest_email || tour.email || '';
           let mobile = tour.guest_mobile || tour.mobile || tour.guest_phone || tour.phone || '';
 
@@ -571,18 +416,21 @@
           $('#modalDriver').text(tour.driver_name || 'Unassigned');
           
           let drivermobile = tour.driver_mobile || '';
-          let driverContactHtml = '-';
+          
           if (drivermobile && drivermobile.trim() !== '') {
             let cleanDriverPhone = drivermobile.replace(/[^0-9]/g, '');
-            driverContactHtml = `
+             driverContactHtml = `
               <a href="https://wa.me/${cleanDriverPhone}" target="_blank" rel="noopener" class="inline-flex items-center text-emerald-600 hover:underline font-medium">
-                ${drivermobile} 
+                ${mobile} 
                 <span class="ml-1 text-xs bg-emerald-100 text-emerald-700 px-1.5 py-0.5 rounded font-semibold">WhatsApp</span>
               </a>`;
+          } else {
+            driverContactHtml = `-`;
           }
+
           $('#modalDriverContact').html(driverContactHtml);
 
-          // Set display date
+          // 3. Set display date (transfer date if transfer badge clicked, else tour date range)
           if (eventType === 'Transfer' && transferDate) {
             $('#modalDates').text(transferDate);
           } else {
@@ -614,7 +462,7 @@
       // Initial Render
       renderCalendar(currentDate);
     });
-  </script>
+</script>
 
 </body>
 </html>
